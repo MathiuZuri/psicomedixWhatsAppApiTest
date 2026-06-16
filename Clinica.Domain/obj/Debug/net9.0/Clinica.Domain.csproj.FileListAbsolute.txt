@@ -49,3 +49,16 @@ F:\proyectC#\spicoMedix\wahtsTest\Clinica.Domain\obj\Debug\net9.0\Clinica.Domain
 F:\proyectC#\spicoMedix\wahtsTest\Clinica.Domain\obj\Debug\net9.0\refint\Clinica.Domain.dll
 F:\proyectC#\spicoMedix\wahtsTest\Clinica.Domain\obj\Debug\net9.0\Clinica.Domain.pdb
 F:\proyectC#\spicoMedix\wahtsTest\Clinica.Domain\obj\Debug\net9.0\ref\Clinica.Domain.dll
+D:\clinica\psicomedixWhatsAppApiTest\Clinica.Domain\bin\Debug\net9.0\Clinica.Domain.deps.json
+D:\clinica\psicomedixWhatsAppApiTest\Clinica.Domain\bin\Debug\net9.0\Clinica.Domain.dll
+D:\clinica\psicomedixWhatsAppApiTest\Clinica.Domain\bin\Debug\net9.0\Clinica.Domain.pdb
+D:\clinica\psicomedixWhatsAppApiTest\Clinica.Domain\obj\Debug\net9.0\Clinica.Domain.csproj.AssemblyReference.cache
+D:\clinica\psicomedixWhatsAppApiTest\Clinica.Domain\obj\Debug\net9.0\Clinica.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\clinica\psicomedixWhatsAppApiTest\Clinica.Domain\obj\Debug\net9.0\Clinica.Domain.AssemblyInfoInputs.cache
+D:\clinica\psicomedixWhatsAppApiTest\Clinica.Domain\obj\Debug\net9.0\Clinica.Domain.AssemblyInfo.cs
+D:\clinica\psicomedixWhatsAppApiTest\Clinica.Domain\obj\Debug\net9.0\Clinica.Domain.csproj.CoreCompileInputs.cache
+D:\clinica\psicomedixWhatsAppApiTest\Clinica.Domain\obj\Debug\net9.0\Clinica.Domain.sourcelink.json
+D:\clinica\psicomedixWhatsAppApiTest\Clinica.Domain\obj\Debug\net9.0\Clinica.Domain.dll
+D:\clinica\psicomedixWhatsAppApiTest\Clinica.Domain\obj\Debug\net9.0\refint\Clinica.Domain.dll
+D:\clinica\psicomedixWhatsAppApiTest\Clinica.Domain\obj\Debug\net9.0\Clinica.Domain.pdb
+D:\clinica\psicomedixWhatsAppApiTest\Clinica.Domain\obj\Debug\net9.0\ref\Clinica.Domain.dll

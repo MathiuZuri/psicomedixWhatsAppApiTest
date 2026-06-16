@@ -36,31 +36,52 @@ public class WebhooksController : ControllerBase
 
     [HttpPost("whatsapp/{*eventType}")]
     public async Task<IActionResult> ReceiveWhatsAppEvent(
-        [FromHeader(Name = "apikey")] string incomingApiKey,
-        [FromBody] JsonElement rawPayload, // ◄── Cambiado a JsonElement dinámico para evitar el Error 400
+        [FromHeader(Name = "apikey")] string? incomingApiKey,
         string? eventType)
     {
-        // 1. Validación de seguridad estricta
-        if (string.IsNullOrEmpty(incomingApiKey) || incomingApiKey != _whatsAppOptions.WebhookSecretToken)
-        {
-            _logger.LogWarning("Intento de acceso NO AUTORIZADO al Webhook detectado.");
-            return Unauthorized();
-        }
+        // 1. Las llaves válidas aceptadas por el sistema
+        string tokenConfigurado = _whatsAppOptions.WebhookSecretToken;
+        string tokenInstanciaGrafica = "E8FACB7B4B46-4998-BC8F-2666926A2F5F";
 
-        // 2. Extraer la propiedad "event" de forma dinámica y segura
-        if (!rawPayload.TryGetProperty("event", out var eventProp) || eventProp.GetString() != "messages.upsert")
+        bool esLlaveValida = !string.IsNullOrEmpty(incomingApiKey) && 
+                             (incomingApiKey == tokenConfigurado || incomingApiKey == tokenInstanciaGrafica);
+
+        // BYPASS AUTOMÁTICO EN MODO DESARROLLO LOCAL
+#if DEBUG
+        if (!esLlaveValida)
         {
-            // Si es 'contacts-update', 'contacts-upsert', etc., respondemos 200 OK 
-            // para que Docker sea feliz y procese el siguiente elemento de la cola.
+            _logger.LogWarning("[PsicoMedix Laboratorio] Token recibido '{Recibido}' no coincide con el esperado, pero se fuerza el acceso por estar en modo DEBUG.", incomingApiKey);
+            esLlaveValida = true;
+        }
+#endif
+
+        if (!esLlaveValida)
+        {
+            _logger.LogWarning("Webhook RECHAZADO: Petición sin APIKEY válida para el evento: {Evento}", eventType);
             return Ok();
         }
 
-        // 3. Como confirmamos que SÍ es un mensaje nuevo, lo deserializamos de forma segura a nuestro DTO
+        // 2. Leer el cuerpo de la petición directamente desde el Stream de red
+        using var reader = new StreamReader(Request.Body);
+        string rawJson = await reader.ReadToEndAsync();
+
+        if (string.IsNullOrWhiteSpace(rawJson))
+            return Ok();
+
+        // 3. Inspeccionar el JSON usando JsonDocument
+        using var doc = JsonDocument.Parse(rawJson);
+        if (!doc.RootElement.TryGetProperty("event", out var eventProp) || eventProp.GetString() != "messages.upsert")
+        {
+            // Limpiamos de la cola de Docker los eventos 'contacts-upsert', 'contacts-update', etc.
+            return Ok();
+        }
+
+        // 4. Como confirmamos que SÍ es un mensaje nuevo, lo deserializamos de forma segura a nuestro DTO
         EvolutionWebhookDto? payload;
         try
         {
             var options = new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase };
-            payload = JsonSerializer.Deserialize<EvolutionWebhookDto>(rawPayload.GetRawText(), options);
+            payload = JsonSerializer.Deserialize<EvolutionWebhookDto>(rawJson, options);
             
             if (payload == null || payload.Data == null) 
                 return Ok();
@@ -72,7 +93,7 @@ public class WebhooksController : ControllerBase
         }
 
         // ====================================================================
-        // TODO TU CÓDIGO DE PERSISTENCIA ANTERIOR SIGUE EXACTAMENTE IGUAL
+        // PROCESAMIENTO Y PERSISTENCIA DE DATOS
         // ====================================================================
         var keyData = payload.Data.Key;
         var textoMensaje = payload.Data.Message?.Conversation 
@@ -141,20 +162,21 @@ public class WebhooksController : ControllerBase
         _context.MensajesChat.Add(nuevoMensaje);
         await _context.SaveChangesAsync();
 
+        // 5. TRANSMISIÓN EN TIEMPO REAL CON MATCH DE CASING (PascalCase para Blazor)
         var payloadSignalR = new
         {
-            chatId = chat.Id,
-            telefono = chat.TelefonoWhatsApp,
-            nombre = chat.NombreContacto,
-            texto = nuevoMensaje.Texto,
-            esMio = nuevoMensaje.EsMio,
-            fecha = nuevoMensaje.FechaEnvio.ToString("yyyy-MM-ddTHH:mm:ssZ"),
-            mensajesNoLeidos = chat.MensajesNoLeidos
+            ChatId = chat.Id,              
+            Telefono = chat.TelefonoWhatsApp, 
+            Nombre = chat.NombreContacto,    
+            Texto = nuevoMensaje.Texto,      
+            EsMio = nuevoMensaje.EsMio,      
+            Fecha = nuevoMensaje.FechaEnvio.ToString("yyyy-MM-ddTHH:mm:ssZ"), 
+            MensajesNoLeidos = chat.MensajesNoLeidos 
         };
 
         await _hubContext.Clients.All.SendAsync("RecibirNuevoMensaje", payloadSignalR);
 
-        _logger.LogInformation("[PsicoMedix Pro] Mensaje procesado con éxito.");
+        _logger.LogInformation("[PsicoMedix Pro] Mensaje entrante procesado y guardado automáticamente para {Contacto}.", chat.NombreContacto);
         return Ok(new { status = "persisted_and_broadcasted" });
     }
 }

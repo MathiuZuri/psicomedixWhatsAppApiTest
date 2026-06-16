@@ -1,26 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "F:\\proyectC#\\spicoMedix\\wahtsTest\\Clinica.Infrastructure\\Clinica.Infrastructure.csproj": {}
+    "D:\\clinica\\psicomedixWhatsAppApiTest\\Clinica.Infrastructure\\Clinica.Infrastructure.csproj": {}
   },
   "projects": {
-    "F:\\proyectC#\\spicoMedix\\wahtsTest\\Clinica.Domain\\Clinica.Domain.csproj": {
+    "D:\\clinica\\psicomedixWhatsAppApiTest\\Clinica.Domain\\Clinica.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\proyectC#\\spicoMedix\\wahtsTest\\Clinica.Domain\\Clinica.Domain.csproj",
+        "projectUniqueName": "D:\\clinica\\psicomedixWhatsAppApiTest\\Clinica.Domain\\Clinica.Domain.csproj",
         "projectName": "Clinica.Domain",
-        "projectPath": "F:\\proyectC#\\spicoMedix\\wahtsTest\\Clinica.Domain\\Clinica.Domain.csproj",
-        "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
-        "outputPath": "F:\\proyectC#\\spicoMedix\\wahtsTest\\Clinica.Domain\\obj\\",
+        "projectPath": "D:\\clinica\\psicomedixWhatsAppApiTest\\Clinica.Domain\\Clinica.Domain.csproj",
+        "packagesPath": "C:\\Users\\Estudiante-SWI\\.nuget\\packages\\",
+        "outputPath": "D:\\clinica\\psicomedixWhatsAppApiTest\\Clinica.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Estudiante-SWI\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
         ],
         "sources": {
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -39,7 +38,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.200"
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net9.0": {
@@ -70,35 +69,34 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.315/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "F:\\proyectC#\\spicoMedix\\wahtsTest\\Clinica.Infrastructure\\Clinica.Infrastructure.csproj": {
+    "D:\\clinica\\psicomedixWhatsAppApiTest\\Clinica.Infrastructure\\Clinica.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\proyectC#\\spicoMedix\\wahtsTest\\Clinica.Infrastructure\\Clinica.Infrastructure.csproj",
+        "projectUniqueName": "D:\\clinica\\psicomedixWhatsAppApiTest\\Clinica.Infrastructure\\Clinica.Infrastructure.csproj",
         "projectName": "Clinica.Infrastructure",
-        "projectPath": "F:\\proyectC#\\spicoMedix\\wahtsTest\\Clinica.Infrastructure\\Clinica.Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
-        "outputPath": "F:\\proyectC#\\spicoMedix\\wahtsTest\\Clinica.Infrastructure\\obj\\",
+        "projectPath": "D:\\clinica\\psicomedixWhatsAppApiTest\\Clinica.Infrastructure\\Clinica.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\Estudiante-SWI\\.nuget\\packages\\",
+        "outputPath": "D:\\clinica\\psicomedixWhatsAppApiTest\\Clinica.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Estudiante-SWI\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
         ],
         "sources": {
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "F:\\proyectC#\\spicoMedix\\wahtsTest\\Clinica.Domain\\Clinica.Domain.csproj": {
-                "projectPath": "F:\\proyectC#\\spicoMedix\\wahtsTest\\Clinica.Domain\\Clinica.Domain.csproj"
+              "D:\\clinica\\psicomedixWhatsAppApiTest\\Clinica.Domain\\Clinica.Domain.csproj": {
+                "projectPath": "D:\\clinica\\psicomedixWhatsAppApiTest\\Clinica.Domain\\Clinica.Domain.csproj"
               }
             }
           }
@@ -113,7 +111,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.200"
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net9.0": {
@@ -152,7 +150,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.315/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

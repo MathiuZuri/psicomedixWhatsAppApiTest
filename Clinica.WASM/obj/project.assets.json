@@ -776,13 +776,13 @@
           }
         }
       },
-      "Microsoft.NET.ILLink.Tasks/9.0.4": {
+      "Microsoft.NET.ILLink.Tasks/9.0.17": {
         "type": "package",
         "build": {
           "build/Microsoft.NET.ILLink.Tasks.props": {}
         }
       },
-      "Microsoft.NET.Sdk.WebAssembly.Pack/9.0.15": {
+      "Microsoft.NET.Sdk.WebAssembly.Pack/9.0.17": {
         "type": "package",
         "build": {
           "build/Microsoft.NET.Sdk.WebAssembly.Pack.props": {},
@@ -1686,13 +1686,13 @@
           }
         }
       },
-      "Microsoft.NET.ILLink.Tasks/9.0.4": {
+      "Microsoft.NET.ILLink.Tasks/9.0.17": {
         "type": "package",
         "build": {
           "build/Microsoft.NET.ILLink.Tasks.props": {}
         }
       },
-      "Microsoft.NET.Sdk.WebAssembly.Pack/9.0.15": {
+      "Microsoft.NET.Sdk.WebAssembly.Pack/9.0.17": {
         "type": "package",
         "build": {
           "build/Microsoft.NET.Sdk.WebAssembly.Pack.props": {},
@@ -3043,10 +3043,10 @@
         "microsoft.jsinterop.webassembly.nuspec"
       ]
     },
-    "Microsoft.NET.ILLink.Tasks/9.0.4": {
-      "sha512": "xUdlUxiFwXhTYhB4VxKg/IA0+jlZXJPo70LYuMryWbJHdonIpZjw+7DO2B0pWwpXIOs6MlH5WVXPEtfrGEcVZA==",
+    "Microsoft.NET.ILLink.Tasks/9.0.17": {
+      "sha512": "P5qY/hIYMlo0+QRM0W3Gd/SRf20TX+z5W5NwpdzkOk0FtgcbSTNwNcYBRNDgfThFcLpcDFslz65RcGqWOq00/w==",
       "type": "package",
-      "path": "microsoft.net.illink.tasks/9.0.4",
+      "path": "microsoft.net.illink.tasks/9.0.17",
       "hasTools": true,
       "files": [
         ".nupkg.metadata",
@@ -3060,7 +3060,7 @@
         "build/Microsoft.NET.ILLink.Analyzers.props",
         "build/Microsoft.NET.ILLink.Tasks.props",
         "build/Microsoft.NET.ILLink.targets",
-        "microsoft.net.illink.tasks.9.0.4.nupkg.sha512",
+        "microsoft.net.illink.tasks.9.0.17.nupkg.sha512",
         "microsoft.net.illink.tasks.nuspec",
         "tools/net472/ILLink.Tasks.dll",
         "tools/net472/ILLink.Tasks.dll.config",
@@ -3094,10 +3094,10 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "Microsoft.NET.Sdk.WebAssembly.Pack/9.0.15": {
-      "sha512": "DE4Z/tttKeJp6fXwgbeqcidI7FHKBBFYIC2gCXtm9Aa7FjDYmWKFlAPVXhWK0250DRNlhJwtkq9ziim1QRViyw==",
+    "Microsoft.NET.Sdk.WebAssembly.Pack/9.0.17": {
+      "sha512": "fxw4s6C1WVB8pWenm2Q9tRkh6Av3++0iRJqqQkjvqjHhtGjyS0XG60RuGiWEJVwYCIgPA8GCINDeShqLoHnc9g==",
       "type": "package",
-      "path": "microsoft.net.sdk.webassembly.pack/9.0.15",
+      "path": "microsoft.net.sdk.webassembly.pack/9.0.17",
       "hasTools": true,
       "files": [
         ".nupkg.metadata",
@@ -3128,7 +3128,7 @@
         "build/Microsoft.NET.Sdk.WebAssembly.Pack.targets",
         "build/Wasm.web.config",
         "build/browser.runtimeconfig.template.json",
-        "microsoft.net.sdk.webassembly.pack.9.0.15.nupkg.sha512",
+        "microsoft.net.sdk.webassembly.pack.9.0.17.nupkg.sha512",
         "microsoft.net.sdk.webassembly.pack.nuspec",
         "tools/net472/Microsoft.NET.Sdk.WebAssembly.Pack.Tasks.dll",
         "tools/net472/Microsoft.NET.WebAssembly.Webcil.dll",
@@ -3299,40 +3299,39 @@
       "Microsoft.AspNetCore.SignalR.Client >= 9.0.15",
       "Microsoft.EntityFrameworkCore >= 9.0.14",
       "Microsoft.Extensions.Http >= 10.0.7",
-      "Microsoft.NET.ILLink.Tasks >= 9.0.4",
-      "Microsoft.NET.Sdk.WebAssembly.Pack >= 9.0.15",
+      "Microsoft.NET.ILLink.Tasks >= 9.0.17",
+      "Microsoft.NET.Sdk.WebAssembly.Pack >= 9.0.17",
       "MudBlazor >= 9.4.0",
       "Npgsql.EntityFrameworkCore.PostgreSQL >= 9.0.4"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\PC\\.nuget\\packages\\": {}
+    "C:\\Users\\Estudiante-SWI\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\proyectC#\\spicoMedix\\wahtsTest\\Clinica.WASM\\Clinica.WASM.csproj",
+      "projectUniqueName": "D:\\clinica\\psicomedixWhatsAppApiTest\\Clinica.WASM\\Clinica.WASM.csproj",
       "projectName": "Clinica.WASM",
-      "projectPath": "F:\\proyectC#\\spicoMedix\\wahtsTest\\Clinica.WASM\\Clinica.WASM.csproj",
-      "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
-      "outputPath": "F:\\proyectC#\\spicoMedix\\wahtsTest\\Clinica.WASM\\obj\\",
+      "projectPath": "D:\\clinica\\psicomedixWhatsAppApiTest\\Clinica.WASM\\Clinica.WASM.csproj",
+      "packagesPath": "C:\\Users\\Estudiante-SWI\\.nuget\\packages\\",
+      "outputPath": "D:\\clinica\\psicomedixWhatsAppApiTest\\Clinica.WASM\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Estudiante-SWI\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
       ],
       "sources": {
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "F:\\proyectC#\\spicoMedix\\wahtsTest\\Clinica.Domain\\Clinica.Domain.csproj": {
-              "projectPath": "F:\\proyectC#\\spicoMedix\\wahtsTest\\Clinica.Domain\\Clinica.Domain.csproj"
+            "D:\\clinica\\psicomedixWhatsAppApiTest\\Clinica.Domain\\Clinica.Domain.csproj": {
+              "projectPath": "D:\\clinica\\psicomedixWhatsAppApiTest\\Clinica.Domain\\Clinica.Domain.csproj"
             }
           }
         }
@@ -3347,7 +3346,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.200"
+      "SdkAnalysisLevel": "9.0.300"
     },
     "frameworks": {
       "net9.0": {
@@ -3377,13 +3376,13 @@
           "Microsoft.NET.ILLink.Tasks": {
             "suppressParent": "All",
             "target": "Package",
-            "version": "[9.0.4, )",
+            "version": "[9.0.17, )",
             "autoReferenced": true
           },
           "Microsoft.NET.Sdk.WebAssembly.Pack": {
             "suppressParent": "All",
             "target": "Package",
-            "version": "[9.0.15, )",
+            "version": "[9.0.17, )",
             "autoReferenced": true
           },
           "MudBlazor": {
@@ -3408,8 +3407,8 @@
         "warn": true,
         "downloadDependencies": [
           {
-            "name": "Microsoft.NETCore.App.Ref",
-            "version": "[9.0.15, 9.0.15]"
+            "name": "Microsoft.NETCore.App.Runtime.Mono.browser-wasm",
+            "version": "[9.0.17, 9.0.17]"
           }
         ],
         "frameworkReferences": {
@@ -3417,7 +3416,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.315/PortableRuntimeIdentifierGraph.json"
       }
     },
     "runtimes": {

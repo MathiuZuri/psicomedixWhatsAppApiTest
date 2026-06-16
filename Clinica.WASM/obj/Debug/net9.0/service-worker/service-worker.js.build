@@ -1,4 +1,4 @@
-/* Manifest version: AEEal3Yf */
+/* Manifest version: 8ZBDP3vK */
 const CACHE_VERSION = 'v1';
 const CACHE_NAME = `clinica-wasm-${CACHE_VERSION}`;
 
