@@ -1,0 +1,99 @@
+﻿<EditForm Model="@Model" OnValidSubmit="GuardarAsync">
+    <DataAnnotationsValidator />
+
+    <div class="patient-edit-container">
+        <MudGrid>
+            @* Datos de Identidad (Bloqueados con iconos descriptivos) *@
+            <MudItem xs="12" sm="4">
+                <MudTextField Value="@Paciente?.DNI"
+                              Label="Documento de Identidad (DNI)"
+                              Variant="Variant.Outlined"
+                              Disabled="true"
+                              Adornment="Adornment.Start"
+                              AdornmentIcon="@Icons.Material.Filled.Fingerprint" />
+            </MudItem>
+
+            <MudItem xs="12" sm="8">
+                <MudTextField Value="@Paciente?.NombreCompleto"
+                              Label="Paciente Bajo Seguimiento"
+                              Variant="Variant.Outlined"
+                              Disabled="true"
+                              Adornment="Adornment.Start"
+                              AdornmentIcon="@Icons.Material.Filled.Person" />
+            </MudItem>
+
+            @* Campos de entrada editables con el nuevo esquema de iconos *@
+            <MudItem xs="12" md="4">
+                <MudTextField @bind-Value="Model.Celular"
+                              Label="Teléfono Celular"
+                              Variant="Variant.Outlined"
+                              For="@(() => Model.Celular)"
+                              Disabled="@IsProcessing"
+                              Adornment="Adornment.Start"
+                              AdornmentIcon="@Icons.Material.Filled.PhoneAndroid"
+                              AdornmentColor="Color.Primary" />
+            </MudItem>
+
+            <MudItem xs="12" md="4">
+                <MudTextField @bind-Value="Model.Correo"
+                              Label="Correo Electrónico"
+                              Variant="Variant.Outlined"
+                              For="@(() => Model.Correo)"
+                              Disabled="@IsProcessing"
+                              Adornment="Adornment.Start"
+                              AdornmentIcon="@Icons.Material.Filled.MailOutline"
+                              AdornmentColor="Color.Primary" />
+            </MudItem>
+
+            <MudItem xs="12" md="4">
+                <MudTextField @bind-Value="Model.Direccion"
+                              Label="Dirección Domiciliaria"
+                              Variant="Variant.Outlined"
+                              For="@(() => Model.Direccion)"
+                              Disabled="@IsProcessing"
+                              Adornment="Adornment.Start"
+                              AdornmentIcon="@Icons.Material.Filled.Map"
+                              AdornmentColor="Color.Primary" />
+            </MudItem>
+        </MudGrid>
+    </div>
+
+    <div class="form-actions-bar">
+        <MudButton Variant="Variant.Text"
+                   Color="Color.Default"
+                   OnClick="OnCancel"
+                   Disabled="@IsProcessing"
+                   Class="px-5 text-none">
+            Cancelar
+        </MudButton>
+
+        <MudButton ButtonType="ButtonType.Submit"
+                   Variant="Variant.Filled"
+                   Color="Color.Primary"
+                   Disabled="@IsProcessing"
+                   Class="px-6 text-none shadow-sm rounded-lg">
+            @if (IsProcessing)
+            {
+                <MudProgressCircular Size="Size.Small" Indeterminate="true" Class="mr-2" />
+                <span>Actualizando...</span>
+            }
+            else
+            {
+                <span>Actualizar contacto</span>
+            }
+        </MudButton>
+    </div>
+</EditForm>
+
+@code {
+    [Parameter] public PacienteResponseDto? Paciente { get; set; }
+    [Parameter] public ActualizarContactoPacienteDto Model { get; set; } = new();
+    [Parameter] public bool IsProcessing { get; set; }
+    [Parameter] public EventCallback OnSave { get; set; }
+    [Parameter] public EventCallback OnCancel { get; set; }
+
+    private async Task GuardarAsync()
+    {
+        await OnSave.InvokeAsync();
+    }
+}

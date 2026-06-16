@@ -1,0 +1,51 @@
+﻿<div class="chat-window-luxury">
+    @if (ChatActivo == null)
+    {
+        @* Estado vacío decorativo *@
+        <div class="empty-state-luxury">
+            <MudIcon Icon="@Icons.Custom.Brands.WhatsApp" Size="Size.Large" Class="logo-placeholder" />
+            <MudText Typo="Typo.h5" Class="gold-title">PsicoMedix Pro Chat</MudText>
+            <MudText Typo="Typo.body1" Color="Color.Secondary">Selecciona un hilo de conversación para interactuar con el paciente.</MudText>
+        </div>
+    }
+    else
+    {
+        @* Barra superior del contacto *@
+        <div class="chat-header-luxury">
+            <MudAvatar Color="Color.Secondary" Size="Size.Medium">@ChatActivo.NombreContacto.Substring(0, 1).ToUpper()</MudAvatar>
+            <div class="header-text">
+                <MudText Typo="Typo.subtitle1" Class="fw-bold">@ChatActivo.NombreContacto</MudText>
+                <MudText Typo="Typo.caption" Color="Color.Success">Canal WhatsApp Activo</MudText>
+            </div>
+        </div>
+
+        @* Área del historial de mensajes *@
+        <div id="msg-scroll-container" class="chat-body-luxury">
+            @foreach (var msg in Mensajes)
+            {
+                <div class="@(msg.EsMio ? "message-row-right" : "message-row-left")">
+                    <div class="@(msg.EsMio ? "bubble-luxury-out" : "bubble-luxury-in")">
+                        <MudText Typo="Typo.body1">@msg.Texto</MudText>
+                        <span class="bubble-time">@msg.FechaEnvio.ToLocalTime().ToString("HH:mm")</span>
+                    </div>
+                </div>
+            }
+        </div>
+
+        @* Barra de entrada inferior *@
+        <div class="chat-footer-luxury">
+            <MudTextField @bind-Value="NuevoMensajeTexto"
+                          Placeholder="Escribe un mensaje aquí..."
+                          Variant="Variant.Outlined"
+                          Margin="Margin.Dense"
+                          Class="input-send-luxury"
+                          OnKeyDown="ManejarTeclaEnter"
+                          Disabled="Enviando" />
+            
+            <MudIconButton Icon="@Icons.Material.Filled.Send"
+                           Color="Color.Primary"
+                           OnClick="DispararEnvio"
+                           Disabled="@(string.IsNullOrWhiteSpace(NuevoMensajeTexto) || Enviando)" />
+        </div>
+    }
+</div>

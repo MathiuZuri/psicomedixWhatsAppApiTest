@@ -1,0 +1,118 @@
+﻿@page "/"
+@inject NavigationManager NavigationManager
+@inject AuthStateService AuthStateService
+
+<PageTitle>Cargando SIGEC | Clínica Santa Mónica</PageTitle>
+
+<div class="splash-screen-wrapper">
+    <div class="splash-card">
+        @* Contenedor del Logo con el degradado de la marca *@
+        <div class="splash-logo-animate">
+            <span>SM</span>
+        </div>
+        
+        <MudText Typo="Typo.h3" Class="splash-brand-title mt-4">
+            SIGEC
+        </MudText>
+        <MudText Typo="Typo.caption" Class="splash-brand-subtitle d-block mb-6">
+            Infraestructura Digital Materno Perinatal
+        </MudText>
+
+        @* El progreso ahora tiene un contenedor elíptico más amigable *@
+        <div class="progress-box">
+            <MudProgressCircular Indeterminate="true" Color="Color.Primary" Size="Size.Medium" Thickness="4" />
+            <MudText Typo="Typo.body2" Class="progress-text mt-3 fw-medium">
+                Verificando credenciales de acceso...
+            </MudText>
+        </div>
+    </div>
+</div>
+
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+        // Se mantiene tu lógica exacta de redirección sin alterar el .cs funcional
+        var autenticado = await AuthStateService.EstaAutenticadoAsync();
+
+        if (autenticado)
+        {
+            NavigationManager.NavigateTo("/dashboard", replace: true);
+        }
+        else
+        {
+            NavigationManager.NavigateTo("/login", replace: true);
+        }
+    }
+}
+
+<style>
+    .splash-screen-wrapper {
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        background-color: var(--mud-palette-background-gray);
+        padding: 24px;
+    }
+
+    .splash-card {
+        text-align: center;
+        background: var(--mud-palette-surface);
+        padding: 48px 40px;
+        border-radius: 24px; /* Eliminamos bordes rectos */
+        box-shadow: var(--mud-elevation-2);
+        width: 100%;
+        max-width: 400px;
+        transition: transform 0.3s ease;
+    }
+
+    .splash-logo-animate {
+        width: 64px;
+        height: 64px;
+        margin: 0 auto;
+        border-radius: 18px;
+        display: grid;
+        place-items: center;
+        background: linear-gradient(135deg, #2B4CDE, #C38D9E);
+        color: #FFFFFF;
+        font-weight: 800;
+        font-size: 1.4rem;
+        box-shadow: 0 8px 20px rgba(43, 76, 222, 0.25);
+    }
+
+    .splash-brand-title {
+        font-weight: 800 !important;
+        letter-spacing: -0.02em;
+        color: var(--mud-palette-text-primary);
+    }
+
+    .splash-brand-subtitle {
+        color: var(--mud-palette-text-secondary);
+        opacity: 0.7;
+        font-size: 0.85rem;
+    }
+
+    .progress-box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .progress-text {
+        color: var(--mud-palette-text-secondary);
+        letter-spacing: 0.01em;
+    }
+
+    /* Vista Adaptable Móvil */
+    @@media (max-width: 480px) {
+        .splash-screen-wrapper {
+            padding: 0;
+            background-color: var(--mud-palette-surface);
+        }
+        .splash-card {
+            border-radius: 0;
+            box-shadow: none;
+            max-width: 100%;
+        }
+    }
+</style>

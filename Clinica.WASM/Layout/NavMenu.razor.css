@@ -1,0 +1,86 @@
+﻿/* Quitamos paddings laterales para que las filas toquen los bordes del Drawer como en tu imagen */
+.nav-menu-wrapper-luxury {
+    padding: 12px 0 36px 0;
+}
+
+.nav-section-layer {
+    margin-bottom: 20px;
+}
+
+/* Títulos de sección estilo Forecast Arena */
+.nav-group-tag-gold {
+    display: block;
+    margin: 0 24px 8px;
+    font-size: 0.72rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--mud-palette-tertiary); /* Captura el color Oro de tu ClinicaTheme */
+}
+
+/* --- TRANSFORMACIÓN A BOTONES DE FILA DELIMITADOS --- */
+::deep .nav-item-link-luxury {
+    border-radius: 0px !important; /* Estilo de fila continua como tu referencia */
+    margin-bottom: 0px;
+    padding: 14px 24px !important; /* Más altura para mejorar la usabilidad táctil */
+    color: var(--mud-palette-text-primary) !important;
+    border-bottom: 1px solid var(--mud-palette-background-gray); /* Línea divisora entre opciones */
+    transition: all 0.2s ease-in-out !important;
+}
+
+/* Control estricto del texto para evitar desbordamientos en móviles */
+::deep .nav-item-link-luxury .mud-nav-link-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: 500;
+}
+
+::deep .nav-item-link-luxury .mud-nav-link-icon {
+    color: var(--mud-palette-text-secondary) !important; /* Iconos neutros en reposo para no saturar */
+    margin-right: 16px !important;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+/* Hover sutil con cambio de fondo */
+::deep .nav-item-link-luxury:hover {
+    background-color: var(--mud-palette-background-gray) !important;
+    transform: none !important; /* Mantenemos la estructura firme de la cuadrícula */
+}
+
+/* ─── ENLACE ACTIVO: RÉPLICA EXACTA DE TU IMAGEN DE REFERENCIA ─── */
+::deep .nav-item-link-luxury.active {
+    /* Fondo cálido y suave (Beige/Oro translúcido) para romper el blanco abrumador */
+    background-color: rgba(229, 179, 36, 0.05) !important;
+    color: var(--mud-palette-primary) !important;
+    font-weight: 700 !important;
+}
+
+/* Modificamos el icono del ítem activo para que resalte con fuerza visual */
+::deep .nav-item-link-luxury.active .mud-nav-link-icon {
+    color: var(--mud-palette-primary) !important;
+    transform: scale(1.05);
+}
+
+/* Línea de realce vertical izquierda en color Oro (Tertiary) para anclar la ruta */
+::deep .nav-item-link-luxury.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%; /* Cubre toda la altura de la fila como en tu imagen */
+    width: 4px;
+    background-color: var(--mud-palette-tertiary); /* Acento de Oro Fino */
+    border-radius: 0;
+}
+
+/* ─── MODO OSCURO (DARK MODE INTERNA) ─── */
+/* Cuando el sistema pasa a Modo Noche, cambiamos el fondo activo para que no deslumbre */
+:global(.mud-dark) ::deep .nav-item-link-luxury.active {
+    background-color: rgba(252, 211, 77, 0.06) !important; /* Oro nocturno translúcido */
+    color: var(--mud-palette-primary) !important;
+}
+
+:global(.mud-dark) ::deep .nav-item-link-luxury {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Líneas divisoras oscuras y elegantes */
+}

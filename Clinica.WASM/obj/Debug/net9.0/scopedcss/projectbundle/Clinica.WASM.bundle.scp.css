@@ -1,0 +1,3904 @@
+/* /Components/Citas/CitaCancelarDialog.razor.rz.scp.css */
+.cancel-dialog-header[b-xljforo6yd] {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding-top: 8px;
+}
+
+.cancel-icon-frame[b-xljforo6yd] {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background-color: rgba(239, 68, 68, 0.1);
+    color: var(--mud-palette-error);
+    display: grid;
+    place-items: center;
+}
+
+.cancel-title[b-xljforo6yd] {
+    font-weight: 800 !important;
+    letter-spacing: -0.02em;
+    color: var(--mud-palette-text-primary);
+}
+
+.cancel-subtitle[b-xljforo6yd] {
+    color: var(--mud-palette-text-secondary);
+    opacity: 0.7;
+}
+
+.form-actions-panel[b-xljforo6yd] {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    padding-top: 16px;
+    border-top: 1px solid var(--mud-palette-divider);
+}
+/* /Components/Citas/CitaDetalleDialog.razor.rz.scp.css */
+.appointment-dialog-header-luxury[b-6babdbgc82] {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding-top: 12px;
+    min-width: 0;
+}
+
+.avatar-appointment-shadow[b-6babdbgc82] {
+    box-shadow: 0 4px 12px rgba(43, 76, 222, 0.2);
+    font-weight: 700;
+}
+
+.appointment-header-text[b-6babdbgc82] {
+    min-width: 0;
+}
+
+.appointment-dialog-code[b-6babdbgc82] {
+    font-weight: 800 !important;
+    letter-spacing: -0.02em;
+    font-size: clamp(1.2rem, 3vw, 1.5rem) !important;
+    color: var(--mud-palette-text-primary);
+}
+
+.info-card-box[b-6babdbgc82] {
+    background-color: var(--mud-palette-background-gray);
+    padding: 12px 16px;
+    border-radius: 12px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--mud-palette-divider);
+}
+
+.info-card-label[b-6babdbgc82] {
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--mud-palette-text-secondary);
+    opacity: 0.8;
+}
+
+.info-card-value[b-6babdbgc82] {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--mud-palette-text-primary);
+    margin-top: 2px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Bordes decorativos premium inspirados en tu paleta unificada */
+.border-left-primary[b-6babdbgc82] { border-left: 4px solid var(--mud-palette-primary); }
+.border-left-secondary[b-6babdbgc82] { border-left: 4px solid var(--mud-palette-secondary); } /* Rose Gold */
+.bg-transparent-border[b-6babdbgc82] { background-color: transparent; border: 1px dashed var(--mud-palette-divider); }
+
+@media (max-width: 600px) {
+    .appointment-dialog-header-luxury[b-6babdbgc82] { flex-direction: column; text-align: center; }
+}
+/* /Components/Citas/CitaForm.razor.rz.scp.css */
+.appointment-form-scroll[b-zc8nr51rbp] {
+    padding: 8px 4px;
+}
+
+.form-actions-bar[b-zc8nr51rbp] {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px solid var(--mud-palette-divider);
+}
+/* /Components/Citas/CitaReprogramarDialog.razor.rz.scp.css */
+.reprogram-title[b-628zix9ed6] {
+    font-weight: 800 !important;
+    letter-spacing: -0.02em;
+    color: var(--mud-palette-text-primary);
+}
+
+.reprogram-subtitle[b-628zix9ed6] {
+    color: var(--mud-palette-text-secondary);
+    opacity: 0.7;
+}
+
+.form-actions-panel[b-628zix9ed6] {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid var(--mud-palette-divider);
+}
+/* /Components/Citas/CitasTable.razor.rz.scp.css */
+.citas-table-layer[b-o64evk7pzf] {
+    background-color: var(--mud-palette-surface);
+    border-radius: var(--mud-layout-properties-default-border-radius); /* 16px */
+    box-shadow: var(--mud-elevation-2);
+    border: 1px solid var(--mud-palette-divider);
+    overflow: hidden;
+}
+
+.header-luxury-cell[b-o64evk7pzf] {
+    font-weight: 700 !important;
+    text-transform: uppercase;
+    font-size: 0.75rem !important;
+    letter-spacing: 0.05em;
+    background-color: var(--mud-palette-background-gray) !important;
+    color: var(--mud-palette-text-secondary) !important;
+    padding: 16px !important;
+}
+
+.appointment-code-badge[b-o64evk7pzf] {
+    font-weight: 700;
+    font-family: monospace;
+    background-color: var(--mud-palette-background-gray);
+    padding: 4px 8px;
+    border-radius: 6px;
+    border: 1px solid var(--mud-palette-divider);
+}
+
+.service-table-pill[b-o64evk7pzf] {
+    font-weight: 600;
+    color: var(--mud-palette-text-primary);
+    font-size: 0.85rem;
+}
+
+.table-chip-rounded[b-o64evk7pzf] {
+    border-radius: 6px !important;
+}
+
+.action-table-btn[b-o64evk7pzf] {
+    background-color: var(--mud-palette-background-gray);
+    border-radius: 8px !important;
+    transition: all 0.2s ease;
+}
+
+.action-table-btn:hover[b-o64evk7pzf] {
+    background-color: var(--mud-palette-divider);
+}
+
+.table-pager-block[b-o64evk7pzf] {
+    border-top: 1px solid var(--mud-palette-divider);
+    padding: 4px 8px;
+}
+/* /Components/Doctores/DoctorDetalleDialog.razor.rz.scp.css */
+.doctor-dialog-header-luxury[b-e7oflszjzd] {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding-top: 12px;
+    min-width: 0;
+}
+
+.avatar-doctor-shadow[b-e7oflszjzd] {
+    box-shadow: 0 4px 12px rgba(43, 76, 222, 0.2);
+    font-weight: 700;
+}
+
+.doctor-header-text-block[b-e7oflszjzd] {
+    min-width: 0;
+}
+
+.doctor-dialog-name[b-e7oflszjzd] {
+    font-weight: 800 !important;
+    letter-spacing: -0.02em;
+    font-size: clamp(1.2rem, 3vw, 1.5rem) !important;
+    color: var(--mud-palette-text-primary);
+}
+
+.doctor-info-box[b-e7oflszjzd] {
+    background-color: var(--mud-palette-background-gray);
+    padding: 12px 16px;
+    border-radius: 12px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--mud-palette-divider);
+}
+
+.doctor-box-label[b-e7oflszjzd] {
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--mud-palette-text-secondary);
+    opacity: 0.8;
+}
+
+.doctor-box-value[b-e7oflszjzd] {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--mud-palette-text-primary);
+    margin-top: 2px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.border-left-tertiary[b-e7oflszjzd] { border-left: 4px solid var(--mud-palette-tertiary); } /* Oro */
+.border-left-primary[b-e7oflszjzd] { border-left: 4px solid var(--mud-palette-primary); }
+.bg-dashed-cell[b-e7oflszjzd] { background-color: transparent; border: 1px dashed var(--mud-palette-divider); }
+.table-chip-rounded[b-e7oflszjzd] { border-radius: 6px !important; }
+
+.truncate-text[b-e7oflszjzd] {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+    .doctor-dialog-header-luxury[b-e7oflszjzd] {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+/* /Components/Doctores/DoctorEditForm.razor.rz.scp.css */
+.doctor-form-body-wrapper[b-phneterwzc] {
+    padding: 8px 4px;
+}
+
+.form-actions-bar[b-phneterwzc] {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px solid var(--mud-palette-divider);
+}
+/* /Components/Doctores/DoctoresTable.razor.rz.scp.css */
+.doctores-table-layer[b-f3kwgpwbjw] {
+    background-color: var(--mud-palette-surface);
+    border-radius: var(--mud-layout-properties-default-border-radius); /* 16px */
+    box-shadow: var(--mud-elevation-2);
+    border: 1px solid var(--mud-palette-divider);
+    overflow: hidden;
+}
+
+.header-cell-premium[b-f3kwgpwbjw] {
+    font-weight: 700 !important;
+    text-transform: uppercase;
+    font-size: 0.75rem !important;
+    letter-spacing: 0.05em;
+    background-color: var(--mud-palette-background-gray) !important;
+    color: var(--mud-palette-text-secondary) !important;
+    padding: 16px !important;
+}
+
+.doctor-table-code[b-f3kwgpwbjw] {
+    font-weight: 700;
+    font-family: monospace;
+    background-color: var(--mud-palette-background-gray);
+    padding: 4px 8px;
+    border-radius: 6px;
+    border: 1px solid var(--mud-palette-divider);
+}
+
+.specialty-pill-text[b-f3kwgpwbjw] {
+    font-weight: 600;
+    color: var(--mud-palette-text-primary);
+}
+
+.contract-date-stack[b-f3kwgpwbjw] {
+    display: flex;
+    flex-direction: column;
+}
+
+.contract-end-subtext[b-f3kwgpwbjw] {
+    font-size: 0.75rem;
+    color: var(--mud-palette-secondary); /* Resalte Rose Gold */
+    font-weight: 500;
+}
+
+.contract-indefinite-subtext[b-f3kwgpwbjw] {
+    font-size: 0.75rem;
+    color: var(--mud-palette-text-secondary);
+    opacity: 0.6;
+    font-style: italic;
+}
+
+.action-btn-styled[b-f3kwgpwbjw] {
+    background-color: var(--mud-palette-background-gray);
+    border-radius: 8px !important;
+    transition: all 0.2s ease;
+}
+
+.action-btn-styled:hover[b-f3kwgpwbjw] {
+    background-color: var(--mud-palette-divider);
+}
+
+.table-pager-luxury[b-f3kwgpwbjw] {
+    border-top: 1px solid var(--mud-palette-divider);
+    padding: 4px 8px;
+}
+/* /Components/Doctores/DoctorForm.razor.rz.scp.css */
+.doctor-form-body-wrapper[b-ciwe1qq84w] {
+    padding: 8px 4px;
+}
+
+.form-actions-bar[b-ciwe1qq84w] {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px solid var(--mud-palette-divider);
+}
+/* /Components/Finanzas/AjustesFinancierosList.razor.rz.scp.css */
+.finance-list-layer[b-2d9dlqsd0r] {
+    background-color: var(--mud-palette-surface);
+    border-radius: var(--mud-layout-properties-default-border-radius); /* 16px */
+    box-shadow: var(--mud-elevation-2);
+    border: 1px solid var(--mud-palette-divider);
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.border-top-tertiary[b-2d9dlqsd0r] { border-top: 4px solid var(--mud-palette-tertiary); } /* Oro */
+
+.finance-layer-header-bar[b-2d9dlqsd0r] {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+    background-color: var(--mud-palette-background-gray);
+    border-bottom: 1px solid var(--mud-palette-divider);
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.finance-layer-title[b-2d9dlqsd0r] {
+    font-weight: 800 !important;
+    letter-spacing: -0.02em;
+    color: var(--mud-palette-text-primary);
+}
+
+.overflow-x-auto-clean[b-2d9dlqsd0r] {
+    overflow-x: auto;
+}
+
+.header-cell-premium[b-2d9dlqsd0r] {
+    font-weight: 700 !important;
+    text-transform: uppercase;
+    font-size: 0.75rem !important;
+    letter-spacing: 0.05em;
+    background-color: var(--mud-palette-surface) !important;
+    color: var(--mud-palette-text-secondary) !important;
+    padding: 16px !important;
+}
+
+.finance-code-badge[b-2d9dlqsd0r] {
+    font-weight: 700;
+    font-family: monospace;
+    background-color: var(--mud-palette-background-gray);
+    padding: 4px 8px;
+    border-radius: 6px;
+    border: 1px solid var(--mud-palette-divider);
+    color: var(--mud-palette-text-primary);
+}
+
+.ajuste-type-pill[b-2d9dlqsd0r] {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--mud-palette-tertiary);
+    background-color: rgba(229, 179, 36, 0.05);
+    padding: 4px 10px;
+    border-radius: 6px;
+    border: 1px solid rgba(229, 179, 36, 0.15);
+}
+
+.animate-scale-in[b-2d9dlqsd0r] {
+    animation: scaleIn-b-2d9dlqsd0r 0.3s ease-out;
+}
+
+@keyframes scaleIn-b-2d9dlqsd0r {
+    from { transform: scale(0.98); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+/* /Components/Finanzas/FinanzasDeudasReales.razor.rz.scp.css */
+.finance-list-layer[b-dbrmw4p0f5] {
+    background-color: var(--mud-palette-surface);
+    border-radius: var(--mud-layout-properties-default-border-radius); /* 16px */
+    box-shadow: var(--mud-elevation-2);
+    border: 1px solid var(--mud-palette-divider);
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.border-top-secondary[b-dbrmw4p0f5] { border-top: 4px solid var(--mud-palette-secondary); } /* Rose Gold */
+
+.finance-layer-header-bar[b-dbrmw4p0f5] {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+    background-color: var(--mud-palette-background-gray);
+    border-bottom: 1px solid var(--mud-palette-divider);
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.finance-layer-title[b-dbrmw4p0f5] {
+    font-weight: 800 !important;
+    letter-spacing: -0.02em;
+    color: var(--mud-palette-text-primary);
+}
+
+.overflow-x-auto-clean[b-dbrmw4p0f5] {
+    overflow-x: auto;
+}
+
+.header-cell-premium[b-dbrmw4p0f5] {
+    font-weight: 700 !important;
+    text-transform: uppercase;
+    font-size: 0.75rem !important;
+    letter-spacing: 0.05em;
+    background-color: var(--mud-palette-surface) !important;
+    color: var(--mud-palette-text-secondary) !important;
+    padding: 16px !important;
+}
+
+.text-success-dark[b-dbrmw4p0f5] { color: #059669; }
+.text-rose-gold[b-dbrmw4p0f5] { color: var(--mud-palette-secondary); }
+
+.animate-scale-in[b-dbrmw4p0f5] {
+    animation: scaleIn-b-dbrmw4p0f5 0.3s ease-out;
+}
+
+@keyframes scaleIn-b-dbrmw4p0f5 {
+    from { transform: scale(0.98); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+/* /Components/Finanzas/FinanzasResumenCaja.razor.rz.scp.css */
+.kpi-card-luxury[b-2sofcfktqk] {
+    background-color: var(--mud-palette-surface);
+    border-radius: 14px;
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    border: 1px solid var(--mud-palette-divider);
+    box-shadow: var(--mud-elevation-2);
+}
+
+.accent-primary[b-2sofcfktqk] { border-left: 5px solid var(--mud-palette-primary); }
+.accent-tertiary[b-2sofcfktqk] { border-left: 5px solid var(--mud-palette-tertiary); }
+
+.kpi-icon-shell[b-2sofcfktqk] {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: grid;
+    place-items: center;
+}
+.shell-primary[b-2sofcfktqk] { background-color: rgba(43, 76, 222, 0.08); color: var(--mud-palette-primary); }
+.shell-tertiary[b-2sofcfktqk] { background-color: rgba(229, 179, 36, 0.08); color: var(--mud-palette-tertiary); }
+
+.kpi-text-stack[b-2sofcfktqk] { display: flex; flex-direction: column; }
+.kpi-label[b-2sofcfktqk] { font-size: 0.72rem; font-weight: 800; text-transform: uppercase; color: var(--mud-palette-text-secondary); letter-spacing: 0.05em; }
+.kpi-value[b-2sofcfktqk] { font-size: 1.6rem; font-weight: 800; color: var(--mud-palette-text-primary); letter-spacing: -0.02em; margin-top: 2px; }
+
+.section-mini-tag[b-2sofcfktqk] { font-size: 0.68rem; font-weight: 800; color: var(--mud-palette-text-secondary); letter-spacing: 0.06em; opacity: 0.7; }
+
+.channel-mini-box[b-2sofcfktqk] {
+    background-color: var(--mud-palette-surface);
+    border: 1px solid var(--mud-palette-divider);
+    border-radius: 10px;
+    padding: 10px 14px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--mud-elevation-1);
+    height: 100%;
+}
+
+.channel-label[b-2sofcfktqk] { font-size: 0.7rem; font-weight: 700; color: var(--mud-palette-text-secondary); text-transform: uppercase; }
+.channel-amount[b-2sofcfktqk] { font-size: 0.9rem; font-weight: 700; color: var(--mud-palette-text-primary); margin-top: 2px; }
+
+.border-yape[b-2sofcfktqk] { border-left: 3px solid #00D1C4; }
+.label-yape[b-2sofcfktqk] { color: #00D1C4; }
+.border-plin[b-2sofcfktqk] { border-left: 3px solid #4F46E5; }
+.label-plin[b-2sofcfktqk] { color: #4F46E5; }
+
+.finance-list-layer[b-2sofcfktqk] {
+    background-color: var(--mud-palette-surface);
+    border-radius: 16px;
+    box-shadow: var(--mud-elevation-2);
+    border: 1px solid var(--mud-palette-divider);
+    overflow: hidden;
+}
+
+.finance-layer-header-bar[b-2sofcfktqk] {
+    padding: 16px 24px;
+    background-color: var(--mud-palette-background-gray);
+    border-bottom: 1px solid var(--mud-palette-divider);
+}
+
+.finance-layer-title[b-2sofcfktqk] { font-weight: 800 !important; color: var(--mud-palette-text-primary); letter-spacing: -0.01em; }
+.overflow-x-auto-clean[b-2sofcfktqk] { overflow-x: auto; }
+
+.header-cell-premium[b-2sofcfktqk] {
+    font-weight: 700 !important;
+    text-transform: uppercase;
+    font-size: 0.75rem !important;
+    letter-spacing: 0.04em;
+    background-color: var(--mud-palette-surface) !important;
+    color: var(--mud-palette-text-secondary) !important;
+    padding: 14px !important;
+}
+
+.finance-code-badge[b-2sofcfktqk] {
+    font-weight: 700; font-family: monospace; background-color: var(--mud-palette-background-gray);
+    padding: 4px 8px; border-radius: 6px; border: 1px solid var(--mud-palette-divider);
+}
+.text-success-dark[b-2sofcfktqk] { color: #059669; }
+.text-rose-gold[b-2sofcfktqk] { color: var(--mud-palette-secondary); }
+/* /Components/Finanzas/RegistrarAjusteFinancieroDialog.razor.rz.scp.css */
+.audit-dialog-header-luxury[b-s1pudym0ku] {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding-top: 8px;
+}
+
+.audit-icon-frame[b-s1pudym0ku] {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background-color: rgba(229, 179, 36, 0.08);
+    color: var(--mud-palette-tertiary); /* Oro */
+    display: grid;
+    place-items: center;
+}
+
+.tertiary-glow[b-s1pudym0ku] { box-shadow: 0 4px 10px rgba(229, 179, 36, 0.15); }
+.audit-title[b-s1pudym0ku] { font-weight: 800 !important; letter-spacing: -0.02em; color: var(--mud-palette-text-primary); }
+.audit-subtitle[b-s1pudym0ku] { color: var(--mud-palette-text-secondary); opacity: 0.8; }
+.form-scroll-body-luxury[b-s1pudym0ku] { max-height: 380px; overflow-y: auto; padding: 6px 4px; }
+
+.form-actions-panel[b-s1pudym0ku] {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    padding-top: 16px;
+    border-top: 1px solid var(--mud-palette-divider);
+}
+/* /Components/Historiales/HistorialDetalleDialog.razor.rz.scp.css */
+.history-dialog-header-luxury[b-svs2cxm34n] {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding-top: 12px;
+    min-width: 0;
+}
+
+.history-icon-frame[b-svs2cxm34n] {
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    background-color: rgba(43, 76, 222, 0.08);
+    color: var(--mud-palette-primary);
+    display: grid;
+    place-items: center;
+    box-shadow: 0 4px 10px rgba(43, 76, 222, 0.1);
+}
+
+.history-dialog-title[b-svs2cxm34n] {
+    font-weight: 800 !important;
+    letter-spacing: -0.02em;
+    font-size: clamp(1.2rem, 3vw, 1.45rem) !important;
+    color: var(--mud-palette-text-primary);
+}
+
+.history-info-box[b-svs2cxm34n] {
+    background-color: var(--mud-palette-background-gray);
+    padding: 14px 16px;
+    border-radius: 12px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--mud-palette-divider);
+}
+
+.history-box-label[b-svs2cxm34n] {
+    font-size: 0.72rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--mud-palette-text-secondary);
+    opacity: 0.8;
+}
+
+.history-box-value[b-svs2cxm34n] {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--mud-palette-text-primary);
+    margin-top: 2px;
+}
+
+.pre-wrap[b-svs2cxm34n] {
+    white-space: pre-wrap;
+    line-height: 1.5;
+}
+
+.border-left-primary[b-svs2cxm34n] { border-left: 4px solid var(--mud-palette-primary); }
+.border-left-secondary[b-svs2cxm34n] { border-left: 4px solid var(--mud-palette-secondary); } /* Rose Gold */
+.bg-surface-clean[b-svs2cxm34n] { background-color: var(--mud-palette-surface); }
+.bg-dashed-cell[b-svs2cxm34n] { background-color: transparent; border: 1px dashed var(--mud-palette-divider); }
+
+@media (max-width: 600px) {
+    .history-dialog-header-luxury[b-svs2cxm34n] {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+/* /Components/Horarios/AgendaMatriz.razor.rz.scp.css */
+.wrapper-canvas-luxury[b-os2fmeeb11] {
+    animation: fadeSlideUp-b-os2fmeeb11 0.4s ease-out;
+}
+
+.control-header-panel[b-os2fmeeb11] {
+    background-color: var(--mud-palette-surface);
+    padding: 20px 24px;
+    border-radius: 16px;
+    border: 1px solid var(--mud-palette-divider);
+    box-shadow: var(--mud-elevation-1);
+}
+
+.matrix-card-surface-luxury[b-os2fmeeb11] {
+    background-color: var(--mud-palette-surface);
+    padding: 24px;
+    border-radius: 16px;
+    border: 1px solid var(--mud-palette-divider);
+    box-shadow: var(--mud-elevation-2);
+    border-top: 4px solid var(--mud-palette-secondary); /* Borde superior Rose Gold */
+}
+
+.matrix-header-info[b-os2fmeeb11] {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.matrix-doc-name[b-os2fmeeb11] {
+    font-weight: 800 !important;
+    letter-spacing: -0.02em;
+    color: var(--mud-palette-text-primary);
+}
+
+.week-range-indicator[b-os2fmeeb11] {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--mud-palette-background-gray);
+    padding: 8px 16px;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--mud-palette-text-primary);
+    border: 1px solid var(--mud-palette-divider);
+}
+
+/* --- DISEÑO DE MATRIZ DE REJILLA CONTINUA --- */
+.overflow-x-auto-clean[b-os2fmeeb11] {
+    overflow-x: auto;
+    border-radius: 12px;
+    border: 1px solid var(--mud-palette-divider);
+}
+
+.luxury-calendar-grid[b-os2fmeeb11] {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    min-width: 850px; /* Evita colapsos de texto en resoluciones de laptops */
+}
+
+.luxury-calendar-grid th[b-os2fmeeb11] {
+    background-color: var(--mud-palette-background-gray);
+    color: var(--mud-palette-text-secondary);
+    font-weight: 700;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 14px 8px;
+    text-align: center;
+    border-bottom: 2px solid var(--mud-palette-divider);
+}
+
+.luxury-calendar-grid th.time-header-cell[b-os2fmeeb11] {
+    width: 120px;
+    text-align: left;
+    padding-left: 16px;
+}
+
+.time-row-label[b-os2fmeeb11] {
+    background-color: var(--mud-palette-background-gray);
+    color: var(--mud-palette-text-primary);
+    font-weight: 700;
+    font-size: 0.8rem;
+    font-family: monospace;
+    padding: 14px 16px;
+    border-right: 2px solid var(--mud-palette-divider);
+    border-bottom: 1px solid var(--mud-palette-divider);
+}
+
+/* --- ESTADOS EN CADENA DE LAS CELDAS --- */
+.calendar-cell-render[b-os2fmeeb11] {
+    border: 1px solid var(--mud-palette-divider);
+    padding: 4px;
+    height: 52px;
+    vertical-align: middle;
+    text-align: center;
+    transition: background-color 0.2s ease;
+}
+
+/* Estado 1: Fuera de Horario (Gris Tenue de Capa) */
+.calendar-cell-render.FueraHorario[b-os2fmeeb11] {
+    background-color: rgba(241, 245, 249, 0.4);
+    cursor: not-allowed;
+}
+
+/* Estado 2: Disponible (Limpio e interactivo) */
+.calendar-cell-render.Disponible[b-os2fmeeb11] {
+    background-color: var(--mud-palette-surface);
+}
+
+.calendar-cell-render.Disponible:hover[b-os2fmeeb11] {
+    background-color: rgba(43, 76, 222, 0.03);
+}
+
+.available-dot-center[b-os2fmeeb11] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dot-indicator[b-os2fmeeb11] {
+    width: 6px;
+    height: 6px;
+    background-color: #10B981; /* Verde Success sutil */
+    border-radius: 50%;
+    opacity: 0.4;
+}
+
+/* Estado 3: Ocupado (Fondo Oro/Beige Translúcido Réplica Exacta de tu Referencia) */
+.calendar-cell-render.Ocupado[b-os2fmeeb11] {
+    background-color: rgba(229, 179, 36, 0.06) !important; /* Nuestro color Oro Tertiary en baja opacidad */
+    padding: 2px;
+}
+
+.occupied-badge-inner[b-os2fmeeb11] {
+    background-color: var(--mud-palette-surface);
+    border-left: 3px solid var(--mud-palette-tertiary); /* Línea ancla de color Oro */
+    padding: 4px 6px;
+    border-radius: 6px;
+    text-align: left;
+    box-shadow: var(--mud-elevation-1);
+    cursor: pointer;
+}
+
+.occupied-badge-inner .paciente-txt[b-os2fmeeb11] {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--mud-palette-text-primary);
+}
+
+.occupied-badge-inner .servicio-txt[b-os2fmeeb11] {
+    font-size: 0.65rem;
+    color: var(--mud-palette-tertiary); /* Texto Oro */
+    font-weight: 600;
+}
+
+.animate-scale-in[b-os2fmeeb11] {
+    animation: scaleIn-b-os2fmeeb11 0.2s ease-out;
+}
+
+@keyframes scaleIn-b-os2fmeeb11 {
+    from { transform: scale(0.95); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes fadeSlideUp-b-os2fmeeb11 {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+/* /Components/Horarios/HorarioDetalleDialog.razor.rz.scp.css */
+.schedule-dialog-header-luxury[b-1udbqz1p26] {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding-top: 12px;
+    min-width: 0;
+}
+
+.avatar-schedule-shadow[b-1udbqz1p26] {
+    box-shadow: 0 4px 12px rgba(43, 76, 222, 0.2);
+    font-weight: 700;
+}
+
+.schedule-header-text-block[b-1udbqz1p26] {
+    min-width: 0;
+}
+
+.schedule-dialog-title[b-1udbqz1p26] {
+    font-weight: 800 !important;
+    letter-spacing: -0.02em;
+    font-size: clamp(1.2rem, 3vw, 1.5rem) !important;
+    color: var(--mud-palette-text-primary);
+}
+
+.schedule-info-box[b-1udbqz1p26] {
+    background-color: var(--mud-palette-background-gray);
+    padding: 12px 16px;
+    border-radius: 12px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--mud-palette-divider);
+}
+
+.schedule-box-label[b-1udbqz1p26] {
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--mud-palette-text-secondary);
+    opacity: 0.8;
+}
+
+.schedule-box-value[b-1udbqz1p26] {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--mud-palette-text-primary);
+    margin-top: 2px;
+}
+
+.border-left-primary[b-1udbqz1p26] { border-left: 4px solid var(--mud-palette-primary); }
+.border-left-secondary[b-1udbqz1p26] { border-left: 4px solid var(--mud-palette-secondary); }
+.bg-dashed-cell[b-1udbqz1p26] { background-color: transparent; border: 1px dashed var(--mud-palette-divider); }
+.table-chip-rounded[b-1udbqz1p26] { border-radius: 6px !important; }
+
+@media (max-width: 600px) {
+    .schedule-dialog-header-luxury[b-1udbqz1p26] {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+/* /Components/Horarios/HorarioEditForm.razor.rz.scp.css */
+.schedule-form-wrapper[b-yd8lx4lzab] {
+    padding: 8px 4px;
+}
+
+.form-actions-bar[b-yd8lx4lzab] {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px solid var(--mud-palette-divider);
+}
+/* /Components/Horarios/HorarioForm.razor.rz.scp.css */
+.schedule-form-wrapper[b-26g7lv8o6d] {
+    padding: 8px 4px;
+}
+
+.form-actions-bar[b-26g7lv8o6d] {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px solid var(--mud-palette-divider);
+}
+/* /Components/Horarios/HorariosTable.razor.rz.scp.css */
+.horarios-table-layer[b-1fsoqqqmnq] {
+    background-color: var(--mud-palette-surface);
+    border-radius: var(--mud-layout-properties-default-border-radius);
+    box-shadow: var(--mud-elevation-2);
+    border: 1px solid var(--mud-palette-divider);
+    overflow: hidden;
+}
+
+.header-cell-premium[b-1fsoqqqmnq] {
+    font-weight: 700 !important;
+    text-transform: uppercase;
+    font-size: 0.75rem !important;
+    letter-spacing: 0.05em;
+    background-color: var(--mud-palette-background-gray) !important;
+    color: var(--mud-palette-text-secondary) !important;
+    padding: 16px !important;
+}
+
+.day-tag-pill[b-1fsoqqqmnq] {
+    font-weight: 600;
+    color: var(--mud-palette-text-primary);
+    font-size: 0.85rem;
+}
+
+.vigencia-date-stack[b-1fsoqqqmnq] {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.vigencia-end-text[b-1fsoqqqmnq] {
+    font-size: 0.75rem;
+    color: var(--mud-palette-secondary); /* Realce Rose Gold */
+    font-weight: 500;
+}
+
+.vigencia-permanent-text[b-1fsoqqqmnq] {
+    font-size: 0.75rem;
+    color: var(--mud-palette-text-secondary);
+    opacity: 0.6;
+    font-style: italic;
+}
+
+.boolean-icon-wrapper[b-1fsoqqqmnq] {
+    display: inline-flex;
+    align-items: center;
+}
+
+.action-btn-styled[b-1fsoqqqmnq] {
+    background-color: var(--mud-palette-background-gray);
+    border-radius: 8px !important;
+    transition: all 0.2s ease;
+}
+
+.action-btn-styled:hover[b-1fsoqqqmnq] {
+    background-color: var(--mud-palette-divider);
+}
+
+.table-pager-luxury[b-1fsoqqqmnq] {
+    border-top: 1px solid var(--mud-palette-divider);
+    padding: 4px 8px;
+}
+/* /Components/Pacientes/CambiarEstadoPacienteDialog.razor.rz.scp.css */
+.status-dialog-header-luxury[b-q091cyeutf] {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding-top: 8px;
+    min-width: 0;
+}
+
+.status-icon-frame[b-q091cyeutf] {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background-color: rgba(195, 141, 158, 0.08);
+    color: var(--mud-palette-secondary); /* Nuestro Rose Gold del ClinicaTheme */
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+}
+
+.shadow-glow-secondary[b-q091cyeutf] {
+    box-shadow: 0 4px 10px rgba(195, 141, 158, 0.2);
+}
+
+.status-text-stack[b-q091cyeutf] {
+    min-width: 0;
+}
+
+.status-dialog-title[b-q091cyeutf] {
+    font-weight: 800 !important;
+    letter-spacing: -0.02em;
+    color: var(--mud-palette-text-primary);
+    font-size: clamp(1.1rem, 3vw, 1.35rem) !important;
+}
+
+.status-dialog-subtitle[b-q091cyeutf] {
+    color: var(--mud-palette-text-secondary);
+    opacity: 0.85;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.form-actions-panel[b-q091cyeutf] {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px;
+    padding-top: 18px;
+    border-top: 1px solid var(--mud-palette-divider);
+}
+
+/* --- ADAPTABILIDAD MÓVIL TOTAL --- */
+@media (max-width: 600px) {
+    .status-dialog-header-luxury[b-q091cyeutf] {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .status-dialog-subtitle[b-q091cyeutf] {
+        white-space: normal; /* Permite el quiebre de renglón si el nombre de la paciente es largo */
+    }
+
+    .form-actions-panel[b-q091cyeutf] {
+        flex-direction: column-reverse; /* El botón confirmar queda arriba de cancelar para un tap ergonómico */
+        align-items: stretch;
+        gap: 8px;
+    }
+
+    .w-sm-full[b-q091cyeutf] {
+        width: 100%;
+    }
+}
+/* /Components/Pacientes/PacienteContactoForm.razor.rz.scp.css */
+.patient-edit-container[b-j8fltw7x1g] {
+    padding: 8px 4px;
+}
+
+.form-actions-bar[b-j8fltw7x1g] {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px solid var(--mud-palette-divider);
+}
+/* /Components/Pacientes/PacienteDetalleDialog.razor.rz.scp.css */
+.patient-dialog-header-luxury[b-6vep3nlrus] {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding-top: 16px;
+    min-width: 0;
+}
+
+.avatar-glow-wrapper[b-6vep3nlrus] {
+    position: relative;
+}
+
+.avatar-profile-shadow[b-6vep3nlrus] {
+    box-shadow: 0 4px 14px rgba(43, 76, 222, 0.2);
+    font-weight: 700;
+}
+
+.patient-header-text-block[b-6vep3nlrus] {
+    min-width: 0;
+}
+
+.patient-dialog-name[b-6vep3nlrus] {
+    font-weight: 800 !important;
+    letter-spacing: -0.02em;
+    font-size: clamp(1.2rem, 3vw, 1.6rem) !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Celdas de datos ordenadas estilo panel de control */
+.info-cell-box[b-6vep3nlrus] {
+    background-color: var(--mud-palette-background-gray);
+    padding: 12px 16px;
+    border-radius: 12px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--mud-palette-divider);
+}
+
+.info-cell-label[b-6vep3nlrus] {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--mud-palette-text-secondary);
+    opacity: 0.8;
+}
+
+.info-cell-value[b-6vep3nlrus] {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--mud-palette-text-primary);
+    margin-top: 4px;
+}
+
+.truncate-text[b-6vep3nlrus] {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.status-chip-solid[b-6vep3nlrus] {
+    font-weight: 700;
+    border-radius: 6px !important;
+}
+
+.footer-cell[b-6vep3nlrus] {
+    background-color: transparent;
+    border: 1px dashed var(--mud-palette-divider);
+}
+
+@media (max-width: 600px) {
+    .patient-dialog-header-luxury[b-6vep3nlrus] {
+        flex-direction: column;
+        text-align: center;
+    }
+    .info-cell-box[b-6vep3nlrus] {
+        padding: 10px 12px;
+    }
+}
+/* /Components/Pacientes/PacienteForm.razor.rz.scp.css */
+.patient-form-scroll-wrapper[b-j0ax1nd4lt] {
+    padding: 8px 4px;
+}
+
+.form-actions-bar[b-j0ax1nd4lt] {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px solid var(--mud-palette-divider);
+}
+/* /Components/Pacientes/PacientesTable.razor.rz.scp.css */
+/* Contenedor tridimensional del Forecast Arena */
+.table-surface-layer[b-pbn0bm8lz3] {
+    background-color: var(--mud-palette-surface);
+    border-radius: var(--mud-layout-properties-default-border-radius); /* 16px */
+    box-shadow: var(--mud-elevation-2);
+    border: 1px solid var(--mud-palette-divider);
+    overflow: hidden;
+}
+
+.header-cell-styled[b-pbn0bm8lz3] {
+    font-weight: 700 !important;
+    text-transform: uppercase;
+    font-size: 0.75rem !important;
+    letter-spacing: 0.05em;
+    background-color: var(--mud-palette-background-gray) !important;
+    color: var(--mud-palette-text-secondary) !important;
+    padding: 16px !important;
+}
+
+.patient-td-block[b-pbn0bm8lz3] {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.patient-row-name[b-pbn0bm8lz3] {
+    font-weight: 700;
+    color: var(--mud-palette-text-primary);
+}
+
+.patient-row-code[b-pbn0bm8lz3] {
+    font-size: 0.75rem;
+    color: var(--mud-palette-text-secondary);
+    opacity: 0.8;
+}
+
+.history-tag-active[b-pbn0bm8lz3] {
+    font-weight: 600;
+    color: var(--mud-palette-primary);
+    background-color: rgba(43, 76, 222, 0.06);
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+}
+
+.no-history-tag[b-pbn0bm8lz3] {
+    color: var(--mud-palette-text-secondary);
+    font-style: italic;
+    font-size: 0.85rem;
+    opacity: 0.6;
+}
+
+.table-status-chip[b-pbn0bm8lz3] {
+    border-radius: 6px !important;
+}
+
+.action-icon-btn-styled[b-pbn0bm8lz3] {
+    background-color: var(--mud-palette-background-gray);
+    border-radius: 8px !important;
+    transition: all 0.2s ease;
+}
+
+.action-icon-btn-styled:hover[b-pbn0bm8lz3] {
+    background-color: var(--mud-palette-divider);
+}
+
+.table-pager-container[b-pbn0bm8lz3] {
+    border-top: 1px solid var(--mud-palette-divider);
+    padding: 4px 8px;
+}
+/* /Components/Pagos/AjustesPagoDialog.razor.rz.scp.css */
+.payments-dialog-header-luxury[b-qiba887uqk] {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding-top: 8px;
+}
+
+.payments-icon-frame[b-qiba887uqk] {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background-color: rgba(229, 179, 36, 0.08);
+    color: var(--mud-palette-tertiary); /* Dorado/Oro */
+    display: grid;
+    place-items: center;
+}
+
+.gold-glow[b-qiba887uqk] {
+    box-shadow: 0 4px 10px rgba(229, 179, 36, 0.15);
+}
+
+.payments-dialog-title[b-qiba887uqk] {
+    font-weight: 800 !important;
+    letter-spacing: -0.02em;
+    color: var(--mud-palette-text-primary);
+}
+
+.payments-dialog-subtitle[b-qiba887uqk] {
+    color: var(--mud-palette-text-secondary);
+    opacity: 0.8;
+}
+
+.luxury-table-layer[b-qiba887uqk] {
+    background-color: var(--mud-palette-surface);
+    border-radius: 12px;
+    border: 1px solid var(--mud-palette-divider);
+    overflow: hidden;
+}
+
+.small-scroll[b-qiba887uqk] {
+    max-height: 240px;
+    overflow-y: auto;
+}
+
+.header-cell-premium-dialog[b-qiba887uqk] {
+    font-weight: 700 !important;
+    text-transform: uppercase;
+    font-size: 0.7rem !important;
+    letter-spacing: 0.04em;
+    background-color: var(--mud-palette-background-gray) !important;
+    color: var(--mud-palette-text-secondary) !important;
+    padding: 12px !important;
+}
+
+.ajuste-type-pill[b-qiba887uqk] {
+    font-size: 0.75rem;
+    font-weight: 700;
+    background-color: var(--mud-palette-background-gray);
+    padding: 3px 8px;
+    border-radius: 6px;
+    border: 1px solid var(--mud-palette-divider);
+}
+
+.border-dashed[b-qiba887uqk] {
+    border: 1px dashed var(--mud-palette-divider);
+}
+
+@media (max-width: 600px) {
+    .w-100-mobile[b-qiba887uqk] {
+        width: 100%;
+    }
+}
+/* /Components/Pagos/CambiarEstadoPagoDialog.razor.rz.scp.css */
+.payment-status-header-luxury[b-8nyzkxa0fj] {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding-top: 8px;
+    min-width: 0;
+}
+
+.payment-status-icon-shell[b-8nyzkxa0fj] {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background-color: rgba(229, 179, 36, 0.06);
+    color: var(--mud-palette-tertiary); /* Nuestro color Oro del ClinicaTheme */
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+}
+
+.shadow-glow-tertiary[b-8nyzkxa0fj] {
+    box-shadow: 0 4px 10px rgba(229, 179, 36, 0.2);
+}
+
+.payment-status-text-stack[b-8nyzkxa0fj] {
+    min-width: 0;
+}
+
+.payment-status-title[b-8nyzkxa0fj] {
+    font-weight: 800 !important;
+    letter-spacing: -0.02em;
+    color: var(--mud-palette-text-primary);
+    font-size: clamp(1.1rem, 3vw, 1.35rem) !important;
+}
+
+.payment-status-subtitle[b-8nyzkxa0fj] {
+    color: var(--mud-palette-text-secondary);
+    opacity: 0.85;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.form-actions-panel[b-8nyzkxa0fj] {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px;
+    padding-top: 18px;
+    border-top: 1px solid var(--mud-palette-divider);
+}
+
+/* --- ADAPTABILIDAD MÓVIL CRÍTICA --- */
+@media (max-width: 600px) {
+    .payment-status-header-luxury[b-8nyzkxa0fj] {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .payment-status-subtitle[b-8nyzkxa0fj] {
+        white-space: normal; /* Permite quiebre multilínea elástico si el código del recibo es extenso */
+    }
+
+    .form-actions-panel[b-8nyzkxa0fj] {
+        flex-direction: column-reverse; /* El botón confirmar sube para un tap mucho más cómodo con el pulgar */
+        align-items: stretch;
+        gap: 8px;
+    }
+
+    .w-sm-full[b-8nyzkxa0fj] {
+        width: 100%;
+    }
+}
+/* /Components/Pagos/PagosTable.razor.rz.scp.css */
+.payments-table-layer[b-hqw0exk4hn] {
+    background-color: var(--mud-palette-surface);
+    border-radius: var(--mud-layout-properties-default-border-radius); /* 16px */
+    box-shadow: var(--mud-elevation-2);
+    border: 1px solid var(--mud-palette-divider);
+    overflow: hidden;
+}
+
+.header-cell-premium[b-hqw0exk4hn] {
+    font-weight: 700 !important;
+    text-transform: uppercase;
+    font-size: 0.75rem !important;
+    letter-spacing: 0.05em;
+    background-color: var(--mud-palette-background-gray) !important;
+    color: var(--mud-palette-text-secondary) !important;
+    padding: 16px !important;
+}
+
+.payment-table-code[b-hqw0exk4hn] {
+    font-weight: 700;
+    font-family: monospace;
+    background-color: var(--mud-palette-background-gray);
+    padding: 4px 8px;
+    border-radius: 6px;
+    border: 1px solid var(--mud-palette-divider);
+    color: var(--mud-palette-text-primary);
+}
+
+.truncate-service-name[b-hqw0exk4hn] {
+    max-width: 160px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.text-success-dark[b-hqw0exk4hn] {
+    color: #059669;
+}
+
+.text-rose-gold[b-hqw0exk4hn] {
+    color: var(--mud-palette-secondary); /* Nuestro color Rose Gold del tema */
+}
+
+.method-tag[b-hqw0exk4hn] {
+    font-weight: 600;
+    color: var(--mud-palette-text-primary);
+    font-size: 0.85rem;
+}
+
+.table-chip-rounded[b-hqw0exk4hn] {
+    border-radius: 6px !important;
+}
+
+.action-btn-styled[b-hqw0exk4hn] {
+    background-color: var(--mud-palette-background-gray);
+    border-radius: 8px !important;
+    transition: all 0.2s ease;
+}
+
+.action-btn-styled:hover[b-hqw0exk4hn] {
+    background-color: var(--mud-palette-divider);
+}
+
+.table-pager-luxury[b-hqw0exk4hn] {
+    border-top: 1px solid var(--mud-palette-divider);
+    padding: 4px 8px;
+}
+
+@media (max-width: 960px) {
+    .truncate-service-name[b-hqw0exk4hn] {
+        max-width: 100%;
+        white-space: normal;
+    }
+}
+/* /Components/Pagos/RegistrarPagoDialog.razor.rz.scp.css */
+.receipt-dialog-header-luxury[b-frgy5hjq3b] {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding-top: 8px;
+}
+
+.receipt-icon-frame[b-frgy5hjq3b] {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background-color: rgba(43, 76, 222, 0.08);
+    color: var(--mud-palette-primary);
+    display: grid;
+    place-items: center;
+}
+
+.primary-glow[b-frgy5hjq3b] {
+    box-shadow: 0 4px 10px rgba(43, 76, 222, 0.15);
+}
+
+.receipt-title[b-frgy5hjq3b] {
+    font-weight: 800 !important;
+    letter-spacing: -0.02em;
+    color: var(--mud-palette-text-primary);
+}
+
+.receipt-subtitle[b-frgy5hjq3b] {
+    color: var(--mud-palette-text-secondary);
+    opacity: 0.8;
+}
+
+.form-scroll-body[b-frgy5hjq3b] {
+    max-height: 400px;
+    overflow-y: auto;
+    padding: 8px 4px;
+}
+
+.form-actions-panel[b-frgy5hjq3b] {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    padding-top: 16px;
+    border-top: 1px solid var(--mud-palette-divider);
+}
+/* /Components/Roles/AsignarPermisosDialog.razor.rz.scp.css */
+.permissions-dialog-header-luxury[b-zcthk4a3xd] {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding-top: 8px;
+}
+
+.permissions-icon-frame[b-zcthk4a3xd] {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background-color: rgba(195, 141, 158, 0.1);
+    color: var(--mud-palette-secondary); /* Rose Gold */
+    display: grid;
+    place-items: center;
+}
+
+.permissions-title[b-zcthk4a3xd] {
+    font-weight: 800 !important;
+    letter-spacing: -0.02em;
+    color: var(--mud-palette-text-primary);
+}
+
+.permissions-subtitle[b-zcthk4a3xd] {
+    color: var(--mud-palette-text-secondary);
+    opacity: 0.8;
+}
+
+.permissions-scroll-container[b-zcthk4a3xd] {
+    max-height: 320px;
+    overflow-y: auto;
+    background-color: var(--mud-palette-background-gray);
+    border-color: var(--mud-palette-divider) !important;
+}
+
+[b-zcthk4a3xd] .permission-item-row {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+    border-radius: 8px !important;
+    margin-bottom: 2px;
+}
+
+.module-badge[b-zcthk4a3xd] {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    background-color: var(--mud-palette-surface);
+    color: var(--mud-palette-text-secondary);
+    padding: 3px 8px;
+    border-radius: 6px;
+    border: 1px solid var(--mud-palette-divider);
+}
+
+.form-actions-panel[b-zcthk4a3xd] {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    padding-top: 16px;
+    border-top: 1px solid var(--mud-palette-divider);
+}
+/* /Components/Roles/RolDetalleDialog.razor.rz.scp.css */
+.role-dialog-header-luxury[b-1qiy9jt4wh] {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding-top: 12px;
+    min-width: 0;
+}
+
+.avatar-role-shadow[b-1qiy9jt4wh] {
+    box-shadow: 0 4px 12px rgba(43, 76, 222, 0.2);
+    font-weight: 800;
+}
+
+.role-header-text-block[b-1qiy9jt4wh] {
+    min-width: 0;
+}
+
+.role-dialog-name[b-1qiy9jt4wh] {
+    font-weight: 800 !important;
+    letter-spacing: -0.02em;
+    font-size: clamp(1.2rem, 3vw, 1.5rem) !important;
+    color: var(--mud-palette-text-primary);
+}
+
+.role-info-box[b-1qiy9jt4wh] {
+    background-color: var(--mud-palette-background-gray);
+    padding: 12px 16px;
+    border-radius: 12px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--mud-palette-divider);
+}
+
+.role-box-label[b-1qiy9jt4wh] {
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--mud-palette-text-secondary);
+    opacity: 0.8;
+}
+
+.role-box-value[b-1qiy9jt4wh] {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--mud-palette-text-primary);
+    margin-top: 2px;
+}
+
+.pre-wrap[b-1qiy9jt4wh] {
+    white-space: pre-wrap;
+    line-height: 1.5;
+}
+
+.border-left-primary[b-1qiy9jt4wh] { border-left: 4px solid var(--mud-palette-primary); }
+.bg-dashed-cell[b-1qiy9jt4wh] { background-color: transparent; border: 1px dashed var(--mud-palette-divider); }
+.table-chip-rounded[b-1qiy9jt4wh] { border-radius: 6px !important; }
+
+@media (max-width: 600px) {
+    .role-dialog-header-luxury[b-1qiy9jt4wh] {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+/* /Components/Roles/RolEditForm.razor.rz.scp.css */
+.role-form-wrapper[b-ztyw60ao28] {
+    padding: 8px 4px;
+}
+
+.form-actions-bar[b-ztyw60ao28] {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px solid var(--mud-palette-divider);
+}
+/* /Components/Roles/RolesTable.razor.rz.scp.css */
+.roles-table-layer[b-nq3i4xpye5] {
+    background-color: var(--mud-palette-surface);
+    border-radius: var(--mud-layout-properties-default-border-radius); /* 16px */
+    box-shadow: var(--mud-elevation-2);
+    border: 1px solid var(--mud-palette-divider);
+    overflow: hidden;
+}
+
+.header-cell-premium[b-nq3i4xpye5] {
+    font-weight: 700 !important;
+    text-transform: uppercase;
+    font-size: 0.75rem !important;
+    letter-spacing: 0.05em;
+    background-color: var(--mud-palette-background-gray) !important;
+    color: var(--mud-palette-text-secondary) !important;
+    padding: 16px !important;
+}
+
+.truncate-description-cell[b-nq3i4xpye5] {
+    max-width: 250px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.boolean-icon-wrapper[b-nq3i4xpye5] {
+    display: inline-flex;
+    align-items: center;
+}
+
+.table-chip-rounded[b-nq3i4xpye5] {
+    border-radius: 6px !important;
+}
+
+.action-btn-styled[b-nq3i4xpye5] {
+    background-color: var(--mud-palette-background-gray);
+    border-radius: 8px !important;
+    transition: all 0.2s ease;
+}
+
+.action-btn-styled:hover[b-nq3i4xpye5] {
+    background-color: var(--mud-palette-divider);
+}
+
+.table-pager-luxury[b-nq3i4xpye5] {
+    border-top: 1px solid var(--mud-palette-divider);
+    padding: 4px 8px;
+}
+/* /Components/Roles/RolForm.razor.rz.scp.css */
+.role-form-wrapper[b-jmakojetoc] {
+    padding: 8px 4px;
+}
+
+.form-actions-bar[b-jmakojetoc] {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid var(--mud-palette-divider);
+}
+/* /Components/ServiciosClinicos/ServicioClinicoDetalleDialog.razor.rz.scp.css */
+.service-dialog-header-luxury[b-yh516yejp2] {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding-top: 12px;
+    min-width: 0;
+}
+
+.avatar-service-shadow[b-yh516yejp2] {
+    box-shadow: 0 4px 12px rgba(43, 76, 222, 0.2);
+    font-weight: 800;
+}
+
+.service-header-text-block[b-yh516yejp2] {
+    min-width: 0;
+}
+
+.service-dialog-title[b-yh516yejp2] {
+    font-weight: 800 !important;
+    letter-spacing: -0.02em;
+    font-size: clamp(1.2rem, 3vw, 1.5rem) !important;
+    color: var(--mud-palette-text-primary);
+}
+
+.service-info-box[b-yh516yejp2] {
+    background-color: var(--mud-palette-background-gray);
+    padding: 12px 16px;
+    border-radius: 12px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--mud-palette-divider);
+}
+
+.service-box-label[b-yh516yejp2] {
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--mud-palette-text-secondary);
+    opacity: 0.8;
+}
+
+.service-box-value[b-yh516yejp2] {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--mud-palette-text-primary);
+    margin-top: 2px;
+}
+
+.pre-wrap[b-yh516yejp2] {
+    white-space: pre-wrap;
+    line-height: 1.5;
+}
+
+.border-left-primary[b-yh516yejp2] { border-left: 4px solid var(--mud-palette-primary); }
+.border-left-secondary[b-yh516yejp2] { border-left: 4px solid var(--mud-palette-secondary); } /* Rose Gold */
+.border-left-tertiary[b-yh516yejp2] { border-left: 4px solid var(--mud-palette-tertiary); } /* Oro */
+.bg-dashed-cell[b-yh516yejp2] { background-color: transparent; border: 1px dashed var(--mud-palette-divider); }
+.table-chip-rounded[b-yh516yejp2] { border-radius: 6px !important; }
+
+@media (max-width: 600px) {
+    .service-dialog-header-luxury[b-yh516yejp2] {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+/* /Components/ServiciosClinicos/ServiciosClinicosTable.razor.rz.scp.css */
+.servicios-table-layer[b-4mo84lm9h5] {
+    background-color: var(--mud-palette-surface);
+    border-radius: var(--mud-layout-properties-default-border-radius); /* 16px */
+    box-shadow: var(--mud-elevation-2);
+    border: 1px solid var(--mud-palette-divider);
+    overflow: hidden;
+}
+
+.header-cell-premium[b-4mo84lm9h5] {
+    font-weight: 700 !important;
+    text-transform: uppercase;
+    font-size: 0.75rem !important;
+    letter-spacing: 0.05em;
+    background-color: var(--mud-palette-background-gray) !important;
+    color: var(--mud-palette-text-secondary) !important;
+    padding: 16px !important;
+}
+
+.service-table-code[b-4mo84lm9h5] {
+    font-weight: 700;
+    font-family: monospace;
+    background-color: var(--mud-palette-background-gray);
+    padding: 4px 8px;
+    border-radius: 6px;
+    border: 1px solid var(--mud-palette-divider);
+    color: var(--mud-palette-text-primary);
+}
+
+.icon-indicator-wrapper[b-4mo84lm9h5] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.table-chip-rounded[b-4mo84lm9h5] {
+    border-radius: 6px !important;
+}
+
+.action-btn-styled[b-4mo84lm9h5] {
+    background-color: var(--mud-palette-background-gray);
+    border-radius: 8px !important;
+    transition: all 0.2s ease;
+}
+
+.action-btn-styled:hover[b-4mo84lm9h5] {
+    background-color: var(--mud-palette-divider);
+}
+
+.text-success-dark[b-4mo84lm9h5] {
+    color: #059669;
+}
+
+.table-pager-luxury[b-4mo84lm9h5] {
+    border-top: 1px solid var(--mud-palette-divider);
+    padding: 4px 8px;
+}
+/* /Components/Shared/EmptyState.razor.rz.scp.css */
+.empty-state-canvas[b-klsjxla12a] {
+    width: 100%;
+    min-height: 240px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--mud-palette-background-gray);
+    border: 1px dashed var(--mud-palette-divider);
+    border-radius: 16px;
+    padding: 40px 24px;
+    text-align: center;
+}
+
+.empty-icon-glow-shell[b-klsjxla12a] {
+    width: 60px;
+    height: 60px;
+    display: grid;
+    place-items: center;
+    border-radius: 14px;
+    background: rgba(43, 76, 222, 0.05);
+    margin-bottom: 16px;
+    border: 1px solid var(--mud-palette-divider);
+}
+
+.empty-emoji-render[b-klsjxla12a] {
+    font-size: 1.8rem;
+    line-height: 1;
+}
+
+.empty-state-title[b-klsjxla12a] {
+    font-weight: 800 !important;
+    letter-spacing: -0.01em;
+    color: var(--mud-palette-text-primary);
+    font-size: clamp(1.1rem, 3vw, 1.3rem) !important;
+}
+
+.empty-state-message[b-klsjxla12a] {
+    max-width: 440px;
+    color: var(--mud-palette-text-secondary);
+    opacity: 0.85;
+    line-height: 1.5;
+}
+
+.empty-actions-layer[b-klsjxla12a] {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.animate-fade-in[b-klsjxla12a] {
+    animation: simpleScaleUp-b-klsjxla12a 0.3s ease-out;
+}
+
+@keyframes simpleScaleUp-b-klsjxla12a {
+    from { opacity: 0; transform: scale(0.98); }
+    to { opacity: 1; transform: scale(1); }
+}
+/* /Components/Shared/ErrorState.razor.rz.scp.css */
+.error-state-canvas[b-qxwo6wscgt] {
+    width: 100%;
+    min-height: 240px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(239, 68, 68, 0.02);
+    border: 1px solid rgba(239, 68, 68, 0.15);
+    border-radius: 16px;
+    padding: 40px 24px;
+    text-align: center;
+}
+
+.error-icon-glow-shell[b-qxwo6wscgt] {
+    width: 60px;
+    height: 60px;
+    display: grid;
+    place-items: center;
+    border-radius: 14px;
+    background: rgba(239, 68, 68, 0.08);
+    margin-bottom: 16px;
+    border: 1px solid rgba(239, 68, 68, 0.1);
+}
+
+.error-state-title[b-qxwo6wscgt] {
+    font-weight: 800 !important;
+    letter-spacing: -0.01em;
+    color: var(--mud-palette-error);
+    font-size: clamp(1.1rem, 3vw, 1.3rem) !important;
+}
+
+.error-state-message[b-qxwo6wscgt] {
+    max-width: 460px;
+    color: var(--mud-palette-text-secondary);
+    opacity: 0.85;
+    line-height: 1.5;
+}
+
+.error-actions-layer[b-qxwo6wscgt] {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.animate-pulse-clean[b-qxwo6wscgt] {
+    animation: errorEntrance-b-qxwo6wscgt 0.3s ease-out;
+}
+
+@keyframes errorEntrance-b-qxwo6wscgt {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 600px) {
+    .w-sm-full[b-qxwo6wscgt] {
+        width: 100%;
+    }
+}
+/* /Components/Shared/LoadingState.razor.rz.scp.css */
+.loading-canvas-layer[b-95nkaohzdc] {
+    width: 100%;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 36px 20px;
+}
+
+.spinner-tridimensional-shell[b-95nkaohzdc] {
+    padding: 4px;
+    display: inline-flex;
+    position: relative;
+}
+
+.loading-sync-text[b-95nkaohzdc] {
+    color: var(--mud-palette-text-secondary);
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    opacity: 0.75;
+}
+
+.animate-fade-loop[b-95nkaohzdc] {
+    animation: pulseGhost-b-95nkaohzdc 1.8s infinite ease-in-out;
+}
+
+@keyframes pulseGhost-b-95nkaohzdc {
+    0%, 100% { opacity: 0.85; }
+    50% { opacity: 0.5; }
+}
+/* /Components/Shared/PageHeader.razor.rz.scp.css */
+.page-header-luxury-shell[b-ucw534g9af] {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 28px;
+    width: 100%;
+}
+
+.header-text-stack[b-ucw534g9af] {
+    min-width: 0; /* Evita que el contenedor empuje hacia afuera si el texto es extenso */
+    flex: 1;
+}
+
+.header-main-title[b-ucw534g9af] {
+    font-weight: 800 !important;
+    letter-spacing: -0.02em;
+    color: var(--mud-palette-text-primary);
+    font-size: clamp(1.4rem, 4vw, 1.85rem) !important; /* Elástica: Escala entre móvil y laptop sin desbordar */
+    line-height: 1.25;
+}
+
+.header-sub-title[b-ucw534g9af] {
+    color: var(--mud-palette-text-secondary);
+    opacity: 0.8;
+    line-height: 1.5;
+    font-size: clamp(0.85rem, 2vw, 0.925rem);
+}
+
+.header-actions-flex-layer[b-ucw534g9af] {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0; /* Asegura que la botonera mantenga su integridad */
+}
+
+/* --- ADAPTABILIDAD MÓVIL TOTAL --- */
+@media (max-width: 768px) {
+    .page-header-luxury-shell[b-ucw534g9af] {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 14px;
+    }
+
+    .header-actions-flex-layer[b-ucw534g9af] {
+        width: 100%;
+        justify-content: flex-start;
+        flex-wrap: wrap; /* Si hay múltiples botones, colapsan hacia abajo limpiamente */
+        gap: 8px;
+    }
+
+    /* Forzamos de manera controlada que los botones anidados ocupen el ancho móvil de ser requerido */
+    [b-ucw534g9af] .header-actions-flex-layer .mud-button {
+        flex: 1 1 auto;
+        min-width: 140px;
+    }
+}
+/* /Components/Usuarios/AsignarRolDialog.razor.rz.scp.css */
+.role-dialog-header-luxury[b-jypwjsx8p6] {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding-top: 8px;
+}
+
+.role-icon-frame[b-jypwjsx8p6] {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background-color: rgba(43, 76, 222, 0.08);
+    color: var(--mud-palette-primary);
+    display: grid;
+    place-items: center;
+}
+
+.role-title[b-jypwjsx8p6] {
+    font-weight: 800 !important;
+    letter-spacing: -0.02em;
+    color: var(--mud-palette-text-primary);
+}
+
+.role-subtitle[b-jypwjsx8p6] {
+    color: var(--mud-palette-text-secondary);
+    opacity: 0.8;
+}
+
+.form-actions-panel[b-jypwjsx8p6] {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    padding-top: 16px;
+    border-top: 1px solid var(--mud-palette-divider);
+}
+/* /Components/Usuarios/CambiarEstadoUsuarioDialog.razor.rz.scp.css */
+.user-status-header-luxury[b-7cswtiqqld] {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding-top: 8px;
+    min-width: 0;
+}
+
+.user-status-icon-shell[b-7cswtiqqld] {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background-color: rgba(43, 76, 222, 0.06);
+    color: var(--mud-palette-primary);
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+}
+
+.shadow-glow-primary[b-7cswtiqqld] {
+    box-shadow: 0 4px 10px rgba(43, 76, 222, 0.15);
+}
+
+.user-status-text-stack[b-7cswtiqqld] {
+    min-width: 0;
+}
+
+.user-status-title[b-7cswtiqqld] {
+    font-weight: 800 !important;
+    letter-spacing: -0.02em;
+    color: var(--mud-palette-text-primary);
+    font-size: clamp(1.1rem, 3vw, 1.35rem) !important;
+}
+
+.user-status-subtitle[b-7cswtiqqld] {
+    color: var(--mud-palette-text-secondary);
+    opacity: 0.85;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.form-actions-panel[b-7cswtiqqld] {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px;
+    padding-top: 18px;
+    border-top: 1px solid var(--mud-palette-divider);
+}
+
+/* --- ADAPTABILIDAD MÓVIL CRÍTICA --- */
+@media (max-width: 600px) {
+    .user-status-header-luxury[b-7cswtiqqld] {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .user-status-subtitle[b-7cswtiqqld] {
+        white-space: normal; /* Evita roturas laterales con nombres de operadores extensos */
+    }
+
+    .form-actions-panel[b-7cswtiqqld] {
+        flex-direction: column-reverse; /* El botón confirmar sube para un tap mucho más cómodo con el pulgar */
+        align-items: stretch;
+        gap: 8px;
+    }
+
+    .w-sm-full[b-7cswtiqqld] {
+        width: 100%;
+    }
+}
+/* /Components/Usuarios/UsuarioDetalleDialog.razor.rz.scp.css */
+.user-dialog-header-luxury[b-ujdpjwlsp4] {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding-top: 12px;
+    min-width: 0;
+}
+
+.avatar-user-shadow[b-ujdpjwlsp4] {
+    box-shadow: 0 4px 12px rgba(43, 76, 222, 0.2);
+    font-weight: 700;
+}
+
+.user-header-text-block[b-ujdpjwlsp4] {
+    min-width: 0;
+}
+
+.user-dialog-name[b-ujdpjwlsp4] {
+    font-weight: 800 !important;
+    letter-spacing: -0.02em;
+    font-size: clamp(1.2rem, 3vw, 1.5rem) !important;
+    color: var(--mud-palette-text-primary);
+}
+
+.user-info-box[b-ujdpjwlsp4] {
+    background-color: var(--mud-palette-background-gray);
+    padding: 12px 16px;
+    border-radius: 12px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--mud-palette-divider);
+}
+
+.user-box-label[b-ujdpjwlsp4] {
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--mud-palette-text-secondary);
+    opacity: 0.8;
+}
+
+.user-box-value[b-ujdpjwlsp4] {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--mud-palette-text-primary);
+    margin-top: 2px;
+}
+
+.border-left-primary[b-ujdpjwlsp4] { border-left: 4px solid var(--mud-palette-primary); }
+.border-left-secondary[b-ujdpjwlsp4] { border-left: 4px solid var(--mud-palette-secondary); } /* Rose Gold */
+.bg-dashed-cell[b-ujdpjwlsp4] { background-color: transparent; border: 1px dashed var(--mud-palette-divider); }
+.table-chip-rounded[b-ujdpjwlsp4] { border-radius: 6px !important; }
+
+.truncate-text[b-ujdpjwlsp4] {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+    .user-dialog-header-luxury[b-ujdpjwlsp4] {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+/* /Components/Usuarios/UsuarioEditForm.razor.rz.scp.css */
+.user-form-scroll-wrapper[b-ijpw2p8pvr] {
+    padding: 8px 4px;
+}
+
+.form-actions-bar[b-ijpw2p8pvr] {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px solid var(--mud-palette-divider);
+}
+/* /Components/Usuarios/UsuarioForm.razor.rz.scp.css */
+.user-form-scroll-wrapper[b-q3utmd5jhk] {
+    padding: 8px 4px;
+}
+
+.form-actions-bar[b-q3utmd5jhk] {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px solid var(--mud-palette-divider);
+}
+/* /Components/Usuarios/UsuariosTable.razor.rz.scp.css */
+.usuarios-table-layer[b-g8bgtxn0wy] {
+    background-color: var(--mud-palette-surface);
+    border-radius: var(--mud-layout-properties-default-border-radius); /* 16px */
+    box-shadow: var(--mud-elevation-2);
+    border: 1px solid var(--mud-palette-divider);
+    overflow: hidden;
+}
+
+.header-cell-premium[b-g8bgtxn0wy] {
+    font-weight: 700 !important;
+    text-transform: uppercase;
+    font-size: 0.75rem !important;
+    letter-spacing: 0.05em;
+    background-color: var(--mud-palette-background-gray) !important;
+    color: var(--mud-palette-text-secondary) !important;
+    padding: 16px !important;
+}
+
+.user-table-code[b-g8bgtxn0wy] {
+    font-weight: 700;
+    font-family: monospace;
+    background-color: var(--mud-palette-background-gray);
+    padding: 4px 8px;
+    border-radius: 6px;
+    border: 1px solid var(--mud-palette-divider);
+    color: var(--mud-palette-text-primary);
+}
+
+.truncate-text-cell[b-g8bgtxn0wy] {
+    max-width: 180px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.table-chip-rounded[b-g8bgtxn0wy] {
+    border-radius: 6px !important;
+}
+
+.action-btn-styled[b-g8bgtxn0wy] {
+    background-color: var(--mud-palette-background-gray);
+    border-radius: 8px !important;
+    transition: all 0.2s ease;
+}
+
+.action-btn-styled:hover[b-g8bgtxn0wy] {
+    background-color: var(--mud-palette-divider);
+}
+
+.table-pager-luxury[b-g8bgtxn0wy] {
+    border-top: 1px solid var(--mud-palette-divider);
+    padding: 4px 8px;
+}
+/* /Components/WhatsApp/ListaContactos.razor.rz.scp.css */
+.sidebar-chat-luxury[b-haetmn8xjk] {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border-right: 1px solid rgba(212, 175, 55, 0.2); /* Sutil toque dorado */
+    background-color: var(--mud-palette-background-grey);
+}
+
+.search-bar-container[b-haetmn8xjk] {
+    padding: 12px;
+    background-color: var(--mud-palette-background);
+}
+
+.contacts-scroll-area[b-haetmn8xjk] {
+    flex: 1;
+    overflow-y: auto;
+}
+
+.chat-row-layout[b-haetmn8xjk] {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+}
+
+.chat-info-stack[b-haetmn8xjk] {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.chat-info-top[b-haetmn8xjk], .chat-info-bottom[b-haetmn8xjk] {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contact-name-luxury[b-haetmn8xjk] {
+    font-weight: 600;
+    color: var(--mud-palette-text-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.preview-message-luxury[b-haetmn8xjk] {
+    color: var(--mud-palette-text-secondary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 180px;
+}
+
+.badge-unread-luxury[b-haetmn8xjk] {
+    background-color: #D4AF37; /* Oro PsicoMedix */
+    color: black;
+    font-weight: bold;
+    font-size: 0.75rem;
+    padding: 2px 6px;
+    border-radius: 10px;
+    min-width: 20px;
+    text-align: center;
+}
+
+.chat-item-active[b-haetmn8xjk] {
+    background-color: rgba(212, 175, 55, 0.1) !important;
+    border-left: 4px solid #D4AF37;
+}
+/* /Components/WhatsApp/VentanaConversacion.razor.rz.scp.css */
+.chat-window-luxury[b-7oq51zj0fe] {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: var(--mud-palette-background);
+}
+
+.empty-state-luxury[b-7oq51zj0fe] {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    text-align: center;
+    gap: 16px;
+}
+
+.gold-title[b-7oq51zj0fe] {
+    color: #D4AF37;
+    font-weight: bold;
+}
+
+.chat-header-luxury[b-7oq51zj0fe] {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 24px;
+    background-color: var(--mud-palette-background-grey);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.chat-body-luxury[b-7oq51zj0fe] {
+    flex: 1;
+    padding: 24px;
+    overflow-y: auto;
+    background-image: radial-gradient(rgba(212, 175, 55, 0.03) 1px, transparent 0); /* Fondo sutil texturizado */
+    background-size: 24px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.message-row-left[b-7oq51zj0fe], .message-row-right[b-7oq51zj0fe] {
+    display: flex;
+    width: 100%;
+}
+
+.message-row-left[b-7oq51zj0fe] { justify-content: flex-start; }
+.message-row-right[b-7oq51zj0fe] { justify-content: flex-end; }
+
+.bubble-luxury-in[b-7oq51zj0fe], .bubble-luxury-out[b-7oq51zj0fe] {
+    max-width: 65%;
+    padding: 8px 14px;
+    border-radius: 12px;
+    position: relative;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.bubble-luxury-in[b-7oq51zj0fe] {
+    background-color: var(--mud-palette-background-grey);
+    color: var(--mud-palette-text-primary);
+    border-top-left-radius: 0;
+}
+
+.bubble-luxury-out[b-7oq51zj0fe] {
+    background-color: #D4AF37;
+    color: black;
+    border-top-right-radius: 0;
+}
+
+.bubble-time[b-7oq51zj0fe] {
+    font-size: 0.65rem;
+    display: block;
+    text-align: right;
+    margin-top: 4px;
+    opacity: 0.6;
+}
+
+.chat-footer-luxury[b-7oq51zj0fe] {
+    padding: 16px;
+    background-color: var(--mud-palette-background-grey);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+/* /Layout/MainLayout.razor.rz.scp.css */
+/* --- APPBAR ESTILO LUXURY --- */
+.main-appbar[b-98p2eraplv] {
+    background-color: var(--mud-palette-surface) !important;
+    color: var(--mud-palette-text-primary) !important;
+    border-top: 4px solid var(--mud-palette-secondary); /* Detalle Rose Gold superior superior */
+    border-bottom: 1px solid var(--mud-palette-divider);
+    height: var(--mud-layout-properties-appbarheight);
+    transition: all 0.3s ease;
+}
+
+.brand-area[b-98p2eraplv] {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0; /* Permite que el contenedor se encoja correctamente en móvil */
+}
+
+.brand-logo[b-98p2eraplv] {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(135deg, var(--mud-palette-primary), var(--mud-palette-secondary));
+    color: #FFFFFF;
+    font-weight: 800;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 10px rgba(43, 76, 222, 0.2);
+}
+
+.brand-text-stack[b-98p2eraplv] {
+    line-height: 1.2;
+    min-width: 0;
+}
+
+.brand-title[b-98p2eraplv] {
+    font-weight: 800 !important;
+    letter-spacing: -0.02em;
+    font-size: clamp(1rem, 2.5vw, 1.25rem) !important; /* Tipografía fluida que se auto-escala */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.brand-subtitle[b-98p2eraplv] {
+    opacity: 0.6;
+    font-weight: 500;
+}
+
+.status-pill[b-98p2eraplv] {
+    border-radius: 8px !important;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+
+/* Animación sutil de pulso para el chip de estado activo */
+.animate-pulse-subtle[b-98p2eraplv] {
+    animation: pulseSubtle-b-98p2eraplv 2s infinite ease-in-out;
+}
+
+@keyframes pulseSubtle-b-98p2eraplv {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.85; }
+}
+
+/* --- SIDEBAR INDEPENDIENTE TIPO CAPSA --- */
+.main-drawer[b-98p2eraplv] {
+    background-color: var(--mud-palette-surface) !important;
+    border-right: 1px solid var(--mud-palette-divider) !important;
+    height: 100vh !important;
+}
+
+.drawer-brand-box-luxury[b-98p2eraplv] {
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 20px 24px;
+    background: linear-gradient(to bottom, var(--mud-palette-background-gray), transparent);
+}
+
+.drawer-logo-glow[b-98p2eraplv] {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    background: var(--mud-palette-surface);
+    color: var(--mud-palette-primary);
+    font-weight: 800;
+    border: 2px solid var(--mud-palette-primary);
+    box-shadow: 0 0 12px rgba(43, 76, 222, 0.1);
+}
+
+.drawer-title-text[b-98p2eraplv] {
+    font-weight: 800 !important;
+    color: var(--mud-palette-text-primary);
+    letter-spacing: -0.01em;
+}
+
+.drawer-subtitle-text[b-98p2eraplv] {
+    opacity: 0.5;
+    font-weight: 500;
+}
+
+/* --- CANVAS DE CONTENIDO REALZADO (MÁXIMO CONTRASTE) --- */
+.main-content-canvas-premium[b-98p2eraplv] {
+    min-height: 100vh;
+    background-color: var(--mud-palette-background); /* #F4F7FB: Hace resaltar las tarjetas blancas */
+    padding-top: var(--mud-layout-properties-appbarheight);
+}
+
+.inner-page-container-fluid[b-98p2eraplv] {
+    padding: 32px 24px;
+    animation: fadeSlideUp-b-98p2eraplv 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes fadeSlideUp-b-98p2eraplv {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- MENÚ DE PERFIL DESPLEGABLE --- */
+.user-menu-header[b-98p2eraplv] {
+    min-width: 250px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    background-color: var(--mud-palette-background-gray);
+}
+
+.profile-avatar-glow[b-98p2eraplv] {
+    box-shadow: 0 4px 10px rgba(43, 76, 222, 0.15);
+    font-weight: 700;
+}
+
+.user-menu-name[b-98p2eraplv] {
+    font-weight: 700;
+}
+
+.truncate-text[b-98p2eraplv] {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 160px;
+}
+
+.role-text-badge[b-98p2eraplv] {
+    font-weight: 700;
+    color: var(--mud-palette-secondary); /* Realce Rose Gold en el nombre del Rol */
+}
+
+.logout-text-formatted[b-98p2eraplv] {
+    font-weight: 700;
+    color: var(--mud-palette-error);
+}
+
+/* --- ADAPTABILIDAD DE TEXTOS MÓVILES (ANTI-DESBORDAMIENTO) --- */
+@media (max-width: 768px) {
+    .inner-page-container-fluid[b-98p2eraplv] {
+        padding: 20px 12px;
+    }
+    .main-appbar[b-98p2eraplv] {
+        padding-left: 8px !important;
+        padding-right: 8px !important;
+    }
+}
+/* /Layout/NavMenu.razor.rz.scp.css */
+/* Quitamos paddings laterales para que las filas toquen los bordes del Drawer como en tu imagen */
+.nav-menu-wrapper-luxury[b-autxrnx0a8] {
+    padding: 12px 0 36px 0;
+}
+
+.nav-section-layer[b-autxrnx0a8] {
+    margin-bottom: 20px;
+}
+
+/* Títulos de sección estilo Forecast Arena */
+.nav-group-tag-gold[b-autxrnx0a8] {
+    display: block;
+    margin: 0 24px 8px;
+    font-size: 0.72rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--mud-palette-tertiary); /* Captura el color Oro de tu ClinicaTheme */
+}
+
+/* --- TRANSFORMACIÓN A BOTONES DE FILA DELIMITADOS --- */
+[b-autxrnx0a8] .nav-item-link-luxury {
+    border-radius: 0px !important; /* Estilo de fila continua como tu referencia */
+    margin-bottom: 0px;
+    padding: 14px 24px !important; /* Más altura para mejorar la usabilidad táctil */
+    color: var(--mud-palette-text-primary) !important;
+    border-bottom: 1px solid var(--mud-palette-background-gray); /* Línea divisora entre opciones */
+    transition: all 0.2s ease-in-out !important;
+}
+
+/* Control estricto del texto para evitar desbordamientos en móviles */
+[b-autxrnx0a8] .nav-item-link-luxury .mud-nav-link-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: 500;
+}
+
+[b-autxrnx0a8] .nav-item-link-luxury .mud-nav-link-icon {
+    color: var(--mud-palette-text-secondary) !important; /* Iconos neutros en reposo para no saturar */
+    margin-right: 16px !important;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+/* Hover sutil con cambio de fondo */
+[b-autxrnx0a8] .nav-item-link-luxury:hover {
+    background-color: var(--mud-palette-background-gray) !important;
+    transform: none !important; /* Mantenemos la estructura firme de la cuadrícula */
+}
+
+/* ─── ENLACE ACTIVO: RÉPLICA EXACTA DE TU IMAGEN DE REFERENCIA ─── */
+[b-autxrnx0a8] .nav-item-link-luxury.active {
+    /* Fondo cálido y suave (Beige/Oro translúcido) para romper el blanco abrumador */
+    background-color: rgba(229, 179, 36, 0.05) !important;
+    color: var(--mud-palette-primary) !important;
+    font-weight: 700 !important;
+}
+
+/* Modificamos el icono del ítem activo para que resalte con fuerza visual */
+[b-autxrnx0a8] .nav-item-link-luxury.active .mud-nav-link-icon {
+    color: var(--mud-palette-primary) !important;
+    transform: scale(1.05);
+}
+
+/* Línea de realce vertical izquierda en color Oro (Tertiary) para anclar la ruta */
+[b-autxrnx0a8] .nav-item-link-luxury.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%; /* Cubre toda la altura de la fila como en tu imagen */
+    width: 4px;
+    background-color: var(--mud-palette-tertiary); /* Acento de Oro Fino */
+    border-radius: 0;
+}
+
+/* ─── MODO OSCURO (DARK MODE INTERNA) ─── */
+/* Cuando el sistema pasa a Modo Noche, cambiamos el fondo activo para que no deslumbre */
+:global(.mud-dark)[b-autxrnx0a8]  .nav-item-link-luxury.active {
+    background-color: rgba(252, 211, 77, 0.06) !important; /* Oro nocturno translúcido */
+    color: var(--mud-palette-primary) !important;
+}
+
+:global(.mud-dark)[b-autxrnx0a8]  .nav-item-link-luxury {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Líneas divisoras oscuras y elegantes */
+}
+/* /Pages/Auth/LoginPage.razor.rz.scp.css */
+.login-page[b-ayif41alvc] {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+    /* Contraste mejorado usando el fondo gris azulado limpio de tu ClinicaTheme */
+    background:
+            radial-gradient(circle at 15% 15%, rgba(43, 76, 222, 0.06) 0%, transparent 35%),
+            radial-gradient(circle at 85% 85%, rgba(212, 138, 156, 0.12) 0%, transparent 40%),
+            var(--mud-palette-background);
+    overflow-y: auto;
+}
+
+.login-shell[b-ayif41alvc] {
+    width: min(100%, 1060px);
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    border-radius: 20px; /* Esquinas consistentes con el Layout de 16px-20px */
+    overflow: hidden;
+    background: var(--mud-palette-surface);
+    /* Inyección de la nueva sombra multicapa difusa */
+    box-shadow: var(--mud-elevation-3);
+    border-top: 4px solid var(--mud-palette-secondary); /* Microborde Rose Gold superior estilo Forecast Arena */
+    animation: scaleInLogin-b-ayif41alvc 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes scaleInLogin-b-ayif41alvc {
+    from { opacity: 0; transform: scale(0.97); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* --- PANEL DE MARCA IZQUIERDO --- */
+.login-brand-panel[b-ayif41alvc] {
+    min-height: 620px;
+    padding: 56px;
+    color: #FFFFFF;
+    background:
+            linear-gradient(135deg, rgba(43, 76, 222, 0.96), rgba(212, 138, 156, 0.88)),
+            url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M54 48c-2 0-3 1-4 2v4c0 1-1 2-2 2H4c-1 0-2-1-2-2v-4c0-1-1-2-4-2v-2c3 0 4 1 4 2v4h44v-4c0-1 1-2 4-2v2zM30 20c-2 0-3 1-4 2v4c0 1-1 2-2 2H4c-1 0-2-1-2-2v-4c0-1-1-2-4-2v-2c3 0 4 1 4 2v4h20v-4c0-1 1-2 4-2v2z' fill='%23ffffff' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-width: 0;
+}
+
+.brand-badge-luxury[b-ayif41alvc] {
+    align-self: flex-start;
+    padding: 8px 16px;
+    border-radius: 10px;
+    display: inline-flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.12);
+    font-size: 1.05rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.brand-core-text[b-ayif41alvc] {
+    min-width: 0;
+}
+
+.brand-core-text h1[b-ayif41alvc] {
+    font-size: clamp(1.8rem, 3.2vw, 2.5rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    margin-bottom: 6px;
+    word-wrap: break-word;
+}
+
+.brand-core-text p[b-ayif41alvc] {
+    font-size: 1.05rem;
+    opacity: 0.9;
+    font-weight: 400;
+}
+
+.brand-message-box[b-ayif41alvc] {
+    min-width: 0;
+}
+
+.brand-message-box h2[b-ayif41alvc] {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.brand-message-box p[b-ayif41alvc] {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    opacity: 0.85;
+}
+
+/* --- FORMULARIO DE ACCESO DERECHO (ALTO CONTRASTE) --- */
+.login-container-card-luxury[b-ayif41alvc] {
+    padding: 56px 48px;
+    background: var(--mud-palette-surface);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 0;
+}
+
+.login-header-group[b-ayif41alvc] {
+    min-width: 0;
+}
+
+.login-title-premium[b-ayif41alvc] {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--mud-palette-text-primary);
+    font-size: 1.75rem !important;
+}
+
+.login-subtitle-premium[b-ayif41alvc] {
+    color: var(--mud-palette-text-secondary);
+    font-size: 0.9rem !important;
+    line-height: 1.4;
+}
+
+.form-fields-stack[b-ayif41alvc] {
+    width: 100%;
+}
+
+.login-actions-panel[b-ayif41alvc] {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.login-submit-btn-luxury[b-ayif41alvc] {
+    border-radius: var(--mud-layout-properties-default-border-radius) !important; /* Respeta los 16px del tema */
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    box-shadow: var(--mud-elevation-2) !important;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    text-transform: none;
+}
+
+.login-submit-btn-luxury:hover:not(:disabled)[b-ayif41alvc] {
+    transform: translateY(-1px);
+    box-shadow: var(--mud-elevation-3) !important;
+    background-color: var(--mud-palette-primary-dark) !important;
+}
+
+.layout-divider[b-ayif41alvc] {
+    border-color: var(--mud-palette-divider) !important;
+}
+
+.developer-badge-luxury[b-ayif41alvc] {
+    color: var(--mud-palette-text-secondary);
+    background-color: var(--mud-palette-background-gray);
+    padding: 8px 16px;
+    border-radius: 10px;
+    width: fit-content;
+    margin: 0 auto;
+    border: 1px solid var(--mud-palette-divider);
+    font-weight: 500;
+}
+
+/* --- RESPONSIVIDAD ESTRICTA (ANTI-DESBORDAMIENTO) --- */
+@media (max-width: 960px) {
+    .login-shell[b-ayif41alvc] {
+        grid-template-columns: 1fr;
+        width: min(100%, 480px);
+        margin: 0 auto;
+    }
+
+    .login-brand-panel[b-ayif41alvc] {
+        min-height: auto;
+        padding: 36px 32px;
+    }
+
+    .brand-message-box[b-ayif41alvc] {
+        display: none; /* Se oculta de forma limpia para optimizar la verticalidad en tabletas/móviles */
+    }
+
+    .login-container-card-luxury[b-ayif41alvc] {
+        padding: 40px 32px;
+    }
+}
+
+@media (max-width: 540px) {
+    .login-page[b-ayif41alvc] {
+        padding: 0;
+    }
+
+    .login-shell[b-ayif41alvc] {
+        min-height: 100vh;
+        border-radius: 0;
+        width: 100%;
+        border-top: none;
+    }
+
+    .login-brand-panel[b-ayif41alvc] {
+        padding: 32px 24px;
+    }
+
+    .login-container-card-luxury[b-ayif41alvc] {
+        padding: 32px 24px;
+        justify-content: flex-start;
+    }
+}
+/* /Pages/Citas/CitasPage.razor.rz.scp.css */
+.citas-master-card[b-nzd3ciamq2] {
+    background-color: var(--mud-palette-surface);
+    padding: 32px;
+    border-radius: var(--mud-layout-properties-default-border-radius); /* 16px */
+    box-shadow: var(--mud-elevation-2);
+    border: 1px solid var(--mud-palette-divider);
+    margin-top: 16px;
+}
+
+/* Microborde superior decorativo Oro Fino basado en Forecast Arena */
+.view-gold-highlight[b-nzd3ciamq2] {
+    border-top: 4px solid var(--mud-palette-tertiary);
+}
+
+.master-card-title[b-nzd3ciamq2] {
+    font-weight: 800 !important;
+    letter-spacing: -0.02em;
+    color: var(--mud-palette-text-primary);
+}
+
+.master-card-subtitle[b-nzd3ciamq2] {
+    color: var(--mud-palette-text-secondary);
+    opacity: 0.8;
+}
+
+.search-panel-luxury-box[b-nzd3ciamq2] {
+    background-color: var(--mud-palette-surface);
+    border-radius: 12px;
+    box-shadow: var(--mud-elevation-1);
+    border: 1px solid var(--mud-palette-divider);
+    overflow: hidden;
+}
+
+[b-nzd3ciamq2] .search-box-field-clean .mud-input-outlined-border {
+    border: none !important; /* Limpia el recuadro nativo tosco para usar la capa completa */
+}
+
+.fade-in-animate[b-nzd3ciamq2] {
+    animation: quickFade-b-nzd3ciamq2 0.3s ease-out;
+}
+
+@keyframes quickFade-b-nzd3ciamq2 {
+    from { opacity: 0; transform: translateY(-4px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.error-panel-frame[b-nzd3ciamq2] {
+    background-color: var(--mud-palette-surface);
+    border-radius: 16px;
+    border: 1px dashed var(--mud-palette-error);
+}
+
+@media (max-width: 600px) {
+    .citas-master-card[b-nzd3ciamq2] {
+        padding: 24px 16px;
+    }
+}
+/* /Pages/Dashboard/Dashboard.razor.rz.scp.css */
+.dashboard-canvas-layer[b-7igzkbfs88] {
+    animation: quickFadeDashboard-b-7igzkbfs88 0.4s ease-out;
+}
+
+@keyframes quickFadeDashboard-b-7igzkbfs88 {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- ENCABEZADO MAESTRO --- */
+.dashboard-header-flex[b-7igzkbfs88] {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.title-text-stack[b-7igzkbfs88] {
+    min-width: 0;
+}
+
+.dashboard-main-title[b-7igzkbfs88] {
+    font-weight: 800 !important;
+    letter-spacing: -0.03em;
+    color: var(--mud-palette-text-primary);
+    font-size: clamp(1.5rem, 4vw, 2.2rem) !important;
+}
+
+.dashboard-main-subtitle[b-7igzkbfs88] {
+    color: var(--mud-palette-text-secondary);
+    opacity: 0.8;
+}
+
+.sync-status-badge-luxury[b-7igzkbfs88] {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background-color: var(--mud-palette-surface);
+    padding: 8px 16px;
+    border-radius: 12px;
+    border: 1px solid var(--mud-palette-divider);
+    color: var(--mud-palette-text-primary);
+    box-shadow: var(--mud-elevation-1);
+}
+
+.ping-indicator-pulse[b-7igzkbfs88] {
+    width: 8px;
+    height: 8px;
+    background-color: #10B981;
+    border-radius: 50%;
+    position: relative;
+}
+
+.ping-indicator-pulse[b-7igzkbfs88]::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #10B981;
+    border-radius: 50%;
+    animation: ripPulseGlow-b-7igzkbfs88 2s infinite ease-out;
+}
+
+@keyframes ripPulseGlow-b-7igzkbfs88 {
+    0% { transform: scale(1); opacity: 0.6; }
+    100% { transform: scale(2.8); opacity: 0; }
+}
+
+/* --- CAPAS DE TARJETAS KPI PREMIUM --- */
+.kpi-card-luxury[b-7igzkbfs88] {
+    background-color: var(--mud-palette-surface);
+    padding: 24px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    box-shadow: var(--mud-elevation-2);
+    border: 1px solid var(--mud-palette-divider);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    height: 100%;
+}
+
+.kpi-card-luxury:hover[b-7igzkbfs88] {
+    transform: translateY(-2px);
+    box-shadow: var(--mud-elevation-3);
+}
+
+.accent-primary[b-7igzkbfs88] { border-left: 5px solid var(--mud-palette-primary); }
+.accent-secondary[b-7igzkbfs88] { border-left: 5px solid var(--mud-palette-secondary); } /* Rose Gold */
+.accent-success[b-7igzkbfs88] { border-left: 5px solid var(--mud-palette-success); }
+.accent-tertiary[b-7igzkbfs88] { border-left: 5px solid var(--mud-palette-tertiary); } /* Oro */
+
+.kpi-icon-shell[b-7igzkbfs88] {
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+}
+
+.shell-primary[b-7igzkbfs88] { background-color: rgba(43, 76, 222, 0.06); color: var(--mud-palette-primary); }
+.shell-secondary[b-7igzkbfs88] { background-color: rgba(195, 141, 158, 0.08); color: var(--mud-palette-secondary); }
+.shell-success[b-7igzkbfs88] { background-color: rgba(16, 185, 129, 0.06); color: var(--mud-palette-success); }
+.shell-tertiary[b-7igzkbfs88] { background-color: rgba(229, 179, 36, 0.06); color: var(--mud-palette-tertiary); }
+
+.kpi-data-stack[b-7igzkbfs88] {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    width: 100%;
+}
+
+.kpi-numeric-value[b-7igzkbfs88] {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--mud-palette-text-primary);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.kpi-text-label[b-7igzkbfs88] {
+    font-size: 0.8rem;
+    color: var(--mud-palette-text-secondary);
+    font-weight: 600;
+    margin-top: 2px;
+}
+
+.text-rose-gold[b-7igzkbfs88] { color: var(--mud-palette-secondary); }
+.text-gold[b-7igzkbfs88] { color: var(--mud-palette-tertiary); }
+
+.kpi-loader-bar[b-7igzkbfs88] {
+    height: 4px;
+    border-radius: 2px;
+    margin: 8px 0;
+}
+
+/* --- SUPERFICIES Y CUADRANTES DE CAPA --- */
+.dashboard-panel-surface[b-7igzkbfs88] {
+    background-color: var(--mud-palette-surface);
+    padding: 28px;
+    border-radius: 16px;
+    border: 1px solid var(--mud-palette-divider);
+    box-shadow: var(--mud-elevation-2);
+}
+
+.border-top-tertiary[b-7igzkbfs88] { border-top: 4px solid var(--mud-palette-tertiary); }
+.border-top-primary[b-7igzkbfs88] { border-top: 4px solid var(--mud-palette-primary); }
+.layout-full-height[b-7igzkbfs88] { height: 100%; }
+
+.panel-luxury-title[b-7igzkbfs88] {
+    font-weight: 800 !important;
+    color: var(--mud-palette-text-primary);
+    letter-spacing: -0.01em;
+}
+
+.panel-luxury-subtitle[b-7igzkbfs88] {
+    color: var(--mud-palette-text-secondary);
+    opacity: 0.8;
+}
+
+/* Flex de Acciones Rápidas Continuas */
+.quick-actions-flex[b-7igzkbfs88] {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.full-bleed-btn[b-7igzkbfs88] {
+    width: 100%;
+    justify-content: flex-start;
+    font-weight: 600 !important;
+}
+
+/* Grilla de Telemetría Interna */
+.telemetry-grid-luxury[b-7igzkbfs88] {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+}
+
+.telemetry-cell[b-7igzkbfs88] {
+    background-color: var(--mud-palette-background-gray);
+    padding: 12px 16px;
+    border-radius: 10px;
+    border: 1px solid var(--mud-palette-divider);
+    display: flex;
+    flex-direction: column;
+}
+
+.telemetry-label[b-7igzkbfs88] {
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--mud-palette-text-secondary);
+    letter-spacing: 0.04em;
+}
+
+.telemetry-value[b-7igzkbfs88] {
+    font-size: 0.88rem;
+    font-weight: 600;
+}
+
+/* Consolidador Base */
+.infra-panel-header[b-7igzkbfs88] {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.infra-icon-glow[b-7igzkbfs88] {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background-color: rgba(43, 76, 222, 0.06);
+    color: var(--mud-palette-primary);
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(43, 76, 222, 0.1);
+}
+
+/* --- RESPONSIVIDAD RESPONSABLE (MÓVIL) --- */
+@media (max-width: 768px) {
+    .dashboard-header-flex[b-7igzkbfs88] {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+
+    .sync-status-badge-luxury[b-7igzkbfs88] {
+        align-self: flex-start;
+    }
+
+    .kpi-card-luxury[b-7igzkbfs88] {
+        padding: 20px;
+    }
+
+    .dashboard-panel-surface[b-7igzkbfs88] {
+        padding: 20px;
+    }
+
+    .infra-panel-header[b-7igzkbfs88] {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+/* /Pages/Doctores/DoctoresPage.razor.rz.scp.css */
+.doctor-master-card[b-ofabutcr5n] {
+    background-color: var(--mud-palette-surface);
+    padding: 32px;
+    border-radius: var(--mud-layout-properties-default-border-radius); /* 16px */
+    box-shadow: var(--mud-elevation-2);
+    border: 1px solid var(--mud-palette-divider);
+    margin-top: 16px;
+}
+
+/* Bordes superiores de realce cromático estilo Forecast Arena */
+.view-gold-topline[b-ofabutcr5n] { border-top: 4px solid var(--mud-palette-tertiary); } /* Oro */
+.view-rose-topline[b-ofabutcr5n] { border-top: 4px solid var(--mud-palette-secondary); } /* Rose Gold */
+
+.master-card-title[b-ofabutcr5n] {
+    font-weight: 800 !important;
+    letter-spacing: -0.02em;
+    color: var(--mud-palette-text-primary);
+}
+
+.master-card-subtitle[b-ofabutcr5n] {
+    color: var(--mud-palette-text-secondary);
+    opacity: 0.8;
+}
+
+.search-luxury-frame[b-ofabutcr5n] {
+    background-color: var(--mud-palette-surface);
+    border-radius: 12px;
+    box-shadow: var(--mud-elevation-1);
+    border: 1px solid var(--mud-palette-divider);
+    overflow: hidden;
+}
+
+[b-ofabutcr5n] .clean-search-field .mud-input-outlined-border {
+    border: none !important; /* Limpia el recuadro nativo tosco */
+}
+
+.animate-fade-clean[b-ofabutcr5n] {
+    animation: quickFadeClean-b-ofabutcr5n 0.3s ease-out;
+}
+
+@keyframes quickFadeClean-b-ofabutcr5n {
+    from { opacity: 0; transform: translateY(-4px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.error-panel-container[b-ofabutcr5n] {
+    background-color: var(--mud-palette-surface);
+    border-radius: 16px;
+    border: 1px dashed var(--mud-palette-error);
+}
+
+/* Adaptabilidad para pantallas compactas móviles */
+@media (max-width: 600px) {
+    .doctor-master-card[b-ofabutcr5n] {
+        padding: 24px 16px;
+    }
+}
+/* /Pages/Finanzas/FinanzasPage.razor.rz.scp.css */
+.luxury-navigation-tabs[b-0lv9uc7n0y] {
+    background-color: var(--mud-palette-surface);
+    border: 1px solid var(--mud-palette-divider);
+    border-radius: var(--mud-layout-properties-default-border-radius); /* 16px */
+    overflow: hidden;
+    box-shadow: var(--mud-elevation-2);
+}
+
+.tab-canvas-luxury[b-0lv9uc7n0y] {
+    padding: 24px;
+    background-color: var(--mud-palette-surface);
+}
+
+.query-filter-strip[b-0lv9uc7n0y] {
+    background-color: var(--mud-palette-background-gray);
+    padding: 16px 20px;
+    border-radius: 12px;
+    border: 1px solid var(--mud-palette-divider);
+}
+
+[b-0lv9uc7n0y] .clean-select-inside .mud-input-outlined-border {
+    border: none !important; /* Limpia bordes internos select */
+}
+
+/* --- TARJETA LUXURY ESTADO DE CUENTA PACIENTE --- */
+.statement-card-luxury[b-0lv9uc7n0y] {
+    background-color: var(--mud-palette-surface);
+    padding: 24px;
+    border-radius: 14px;
+    border: 1px solid var(--mud-palette-divider);
+    box-shadow: var(--mud-elevation-1);
+}
+.border-top-tertiary[b-0lv9uc7n0y] { border-top: 4px solid var(--mud-palette-tertiary); }
+
+.statement-patient-name[b-0lv9uc7n0y] {
+    font-weight: 800 !important;
+    letter-spacing: -0.02em;
+    color: var(--mud-palette-text-primary);
+}
+
+.statement-metrics-grid[b-0lv9uc7n0y] {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.statement-metric-cell[b-0lv9uc7n0y] {
+    background-color: var(--mud-palette-background-gray);
+    padding: 12px 16px;
+    border-radius: 10px;
+    border: 1px solid var(--mud-palette-divider);
+    display: flex;
+    flex-direction: column;
+}
+
+.s-label[b-0lv9uc7n0y] { font-size: 0.7rem; font-weight: 800; text-transform: uppercase; color: var(--mud-palette-text-secondary); letter-spacing: 0.05em; }
+.s-value[b-0lv9uc7n0y] { font-size: 1.25rem; font-weight: 700; color: var(--mud-palette-text-primary); margin-top: 2px; }
+
+.header-cell-premium-statement[b-0lv9uc7n0y] {
+    font-weight: 700 !important;
+    text-transform: uppercase;
+    font-size: 0.72rem !important;
+    letter-spacing: 0.04em;
+    background-color: var(--mud-palette-background-gray) !important;
+    color: var(--mud-palette-text-secondary) !important;
+    padding: 12px !important;
+}
+
+.text-success-dark[b-0lv9uc7n0y] { color: #059669; }
+.text-rose-gold[b-0lv9uc7n0y] { color: var(--mud-palette-secondary); }
+
+@media (max-width: 600px) {
+    .full-width-mobile[b-0lv9uc7n0y] {
+        width: 100%;
+        margin-top: 4px;
+    }
+}
+/* /Pages/Historiales/HistorialClinicoPage.razor.rz.scp.css */
+.search-luxury-layer[b-55dqxq9qe0] {
+    background-color: var(--mud-palette-surface);
+    padding: 16px 24px;
+    border-radius: 16px;
+    border: 1px solid var(--mud-palette-divider);
+    box-shadow: var(--mud-elevation-1);
+}
+
+[b-55dqxq9qe0] .search-autocomplete-clean .mud-input-outlined-border {
+    border: none !important; /* Limpia el borde nativo tosco */
+}
+
+/* --- TARJETA DE RESUMEN DE PERFIL MÉDICO --- */
+.patient-profile-summary-card[b-55dqxq9qe0] {
+    background-color: var(--mud-palette-surface);
+    padding: 24px;
+    border-radius: 16px;
+    border: 1px solid var(--mud-palette-divider);
+    box-shadow: var(--mud-elevation-2);
+    border-top: 4px solid var(--mud-palette-tertiary); /* Microborde Oro Fino */
+    animation: quickFadeClean-b-55dqxq9qe0 0.3s ease-out;
+}
+
+.profile-summary-header[b-55dqxq9qe0] {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.profile-summary-title[b-55dqxq9qe0] {
+    font-weight: 800 !important;
+    letter-spacing: -0.02em;
+    color: var(--mud-palette-text-primary);
+}
+
+.profile-summary-subtitle[b-55dqxq9qe0] {
+    color: var(--mud-palette-text-secondary);
+    font-size: 0.95rem;
+}
+
+.status-indicator-tag[b-55dqxq9qe0] {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 6px;
+    letter-spacing: 0.05em;
+}
+
+.status-indicator-tag.active-status[b-55dqxq9qe0] {
+    background-color: rgba(16, 185, 129, 0.1);
+    color: #10B981;
+}
+
+.profile-metadata-grid[b-55dqxq9qe0] {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.metadata-mini-cell[b-55dqxq9qe0] {
+    background-color: var(--mud-palette-background-gray);
+    padding: 10px 16px;
+    border-radius: 10px;
+    border: 1px solid var(--mud-palette-divider);
+    display: flex;
+    flex-direction: column;
+}
+
+.mini-label[b-55dqxq9qe0] {
+    font-size: 0.68rem;
+    font-weight: 800;
+    color: var(--mud-palette-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    opacity: 0.8;
+}
+
+.mini-value[b-55dqxq9qe0] {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--mud-palette-text-primary);
+    margin-top: 2px;
+}
+
+/* --- TABLA DE REGISTROS CLÍNICOS --- */
+.history-table-layer[b-55dqxq9qe0] {
+    background-color: var(--mud-palette-surface);
+    border-radius: 16px;
+    box-shadow: var(--mud-elevation-2);
+    border: 1px solid var(--mud-palette-divider);
+    overflow: hidden;
+}
+
+.header-cell-premium[b-55dqxq9qe0] {
+    font-weight: 700 !important;
+    text-transform: uppercase;
+    font-size: 0.75rem !important;
+    letter-spacing: 0.05em;
+    background-color: var(--mud-palette-background-gray) !important;
+    color: var(--mud-palette-text-secondary) !important;
+    padding: 16px !important;
+}
+
+.movement-type-pill[b-55dqxq9qe0] {
+    font-weight: 700;
+    font-size: 0.8rem;
+    color: var(--mud-palette-primary);
+    background-color: rgba(43, 76, 222, 0.05);
+    padding: 4px 10px;
+    border-radius: 6px;
+}
+
+.action-btn-styled[b-55dqxq9qe0] {
+    background-color: var(--mud-palette-background-gray);
+    border-radius: 8px !important;
+    transition: all 0.2s ease;
+}
+
+.action-btn-styled:hover[b-55dqxq9qe0] {
+    background-color: var(--mud-palette-divider);
+}
+
+.table-pager-luxury[b-55dqxq9qe0] {
+    border-top: 1px solid var(--mud-palette-divider);
+    padding: 4px 8px;
+}
+
+.animate-fade-clean[b-55dqxq9qe0] {
+    animation: quickFadeClean-b-55dqxq9qe0 0.3s ease-out;
+}
+
+@keyframes quickFadeClean-b-55dqxq9qe0 {
+    from { opacity: 0; transform: translateY(-4px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- RESPONSIVIDAD ESTRICTA --- */
+@media (max-width: 768px) {
+    .full-width-mobile[b-55dqxq9qe0] {
+        width: 100%;
+        margin-top: 8px;
+    }
+}
+/* /Pages/Horarios/HorariosPage.razor.rz.scp.css */
+.horarios-master-card[b-ogr5yd8v52] {
+    background-color: var(--mud-palette-surface);
+    padding: 32px;
+    border-radius: var(--mud-layout-properties-default-border-radius);
+    box-shadow: var(--mud-elevation-2);
+    border: 1px solid var(--mud-palette-divider);
+    margin-top: 16px;
+}
+
+.view-gold-topline[b-ogr5yd8v52] { border-top: 4px solid var(--mud-palette-tertiary); }
+.view-rose-topline[b-ogr5yd8v52] { border-top: 4px solid var(--mud-palette-secondary); }
+
+.master-card-title[b-ogr5yd8v52] {
+    font-weight: 800 !important;
+    letter-spacing: -0.02em;
+    color: var(--mud-palette-text-primary);
+}
+
+.master-card-subtitle[b-ogr5yd8v52] {
+    color: var(--mud-palette-text-secondary);
+    opacity: 0.8;
+}
+
+.search-luxury-frame[b-ogr5yd8v52] {
+    background-color: var(--mud-palette-surface);
+    border-radius: 12px;
+    box-shadow: var(--mud-elevation-1);
+    border: 1px solid var(--mud-palette-divider);
+    overflow: hidden;
+}
+
+[b-ogr5yd8v52] .clean-search-field .mud-input-outlined-border {
+    border: none !important;
+}
+
+.animate-fade-clean[b-ogr5yd8v52] {
+    animation: quickFadeClean-b-ogr5yd8v52 0.3s ease-out;
+}
+
+@keyframes quickFadeClean-b-ogr5yd8v52 {
+    from { opacity: 0; transform: translateY(-4px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.error-panel-container[b-ogr5yd8v52] {
+    background-color: var(--mud-palette-surface);
+    border-radius: 16px;
+    border: 1px dashed var(--mud-palette-error);
+}
+
+@media (max-width: 600px) {
+    .horarios-master-card[b-ogr5yd8v52] {
+        padding: 24px 16px;
+    }
+}
+/* /Pages/Pacientes/PacientesPage.razor.rz.scp.css */
+/* Tarjetas maestras con relieve y microbordes temáticos del Forecast Arena */
+.patient-master-card-styled[b-vlo2mefzsw] {
+    background-color: var(--mud-palette-surface);
+    padding: 32px;
+    border-radius: var(--mud-layout-properties-default-border-radius); /* 16px */
+    box-shadow: var(--mud-elevation-2);
+    border: 1px solid var(--mud-palette-divider);
+    margin-top: 16px;
+}
+
+/* Bordes superiores de vista para inyectar los nuevos acentos cromáticos */
+.view-gold-border[b-vlo2mefzsw] {
+    border-top: 4px solid var(--mud-palette-tertiary); /* Oro Fino */
+}
+
+.view-rose-border[b-vlo2mefzsw] {
+    border-top: 4px solid var(--mud-palette-secondary); /* Rose Gold */
+}
+
+.card-title-text[b-vlo2mefzsw] {
+    font-weight: 800 !important;
+    letter-spacing: -0.02em;
+    color: var(--mud-palette-text-primary);
+}
+
+.card-subtitle-text[b-vlo2mefzsw] {
+    color: var(--mud-palette-text-secondary);
+    opacity: 0.8;
+}
+
+/* Caja de Búsqueda */
+.search-panel-luxury[b-vlo2mefzsw] {
+    background-color: var(--mud-palette-surface);
+    border-radius: 12px;
+    box-shadow: var(--mud-elevation-1);
+    border: 1px solid var(--mud-palette-divider);
+    overflow: hidden;
+}
+
+[b-vlo2mefzsw] .search-input-field .mud-input-outlined-border {
+    border: none !important; /* Limpia el borde nativo tosco para usar la caja completa */
+}
+
+.animate-fade-in[b-vlo2mefzsw] {
+    animation: fadeIn-b-vlo2mefzsw 0.3s ease-out;
+}
+
+@keyframes fadeIn-b-vlo2mefzsw {
+    from { opacity: 0; transform: translateY(-4px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.error-wrapper-box[b-vlo2mefzsw] {
+    background-color: var(--mud-palette-surface);
+    border-radius: 16px;
+    border: 1px dashed var(--mud-palette-error);
+}
+
+@media (max-width: 600px) {
+    .patient-master-card-styled[b-vlo2mefzsw] {
+        padding: 24px 16px;
+    }
+}
+/* /Pages/Pagos/PagosPage.razor.rz.scp.css */
+.filter-master-card[b-p5sa1ld65w] {
+    background-color: var(--mud-palette-surface);
+    padding: 16px 24px;
+    border-radius: var(--mud-layout-properties-default-border-radius); /* 16px */
+    box-shadow: var(--mud-elevation-1);
+    border: 1px solid var(--mud-palette-divider);
+}
+
+.view-gold-topline[b-p5sa1ld65w] {
+    border-top: 4px solid var(--mud-palette-tertiary); /* Microborde superior color Oro */
+}
+
+[b-p5sa1ld65w] .clean-select-field .mud-input-outlined-border {
+    border: none !important; /* Quita el recuadro tosco nativo */
+}
+
+.animate-fade-clean[b-p5sa1ld65w] {
+    animation: quickFadeClean-b-p5sa1ld65w 0.3s ease-out;
+}
+
+@keyframes quickFadeClean-b-p5sa1ld65w {
+    from { opacity: 0; transform: translateY(-4px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.error-panel-container[b-p5sa1ld65w] {
+    background-color: var(--mud-palette-surface);
+    border-radius: 16px;
+    border: 1px dashed var(--mud-palette-error);
+}
+
+@media (max-width: 768px) {
+    .w-100-mobile[b-p5sa1ld65w] {
+        width: 100%;
+        margin-top: 8px;
+    }
+}
+/* /Pages/Permisos/PermisosPage.razor.rz.scp.css */
+.permisos-table-layer[b-cgcnrztaq8] {
+    background-color: var(--mud-palette-surface);
+    border-radius: var(--mud-layout-properties-default-border-radius); /* 16px */
+    box-shadow: var(--mud-elevation-2);
+    border: 1px solid var(--mud-palette-divider);
+    overflow: hidden;
+}
+
+.header-cell-premium[b-cgcnrztaq8] {
+    font-weight: 700 !important;
+    text-transform: uppercase;
+    font-size: 0.75rem !important;
+    letter-spacing: 0.05em;
+    background-color: var(--mud-palette-background-gray) !important;
+    color: var(--mud-palette-text-secondary) !important;
+    padding: 16px !important;
+}
+
+.permission-code-badge[b-cgcnrztaq8] {
+    font-weight: 700;
+    font-family: monospace;
+    background-color: var(--mud-palette-background-gray);
+    padding: 4px 8px;
+    border-radius: 6px;
+    border: 1px solid var(--mud-palette-divider);
+    color: var(--mud-palette-text-primary);
+    font-size: 0.8rem;
+}
+
+.permission-module-tag[b-cgcnrztaq8] {
+    font-weight: 600;
+    color: var(--mud-palette-text-primary);
+    font-size: 0.85rem;
+}
+
+.boolean-icon-wrapper[b-cgcnrztaq8] {
+    align-items: center;
+}
+
+.table-pager-luxury[b-cgcnrztaq8] {
+    border-top: 1px solid var(--mud-palette-divider);
+    padding: 4px 8px;
+}
+
+.search-luxury-frame[b-cgcnrztaq8] {
+    background-color: var(--mud-palette-surface);
+    border-radius: 12px;
+    box-shadow: var(--mud-elevation-1);
+    border: 1px solid var(--mud-palette-divider);
+    overflow: hidden;
+}
+
+[b-cgcnrztaq8] .clean-search-field .mud-input-outlined-border {
+    border: none !important;
+}
+
+.error-panel-container[b-cgcnrztaq8] {
+    background-color: var(--mud-palette-surface);
+    border-radius: 16px;
+    border: 1px dashed var(--mud-palette-error);
+}
+/* /Pages/PsicomedixChat/PsicomedixChat.razor.rz.scp.css */
+.chat-main-board-luxury[b-ns03llsvv7] {
+    /* Calcula el espacio exacto restando el AppBar y los márgenes de tu contenedor principal */
+    height: calc(100vh - 130px);
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: var(--mud-palette-background);
+    border: 1px solid rgba(212, 175, 55, 0.15); /* Marco sutil dorado */
+}
+
+.chat-layout-split[b-ns03llsvv7] {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.chat-layout-sidebar[b-ns03llsvv7] {
+    width: 30%;
+    min-width: 320px;
+    height: 100%;
+}
+
+.chat-layout-content[b-ns03llsvv7] {
+    width: 70%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Soporte adaptativo para pantallas pequeñas */
+@media (max-width: 960px) {
+    .chat-layout-sidebar[b-ns03llsvv7] {
+        width: 40%;
+    }
+    .chat-layout-content[b-ns03llsvv7] {
+        width: 60%;
+    }
+}
+/* /Pages/Roles/RolesPage.razor.rz.scp.css */
+.roles-master-card[b-us3zg2pvkt] {
+    background-color: var(--mud-palette-surface);
+    padding: 32px;
+    border-radius: var(--mud-layout-properties-default-border-radius);
+    box-shadow: var(--mud-elevation-2);
+    border: 1px solid var(--mud-palette-divider);
+    margin-top: 16px;
+}
+
+.view-gold-topline[b-us3zg2pvkt] { border-top: 4px solid var(--mud-palette-tertiary); } /* Oro */
+.view-rose-topline[b-us3zg2pvkt] { border-top: 4px solid var(--mud-palette-secondary); } /* Rose Gold */
+
+.master-card-title[b-us3zg2pvkt] {
+    font-weight: 800 !important;
+    letter-spacing: -0.02em;
+    color: var(--mud-palette-text-primary);
+}
+
+.master-card-subtitle[b-us3zg2pvkt] {
+    color: var(--mud-palette-text-secondary);
+    opacity: 0.8;
+}
+
+.search-luxury-frame[b-us3zg2pvkt] {
+    background-color: var(--mud-palette-surface);
+    border-radius: 12px;
+    box-shadow: var(--mud-elevation-1);
+    border: 1px solid var(--mud-palette-divider);
+    overflow: hidden;
+}
+
+[b-us3zg2pvkt] .clean-search-field .mud-input-outlined-border {
+    border: none !important;
+}
+
+.animate-fade-clean[b-us3zg2pvkt] {
+    animation: quickFadeClean-b-us3zg2pvkt 0.3s ease-out;
+}
+
+@keyframes quickFadeClean-b-us3zg2pvkt {
+    from { opacity: 0; transform: translateY(-4px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.error-panel-container[b-us3zg2pvkt] {
+    background-color: var(--mud-palette-surface);
+    border-radius: 16px;
+    border: 1px dashed var(--mud-palette-error);
+}
+
+@media (max-width: 600px) {
+    .roles-master-card[b-us3zg2pvkt] {
+        padding: 24px 16px;
+    }
+}
+/* /Pages/ServiciosClinicos/ServiciosClinicosPage.razor.rz.scp.css */
+.search-luxury-frame[b-v7hnab5gw5] {
+    background-color: var(--mud-palette-surface);
+    border-radius: 12px;
+    box-shadow: var(--mud-elevation-1);
+    border: 1px solid var(--mud-palette-divider);
+    overflow: hidden;
+}
+
+[b-v7hnab5gw5] .clean-search-field .mud-input-outlined-border {
+    border: none !important; /* Remueve el recuadro nativo tosco */
+}
+
+.animate-fade-clean[b-v7hnab5gw5] {
+    animation: quickFadeClean-b-v7hnab5gw5 0.3s ease-out;
+}
+
+@keyframes quickFadeClean-b-v7hnab5gw5 {
+    from { opacity: 0; transform: translateY(-4px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.error-panel-container[b-v7hnab5gw5] {
+    background-color: var(--mud-palette-surface);
+    border-radius: 16px;
+    border: 1px dashed var(--mud-palette-error);
+}
+/* /Pages/Usuarios/UsuariosPage.razor.rz.scp.css */
+.user-master-card[b-13aczngbb8] {
+    background-color: var(--mud-palette-surface);
+    padding: 32px;
+    border-radius: var(--mud-layout-properties-default-border-radius); /* 16px */
+    box-shadow: var(--mud-elevation-2);
+    border: 1px solid var(--mud-palette-divider);
+    margin-top: 16px;
+}
+
+/* Microbordes superiores decorativos inspirados en Forecast Arena */
+.view-gold-topline[b-13aczngbb8] { border-top: 4px solid var(--mud-palette-tertiary); } /* Oro */
+.view-rose-topline[b-13aczngbb8] { border-top: 4px solid var(--mud-palette-secondary); } /* Rose Gold */
+
+.master-card-title[b-13aczngbb8] {
+    font-weight: 800 !important;
+    letter-spacing: -0.02em;
+    color: var(--mud-palette-text-primary);
+}
+
+.master-card-subtitle[b-13aczngbb8] {
+    color: var(--mud-palette-text-secondary);
+    opacity: 0.8;
+}
+
+.search-luxury-frame[b-13aczngbb8] {
+    background-color: var(--mud-palette-surface);
+    border-radius: 12px;
+    box-shadow: var(--mud-elevation-1);
+    border: 1px solid var(--mud-palette-divider);
+    overflow: hidden;
+}
+
+[b-13aczngbb8] .clean-search-field .mud-input-outlined-border {
+    border: none !important; /* Limpia el recuadro nativo tosco */
+}
+
+.animate-fade-clean[b-13aczngbb8] {
+    animation: quickFadeClean-b-13aczngbb8 0.3s ease-out;
+}
+
+@keyframes quickFadeClean-b-13aczngbb8 {
+    from { opacity: 0; transform: translateY(-4px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.error-panel-container[b-13aczngbb8] {
+    background-color: var(--mud-palette-surface);
+    border-radius: 16px;
+    border: 1px dashed var(--mud-palette-error);
+}
+
+@media (max-width: 600px) {
+    .user-master-card[b-13aczngbb8] {
+        padding: 24px 16px;
+    }
+}

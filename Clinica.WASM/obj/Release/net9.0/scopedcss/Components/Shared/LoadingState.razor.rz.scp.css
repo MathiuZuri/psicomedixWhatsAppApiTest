@@ -1,0 +1,32 @@
+.loading-canvas-layer[b-95nkaohzdc] {
+    width: 100%;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 36px 20px;
+}
+
+.spinner-tridimensional-shell[b-95nkaohzdc] {
+    padding: 4px;
+    display: inline-flex;
+    position: relative;
+}
+
+.loading-sync-text[b-95nkaohzdc] {
+    color: var(--mud-palette-text-secondary);
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    opacity: 0.75;
+}
+
+.animate-fade-loop[b-95nkaohzdc] {
+    animation: pulseGhost-b-95nkaohzdc 1.8s infinite ease-in-out;
+}
+
+@keyframes pulseGhost-b-95nkaohzdc {
+    0%, 100% { opacity: 0.85; }
+    50% { opacity: 0.5; }
+}

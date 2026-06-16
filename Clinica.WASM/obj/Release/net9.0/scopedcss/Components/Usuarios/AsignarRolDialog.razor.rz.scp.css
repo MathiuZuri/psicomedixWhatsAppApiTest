@@ -1,0 +1,35 @@
+.role-dialog-header-luxury[b-jypwjsx8p6] {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding-top: 8px;
+}
+
+.role-icon-frame[b-jypwjsx8p6] {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background-color: rgba(43, 76, 222, 0.08);
+    color: var(--mud-palette-primary);
+    display: grid;
+    place-items: center;
+}
+
+.role-title[b-jypwjsx8p6] {
+    font-weight: 800 !important;
+    letter-spacing: -0.02em;
+    color: var(--mud-palette-text-primary);
+}
+
+.role-subtitle[b-jypwjsx8p6] {
+    color: var(--mud-palette-text-secondary);
+    opacity: 0.8;
+}
+
+.form-actions-panel[b-jypwjsx8p6] {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    padding-top: 16px;
+    border-top: 1px solid var(--mud-palette-divider);
+}

@@ -1,0 +1,95 @@
+﻿@using Clinica.WASM.DTOs.Doctores
+
+<MudDialog ActionsClass="px-6 pb-4">
+    <DialogContent>
+        <div class="schedule-dialog-header-luxury">
+            <div class="avatar-glow-shell">
+                <MudAvatar Color="Color.Primary" Size="Size.Large" Class="avatar-schedule-shadow">
+                    @Iniciales
+                </MudAvatar>
+            </div>
+            <div class="schedule-header-text-block">
+                <MudText Typo="Typo.h2" Class="schedule-dialog-title">@Horario.DoctorNombre</MudText>
+                <div class="schedule-subtags-group d-flex align-center gap-2 mt-1">
+                    <MudIcon Icon="@Icons.Material.Filled.CalendarMonth" Size="Size.Small" Color="Color.Tertiary" />
+                    <MudText Typo="Typo.caption" Class="fw-bold text-tertiary font-mono">
+                        JORNADA ASIGNADA: @ObtenerNombreDia(Horario.DiaSemana)
+                    </MudText>
+                </div>
+            </div>
+        </div>
+
+        <MudDivider Class="my-5" />
+
+        <MudGrid Class="info-cards-grid">
+            <MudItem xs="12" sm="6">
+                <div class="schedule-info-box border-left-primary">
+                    <span class="schedule-box-label">Bloque Horario Operativo</span>
+                    <span class="schedule-box-value font-mono fw-bold text-primary">
+                        @Horario.HoraInicio.ToString("hh\\:mm") - @Horario.HoraFin.ToString("hh\\:mm")
+                    </span>
+                </div>
+            </MudItem>
+
+            <MudItem xs="12" sm="6">
+                <div class="schedule-info-box border-left-secondary">
+                    <span class="schedule-box-label">Estado de Disponibilidad</span>
+                    <div class="mt-1">
+                        <MudChip T="string" 
+                                 Size="Size.Small" 
+                                 Color="@(Horario.Activo ? Color.Success : Color.Default)" 
+                                 Variant="Variant.Filled" 
+                                 Class="fw-bold table-chip-rounded">
+                            @(Horario.Activo ? "Vigente / Activo" : "Inactivo")
+                        </MudChip>
+                    </div>
+                </div>
+            </MudItem>
+
+            <MudItem xs="12" sm="6">
+                <div class="schedule-info-box bg-dashed-cell">
+                    <span class="schedule-box-label">Inicio de Vigencia</span>
+                    <span class="schedule-box-value text-sm">@Horario.FechaInicioVigencia.ToString("dd/MM/yyyy")</span>
+                </div>
+            </MudItem>
+
+            <MudItem xs="12" sm="6">
+                <div class="schedule-info-box bg-dashed-cell">
+                    <span class="schedule-box-label">Fin de Vigencia</span>
+                    <span class="schedule-box-value text-sm">
+                        @(Horario.FechaFinVigencia.HasValue ? Horario.FechaFinVigencia.Value.ToString("dd/MM/yyyy") : "Indefinido / Permanente")
+                    </span>
+                </div>
+            </MudItem>
+        </MudGrid>
+    </DialogContent>
+    <DialogActions>
+        <MudButton Variant="Variant.Filled" Color="Color.Default" OnClick="Cerrar" Class="text-none px-5 rounded-lg shadow-none">
+            Cerrar Ficha
+        </MudButton>
+    </DialogActions>
+</MudDialog>
+
+@code {
+    [CascadingParameter] private IMudDialogInstance MudDialog { get; set; } = default!;
+    [Parameter] public HorarioDoctorResponseDto Horario { get; set; } = new();
+
+    private string Iniciales => string.IsNullOrWhiteSpace(Horario.DoctorNombre)
+        ? "H"
+        : string.Concat(Horario.DoctorNombre.Split(' ', StringSplitOptions.RemoveEmptyEntries).Select(p => p[0])).ToUpper();
+
+    private void Cerrar() => MudDialog.Close();
+
+    private static string ObtenerNombreDia(DayOfWeek dia) =>
+        dia switch
+        {
+            DayOfWeek.Monday => "Lunes",
+            DayOfWeek.Tuesday => "Martes",
+            DayOfWeek.Wednesday => "Miércoles",
+            DayOfWeek.Thursday => "Jueves",
+            DayOfWeek.Friday => "Viernes",
+            DayOfWeek.Saturday => "Sábado",
+            DayOfWeek.Sunday => "Domingo",
+            _ => dia.ToString()
+        };
+}

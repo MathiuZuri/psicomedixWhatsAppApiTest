@@ -1,0 +1,251 @@
+.dashboard-canvas-layer[b-7igzkbfs88] {
+    animation: quickFadeDashboard-b-7igzkbfs88 0.4s ease-out;
+}
+
+@keyframes quickFadeDashboard-b-7igzkbfs88 {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- ENCABEZADO MAESTRO --- */
+.dashboard-header-flex[b-7igzkbfs88] {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.title-text-stack[b-7igzkbfs88] {
+    min-width: 0;
+}
+
+.dashboard-main-title[b-7igzkbfs88] {
+    font-weight: 800 !important;
+    letter-spacing: -0.03em;
+    color: var(--mud-palette-text-primary);
+    font-size: clamp(1.5rem, 4vw, 2.2rem) !important;
+}
+
+.dashboard-main-subtitle[b-7igzkbfs88] {
+    color: var(--mud-palette-text-secondary);
+    opacity: 0.8;
+}
+
+.sync-status-badge-luxury[b-7igzkbfs88] {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background-color: var(--mud-palette-surface);
+    padding: 8px 16px;
+    border-radius: 12px;
+    border: 1px solid var(--mud-palette-divider);
+    color: var(--mud-palette-text-primary);
+    box-shadow: var(--mud-elevation-1);
+}
+
+.ping-indicator-pulse[b-7igzkbfs88] {
+    width: 8px;
+    height: 8px;
+    background-color: #10B981;
+    border-radius: 50%;
+    position: relative;
+}
+
+.ping-indicator-pulse[b-7igzkbfs88]::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #10B981;
+    border-radius: 50%;
+    animation: ripPulseGlow-b-7igzkbfs88 2s infinite ease-out;
+}
+
+@keyframes ripPulseGlow-b-7igzkbfs88 {
+    0% { transform: scale(1); opacity: 0.6; }
+    100% { transform: scale(2.8); opacity: 0; }
+}
+
+/* --- CAPAS DE TARJETAS KPI PREMIUM --- */
+.kpi-card-luxury[b-7igzkbfs88] {
+    background-color: var(--mud-palette-surface);
+    padding: 24px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    box-shadow: var(--mud-elevation-2);
+    border: 1px solid var(--mud-palette-divider);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    height: 100%;
+}
+
+.kpi-card-luxury:hover[b-7igzkbfs88] {
+    transform: translateY(-2px);
+    box-shadow: var(--mud-elevation-3);
+}
+
+.accent-primary[b-7igzkbfs88] { border-left: 5px solid var(--mud-palette-primary); }
+.accent-secondary[b-7igzkbfs88] { border-left: 5px solid var(--mud-palette-secondary); } /* Rose Gold */
+.accent-success[b-7igzkbfs88] { border-left: 5px solid var(--mud-palette-success); }
+.accent-tertiary[b-7igzkbfs88] { border-left: 5px solid var(--mud-palette-tertiary); } /* Oro */
+
+.kpi-icon-shell[b-7igzkbfs88] {
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+}
+
+.shell-primary[b-7igzkbfs88] { background-color: rgba(43, 76, 222, 0.06); color: var(--mud-palette-primary); }
+.shell-secondary[b-7igzkbfs88] { background-color: rgba(195, 141, 158, 0.08); color: var(--mud-palette-secondary); }
+.shell-success[b-7igzkbfs88] { background-color: rgba(16, 185, 129, 0.06); color: var(--mud-palette-success); }
+.shell-tertiary[b-7igzkbfs88] { background-color: rgba(229, 179, 36, 0.06); color: var(--mud-palette-tertiary); }
+
+.kpi-data-stack[b-7igzkbfs88] {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    width: 100%;
+}
+
+.kpi-numeric-value[b-7igzkbfs88] {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--mud-palette-text-primary);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.kpi-text-label[b-7igzkbfs88] {
+    font-size: 0.8rem;
+    color: var(--mud-palette-text-secondary);
+    font-weight: 600;
+    margin-top: 2px;
+}
+
+.text-rose-gold[b-7igzkbfs88] { color: var(--mud-palette-secondary); }
+.text-gold[b-7igzkbfs88] { color: var(--mud-palette-tertiary); }
+
+.kpi-loader-bar[b-7igzkbfs88] {
+    height: 4px;
+    border-radius: 2px;
+    margin: 8px 0;
+}
+
+/* --- SUPERFICIES Y CUADRANTES DE CAPA --- */
+.dashboard-panel-surface[b-7igzkbfs88] {
+    background-color: var(--mud-palette-surface);
+    padding: 28px;
+    border-radius: 16px;
+    border: 1px solid var(--mud-palette-divider);
+    box-shadow: var(--mud-elevation-2);
+}
+
+.border-top-tertiary[b-7igzkbfs88] { border-top: 4px solid var(--mud-palette-tertiary); }
+.border-top-primary[b-7igzkbfs88] { border-top: 4px solid var(--mud-palette-primary); }
+.layout-full-height[b-7igzkbfs88] { height: 100%; }
+
+.panel-luxury-title[b-7igzkbfs88] {
+    font-weight: 800 !important;
+    color: var(--mud-palette-text-primary);
+    letter-spacing: -0.01em;
+}
+
+.panel-luxury-subtitle[b-7igzkbfs88] {
+    color: var(--mud-palette-text-secondary);
+    opacity: 0.8;
+}
+
+/* Flex de Acciones Rápidas Continuas */
+.quick-actions-flex[b-7igzkbfs88] {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.full-bleed-btn[b-7igzkbfs88] {
+    width: 100%;
+    justify-content: flex-start;
+    font-weight: 600 !important;
+}
+
+/* Grilla de Telemetría Interna */
+.telemetry-grid-luxury[b-7igzkbfs88] {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+}
+
+.telemetry-cell[b-7igzkbfs88] {
+    background-color: var(--mud-palette-background-gray);
+    padding: 12px 16px;
+    border-radius: 10px;
+    border: 1px solid var(--mud-palette-divider);
+    display: flex;
+    flex-direction: column;
+}
+
+.telemetry-label[b-7igzkbfs88] {
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--mud-palette-text-secondary);
+    letter-spacing: 0.04em;
+}
+
+.telemetry-value[b-7igzkbfs88] {
+    font-size: 0.88rem;
+    font-weight: 600;
+}
+
+/* Consolidador Base */
+.infra-panel-header[b-7igzkbfs88] {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.infra-icon-glow[b-7igzkbfs88] {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background-color: rgba(43, 76, 222, 0.06);
+    color: var(--mud-palette-primary);
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(43, 76, 222, 0.1);
+}
+
+/* --- RESPONSIVIDAD RESPONSABLE (MÓVIL) --- */
+@media (max-width: 768px) {
+    .dashboard-header-flex[b-7igzkbfs88] {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+
+    .sync-status-badge-luxury[b-7igzkbfs88] {
+        align-self: flex-start;
+    }
+
+    .kpi-card-luxury[b-7igzkbfs88] {
+        padding: 20px;
+    }
+
+    .dashboard-panel-surface[b-7igzkbfs88] {
+        padding: 20px;
+    }
+
+    .infra-panel-header[b-7igzkbfs88] {
+        flex-direction: column;
+        text-align: center;
+    }
+}

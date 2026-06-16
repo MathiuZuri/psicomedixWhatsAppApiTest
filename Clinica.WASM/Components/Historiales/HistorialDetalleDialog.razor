@@ -1,0 +1,88 @@
+﻿<MudDialog ActionsClass="px-6 pb-4">
+    <DialogContent>
+        @* Encabezado del Evento Clínico con Iconografía de Auditoría *@
+        <div class="history-dialog-header-luxury">
+            <div class="history-icon-frame">
+                <MudIcon Icon="@Icons.Material.Filled.HistoryEdu" Size="Size.Medium" />
+            </div>
+            <div>
+                <MudText Typo="Typo.h3" Class="history-dialog-title">@Detalle.Titulo</MudText>
+                <div class="d-flex align-center gap-2 mt-1">
+                    <MudIcon Icon="@Icons.Material.Filled.Fingerprint" Size="Size.Small" Color="Color.Secondary" />
+                    <MudText Typo="Typo.caption" Class="font-mono text-secondary fw-semibold">
+                        REGISTRO: @Detalle.CodigoDetalle
+                    </MudText>
+                </div>
+            </div>
+        </div>
+
+        <MudDivider Class="my-5" />
+
+        @* Contenedor de Celdas en Bloques de Turno de Alto Contraste *@
+        <MudGrid Class="info-cards-grid">
+            <MudItem xs="12" sm="6">
+                <div class="history-info-box border-left-primary">
+                    <span class="history-box-label">Tipo de Movimiento</span>
+                    <span class="history-box-value fw-semibold text-primary">@ObtenerNombreTipo(Detalle.TipoMovimiento)</span>
+                </div>
+            </MudItem>
+
+            <MudItem xs="12" sm="6">
+                <div class="history-info-box border-left-secondary">
+                    <span class="history-box-label">Fecha y Hora de Registro</span>
+                    <span class="history-box-value font-mono fw-medium">@Detalle.FechaRegistro.ToString("dd/MM/yyyy HH:mm")</span>
+                </div>
+            </MudItem>
+
+            <MudItem xs="12">
+                <div class="history-info-box bg-surface-clean">
+                    <span class="history-box-label">Descripción Detallada del Suceso</span>
+                    <span class="history-box-value pre-wrap text-sm text-secondary mt-1">@Detalle.Descripcion</span>
+                </div>
+            </MudItem>
+
+            <MudItem xs="12">
+                <div class="history-info-box bg-dashed-cell">
+                    <span class="history-box-label">Operador Responsable</span>
+                    <div class="d-flex align-center gap-2 mt-1 text-muted">
+                        <MudIcon Icon="@Icons.Material.Filled.VerifiedUser" Size="Size.Small" Color="Color.Success" />
+                        <span class="text-sm fw-medium text-primary-dark">@(Detalle.UsuarioNombre ?? "Sistema Automatizado")</span>
+                    </div>
+                </div>
+            </MudItem>
+        </MudGrid>
+    </DialogContent>
+    <DialogActions>
+        <MudButton Variant="Variant.Filled" Color="Color.Default" OnClick="Cerrar" Class="text-none px-5 rounded-lg shadow-none">
+            Cerrar Detalles
+        </MudButton>
+    </DialogActions>
+</MudDialog>
+
+@code {
+    [CascadingParameter] private IMudDialogInstance MudDialog { get; set; } = default!;
+    [Parameter] public HistorialDetalleResponseDto Detalle { get; set; } = new();
+
+    private void Cerrar() => MudDialog.Close();
+
+    private static string ObtenerNombreTipo(TipoMovimientoHistorial tipo) =>
+        tipo switch
+        {
+            TipoMovimientoHistorial.RegistroUsuario => "Registro de usuario",
+            TipoMovimientoHistorial.AperturaHistorial => "Apertura de historial",
+            TipoMovimientoHistorial.CitaProgramada => "Cita programada",
+            TipoMovimientoHistorial.CitaReprogramada => "Cita reprogramada",
+            TipoMovimientoHistorial.CitaCancelada => "Cita cancelada",
+            TipoMovimientoHistorial.CitaAtendida => "Cita atendida",
+            TipoMovimientoHistorial.AtencionRegistrada => "Atención registrada",
+            TipoMovimientoHistorial.AtencionCerrada => "Atención cerrada",
+            TipoMovimientoHistorial.PagoRegistrado => "Pago registrado",
+            TipoMovimientoHistorial.PagoParcial => "Pago parcial",
+            TipoMovimientoHistorial.PagoCompletado => "Pago completado",
+            TipoMovimientoHistorial.SeguimientoRegistrado => "Seguimiento registrado",
+            TipoMovimientoHistorial.ObservacionClinica => "Observación clínica",
+            TipoMovimientoHistorial.ActualizacionDatosPaciente => "Actualización de datos",
+            TipoMovimientoHistorial.EliminacionLogica => "Eliminación lógica",
+            _ => tipo.ToString()
+        };
+}

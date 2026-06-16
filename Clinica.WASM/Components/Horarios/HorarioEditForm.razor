@@ -1,0 +1,124 @@
+﻿@using Clinica.WASM.DTOs.Doctores
+
+<EditForm Model="@Model" OnValidSubmit="GuardarAsync">
+    <DataAnnotationsValidator />
+
+    <div class="schedule-form-wrapper">
+        <MudGrid>
+            <MudItem xs="12" sm="6">
+                <MudSelect T="DayOfWeek"
+                           @bind-Value="Model.DiaSemana"
+                           Label="Día de la Semana Asignado"
+                           Variant="Variant.Outlined"
+                           For="@(() => Model.DiaSemana)"
+                           Disabled="@IsProcessing"
+                           AdornmentColor="Color.Primary">
+                    <MudSelectItem Value="DayOfWeek.Monday">Lunes</MudSelectItem>
+                    <MudSelectItem Value="DayOfWeek.Tuesday">Martes</MudSelectItem>
+                    <MudSelectItem Value="DayOfWeek.Wednesday">Miércoles</MudSelectItem>
+                    <MudSelectItem Value="DayOfWeek.Thursday">Jueves</MudSelectItem>
+                    <MudSelectItem Value="DayOfWeek.Friday">Viernes</MudSelectItem>
+                    <MudSelectItem Value="DayOfWeek.Saturday">Sábado</MudSelectItem>
+                    <MudSelectItem Value="DayOfWeek.Sunday">Domingo</MudSelectItem>
+                </MudSelect>
+            </MudItem>
+
+            <MudItem xs="12" sm="6" Class="d-flex align-center justify-start justify-sm-end">
+                <MudSwitch T="bool"
+                           @bind-Value="Model.Activo"
+                           Label="Habilitar Turno Operativo"
+                           Color="Color.Primary"
+                           Disabled="@IsProcessing"
+                           Class="fw-semibold text-primary mt-2" />
+            </MudItem>
+
+            <MudItem xs="12" sm="6" md="3">
+                <MudTimePicker @bind-Time="HoraInicio"
+                               Label="Hora de Entrada"
+                               Variant="Variant.Outlined"
+                               Disabled="@IsProcessing"
+                               AdornmentColor="Color.Secondary" />
+            </MudItem>
+
+            <MudItem xs="12" sm="6" md="3">
+                <MudTimePicker @bind-Time="HoraFin"
+                               Label="Hora de Salida"
+                               Variant="Variant.Outlined"
+                               Disabled="@IsProcessing"
+                               AdornmentColor="Color.Secondary" />
+            </MudItem>
+
+            <MudItem xs="12" sm="6" md="3">
+                <MudDatePicker @bind-Date="FechaInicio"
+                               Label="Inicio de Vigencia"
+                               Variant="Variant.Outlined"
+                               DateFormat="dd/MM/yyyy"
+                               Disabled="@IsProcessing"
+                               AdornmentColor="Color.Primary" />
+            </MudItem>
+
+            <MudItem xs="12" sm="6" md="3">
+                <MudDatePicker @bind-Date="FechaFin"
+                               Label="Fin de Vigencia (Opcional)"
+                               Variant="Variant.Outlined"
+                               DateFormat="dd/MM/yyyy"
+                               Disabled="@IsProcessing"
+                               AdornmentColor="Color.Primary" />
+            </MudItem>
+        </MudGrid>
+    </div>
+
+    <div class="form-actions-bar">
+        <MudButton Variant="Variant.Text"
+                   Color="Color.Default"
+                   OnClick="OnCancel"
+                   Disabled="@IsProcessing"
+                   Class="text-none px-5">
+            Cancelar
+        </MudButton>
+        <MudButton ButtonType="ButtonType.Submit"
+                   Variant="Variant.Filled"
+                   Color="Color.Primary"
+                   Disabled="@IsProcessing"
+                   Class="text-none px-6 rounded-lg shadow-sm">
+            @if (IsProcessing)
+            {
+                <MudProgressCircular Size="Size.Small" Indeterminate="true" Class="mr-2" />
+                <span>Actualizando...</span>
+            }
+            else
+            {
+                <span>Actualizar horario</span>
+            }
+        </MudButton>
+    </div>
+</EditForm>
+
+@code {
+    [Parameter] public EditarHorarioDoctorDto Model { get; set; } = new();
+    [Parameter] public bool IsProcessing { get; set; }
+    [Parameter] public EventCallback OnSave { get; set; }
+    [Parameter] public EventCallback OnCancel { get; set; }
+
+    private TimeSpan? HoraInicio { get; set; }
+    private TimeSpan? HoraFin { get; set; }
+    private DateTime? FechaInicio { get; set; }
+    private DateTime? FechaFin { get; set; }
+
+    protected override void OnParametersSet()
+    {
+        HoraInicio = Model.HoraInicio == default ? new TimeSpan(8, 0, 0) : Model.HoraInicio.ToTimeSpan();
+        HoraFin = Model.HoraFin == default ? new TimeSpan(17, 0, 0) : Model.HoraFin.ToTimeSpan();
+        FechaInicio = Model.FechaInicioVigencia == default ? DateTime.Today : Model.FechaInicioVigencia.ToDateTime(TimeOnly.MinValue);
+        FechaFin = Model.FechaFinVigencia?.ToDateTime(TimeOnly.MinValue);
+    }
+
+    private async Task GuardarAsync()
+    {
+        Model.HoraInicio = HoraInicio.HasValue ? TimeOnly.FromTimeSpan(HoraInicio.Value) : new TimeOnly(8, 0);
+        Model.HoraFin = HoraFin.HasValue ? TimeOnly.FromTimeSpan(HoraFin.Value) : new TimeOnly(17, 0);
+        Model.FechaInicioVigencia = FechaInicio.HasValue ? DateOnly.FromDateTime(FechaInicio.Value) : DateOnly.FromDateTime(DateTime.Today);
+        Model.FechaFinVigencia = FechaFin.HasValue ? DateOnly.FromDateTime(FechaFin.Value) : null;
+        await OnSave.InvokeAsync();
+    }
+}

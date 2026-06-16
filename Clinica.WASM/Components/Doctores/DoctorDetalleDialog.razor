@@ -1,0 +1,106 @@
+﻿<MudDialog ActionsClass="px-6 pb-4">
+    <DialogContent>
+        @* Encabezado Estilo Staff Médico Premium *@
+        <div class="doctor-dialog-header-luxury">
+            <div class="avatar-glow-shell">
+                <MudAvatar Color="Color.Primary" Size="Size.Large" Class="avatar-doctor-shadow">
+                    @Iniciales
+                </MudAvatar>
+            </div>
+            <div class="doctor-header-text-block">
+                <MudText Typo="Typo.h2" Class="doctor-dialog-name">@Doctor.NombreCompleto</MudText>
+                <div class="doctor-subtags-group d-flex align-center gap-2 mt-1">
+                    <MudIcon Icon="@Icons.Material.Filled.Medication" Size="Size.Small" Color="Color.Secondary" />
+                    <MudText Typo="Typo.caption" Class="fw-bold text-secondary font-mono">
+                        MÉDICO PROTOCOLO: @Doctor.CodigoDoctor
+                    </MudText>
+                </div>
+            </div>
+        </div>
+
+        <MudDivider Class="my-5" />
+
+        @* Bloques Clínicos de Información Específica *@
+        <MudGrid Class="info-cards-grid">
+            <MudItem xs="12" sm="6" md="4">
+                <div class="doctor-info-box border-left-tertiary">
+                    <span class="doctor-box-label">Colegiatura (CMP)</span>
+                    <span class="doctor-box-value font-mono fw-bold">@Doctor.CMP</span>
+                </div>
+            </MudItem>
+
+            <MudItem xs="12" sm="6" md="8">
+                <div class="doctor-info-box border-left-primary">
+                    <span class="doctor-box-label">Especialidad Asignada</span>
+                    <span class="doctor-box-value fw-semibold text-primary">@Doctor.Especialidad</span>
+                </div>
+            </MudItem>
+
+            <MudItem xs="12" sm="6">
+                <div class="doctor-info-box">
+                    <span class="doctor-box-label">Celular de Contacto</span>
+                    <span class="doctor-box-value">@(string.IsNullOrWhiteSpace(Doctor.Celular) ? "No registrado" : Doctor.Celular)</span>
+                </div>
+            </MudItem>
+
+            <MudItem xs="12" sm="6">
+                <div class="doctor-info-box">
+                    <span class="doctor-box-label">Correo Institucional</span>
+                    <span class="doctor-box-value truncate-text">@(string.IsNullOrWhiteSpace(Doctor.Correo) ? "No registrado" : Doctor.Correo)</span>
+                </div>
+            </MudItem>
+
+            <MudItem xs="12" sm="6" md="4">
+                <div class="doctor-info-box bg-dashed-cell">
+                    <span class="doctor-box-label">Inicio de Contrato</span>
+                    <span class="doctor-box-value text-sm">@Doctor.FechaInicioContrato.ToString("dd/MM/yyyy")</span>
+                </div>
+            </MudItem>
+
+            <MudItem xs="12" sm="6" md="4">
+                <div class="doctor-info-box bg-dashed-cell">
+                    <span class="doctor-box-label">Fin de Contrato</span>
+                    <span class="doctor-box-value text-sm">@(Doctor.FechaFinContrato.HasValue ? Doctor.FechaFinContrato.Value.ToString("dd/MM/yyyy") : "Indefinido / Permanente")</span>
+                </div>
+            </MudItem>
+
+            <MudItem xs="12" sm="12" md="4">
+                <div class="doctor-info-box bg-dashed-cell">
+                    <span class="doctor-box-label">Estado Operativo</span>
+                    <div class="mt-1">
+                        <MudChip T="string" Size="Size.Small" Color="@ObtenerColorEstado(Doctor.Estado)" Variant="Variant.Filled" Class="fw-bold table-chip-rounded">
+                            @Doctor.Estado
+                        </MudChip>
+                    </div>
+                </div>
+            </MudItem>
+        </MudGrid>
+    </DialogContent>
+    <DialogActions>
+        <MudButton Variant="Variant.Filled" Color="Color.Default" OnClick="Cerrar" Class="text-none px-5 rounded-lg shadow-none">
+            Cerrar Ficha
+        </MudButton>
+    </DialogActions>
+</MudDialog>
+
+@code {
+    [CascadingParameter] private IMudDialogInstance MudDialog { get; set; } = default!;
+    [Parameter] public DoctorResponseDto Doctor { get; set; } = new();
+
+    private string Iniciales => string.IsNullOrWhiteSpace(Doctor.NombreCompleto)
+        ? "D"
+        : string.Concat(Doctor.NombreCompleto.Split(' ', StringSplitOptions.RemoveEmptyEntries).Select(p => p[0])).ToUpper();
+
+    private void Cerrar() => MudDialog.Close();
+
+    private static Color ObtenerColorEstado(EstadoDoctor estado) =>
+        estado switch
+        {
+            EstadoDoctor.Activo => Color.Success,
+            EstadoDoctor.Inactivo => Color.Warning,
+            EstadoDoctor.ContratoVencido => Color.Error,
+            EstadoDoctor.Suspendido => Color.Dark,
+            EstadoDoctor.Eliminado => Color.Error,
+            _ => Color.Default
+        };
+}

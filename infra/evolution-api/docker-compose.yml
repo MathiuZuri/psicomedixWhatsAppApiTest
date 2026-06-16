@@ -1,0 +1,38 @@
+﻿services:
+  psicomedix-postgres:
+    image: postgres:15-alpine
+    container_name: psicomedix_postgres
+    restart: always
+    environment:
+      POSTGRES_DB: evolution
+      POSTGRES_USER: evolution
+      POSTGRES_PASSWORD: evolution123
+    volumes:
+      - psicomedix_postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5434:5432"
+
+  psicomedix-redis:
+    image: redis:7-alpine
+    container_name: psicomedix_redis
+    restart: always
+    ports:
+      - "6381:6379"
+
+  psicomedix-api:
+    container_name: psicomedix_api
+    image: atendai/evolution-api:latest
+    restart: always
+    depends_on:
+      - psicomedix-postgres
+      - psicomedix-redis
+    ports:
+      - "8085:8080"
+    env_file:
+      - .env
+    volumes:
+      - psicomedix_instances:/evolution/instances
+
+volumes:
+  psicomedix_instances:
+  psicomedix_postgres_data:

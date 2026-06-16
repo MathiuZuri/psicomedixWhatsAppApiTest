@@ -1,0 +1,83 @@
+﻿@namespace Clinica.WASM.Components.Pagos
+
+<MudDialog>
+    <DialogContent>
+        @* Encabezado de Control Financiero de Alto Contraste *@
+        <div class="payment-status-header-luxury mb-4">
+            <div class="payment-status-icon-shell shadow-glow-tertiary">
+                <MudIcon Icon="@Icons.Material.Filled.PriceChange" Size="Size.Medium" />
+            </div>
+            <div class="payment-status-text-stack">
+                <MudText Typo="Typo.h3" Class="payment-status-title">Cambiar Estado del Pago</MudText>
+                <MudText Typo="Typo.caption" Class="payment-status-subtitle">
+                    Comprobante de Caja: <strong class="text-primary-dark font-mono">@Pago.CodigoPago</strong>
+                </MudText>
+            </div>
+        </div>
+
+        <EditForm Model="@Model" OnValidSubmit="ConfirmarAsync">
+            <DataAnnotationsValidator />
+            
+            <div class="py-3">
+                <MudSelect T="EstadoPago" 
+                           @bind-Value="Model.Estado" 
+                           Label="Nuevo Estado del Recibo" 
+                           Variant="Variant.Outlined" 
+                           Disabled="@IsProcessing"
+                           AdornmentIcon="@Icons.Material.Filled.Payments"
+                           AdornmentColor="Color.Tertiary"
+                           Class="luxury-status-select">
+                    <MudSelectItem Value="EstadoPago.Pendiente">Pendiente (Por Cobrar)</MudSelectItem>
+                    <MudSelectItem Value="EstadoPago.Parcial">Parcial (Saldo de Deuda)</MudSelectItem>
+                    <MudSelectItem Value="EstadoPago.Pagado">Pagado (Liquidado)</MudSelectItem>
+                    <MudSelectItem Value="EstadoPago.Anulado">Anulado (Extornado / Sin Efecto)</MudSelectItem>
+                    <MudSelectItem Value="EstadoPago.Reembolsado">Reembolsado (Devolución Realizada)</MudSelectItem>
+                </MudSelect>
+            </div>
+
+            @* Panel de Acciones Integrado al Formulario para Soporte de Teclado Nativo *@
+            <div class="form-actions-panel mt-5">
+                <MudButton Variant="Variant.Text" 
+                           Color="Color.Default" 
+                           OnClick="Cancelar" 
+                           Disabled="@IsProcessing" 
+                           Class="text-none px-5">
+                    Cancelar
+                </MudButton>
+                
+                <MudButton ButtonType="ButtonType.Submit" 
+                           Variant="Variant.Filled" 
+                           Color="Color.Primary" 
+                           Disabled="@IsProcessing" 
+                           Class="text-none px-6 rounded-lg shadow-sm w-sm-full">
+                    @if (IsProcessing) 
+                    {
+                        <MudProgressCircular Size="Size.Small" Indeterminate="true" Class="mr-2"/>
+                    } 
+                    Confirmar Estado
+                </MudButton>
+            </div>
+        </EditForm>
+    </DialogContent>
+</MudDialog>
+
+@code {
+    [CascadingParameter] private IMudDialogInstance MudDialog { get; set; } = default!;
+    [Parameter] public PagoResponseDto Pago { get; set; } = new();
+
+    private CambiarEstadoPagoDto Model { get; set; } = new();
+    private bool IsProcessing;
+
+    protected override void OnInitialized()
+    {
+        Model.Estado = Pago.Estado;
+    }
+
+    private async Task ConfirmarAsync()
+    {
+        IsProcessing = true;
+        MudDialog.Close(DialogResult.Ok(Model));
+    }
+
+    private void Cancelar() => MudDialog.Cancel();
+}

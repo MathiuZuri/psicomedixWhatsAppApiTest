@@ -1,0 +1,139 @@
+F:\proyectC#\ClinicaObst\Clinica.Infrastructure\bin\Debug\net9.0\Clinica.Infrastructure.deps.json
+F:\proyectC#\ClinicaObst\Clinica.Infrastructure\bin\Debug\net9.0\Clinica.Infrastructure.dll
+F:\proyectC#\ClinicaObst\Clinica.Infrastructure\bin\Debug\net9.0\Clinica.Infrastructure.pdb
+F:\proyectC#\ClinicaObst\Clinica.Infrastructure\bin\Debug\net9.0\Clinica.Domain.dll
+F:\proyectC#\ClinicaObst\Clinica.Infrastructure\bin\Debug\net9.0\Clinica.Domain.pdb
+F:\proyectC#\ClinicaObst\Clinica.Infrastructure\obj\Debug\net9.0\Clinica.Infrastructure.csproj.AssemblyReference.cache
+F:\proyectC#\ClinicaObst\Clinica.Infrastructure\obj\Debug\net9.0\Clinica.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+F:\proyectC#\ClinicaObst\Clinica.Infrastructure\obj\Debug\net9.0\Clinica.Infrastructure.AssemblyInfoInputs.cache
+F:\proyectC#\ClinicaObst\Clinica.Infrastructure\obj\Debug\net9.0\Clinica.Infrastructure.AssemblyInfo.cs
+F:\proyectC#\ClinicaObst\Clinica.Infrastructure\obj\Debug\net9.0\Clinica.Infrastructure.csproj.CoreCompileInputs.cache
+F:\proyectC#\ClinicaObst\Clinica.Infrastructure\obj\Debug\net9.0\Clinica..0DDBE4D2.Up2Date
+F:\proyectC#\ClinicaObst\Clinica.Infrastructure\obj\Debug\net9.0\Clinica.Infrastructure.dll
+F:\proyectC#\ClinicaObst\Clinica.Infrastructure\obj\Debug\net9.0\refint\Clinica.Infrastructure.dll
+F:\proyectC#\ClinicaObst\Clinica.Infrastructure\obj\Debug\net9.0\Clinica.Infrastructure.pdb
+F:\proyectC#\ClinicaObst\Clinica.Infrastructure\obj\Debug\net9.0\ref\Clinica.Infrastructure.dll
+F:\proyectC#\ClinicaObst\Clinica.Infrastructure\obj\Debug\net9.0\Clinica.Infrastructure.sourcelink.json
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.Infrastructure\bin\Debug\net9.0\LatoFont\Lato-Black.ttf
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.Infrastructure\bin\Debug\net9.0\LatoFont\Lato-BlackItalic.ttf
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.Infrastructure\bin\Debug\net9.0\LatoFont\Lato-Bold.ttf
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.Infrastructure\bin\Debug\net9.0\LatoFont\Lato-BoldItalic.ttf
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.Infrastructure\bin\Debug\net9.0\LatoFont\Lato-ExtraBold.ttf
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.Infrastructure\bin\Debug\net9.0\LatoFont\Lato-ExtraBoldItalic.ttf
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.Infrastructure\bin\Debug\net9.0\LatoFont\Lato-ExtraLight.ttf
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.Infrastructure\bin\Debug\net9.0\LatoFont\Lato-ExtraLightItalic.ttf
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.Infrastructure\bin\Debug\net9.0\LatoFont\Lato-Italic.ttf
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.Infrastructure\bin\Debug\net9.0\LatoFont\Lato-Light.ttf
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.Infrastructure\bin\Debug\net9.0\LatoFont\Lato-LightItalic.ttf
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.Infrastructure\bin\Debug\net9.0\LatoFont\Lato-Medium.ttf
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.Infrastructure\bin\Debug\net9.0\LatoFont\Lato-MediumItalic.ttf
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.Infrastructure\bin\Debug\net9.0\LatoFont\Lato-Regular.ttf
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.Infrastructure\bin\Debug\net9.0\LatoFont\Lato-SemiBold.ttf
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.Infrastructure\bin\Debug\net9.0\LatoFont\Lato-SemiBoldItalic.ttf
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.Infrastructure\bin\Debug\net9.0\LatoFont\Lato-Thin.ttf
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.Infrastructure\bin\Debug\net9.0\LatoFont\Lato-ThinItalic.ttf
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.Infrastructure\bin\Debug\net9.0\LatoFont\OFL.txt
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.Infrastructure\bin\Debug\net9.0\Clinica.Infrastructure.deps.json
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.Infrastructure\bin\Debug\net9.0\Clinica.Infrastructure.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.Infrastructure\bin\Debug\net9.0\Clinica.Infrastructure.pdb
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.Infrastructure\bin\Debug\net9.0\Clinica.Domain.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.Infrastructure\bin\Debug\net9.0\Clinica.Domain.pdb
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.Infrastructure\obj\Debug\net9.0\Clinica.Infrastructure.csproj.AssemblyReference.cache
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.Infrastructure\obj\Debug\net9.0\Clinica.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.Infrastructure\obj\Debug\net9.0\Clinica.Infrastructure.AssemblyInfoInputs.cache
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.Infrastructure\obj\Debug\net9.0\Clinica.Infrastructure.AssemblyInfo.cs
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.Infrastructure\obj\Debug\net9.0\Clinica.Infrastructure.csproj.CoreCompileInputs.cache
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.Infrastructure\obj\Debug\net9.0\Clinica.Infrastructure.sourcelink.json
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.Infrastructure\obj\Debug\net9.0\Clinica..0DDBE4D2.Up2Date
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.Infrastructure\obj\Debug\net9.0\Clinica.Infrastructure.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.Infrastructure\obj\Debug\net9.0\refint\Clinica.Infrastructure.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.Infrastructure\obj\Debug\net9.0\Clinica.Infrastructure.pdb
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.Infrastructure\obj\Debug\net9.0\ref\Clinica.Infrastructure.dll
+F:\proyectC#\ClinicaObst\Clinica.Infrastructure\bin\Debug\net9.0\LatoFont\Lato-Black.ttf
+F:\proyectC#\ClinicaObst\Clinica.Infrastructure\bin\Debug\net9.0\LatoFont\Lato-BlackItalic.ttf
+F:\proyectC#\ClinicaObst\Clinica.Infrastructure\bin\Debug\net9.0\LatoFont\Lato-Bold.ttf
+F:\proyectC#\ClinicaObst\Clinica.Infrastructure\bin\Debug\net9.0\LatoFont\Lato-BoldItalic.ttf
+F:\proyectC#\ClinicaObst\Clinica.Infrastructure\bin\Debug\net9.0\LatoFont\Lato-ExtraBold.ttf
+F:\proyectC#\ClinicaObst\Clinica.Infrastructure\bin\Debug\net9.0\LatoFont\Lato-ExtraBoldItalic.ttf
+F:\proyectC#\ClinicaObst\Clinica.Infrastructure\bin\Debug\net9.0\LatoFont\Lato-ExtraLight.ttf
+F:\proyectC#\ClinicaObst\Clinica.Infrastructure\bin\Debug\net9.0\LatoFont\Lato-ExtraLightItalic.ttf
+F:\proyectC#\ClinicaObst\Clinica.Infrastructure\bin\Debug\net9.0\LatoFont\Lato-Italic.ttf
+F:\proyectC#\ClinicaObst\Clinica.Infrastructure\bin\Debug\net9.0\LatoFont\Lato-Light.ttf
+F:\proyectC#\ClinicaObst\Clinica.Infrastructure\bin\Debug\net9.0\LatoFont\Lato-LightItalic.ttf
+F:\proyectC#\ClinicaObst\Clinica.Infrastructure\bin\Debug\net9.0\LatoFont\Lato-Medium.ttf
+F:\proyectC#\ClinicaObst\Clinica.Infrastructure\bin\Debug\net9.0\LatoFont\Lato-MediumItalic.ttf
+F:\proyectC#\ClinicaObst\Clinica.Infrastructure\bin\Debug\net9.0\LatoFont\Lato-Regular.ttf
+F:\proyectC#\ClinicaObst\Clinica.Infrastructure\bin\Debug\net9.0\LatoFont\Lato-SemiBold.ttf
+F:\proyectC#\ClinicaObst\Clinica.Infrastructure\bin\Debug\net9.0\LatoFont\Lato-SemiBoldItalic.ttf
+F:\proyectC#\ClinicaObst\Clinica.Infrastructure\bin\Debug\net9.0\LatoFont\Lato-Thin.ttf
+F:\proyectC#\ClinicaObst\Clinica.Infrastructure\bin\Debug\net9.0\LatoFont\Lato-ThinItalic.ttf
+F:\proyectC#\ClinicaObst\Clinica.Infrastructure\bin\Debug\net9.0\LatoFont\OFL.txt
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.Infrastructure\bin\Debug\net9.0\LatoFont\Lato-Black.ttf
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.Infrastructure\bin\Debug\net9.0\LatoFont\Lato-BlackItalic.ttf
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.Infrastructure\bin\Debug\net9.0\LatoFont\Lato-Bold.ttf
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.Infrastructure\bin\Debug\net9.0\LatoFont\Lato-BoldItalic.ttf
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.Infrastructure\bin\Debug\net9.0\LatoFont\Lato-ExtraBold.ttf
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.Infrastructure\bin\Debug\net9.0\LatoFont\Lato-ExtraBoldItalic.ttf
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.Infrastructure\bin\Debug\net9.0\LatoFont\Lato-ExtraLight.ttf
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.Infrastructure\bin\Debug\net9.0\LatoFont\Lato-ExtraLightItalic.ttf
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.Infrastructure\bin\Debug\net9.0\LatoFont\Lato-Italic.ttf
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.Infrastructure\bin\Debug\net9.0\LatoFont\Lato-Light.ttf
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.Infrastructure\bin\Debug\net9.0\LatoFont\Lato-LightItalic.ttf
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.Infrastructure\bin\Debug\net9.0\LatoFont\Lato-Medium.ttf
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.Infrastructure\bin\Debug\net9.0\LatoFont\Lato-MediumItalic.ttf
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.Infrastructure\bin\Debug\net9.0\LatoFont\Lato-Regular.ttf
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.Infrastructure\bin\Debug\net9.0\LatoFont\Lato-SemiBold.ttf
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.Infrastructure\bin\Debug\net9.0\LatoFont\Lato-SemiBoldItalic.ttf
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.Infrastructure\bin\Debug\net9.0\LatoFont\Lato-Thin.ttf
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.Infrastructure\bin\Debug\net9.0\LatoFont\Lato-ThinItalic.ttf
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.Infrastructure\bin\Debug\net9.0\LatoFont\OFL.txt
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.Infrastructure\bin\Debug\net9.0\Clinica.Infrastructure.deps.json
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.Infrastructure\bin\Debug\net9.0\Clinica.Infrastructure.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.Infrastructure\bin\Debug\net9.0\Clinica.Infrastructure.pdb
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.Infrastructure\bin\Debug\net9.0\Clinica.Domain.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.Infrastructure\bin\Debug\net9.0\Clinica.Domain.pdb
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.Infrastructure\obj\Debug\net9.0\Clinica.Infrastructure.csproj.AssemblyReference.cache
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.Infrastructure\obj\Debug\net9.0\Clinica.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.Infrastructure\obj\Debug\net9.0\Clinica.Infrastructure.AssemblyInfoInputs.cache
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.Infrastructure\obj\Debug\net9.0\Clinica.Infrastructure.AssemblyInfo.cs
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.Infrastructure\obj\Debug\net9.0\Clinica.Infrastructure.csproj.CoreCompileInputs.cache
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.Infrastructure\obj\Debug\net9.0\Clinica.Infrastructure.sourcelink.json
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.Infrastructure\obj\Debug\net9.0\Clinica..0DDBE4D2.Up2Date
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.Infrastructure\obj\Debug\net9.0\Clinica.Infrastructure.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.Infrastructure\obj\Debug\net9.0\refint\Clinica.Infrastructure.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.Infrastructure\obj\Debug\net9.0\Clinica.Infrastructure.pdb
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.Infrastructure\obj\Debug\net9.0\ref\Clinica.Infrastructure.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.Infrastructure\bin\Debug\net9.0\LatoFont\Lato-Black.ttf
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.Infrastructure\bin\Debug\net9.0\LatoFont\Lato-BlackItalic.ttf
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.Infrastructure\bin\Debug\net9.0\LatoFont\Lato-Bold.ttf
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.Infrastructure\bin\Debug\net9.0\LatoFont\Lato-BoldItalic.ttf
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.Infrastructure\bin\Debug\net9.0\LatoFont\Lato-ExtraBold.ttf
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.Infrastructure\bin\Debug\net9.0\LatoFont\Lato-ExtraBoldItalic.ttf
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.Infrastructure\bin\Debug\net9.0\LatoFont\Lato-ExtraLight.ttf
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.Infrastructure\bin\Debug\net9.0\LatoFont\Lato-ExtraLightItalic.ttf
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.Infrastructure\bin\Debug\net9.0\LatoFont\Lato-Italic.ttf
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.Infrastructure\bin\Debug\net9.0\LatoFont\Lato-Light.ttf
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.Infrastructure\bin\Debug\net9.0\LatoFont\Lato-LightItalic.ttf
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.Infrastructure\bin\Debug\net9.0\LatoFont\Lato-Medium.ttf
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.Infrastructure\bin\Debug\net9.0\LatoFont\Lato-MediumItalic.ttf
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.Infrastructure\bin\Debug\net9.0\LatoFont\Lato-Regular.ttf
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.Infrastructure\bin\Debug\net9.0\LatoFont\Lato-SemiBold.ttf
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.Infrastructure\bin\Debug\net9.0\LatoFont\Lato-SemiBoldItalic.ttf
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.Infrastructure\bin\Debug\net9.0\LatoFont\Lato-Thin.ttf
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.Infrastructure\bin\Debug\net9.0\LatoFont\Lato-ThinItalic.ttf
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.Infrastructure\bin\Debug\net9.0\LatoFont\OFL.txt
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.Infrastructure\bin\Debug\net9.0\Clinica.Infrastructure.deps.json
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.Infrastructure\bin\Debug\net9.0\Clinica.Infrastructure.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.Infrastructure\bin\Debug\net9.0\Clinica.Infrastructure.pdb
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.Infrastructure\bin\Debug\net9.0\Clinica.Domain.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.Infrastructure\bin\Debug\net9.0\Clinica.Domain.pdb
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.Infrastructure\obj\Debug\net9.0\Clinica.Infrastructure.csproj.AssemblyReference.cache
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.Infrastructure\obj\Debug\net9.0\Clinica.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.Infrastructure\obj\Debug\net9.0\Clinica.Infrastructure.AssemblyInfoInputs.cache
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.Infrastructure\obj\Debug\net9.0\Clinica.Infrastructure.AssemblyInfo.cs
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.Infrastructure\obj\Debug\net9.0\Clinica.Infrastructure.csproj.CoreCompileInputs.cache
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.Infrastructure\obj\Debug\net9.0\Clinica..0DDBE4D2.Up2Date
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.Infrastructure\obj\Debug\net9.0\Clinica.Infrastructure.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.Infrastructure\obj\Debug\net9.0\refint\Clinica.Infrastructure.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.Infrastructure\obj\Debug\net9.0\Clinica.Infrastructure.pdb
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.Infrastructure\obj\Debug\net9.0\ref\Clinica.Infrastructure.dll

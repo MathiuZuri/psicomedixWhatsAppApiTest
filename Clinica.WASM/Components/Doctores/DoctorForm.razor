@@ -1,0 +1,132 @@
+﻿<EditForm Model="@Model" OnValidSubmit="GuardarAsync">
+    <DataAnnotationsValidator />
+
+    <div class="doctor-form-body-wrapper">
+        <MudGrid>
+            <MudItem xs="12" sm="6" md="4">
+                <MudTextField @bind-Value="Model.CMP"
+                              Label="Código CMP"
+                              Variant="Variant.Outlined"
+                              For="@(() => Model.CMP)"
+                              Disabled="@IsProcessing"
+                              Adornment="Adornment.Start"
+                              AdornmentIcon="@Icons.Material.Filled.Badge"
+                              AdornmentColor="Color.Primary" />
+            </MudItem>
+            <MudItem xs="12" sm="6" md="4">
+                <MudTextField @bind-Value="Model.Nombres"
+                              Label="Nombres"
+                              Variant="Variant.Outlined"
+                              For="@(() => Model.Nombres)"
+                              Disabled="@IsProcessing"
+                              Adornment="Adornment.Start"
+                              AdornmentIcon="@Icons.Material.Filled.Person"
+                              AdornmentColor="Color.Primary" />
+            </MudItem>
+            <MudItem xs="12" sm="12" md="4">
+                <MudTextField @bind-Value="Model.Apellidos"
+                              Label="Apellidos"
+                              Variant="Variant.Outlined"
+                              For="@(() => Model.Apellidos)"
+                              Disabled="@IsProcessing"
+                              Adornment="Adornment.Start"
+                              AdornmentIcon="@Icons.Material.Filled.People"
+                              AdornmentColor="Color.Primary" />
+            </MudItem>
+            <MudItem xs="12" sm="12" md="6">
+                <MudTextField @bind-Value="Model.Especialidad"
+                              Label="Especialidad Ginecobstétrica"
+                              Variant="Variant.Outlined"
+                              For="@(() => Model.Especialidad)"
+                              Disabled="@IsProcessing"
+                              Adornment="Adornment.Start"
+                              AdornmentIcon="@Icons.Material.Filled.LocalHospital"
+                              AdornmentColor="Color.Secondary" />
+            </MudItem>
+            <MudItem xs="12" sm="6" md="3">
+                <MudTextField @bind-Value="Model.Celular"
+                              Label="Celular"
+                              Variant="Variant.Outlined"
+                              For="@(() => Model.Celular)"
+                              Disabled="@IsProcessing"
+                              Adornment="Adornment.Start"
+                              AdornmentIcon="@Icons.Material.Filled.PhoneAndroid"
+                              AdornmentColor="Color.Primary" />
+            </MudItem>
+            <MudItem xs="12" sm="6" md="3">
+                <MudTextField @bind-Value="Model.Correo"
+                              Label="Correo Electrónico"
+                              Variant="Variant.Outlined"
+                              For="@(() => Model.Correo)"
+                              Disabled="@IsProcessing"
+                              Adornment="Adornment.Start"
+                              AdornmentIcon="@Icons.Material.Filled.MailOutline"
+                              AdornmentColor="Color.Primary" />
+            </MudItem>
+            <MudItem xs="12" sm="6">
+                <MudDatePicker @bind-Date="FechaInicio"
+                               Label="Inicio de Contrato"
+                               Variant="Variant.Outlined"
+                               DateFormat="dd/MM/yyyy"
+                               Disabled="@IsProcessing"
+                               AdornmentColor="Color.Secondary" />
+            </MudItem>
+            <MudItem xs="12" sm="6">
+                <MudDatePicker @bind-Date="FechaFin"
+                               Label="Fin de Contrato (Opcional)"
+                               Variant="Variant.Outlined"
+                               DateFormat="dd/MM/yyyy"
+                               Disabled="@IsProcessing"
+                               AdornmentColor="Color.Secondary" />
+            </MudItem>
+        </MudGrid>
+    </div>
+
+    <div class="form-actions-bar">
+        <MudButton Variant="Variant.Text"
+                   Color="Color.Default"
+                   OnClick="OnCancel"
+                   Disabled="@IsProcessing"
+                   Class="text-none px-5">
+            Cancelar
+        </MudButton>
+        <MudButton ButtonType="ButtonType.Submit"
+                   Variant="Variant.Filled"
+                   Color="Color.Primary"
+                   Disabled="@IsProcessing"
+                   Class="text-none px-6 rounded-lg shadow-sm">
+            @if (IsProcessing)
+            {
+                <MudProgressCircular Size="Size.Small" Indeterminate="true" Class="mr-2" />
+                <span>Guardando...</span>
+            }
+            else
+            {
+                <span>Guardar doctor</span>
+            }
+        </MudButton>
+    </div>
+</EditForm>
+
+@code {
+    [Parameter] public CrearDoctorDto Model { get; set; } = new();
+    [Parameter] public bool IsProcessing { get; set; }
+    [Parameter] public EventCallback OnSave { get; set; }
+    [Parameter] public EventCallback OnCancel { get; set; }
+
+    private DateTime? FechaInicio { get; set; }
+    private DateTime? FechaFin { get; set; }
+
+    protected override void OnParametersSet()
+    {
+        FechaInicio = Model.FechaInicioContrato == default ? DateTime.Today : Model.FechaInicioContrato;
+        FechaFin = Model.FechaFinContrato;
+    }
+
+    private async Task GuardarAsync()
+    {
+        Model.FechaInicioContrato = FechaInicio ?? DateTime.Today;
+        Model.FechaFinContrato = FechaFin;
+        await OnSave.InvokeAsync();
+    }
+}

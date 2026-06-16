@@ -1,0 +1,12 @@
+﻿namespace Clinica.WASM.DTOs.Citas;
+
+public enum EstadoCita
+{
+    Pendiente = 1,
+    Confirmada = 2,
+    Reprogramada = 3,
+    Cancelada = 4,
+    Atendida = 5,
+    NoAsistio = 6,
+    Eliminada = 7
+}

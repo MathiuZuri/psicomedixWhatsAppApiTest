@@ -1,0 +1,107 @@
+﻿@using Clinica.WASM.DTOs.Finanzas.Enums
+
+<MudDialog ActionsClass="px-6 pb-4">
+    <DialogContent>
+        @* Encabezado de la Ficha Financiera Auditora *@
+        <div class="audit-dialog-header-luxury mb-4">
+            <div class="audit-icon-frame tertiary-glow">
+                <MudIcon Icon="@Icons.Material.Filled.RequestQuote" Size="Size.Medium" />
+            </div>
+            <div>
+                <MudText Typo="Typo.h3" Class="audit-title">Nota de Ajuste de Saldos</MudText>
+                <MudText Typo="Typo.caption" Class="audit-subtitle">Modificación de deudas registradas por auditoría</MudText>
+            </div>
+        </div>
+
+        <EditForm Model="@Model" OnValidSubmit="RegistrarAsync">
+            <DataAnnotationsValidator />
+            
+            <div class="form-scroll-body-luxury">
+                <MudGrid Spacing="2">
+                    <MudItem xs="12">
+                        <MudTextField @bind-Value="Model.PagoId" 
+                                      Label="Identificador Único del Pago Relacionado" 
+                                      Variant="Variant.Outlined" 
+                                      Disabled="true" 
+                                      AdornmentIcon="@Icons.Material.Filled.Key"
+                                      AdornmentColor="Color.Default" />
+                    </MudItem>
+                    
+                    <MudItem xs="12" sm="6">
+                        <MudSelect T="TipoAjusteFinanciero" 
+                                   @bind-Value="Model.TipoAjuste" 
+                                   Label="Naturaleza de Ajuste" 
+                                   Variant="Variant.Outlined" 
+                                   For="@(() => Model.TipoAjuste)" 
+                                   Disabled="@IsProcessing"
+                                   AdornmentIcon="@Icons.Material.Filled.Category"
+                                   AdornmentColor="Color.Primary">
+                            @foreach (var tipo in Enum.GetValues<TipoAjusteFinanciero>())
+                            {
+                                <MudSelectItem Value="tipo">@tipo.ToString()</MudSelectItem>
+                            }
+                        </MudSelect>
+                    </MudItem>
+                    
+                    <MudItem xs="12" sm="6">
+                        <MudNumericField T="decimal" 
+                                         @bind-Value="Model.MontoAjuste" 
+                                         Label="Monto Diferencial" 
+                                         Variant="Variant.Outlined" 
+                                         For="@(() => Model.MontoAjuste)" 
+                                         Disabled="@IsProcessing" 
+                                         Min="0.01m" 
+                                         Step="0.01m" 
+                                         Format="C2"
+                                         Adornment="Adornment.Start"
+                                         AdornmentText="S/." />
+                    </MudItem>
+                    
+                    <MudItem xs="12">
+                        <MudTextField @bind-Value="Model.Motivo" 
+                                      Label="Sustento Contable Obligatorio" 
+                                      Variant="Variant.Outlined" 
+                                      For="@(() => Model.Motivo)" 
+                                      Disabled="@IsProcessing" 
+                                      Lines="2" />
+                    </MudItem>
+                    
+                    <MudItem xs="12">
+                        <MudTextField @bind-Value="Model.Observacion" 
+                                      Label="Observaciones de Auditoría Interna" 
+                                      Variant="Variant.Outlined" 
+                                      Disabled="@IsProcessing" 
+                                      Lines="2" />
+                    </MudItem>
+                </MudGrid>
+            </div>
+
+            <div class="form-actions-panel mt-5">
+                <MudButton Variant="Variant.Text" Color="Color.Default" OnClick="Cancelar" Disabled="@IsProcessing" Class="text-none px-4">
+                    Cancelar
+                </MudButton>
+                <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" Disabled="@IsProcessing" Class="text-none px-6 rounded-lg shadow-sm">
+                    @if (IsProcessing) 
+                    {
+                        <MudProgressCircular Size="Size.Small" Indeterminate="true" Class="mr-2"/>
+                    } 
+                    Aplicar Ajuste
+                </MudButton>
+            </div>
+        </EditForm>
+    </DialogContent>
+</MudDialog>
+
+@code {
+    [CascadingParameter] private IMudDialogInstance MudDialog { get; set; } = default!;
+    [Parameter] public RegistrarAjusteFinancieroDto Model { get; set; } = new();
+    private bool IsProcessing;
+
+    private async Task RegistrarAsync()
+    {
+        IsProcessing = true;
+        MudDialog.Close(DialogResult.Ok(Model));
+    }
+
+    private void Cancelar() => MudDialog.Cancel();
+}

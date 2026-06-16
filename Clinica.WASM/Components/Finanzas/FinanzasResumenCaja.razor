@@ -1,0 +1,107 @@
+﻿@if (ResumenCaja == null) return;
+
+<div class="kpi-dashboard-wrapper mt-2">
+    @* Tarjetas KPI Maestras de Flujo Contable *@
+    <MudGrid Spacing="3" Class="mb-4">
+        <MudItem xs="12" sm="6">
+            <div class="kpi-card-luxury accent-primary">
+                <div class="kpi-icon-shell shell-primary">
+                    <MudIcon Icon="@Icons.Material.Filled.TrendingUp" />
+                </div>
+                <div class="kpi-text-stack">
+                    <span class="kpi-label">Volumen Total Recaudado</span>
+                    <span class="kpi-value">@ResumenCaja.TotalIngresos.ToString("C")</span>
+                </div>
+            </div>
+        </MudItem>
+        <MudItem xs="12" sm="6">
+            <div class="kpi-card-luxury accent-tertiary">
+                <div class="kpi-icon-shell shell-tertiary">
+                    <MudIcon Icon="@Icons.Material.Filled.SwapHorizontalCircle" />
+                </div>
+                <div class="kpi-text-stack">
+                    <span class="kpi-label">Transacciones Procesadas</span>
+                    <span class="kpi-value">@ResumenCaja.CantidadMovimientos</span>
+                </div>
+            </div>
+        </MudItem>
+    </MudGrid>
+
+    @* Rejilla de Canales Desglosados Estilo Pasarelas Digitales *@
+    <MudText Typo="Typo.caption" Class="section-mini-tag d-block mb-2">DESGLOSE DE ARQUEO POR MEDIO DE PAGO</MudText>
+    <MudGrid Spacing="2" Class="mb-5">
+        <MudItem xs="6" sm="4" md="2">
+            <div class="channel-mini-box">
+                <span class="channel-label">Efectivo</span>
+                <span class="channel-amount font-mono">@ResumenCaja.TotalEfectivo.ToString("C")</span>
+            </div>
+        </MudItem>
+        <MudItem xs="6" sm="4" md="2">
+            <div class="channel-mini-box border-yape">
+                <span class="channel-label label-yape">Yape</span>
+                <span class="channel-amount font-mono">@ResumenCaja.TotalYape.ToString("C")</span>
+            </div>
+        </MudItem>
+        <MudItem xs="6" sm="4" md="2">
+            <div class="channel-mini-box border-plin">
+                <span class="channel-label label-plin">Plin</span>
+                <span class="channel-amount font-mono">@ResumenCaja.TotalPlin.ToString("C")</span>
+            </div>
+        </MudItem>
+        <MudItem xs="6" sm="4" md="2">
+            <div class="channel-mini-box">
+                <span class="channel-label">Transferencia</span>
+                <span class="channel-amount font-mono">@ResumenCaja.TotalTransferencia.ToString("C")</span>
+            </div>
+        </MudItem>
+        <MudItem xs="6" sm="4" md="2">
+            <div class="channel-mini-box">
+                <span class="channel-label">Tarjetas Bancarias</span>
+                <span class="channel-amount font-mono">@ResumenCaja.TotalTarjeta.ToString("C")</span>
+            </div>
+        </MudItem>
+        <MudItem xs="6" sm="4" md="2">
+            <div class="channel-mini-box">
+                <span class="channel-label">Otros Medios</span>
+                <span class="channel-amount font-mono">@ResumenCaja.TotalOtro.ToString("C")</span>
+            </div>
+        </MudItem>
+    </MudGrid>
+
+    @* Historial de Movimientos de Caja Directo *@
+    @if (ResumenCaja.Movimientos != null && ResumenCaja.Movimientos.Any())
+    {
+        <div class="finance-list-layer">
+            <div class="finance-layer-header-bar">
+                <div class="d-flex align-center gap-2">
+                    <MudIcon Icon="@Icons.Material.Filled.ReceiptLong" Color="Color.Primary" />
+                    <MudText Typo="Typo.h3" Class="finance-layer-title">Cierre Diario de Operaciones de Caja</MudText>
+                </div>
+            </div>
+            <div class="overflow-x-auto-clean">
+                <MudTable Items="ResumenCaja.Movimientos" Dense="false" Hover="true" Striped="true" Elevation="0">
+                    <HeaderContent>
+                        <MudTh Class="header-cell-premium">Recibo</MudTh>
+                        <MudTh Class="header-cell-premium">Paciente Beneficiario</MudTh>
+                        <MudTh Class="header-cell-premium text-end">Monto Total</MudTh>
+                        <MudTh Class="header-cell-premium text-end">Monto Pagado</MudTh>
+                        <MudTh Class="header-cell-premium text-end">Saldo Remanente</MudTh>
+                    </HeaderContent>
+                    <RowTemplate>
+                        <MudTd DataLabel="Código">
+                            <span class="finance-code-badge">@context.CodigoPago</span>
+                        </MudTd>
+                        <MudTd DataLabel="Paciente" Class="fw-semibold text-primary-dark">@context.Paciente</MudTd>
+                        <MudTd DataLabel="Total" Class="font-mono text-end">@context.MontoTotal.ToString("C")</MudTd>
+                        <MudTd DataLabel="Pagado" Class="font-mono text-success-dark fw-medium text-end">@context.MontoPagado.ToString("C")</MudTd>
+                        <MudTd DataLabel="Saldo" Class="font-mono text-rose-gold fw-bold text-end">@context.SaldoPendiente.ToString("C")</MudTd>
+                    </RowTemplate>
+                </MudTable>
+            </div>
+        </div>
+    }
+</div>
+
+@code {
+    [Parameter] public ResumenCajaDto? ResumenCaja { get; set; }
+}

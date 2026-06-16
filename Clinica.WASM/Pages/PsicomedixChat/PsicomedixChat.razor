@@ -1,0 +1,21 @@
+﻿@page "/panel/psicomedix-chat"
+@using Clinica.WASM.Components.WhatsApp  @* ◄── Asegura esta línea aquí o en tu _Imports.razor *@
+@implements IAsyncDisposable
+
+<MudPaper Elevation="4" Class="chat-main-board-luxury">
+    <div class="chat-layout-split">
+        
+        <div class="chat-layout-sidebar">
+            <ListaContactos Chats="ChatsActivos" 
+                            ChatSeleccionadoId="ChatSeleccionado?.Id" 
+                            OnChatSeleccionado="CambiarChatActivoAsync" />
+        </div>
+
+        <div class="chat-layout-content">
+            <VentanaConversacion ChatActivo="ChatSeleccionado" 
+                                 Mensajes="HistorialMensajes" 
+                                 OnEnviarMensaje="EnviarMensajeAlPacienteAsync" />
+        </div>
+
+    </div>
+</MudPaper>

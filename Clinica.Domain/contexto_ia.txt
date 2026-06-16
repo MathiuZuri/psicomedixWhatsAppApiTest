@@ -1,0 +1,2953 @@
+============================================================
+ESTRUCTURA DEL PROYECTO: Clinica.Domain
+============================================================
+
+├── 📁 bin/   ⚙️ (Binaries)
+├── 📁 DTOs/
+│   ├── 📁 Atenciones/
+│   │   ├── 📄 AtencionResponseDto.cs
+│   │   ├── 📄 CerrarAtencionDto.cs
+│   │   └── 📄 RegistrarAtencionDto.cs
+│   ├── 📁 Auditoria/
+│   │   └── 📄 AuditoriaResponseDto.cs
+│   ├── 📁 Auth/
+│   │   ├── 📄 IniciarSesionDto.cs
+│   │   └── 📄 RespuestaInicioSesionDto.cs
+│   ├── 📁 Citas/
+│   │   ├── 📄 CancelarCitaDto.cs
+│   │   ├── 📄 CitaResponseDto.cs
+│   │   ├── 📄 CrearCitaDto.cs
+│   │   └── 📄 ReprogramarCitaDto.cs
+│   ├── 📁 Comprobantes/
+│   │   ├── 📄 AnularComprobanteDto.cs
+│   │   ├── 📄 ComprobanteAtencionPreviewDto.cs
+│   │   ├── 📄 ComprobanteCitaPreviewDto.cs
+│   │   ├── 📄 ComprobanteDetalleDto.cs
+│   │   ├── 📄 ComprobanteDto.cs
+│   │   ├── 📄 ComprobanteEstadoCuentaPreviewDto.cs
+│   │   ├── 📄 ComprobanteHistoriaClinicaPreviewDto.cs
+│   │   ├── 📄 ComprobantePagoPreviewDto.cs
+│   │   ├── 📄 DetalleEstadoCuentaComprobanteDto.cs
+│   │   ├── 📄 DocumentoGeneradoDto.cs
+│   │   ├── 📄 EmitirComprobanteAtencionDto.cs
+│   │   ├── 📄 EmitirComprobanteCitaDto.cs
+│   │   └── 📄 EmitirComprobantePagoDto.cs
+│   ├── 📁 Doctores/
+│   │   ├── 📄 CrearDoctorDto.cs
+│   │   ├── 📄 DoctorResponseDto.cs
+│   │   └── 📄 EditarDoctorDto.cs
+│   ├── 📁 Finanzas/
+│   │   ├── 📄 AjusteFinancieroDto.cs
+│   │   ├── 📄 DetalleEstadoCuentaDto.cs
+│   │   ├── 📄 EstadoCuentaPacienteDto.cs
+│   │   ├── 📄 EstadoPagoAtencionDto.cs
+│   │   ├── 📄 PagoFinanzasDto.cs
+│   │   ├── 📄 RegistrarAjusteFinancieroDto.cs
+│   │   ├── 📄 ResumenAnualFinanzasDto.cs
+│   │   ├── 📄 ResumenCajaDto.cs
+│   │   ├── 📄 ResumenDiarioFinanzasDto.cs
+│   │   ├── 📄 ResumenFinancieroMensualCompletoDto.cs
+│   │   ├── 📄 ResumenMensualFinanzasDto.cs
+│   │   ├── 📄 ResumenMetodoPagoDto.cs
+│   │   └── 📄 ResumenRealAtencionesDto.cs
+│   ├── 📁 Historiales/
+│   │   ├── 📄 HistorialClinicoResponseDto.cs
+│   │   └── 📄 HistorialDetalleResponseDto.cs
+│   ├── 📁 Horarios/
+│   │   ├── 📄 CrearHorarioDoctorDto.cs
+│   │   ├── 📄 EditarHorarioDoctorDto.cs
+│   │   └── 📄 HorarioDoctorResponseDto.cs
+│   ├── 📁 Pacientes/
+│   │   ├── 📄 ActualizarContactoPacienteDto.cs
+│   │   ├── 📄 CrearPacienteDto.cs
+│   │   └── 📄 PacienteResponseDto.cs
+│   ├── 📁 Pagos/
+│   │   ├── 📄 PagoResponseDto.cs
+│   │   └── 📄 RegistrarPagoDto.cs
+│   ├── 📁 Permisos/
+│   │   └── 📄 PermisoResponseDto.cs
+│   ├── 📁 Roles/
+│   │   ├── 📄 AsignarPermisosRolDto.cs
+│   │   ├── 📄 CrearRolDto.cs
+│   │   ├── 📄 EditarRolDto.cs
+│   │   └── 📄 RolResponseDto.cs
+│   ├── 📁 Servicios/
+│   │   └── 📄 ServicioClinicoResponseDto.cs
+│   └── 📁 Usuarios/
+│       ├── 📄 AsignarRolUsuarioDto.cs
+│       ├── 📄 CrearUsuarioDto.cs
+│       ├── 📄 EditarUsuarioDto.cs
+│       └── 📄 UsuarioResponseDto.cs
+├── 📁 Entities/
+│   ├── 📄 AjusteFinanciero.cs
+│   ├── 📄 Atencion.cs
+│   ├── 📄 Auditoria.cs
+│   ├── 📄 Cita.cs
+│   ├── 📄 Comprobante.cs
+│   ├── 📄 ComprobanteDetalle.cs
+│   ├── 📄 Doctor.cs
+│   ├── 📄 HistorialClinico.cs
+│   ├── 📄 HistorialDetalle.cs
+│   ├── 📄 HorarioDoctor.cs
+│   ├── 📄 NotificacionCita.cs
+│   ├── 📄 Paciente.cs
+│   ├── 📄 Pago.cs
+│   ├── 📄 Permiso.cs
+│   ├── 📄 Rol.cs
+│   ├── 📄 RolPermiso.cs
+│   ├── 📄 ServicioClinico.cs
+│   ├── 📄 Usuario.cs
+│   └── 📄 UsuarioRol.cs
+├── 📁 Enums/
+│   ├── 📄 CanalNotificacion.cs
+│   ├── 📄 EstadoAtencion.cs
+│   ├── 📄 EstadoCita.cs
+│   ├── 📄 EstadoComprobante.cs
+│   ├── 📄 EstadoDoctor.cs
+│   ├── 📄 EstadoHistorialClinico.cs
+│   ├── 📄 EstadoNotificacion.cs
+│   ├── 📄 EstadoPaciente.cs
+│   ├── 📄 EstadoPago.cs
+│   ├── 📄 EstadoServicioClinico.cs
+│   ├── 📄 EstadoUsuario.cs
+│   ├── 📄 MetodoPago.cs
+│   ├── 📄 NivelAuditoria.cs
+│   ├── 📄 TipoAccionAuditoria.cs
+│   ├── 📄 TipoAjusteFinanciero.cs
+│   ├── 📄 TipoComprobante.cs
+│   ├── 📄 TipoDocumentoComprobante.cs
+│   ├── 📄 TipoFormatoImpresion.cs
+│   └── 📄 TipoMovimientoHistorial.cs
+├── 📁 Interfaces/
+│   ├── 📄 IAjusteFinancieroRepository.cs
+│   ├── 📄 IAtencionRepository.cs
+│   ├── 📄 IAuditoriaRepository.cs
+│   ├── 📄 ICitaRepository.cs
+│   ├── 📄 IComprobantePdfService.cs
+│   ├── 📄 IComprobanteRepository.cs
+│   ├── 📄 IComprobanteService.cs
+│   ├── 📄 IDoctorRepository.cs
+│   ├── 📄 IFinanzasService.cs
+│   ├── 📄 IGenericRepository.cs
+│   ├── 📄 IHistorialClinicoRepository.cs
+│   ├── 📄 IHistorialDetalleRepository.cs
+│   ├── 📄 IHorarioDoctorRepository.cs
+│   ├── 📄 INotificacionCitaRepository.cs
+│   ├── 📄 IPacienteRepository.cs
+│   ├── 📄 IPagoRepository.cs
+│   ├── 📄 IPermisoRepository.cs
+│   ├── 📄 IRolRepository.cs
+│   ├── 📄 IServicioClinicoRepository.cs
+│   ├── 📄 IUsuarioActualService.cs
+│   └── 📄 IUsuarioRepository.cs
+├── 📁 obj/   ⚙️ (Objects)
+├── 📁 Validations/
+│   └── 📄 NotEmptyGuidAttribute.cs
+├── 📄 Class1.cs
+├── 📄 Clinica.Domain.csproj
+└── 📄 contexto_ia.txt
+
+============================================================
+CONTENIDO DE CÓDIGO FUENTE SOLICITADO
+============================================================
+
+--- ARCHIVO: DTOs\Atenciones\AtencionResponseDto.cs ---
+```
+﻿using Clinica.Domain.Enums;
+
+namespace Clinica.Domain.DTOs.Atenciones;
+
+public class AtencionResponseDto
+{
+    public Guid Id { get; set; }
+    public string CodigoAtencion { get; set; } = string.Empty;
+
+    public Guid PacienteId { get; set; }
+    public string PacienteNombre { get; set; } = string.Empty;
+
+    public Guid DoctorId { get; set; }
+    public string DoctorNombre { get; set; } = string.Empty;
+
+    public Guid ServicioClinicoId { get; set; }
+    public string ServicioNombre { get; set; } = string.Empty;
+
+    public Guid? CitaId { get; set; }
+    public Guid HistorialClinicoId { get; set; }
+
+    public DateTime FechaInicio { get; set; }
+    public DateTime? FechaCierre { get; set; }
+
+    public string MotivoConsulta { get; set; } = string.Empty;
+    public string? Observaciones { get; set; }
+    public string? DiagnosticoResumen { get; set; }
+    public string? Indicaciones { get; set; }
+    public string? Tratamiento { get; set; }
+
+    public EstadoAtencion Estado { get; set; }
+
+    public decimal CostoFinal { get; set; }
+    public decimal MontoPagado { get; set; }
+    public decimal SaldoPendiente { get; set; }
+}
+```
+
+--- ARCHIVO: DTOs\Atenciones\CerrarAtencionDto.cs ---
+```
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Clinica.Domain.DTOs.Atenciones;
+
+public class CerrarAtencionDto
+{
+    [StringLength(1000, ErrorMessage = "El diagnóstico no debe superar los 1000 caracteres.")]
+    public string? DiagnosticoResumen { get; set; }
+
+    [StringLength(1000, ErrorMessage = "Las indicaciones no deben superar los 1000 caracteres.")]
+    public string? Indicaciones { get; set; }
+
+    [StringLength(1000, ErrorMessage = "El tratamiento no debe superar los 1000 caracteres.")]
+    public string? Tratamiento { get; set; }
+
+    [StringLength(1000, ErrorMessage = "Las observaciones finales no deben superar los 1000 caracteres.")]
+    public string? ObservacionesFinales { get; set; }
+}
+```
+
+--- ARCHIVO: DTOs\Atenciones\RegistrarAtencionDto.cs ---
+```
+﻿using System.ComponentModel.DataAnnotations;
+using Clinica.Domain.Validations;
+
+namespace Clinica.Domain.DTOs.Atenciones;
+
+public class RegistrarAtencionDto
+{
+    [NotEmptyGuid(ErrorMessage = "El paciente es obligatorio.")]
+    public Guid PacienteId { get; set; }
+
+    [NotEmptyGuid(ErrorMessage = "El doctor es obligatorio.")]
+    public Guid DoctorId { get; set; }
+
+    [NotEmptyGuid(ErrorMessage = "El servicio clínico es obligatorio.")]
+    public Guid ServicioClinicoId { get; set; }
+
+    public Guid? CitaId { get; set; }
+
+    [NotEmptyGuid(ErrorMessage = "El historial clínico es obligatorio.")]
+    public Guid HistorialClinicoId { get; set; }
+
+    [Required(ErrorMessage = "El motivo de consulta es obligatorio.")]
+    [StringLength(500, MinimumLength = 3, ErrorMessage = "El motivo de consulta debe tener entre 3 y 500 caracteres.")]
+    public string MotivoConsulta { get; set; } = string.Empty;
+
+    [StringLength(1000, ErrorMessage = "Las observaciones no deben superar los 1000 caracteres.")]
+    public string? Observaciones { get; set; }
+
+    [StringLength(1000, ErrorMessage = "El diagnóstico no debe superar los 1000 caracteres.")]
+    public string? DiagnosticoResumen { get; set; }
+
+    [StringLength(1000, ErrorMessage = "Las indicaciones no deben superar los 1000 caracteres.")]
+    public string? Indicaciones { get; set; }
+
+    [StringLength(1000, ErrorMessage = "El tratamiento no debe superar los 1000 caracteres.")]
+    public string? Tratamiento { get; set; }
+
+    [Range(0, 999999.99, ErrorMessage = "El costo final no puede ser negativo.")]
+    public decimal CostoFinal { get; set; }
+}
+```
+
+--- ARCHIVO: DTOs\Auditoria\AuditoriaResponseDto.cs ---
+```
+﻿using Clinica.Domain.Enums;
+
+namespace Clinica.Domain.DTOs.Auditoria;
+
+public class AuditoriaResponseDto
+{
+    public Guid Id { get; set; }
+
+    public Guid? UsuarioId { get; set; }
+    public string? UsuarioNombre { get; set; }
+
+    public TipoAccionAuditoria TipoAccion { get; set; }
+
+    public string Modulo { get; set; } = string.Empty;
+    public string EntidadAfectada { get; set; } = string.Empty;
+    public Guid? EntidadId { get; set; }
+
+    public string Descripcion { get; set; } = string.Empty;
+
+    public string? ValorAnterior { get; set; }
+    public string? ValorNuevo { get; set; }
+
+    public string? IpAddress { get; set; }
+    public string? UserAgent { get; set; }
+
+    public bool FueExitoso { get; set; }
+    public string? DetalleError { get; set; }
+    
+    public NivelAuditoria Nivel { get; set; }
+
+    public DateTime FechaHora { get; set; }
+}
+```
+
+--- ARCHIVO: DTOs\Auth\IniciarSesionDto.cs ---
+```
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Clinica.Domain.DTOs.Auth;
+
+public class IniciarSesionDto
+{
+    [Required(ErrorMessage = "El usuario o correo es obligatorio.")]
+    [StringLength(150, MinimumLength = 3, ErrorMessage = "El usuario o correo debe tener entre 3 y 150 caracteres.")]
+    public string UsuarioOCorreo { get; set; } = string.Empty;
+
+    [Required(ErrorMessage = "La contraseña es obligatoria.")]
+    [StringLength(100, MinimumLength = 6, ErrorMessage = "La contraseña debe tener al menos 6 caracteres.")]
+    public string Password { get; set; } = string.Empty;
+}
+```
+
+--- ARCHIVO: DTOs\Auth\RespuestaInicioSesionDto.cs ---
+```
+﻿namespace Clinica.Domain.DTOs.Auth;
+
+public class RespuestaInicioSesionDto
+{
+    public Guid UsuarioId { get; set; }
+    public string CodigoUsuario { get; set; } = string.Empty;
+    public string NombreCompleto { get; set; } = string.Empty;
+    public string Correo { get; set; } = string.Empty;
+    public string Token { get; set; } = string.Empty;
+    public List<string> Roles { get; set; } = new();
+    public List<string> Permisos { get; set; } = new();
+}
+```
+
+--- ARCHIVO: DTOs\Citas\CancelarCitaDto.cs ---
+```
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Clinica.Domain.DTOs.Citas;
+
+public class CancelarCitaDto
+{
+    [Required(ErrorMessage = "El motivo de cancelación es obligatorio.")]
+    [StringLength(500, MinimumLength = 3, ErrorMessage = "El motivo de cancelación debe tener entre 3 y 500 caracteres.")]
+    public string MotivoCancelacion { get; set; } = string.Empty;
+}
+```
+
+--- ARCHIVO: DTOs\Citas\CitaResponseDto.cs ---
+```
+﻿using Clinica.Domain.Enums;
+
+namespace Clinica.Domain.DTOs.Citas;
+
+public class CitaResponseDto
+{
+    public Guid Id { get; set; }
+    public string CodigoCita { get; set; } = string.Empty;
+
+    public Guid PacienteId { get; set; }
+    public string PacienteNombre { get; set; } = string.Empty;
+
+    public Guid DoctorId { get; set; }
+    public string DoctorNombre { get; set; } = string.Empty;
+
+    public Guid ServicioClinicoId { get; set; }
+    public string ServicioNombre { get; set; } = string.Empty;
+
+    public DateOnly Fecha { get; set; }
+    public TimeOnly HoraInicio { get; set; }
+    public TimeOnly HoraFin { get; set; }
+
+    public string Motivo { get; set; } = string.Empty;
+    public string? Observaciones { get; set; }
+
+    public EstadoCita Estado { get; set; }
+    public DateTime FechaRegistro { get; set; }
+}
+```
+
+--- ARCHIVO: DTOs\Citas\CrearCitaDto.cs ---
+```
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Clinica.Domain.DTOs.Citas;
+
+public class CrearCitaDto
+{
+    [Required(ErrorMessage = "El paciente es obligatorio.")]
+    public Guid PacienteId { get; set; }
+
+    [Required(ErrorMessage = "El doctor es obligatorio.")]
+    public Guid DoctorId { get; set; }
+
+    [Required(ErrorMessage = "El servicio clínico es obligatorio.")]
+    public Guid ServicioClinicoId { get; set; }
+
+    public Guid? HorarioDoctorId { get; set; }
+
+    [Required(ErrorMessage = "La fecha de la cita es obligatoria.")]
+    public DateOnly Fecha { get; set; }
+
+    [Required(ErrorMessage = "La hora de inicio es obligatoria.")]
+    public TimeOnly HoraInicio { get; set; }
+
+    [Required(ErrorMessage = "La hora de fin es obligatoria.")]
+    public TimeOnly HoraFin { get; set; }
+
+    [Required(ErrorMessage = "El motivo de la cita es obligatorio.")]
+    [StringLength(300, MinimumLength = 3, ErrorMessage = "El motivo debe tener entre 3 y 300 caracteres.")]
+    public string Motivo { get; set; } = string.Empty;
+
+    [StringLength(500, ErrorMessage = "Las observaciones no deben superar los 500 caracteres.")]
+    public string? Observaciones { get; set; }
+}
+```
+
+--- ARCHIVO: DTOs\Citas\ReprogramarCitaDto.cs ---
+```
+﻿using System.ComponentModel.DataAnnotations;
+using Clinica.Domain.Validations;
+
+namespace Clinica.Domain.DTOs.Citas;
+
+public class ReprogramarCitaDto
+{
+    [NotEmptyGuid(ErrorMessage = "El doctor es obligatorio.")]
+    public Guid DoctorId { get; set; }
+
+    public Guid? HorarioDoctorId { get; set; }
+
+    public DateOnly NuevaFecha { get; set; }
+
+    public TimeOnly NuevaHoraInicio { get; set; }
+
+    public TimeOnly NuevaHoraFin { get; set; }
+
+    [StringLength(500, ErrorMessage = "El motivo de reprogramación no debe superar los 500 caracteres.")]
+    public string? MotivoReprogramacion { get; set; }
+}
+```
+
+--- ARCHIVO: DTOs\Comprobantes\AnularComprobanteDto.cs ---
+```
+﻿namespace Clinica.Domain.DTOs.Comprobantes;
+
+public class AnularComprobanteDto
+{
+    public string Motivo { get; set; } = string.Empty;
+}
+```
+
+--- ARCHIVO: DTOs\Comprobantes\ComprobanteAtencionPreviewDto.cs ---
+```
+﻿namespace Clinica.Domain.DTOs.Comprobantes;
+
+public class ComprobanteAtencionPreviewDto
+{
+    public Guid ComprobanteId { get; set; }
+    public string CodigoComprobante { get; set; } = string.Empty;
+
+    public Guid AtencionId { get; set; }
+    public string CodigoAtencion { get; set; } = string.Empty;
+
+    public Guid PacienteId { get; set; }
+    public string Paciente { get; set; } = string.Empty;
+    public string DniPaciente { get; set; } = string.Empty;
+    public string? DireccionPaciente { get; set; }
+
+    public Guid DoctorId { get; set; }
+    public string Doctor { get; set; } = string.Empty;
+    public string Especialidad { get; set; } = string.Empty;
+
+    public Guid ServicioClinicoId { get; set; }
+    public string Servicio { get; set; } = string.Empty;
+
+    public DateTime FechaInicio { get; set; }
+    public DateTime? FechaCierre { get; set; }
+
+    public string MotivoConsulta { get; set; } = string.Empty;
+    public string? DiagnosticoResumen { get; set; }
+    public string? Indicaciones { get; set; }
+    public string? Tratamiento { get; set; }
+    public string? Observaciones { get; set; }
+
+    public string EstadoAtencion { get; set; } = string.Empty;
+
+    public decimal CostoFinal { get; set; }
+    public decimal MontoPagado { get; set; }
+    public decimal SaldoPendiente { get; set; }
+
+    public DateTime FechaEmision { get; set; }
+}
+```
+
+--- ARCHIVO: DTOs\Comprobantes\ComprobanteCitaPreviewDto.cs ---
+```
+﻿namespace Clinica.Domain.DTOs.Comprobantes;
+
+public class ComprobanteCitaPreviewDto
+{
+    public Guid ComprobanteId { get; set; }
+    public string CodigoComprobante { get; set; } = string.Empty;
+
+    public Guid CitaId { get; set; }
+    public string CodigoCita { get; set; } = string.Empty;
+
+    public Guid PacienteId { get; set; }
+    public string Paciente { get; set; } = string.Empty;
+    public string DniPaciente { get; set; } = string.Empty;
+    public string? DireccionPaciente { get; set; }
+
+    public Guid DoctorId { get; set; }
+    public string Doctor { get; set; } = string.Empty;
+    public string Especialidad { get; set; } = string.Empty;
+
+    public Guid ServicioClinicoId { get; set; }
+    public string Servicio { get; set; } = string.Empty;
+
+    public DateOnly FechaCita { get; set; }
+    public TimeOnly HoraInicio { get; set; }
+    public TimeOnly HoraFin { get; set; }
+
+    public string EstadoCita { get; set; } = string.Empty;
+    public string Motivo { get; set; } = string.Empty;
+
+    public DateTime FechaEmision { get; set; }
+
+    public string? Observacion { get; set; }
+}
+```
+
+--- ARCHIVO: DTOs\Comprobantes\ComprobanteDetalleDto.cs ---
+```
+﻿namespace Clinica.Domain.DTOs.Comprobantes;
+
+public class ComprobanteDetalleDto
+{
+    public Guid Id { get; set; }
+
+    public string CodigoServicio { get; set; } = string.Empty;
+    public string Descripcion { get; set; } = string.Empty;
+
+    public int Cantidad { get; set; } = 1;
+
+    public decimal PrecioUnitarioFinal { get; set; }
+
+    public decimal Subtotal { get; set; }
+    public decimal TasaImpuesto { get; set; }
+    public decimal MontoImpuesto { get; set; }
+    public decimal Total { get; set; }
+}
+```
+
+--- ARCHIVO: DTOs\Comprobantes\ComprobanteDto.cs ---
+```
+﻿namespace Clinica.Domain.DTOs.Comprobantes;
+
+public class ComprobanteDto
+{
+    public Guid Id { get; set; }
+
+    public string CodigoComprobante { get; set; } = string.Empty;
+    public string Serie { get; set; } = string.Empty;
+    public int Numero { get; set; }
+
+    public string TipoComprobante { get; set; } = string.Empty;
+    public string Estado { get; set; } = string.Empty;
+    public string FormatoImpresion { get; set; } = string.Empty;
+
+    public Guid PacienteId { get; set; }
+    public string Paciente { get; set; } = string.Empty;
+
+    public string TipoDocumentoPaciente { get; set; } = string.Empty;
+    public string NumeroDocumentoPaciente { get; set; } = string.Empty;
+    public string? DireccionPaciente { get; set; }
+
+    public Guid? PagoId { get; set; }
+    public Guid? CitaId { get; set; }
+    public Guid? AtencionId { get; set; }
+    public Guid? HistorialClinicoId { get; set; }
+
+    public decimal Subtotal { get; set; }
+    public decimal TasaImpuesto { get; set; }
+    public decimal MontoImpuesto { get; set; }
+    public decimal Total { get; set; }
+
+    public DateTime FechaEmision { get; set; }
+
+    public Guid UsuarioEmisionId { get; set; }
+    public string? UsuarioEmision { get; set; }
+
+    public DateTime? FechaAnulacion { get; set; }
+    public Guid? UsuarioAnulacionId { get; set; }
+    public string? UsuarioAnulacion { get; set; }
+    public string? MotivoAnulacion { get; set; }
+
+    public string? Observacion { get; set; }
+
+    public List<ComprobanteDetalleDto> Detalles { get; set; } = new();
+}
+```
+
+--- ARCHIVO: DTOs\Comprobantes\ComprobanteEstadoCuentaPreviewDto.cs ---
+```
+﻿namespace Clinica.Domain.DTOs.Comprobantes;
+
+public class ComprobanteEstadoCuentaPreviewDto
+{
+    public Guid ComprobanteId { get; set; }
+    public string CodigoComprobante { get; set; } = string.Empty;
+
+    public Guid PacienteId { get; set; }
+    public string Paciente { get; set; } = string.Empty;
+    public string DniPaciente { get; set; } = string.Empty;
+    public string? DireccionPaciente { get; set; }
+
+    public decimal TotalFacturado { get; set; }
+    public decimal TotalPagado { get; set; }
+    public decimal TotalPendiente { get; set; }
+
+    public DateTime FechaEmision { get; set; }
+
+    public List<DetalleEstadoCuentaComprobanteDto> Detalles { get; set; } = new();
+}
+```
+
+--- ARCHIVO: DTOs\Comprobantes\ComprobanteHistoriaClinicaPreviewDto.cs ---
+```
+﻿namespace Clinica.Domain.DTOs.Comprobantes;
+
+public class ComprobanteHistoriaClinicaPreviewDto
+{
+    public Guid HistorialClinicoId { get; set; }
+
+    public Guid PacienteId { get; set; }
+    public string Paciente { get; set; } = string.Empty;
+    public string DniPaciente { get; set; } = string.Empty;
+    public string CodigoPaciente { get; set; } = string.Empty;
+
+    public DateTime FechaRegistroPaciente { get; set; }
+
+    public int CantidadAtenciones { get; set; }
+    public int CantidadCitas { get; set; }
+
+    public List<ComprobanteAtencionPreviewDto> Atenciones { get; set; } = new();
+    public List<ComprobanteCitaPreviewDto> Citas { get; set; } = new();
+}
+```
+
+--- ARCHIVO: DTOs\Comprobantes\ComprobantePagoPreviewDto.cs ---
+```
+﻿namespace Clinica.Domain.DTOs.Comprobantes;
+
+public class ComprobantePagoPreviewDto
+{
+    public Guid ComprobanteId { get; set; }
+    public string CodigoComprobante { get; set; } = string.Empty;
+
+    public Guid PagoId { get; set; }
+    public string CodigoPago { get; set; } = string.Empty;
+
+    public Guid PacienteId { get; set; }
+    public string Paciente { get; set; } = string.Empty;
+    public string DniPaciente { get; set; } = string.Empty;
+    public string? DireccionPaciente { get; set; }
+
+    public Guid? AtencionId { get; set; }
+    public string? CodigoAtencion { get; set; }
+
+    public Guid? CitaId { get; set; }
+    public string? CodigoCita { get; set; }
+
+    public string Servicio { get; set; } = string.Empty;
+
+    public decimal MontoPagado { get; set; }
+
+    public decimal Subtotal { get; set; }
+    public decimal TasaImpuesto { get; set; }
+    public decimal MontoImpuesto { get; set; }
+    public decimal Total { get; set; }
+
+    public string MetodoPago { get; set; } = string.Empty;
+    public string EstadoPago { get; set; } = string.Empty;
+
+    public DateTime FechaPago { get; set; }
+    public DateTime FechaEmision { get; set; }
+
+    public string? Observacion { get; set; }
+
+    public List<ComprobanteDetalleDto> Detalles { get; set; } = new();
+}
+```
+
+--- ARCHIVO: DTOs\Comprobantes\DetalleEstadoCuentaComprobanteDto.cs ---
+```
+﻿namespace Clinica.Domain.DTOs.Comprobantes;
+
+public class DetalleEstadoCuentaComprobanteDto
+{
+    public Guid PagoId { get; set; }
+
+    public string CodigoPago { get; set; } = string.Empty;
+
+    public string Servicio { get; set; } = string.Empty;
+
+    public DateTime FechaPago { get; set; }
+
+    public decimal MontoTotal { get; set; }
+
+    public decimal MontoPagado { get; set; }
+
+    public decimal SaldoPendiente { get; set; }
+
+    public string EstadoPago { get; set; } = string.Empty;
+}
+```
+
+--- ARCHIVO: DTOs\Comprobantes\DocumentoGeneradoDto.cs ---
+```
+﻿namespace Clinica.Domain.DTOs.Comprobantes;
+
+public class DocumentoGeneradoDto
+{
+    public string NombreArchivo { get; set; } = string.Empty;
+
+    public string ContentType { get; set; } = "application/pdf";
+
+    public byte[] Archivo { get; set; } = Array.Empty<byte>();
+}
+```
+
+--- ARCHIVO: DTOs\Comprobantes\EmitirComprobanteAtencionDto.cs ---
+```
+﻿using Clinica.Domain.Enums;
+
+namespace Clinica.Domain.DTOs.Comprobantes;
+
+public class EmitirComprobanteAtencionDto
+{
+    public Guid AtencionId { get; set; }
+
+    public TipoComprobante TipoComprobante { get; set; } = TipoComprobante.ResumenAtencion;
+
+    public TipoFormatoImpresion FormatoImpresion { get; set; } = TipoFormatoImpresion.A4;
+
+    public string? Observacion { get; set; }
+}
+```
+
+--- ARCHIVO: DTOs\Comprobantes\EmitirComprobanteCitaDto.cs ---
+```
+﻿using Clinica.Domain.Enums;
+
+namespace Clinica.Domain.DTOs.Comprobantes;
+
+public class EmitirComprobanteCitaDto
+{
+    public Guid CitaId { get; set; }
+
+    public TipoComprobante TipoComprobante { get; set; } = TipoComprobante.ConstanciaCita;
+
+    public TipoFormatoImpresion FormatoImpresion { get; set; } = TipoFormatoImpresion.A4;
+
+    public string? Observacion { get; set; }
+}
+```
+
+--- ARCHIVO: DTOs\Comprobantes\EmitirComprobantePagoDto.cs ---
+```
+﻿using Clinica.Domain.Enums;
+
+namespace Clinica.Domain.DTOs.Comprobantes;
+
+public class EmitirComprobantePagoDto
+{
+    public Guid PagoId { get; set; }
+
+    public string? CodigoPago { get; set; }
+
+    public TipoComprobante TipoComprobante { get; set; } = TipoComprobante.BoletaPago;
+
+    public TipoFormatoImpresion FormatoImpresion { get; set; } = TipoFormatoImpresion.A4;
+
+    public string? Observacion { get; set; }
+}
+```
+
+--- ARCHIVO: DTOs\Doctores\CrearDoctorDto.cs ---
+```
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Clinica.Domain.DTOs.Doctores;
+
+public class CrearDoctorDto
+{
+    [Required(ErrorMessage = "El CMP es obligatorio.")]
+    [StringLength(20, MinimumLength = 3, ErrorMessage = "El CMP debe tener entre 3 y 20 caracteres.")]
+    public string CMP { get; set; } = string.Empty;
+
+    [Required(ErrorMessage = "Los nombres son obligatorios.")]
+    [StringLength(100, MinimumLength = 2, ErrorMessage = "Los nombres deben tener entre 2 y 100 caracteres.")]
+    public string Nombres { get; set; } = string.Empty;
+
+    [Required(ErrorMessage = "Los apellidos son obligatorios.")]
+    [StringLength(100, MinimumLength = 2, ErrorMessage = "Los apellidos deben tener entre 2 y 100 caracteres.")]
+    public string Apellidos { get; set; } = string.Empty;
+
+    [Required(ErrorMessage = "La especialidad es obligatoria.")]
+    [StringLength(100, MinimumLength = 3, ErrorMessage = "La especialidad debe tener entre 3 y 100 caracteres.")]
+    public string Especialidad { get; set; } = string.Empty;
+
+    [RegularExpression(@"^\d{9}$", ErrorMessage = "El celular debe tener exactamente 9 dígitos.")]
+    public string? Celular { get; set; }
+
+    [EmailAddress(ErrorMessage = "El correo no tiene un formato válido.")]
+    [StringLength(150, ErrorMessage = "El correo no debe superar los 150 caracteres.")]
+    public string? Correo { get; set; }
+
+    [Required(ErrorMessage = "La fecha de inicio de contrato es obligatoria.")]
+    public DateTime FechaInicioContrato { get; set; }
+
+    public DateTime? FechaFinContrato { get; set; }
+}
+```
+
+--- ARCHIVO: DTOs\Doctores\DoctorResponseDto.cs ---
+```
+﻿using Clinica.Domain.Enums;
+
+namespace Clinica.Domain.DTOs.Doctores;
+
+public class DoctorResponseDto
+{
+    public Guid Id { get; set; }
+    public string CodigoDoctor { get; set; } = string.Empty;
+    public string CMP { get; set; } = string.Empty;
+    public string Nombres { get; set; } = string.Empty;
+    public string Apellidos { get; set; } = string.Empty;
+    public string NombreCompleto => $"{Nombres} {Apellidos}";
+    public string Especialidad { get; set; } = string.Empty;
+    public string? Celular { get; set; }
+    public string? Correo { get; set; }
+    public DateTime FechaInicioContrato { get; set; }
+    public DateTime? FechaFinContrato { get; set; }
+    public EstadoDoctor Estado { get; set; }
+}
+```
+
+--- ARCHIVO: DTOs\Doctores\EditarDoctorDto.cs ---
+```
+﻿using System.ComponentModel.DataAnnotations;
+using Clinica.Domain.Enums;
+
+namespace Clinica.Domain.DTOs.Doctores;
+
+public class EditarDoctorDto
+{
+    [Required(ErrorMessage = "El CMP es obligatorio.")]
+    [StringLength(20, MinimumLength = 3, ErrorMessage = "El CMP debe tener entre 3 y 20 caracteres.")]
+    public string CMP { get; set; } = string.Empty;
+
+    [Required(ErrorMessage = "Los nombres son obligatorios.")]
+    [StringLength(100, MinimumLength = 2, ErrorMessage = "Los nombres deben tener entre 2 y 100 caracteres.")]
+    public string Nombres { get; set; } = string.Empty;
+
+    [Required(ErrorMessage = "Los apellidos son obligatorios.")]
+    [StringLength(100, MinimumLength = 2, ErrorMessage = "Los apellidos deben tener entre 2 y 100 caracteres.")]
+    public string Apellidos { get; set; } = string.Empty;
+
+    [Required(ErrorMessage = "La especialidad es obligatoria.")]
+    [StringLength(100, MinimumLength = 3, ErrorMessage = "La especialidad debe tener entre 3 y 100 caracteres.")]
+    public string Especialidad { get; set; } = string.Empty;
+
+    [RegularExpression(@"^\d{9}$", ErrorMessage = "El celular debe tener exactamente 9 dígitos.")]
+    public string? Celular { get; set; }
+
+    [EmailAddress(ErrorMessage = "El correo no tiene un formato válido.")]
+    [StringLength(150, ErrorMessage = "El correo no debe superar los 150 caracteres.")]
+    public string? Correo { get; set; }
+
+    [Required(ErrorMessage = "La fecha de inicio de contrato es obligatoria.")]
+    public DateTime FechaInicioContrato { get; set; }
+
+    public DateTime? FechaFinContrato { get; set; }
+
+    public EstadoDoctor Estado { get; set; }
+}
+```
+
+--- ARCHIVO: DTOs\Finanzas\AjusteFinancieroDto.cs ---
+```
+﻿namespace Clinica.Domain.DTOs.Finanzas;
+
+public class AjusteFinancieroDto
+{
+    public Guid Id { get; set; }
+
+    public Guid PagoId { get; set; }
+    public string CodigoPago { get; set; } = string.Empty;
+
+    public Guid? AtencionId { get; set; }
+
+    public Guid PacienteId { get; set; }
+    public string Paciente { get; set; } = string.Empty;
+    public string DniPaciente { get; set; } = string.Empty;
+
+    public string TipoAjuste { get; set; } = string.Empty;
+    public decimal MontoAjuste { get; set; }
+
+    public string Motivo { get; set; } = string.Empty;
+    public string? Observacion { get; set; }
+
+    public string RegistradoPor { get; set; } = string.Empty;
+    public DateTime FechaRegistro { get; set; }
+}
+```
+
+--- ARCHIVO: DTOs\Finanzas\DetalleEstadoCuentaDto.cs ---
+```
+﻿namespace Clinica.Domain.DTOs.Finanzas;
+
+public class DetalleEstadoCuentaDto
+{
+    public Guid PagoId { get; set; }
+    public string CodigoPago { get; set; } = string.Empty;
+
+    public Guid? AtencionId { get; set; }
+    public string Servicio { get; set; } = string.Empty;
+
+    public decimal MontoTotal { get; set; }
+    public decimal MontoPagado { get; set; }
+    public decimal SaldoPendiente { get; set; }
+
+    public string EstadoPago { get; set; } = string.Empty;
+    public DateTime FechaPago { get; set; }
+}
+```
+
+--- ARCHIVO: DTOs\Finanzas\EstadoCuentaPacienteDto.cs ---
+```
+﻿namespace Clinica.Domain.DTOs.Finanzas;
+
+public class EstadoCuentaPacienteDto
+{
+    public Guid PacienteId { get; set; }
+    public string Paciente { get; set; } = string.Empty;
+    public string DniPaciente { get; set; } = string.Empty;
+
+    public decimal TotalFacturado { get; set; }
+    public decimal TotalPagado { get; set; }
+    public decimal TotalPendiente { get; set; }
+
+    public int CantidadPagos { get; set; }
+    public int PagosCompletados { get; set; }
+    public int PagosParciales { get; set; }
+    public int PagosPendientes { get; set; }
+
+    public List<DetalleEstadoCuentaDto> Detalles { get; set; } = new();
+}
+```
+
+--- ARCHIVO: DTOs\Finanzas\EstadoPagoAtencionDto.cs ---
+```
+﻿namespace Clinica.Domain.DTOs.Finanzas;
+
+public class EstadoPagoAtencionDto
+{
+    public Guid AtencionId { get; set; }
+
+    public Guid PacienteId { get; set; }
+    public string Paciente { get; set; } = string.Empty;
+    public string DniPaciente { get; set; } = string.Empty;
+
+    public string Servicio { get; set; } = string.Empty;
+
+    public decimal MontoTotal { get; set; }
+    public decimal TotalPagado { get; set; }
+    public decimal SaldoReal { get; set; }
+    public decimal Sobrepago { get; set; }
+
+    public bool TieneDeuda { get; set; }
+    public bool TieneSobrepago { get; set; }
+
+    public string EstadoFinanciero { get; set; } = string.Empty;
+
+    public DateTime? FechaPrimerPago { get; set; }
+    public DateTime? FechaUltimoPago { get; set; }
+
+    public int CantidadPagos { get; set; }
+
+    public List<PagoFinanzasDto> Pagos { get; set; } = new();
+}
+```
+
+--- ARCHIVO: DTOs\Finanzas\PagoFinanzasDto.cs ---
+```
+﻿namespace Clinica.Domain.DTOs.Finanzas;
+
+public class PagoFinanzasDto
+{
+    public Guid PagoId { get; set; }
+    public string CodigoPago { get; set; } = string.Empty;
+
+    public Guid? PacienteId { get; set; }
+    public string Paciente { get; set; } = string.Empty;
+    public string DniPaciente { get; set; } = string.Empty;
+
+    public Guid? AtencionId { get; set; }
+    public string Servicio { get; set; } = string.Empty;
+
+    public decimal MontoTotal { get; set; }
+    public decimal MontoPagado { get; set; }
+    public decimal SaldoPendiente { get; set; }
+
+    public string EstadoPago { get; set; } = string.Empty;
+    public string MetodoPago { get; set; } = string.Empty;
+
+    public DateTime FechaPago { get; set; }
+    public string RegistradoPor { get; set; } = string.Empty;
+}
+```
+
+--- ARCHIVO: DTOs\Finanzas\RegistrarAjusteFinancieroDto.cs ---
+```
+﻿using System.ComponentModel.DataAnnotations;
+using Clinica.Domain.Enums;
+
+namespace Clinica.Domain.DTOs.Finanzas;
+
+public class RegistrarAjusteFinancieroDto
+{
+    [Required(ErrorMessage = "El pago es obligatorio.")]
+    public Guid PagoId { get; set; }
+
+    [Required(ErrorMessage = "El tipo de ajuste es obligatorio.")]
+    public TipoAjusteFinanciero TipoAjuste { get; set; }
+
+    [Range(0.01, 999999.99, ErrorMessage = "El monto del ajuste debe ser mayor a 0.")]
+    public decimal MontoAjuste { get; set; }
+
+    [Required(ErrorMessage = "El motivo del ajuste es obligatorio.")]
+    [StringLength(500, ErrorMessage = "El motivo no debe superar los 500 caracteres.")]
+    public string Motivo { get; set; } = string.Empty;
+
+    [StringLength(500, ErrorMessage = "La observación no debe superar los 500 caracteres.")]
+    public string? Observacion { get; set; }
+}
+```
+
+--- ARCHIVO: DTOs\Finanzas\ResumenAnualFinanzasDto.cs ---
+```
+﻿namespace Clinica.Domain.DTOs.Finanzas;
+
+public class ResumenAnualFinanzasDto
+{
+    public int Anio { get; set; }
+
+    public decimal TotalIngresos { get; set; }
+    public decimal TotalPendiente { get; set; }
+    public decimal TotalDeuda { get; set; }
+
+    public int CantidadPagos { get; set; }
+    public int PagosCompletados { get; set; }
+    public int PagosParciales { get; set; }
+    public int PagosPendientes { get; set; }
+
+    public List<ResumenMensualFinanzasDto> Meses { get; set; } = new();
+}
+```
+
+--- ARCHIVO: DTOs\Finanzas\ResumenCajaDto.cs ---
+```
+﻿namespace Clinica.Domain.DTOs.Finanzas;
+
+public class ResumenCajaDto
+{
+    public decimal TotalIngresos { get; set; }
+    public int CantidadMovimientos { get; set; }
+
+    public decimal TotalEfectivo { get; set; }
+    public decimal TotalYape { get; set; }
+    public decimal TotalPlin { get; set; }
+    public decimal TotalTransferencia { get; set; }
+    public decimal TotalTarjeta { get; set; }
+    public decimal TotalOtro { get; set; }
+
+    public List<ResumenMetodoPagoDto> MetodosPago { get; set; } = new();
+    public List<PagoFinanzasDto> Movimientos { get; set; } = new();
+}
+```
+
+--- ARCHIVO: DTOs\Finanzas\ResumenDiarioFinanzasDto.cs ---
+```
+﻿namespace Clinica.Domain.DTOs.Finanzas;
+
+public class ResumenDiarioFinanzasDto
+{
+    public DateOnly Fecha { get; set; }
+
+    public decimal TotalIngresos { get; set; }
+    public decimal TotalPendiente { get; set; }
+    public decimal TotalDeuda { get; set; }
+
+    public int CantidadPagos { get; set; }
+    public int PagosCompletados { get; set; }
+    public int PagosParciales { get; set; }
+    public int PagosPendientes { get; set; }
+
+    public List<PagoFinanzasDto> Pagos { get; set; } = new();
+}
+```
+
+--- ARCHIVO: DTOs\Finanzas\ResumenFinancieroMensualCompletoDto.cs ---
+```
+﻿namespace Clinica.Domain.DTOs.Finanzas;
+
+public class ResumenFinancieroMensualCompletoDto
+{
+    public int Anio { get; set; }
+    public int Mes { get; set; }
+
+    public ResumenCajaDto ResumenCaja { get; set; } = new();
+    public ResumenRealAtencionesDto ResumenRealAtenciones { get; set; } = new();
+
+    public List<AjusteFinancieroDto> AjustesFinancieros { get; set; } = new();
+}
+```
+
+--- ARCHIVO: DTOs\Finanzas\ResumenMensualFinanzasDto.cs ---
+```
+﻿namespace Clinica.Domain.DTOs.Finanzas;
+
+public class ResumenMensualFinanzasDto
+{
+    public int Anio { get; set; }
+    public int Mes { get; set; }
+
+    public decimal TotalIngresos { get; set; }
+    public decimal TotalPendiente { get; set; }
+    public decimal TotalDeuda { get; set; }
+
+    public int CantidadPagos { get; set; }
+    public int PagosCompletados { get; set; }
+    public int PagosParciales { get; set; }
+    public int PagosPendientes { get; set; }
+
+    public List<ResumenDiarioFinanzasDto> Dias { get; set; } = new();
+}
+```
+
+--- ARCHIVO: DTOs\Finanzas\ResumenMetodoPagoDto.cs ---
+```
+﻿namespace Clinica.Domain.DTOs.Finanzas;
+
+public class ResumenMetodoPagoDto
+{
+    public string MetodoPago { get; set; } = string.Empty;
+    public decimal Total { get; set; }
+    public int CantidadMovimientos { get; set; }
+}
+```
+
+--- ARCHIVO: DTOs\Finanzas\ResumenRealAtencionesDto.cs ---
+```
+﻿namespace Clinica.Domain.DTOs.Finanzas;
+
+public class ResumenRealAtencionesDto
+{
+    public decimal TotalFacturadoReal { get; set; }
+    public decimal TotalPagadoReal { get; set; }
+    public decimal TotalDeudaReal { get; set; }
+    public decimal TotalSobrepagos { get; set; }
+
+    public int AtencionesPagadas { get; set; }
+    public int AtencionesParciales { get; set; }
+    public int AtencionesPendientes { get; set; }
+    public int AtencionesSobrepagadas { get; set; }
+
+    public List<EstadoPagoAtencionDto> EstadosAtenciones { get; set; } = new();
+}
+```
+
+--- ARCHIVO: DTOs\Historiales\HistorialClinicoResponseDto.cs ---
+```
+﻿using Clinica.Domain.Enums;
+
+namespace Clinica.Domain.DTOs.Historiales;
+
+public class HistorialClinicoResponseDto
+{
+    public Guid Id { get; set; }
+    public string CodigoHistorial { get; set; } = string.Empty;
+
+    public Guid PacienteId { get; set; }
+    public string PacienteNombre { get; set; } = string.Empty;
+    public string PacienteDni { get; set; } = string.Empty;
+
+    public DateTime FechaApertura { get; set; }
+    public EstadoHistorialClinico Estado { get; set; }
+
+    public List<HistorialDetalleResponseDto> Detalles { get; set; } = new();
+}
+```
+
+--- ARCHIVO: DTOs\Historiales\HistorialDetalleResponseDto.cs ---
+```
+﻿using Clinica.Domain.Enums;
+
+namespace Clinica.Domain.DTOs.Historiales;
+
+public class HistorialDetalleResponseDto
+{
+    public Guid Id { get; set; }
+    public string CodigoDetalle { get; set; } = string.Empty;
+
+    public Guid HistorialClinicoId { get; set; }
+
+    public TipoMovimientoHistorial TipoMovimiento { get; set; }
+
+    public Guid? CitaId { get; set; }
+    public Guid? AtencionId { get; set; }
+    public Guid? PagoId { get; set; }
+
+    public string Titulo { get; set; } = string.Empty;
+    public string Descripcion { get; set; } = string.Empty;
+
+    public DateTime FechaRegistro { get; set; }
+
+    public Guid? UsuarioId { get; set; }
+    public string? UsuarioNombre { get; set; }
+}
+```
+
+--- ARCHIVO: DTOs\Horarios\CrearHorarioDoctorDto.cs ---
+```
+﻿using Clinica.Domain.Validations;
+
+namespace Clinica.Domain.DTOs.Horarios;
+
+public class CrearHorarioDoctorDto
+{
+    [NotEmptyGuid(ErrorMessage = "El doctor es obligatorio.")]
+    public Guid DoctorId { get; set; }
+
+    public DayOfWeek DiaSemana { get; set; }
+
+    public TimeOnly HoraInicio { get; set; }
+
+    public TimeOnly HoraFin { get; set; }
+
+    public DateOnly FechaInicioVigencia { get; set; }
+
+    public DateOnly? FechaFinVigencia { get; set; }
+}
+```
+
+--- ARCHIVO: DTOs\Horarios\EditarHorarioDoctorDto.cs ---
+```
+﻿namespace Clinica.Domain.DTOs.Horarios;
+
+public class EditarHorarioDoctorDto
+{
+    public DayOfWeek DiaSemana { get; set; }
+
+    public TimeOnly HoraInicio { get; set; }
+
+    public TimeOnly HoraFin { get; set; }
+
+    public DateOnly FechaInicioVigencia { get; set; }
+
+    public DateOnly? FechaFinVigencia { get; set; }
+
+    public bool Activo { get; set; } = true;
+}
+```
+
+--- ARCHIVO: DTOs\Horarios\HorarioDoctorResponseDto.cs ---
+```
+﻿namespace Clinica.Domain.DTOs.Horarios;
+
+public class HorarioDoctorResponseDto
+{
+    public Guid Id { get; set; }
+    public Guid DoctorId { get; set; }
+    public string DoctorNombre { get; set; } = string.Empty;
+    public DayOfWeek DiaSemana { get; set; }
+    public TimeOnly HoraInicio { get; set; }
+    public TimeOnly HoraFin { get; set; }
+    public DateOnly FechaInicioVigencia { get; set; }
+    public DateOnly? FechaFinVigencia { get; set; }
+    public bool Activo { get; set; }
+}
+```
+
+--- ARCHIVO: DTOs\Pacientes\ActualizarContactoPacienteDto.cs ---
+```
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Clinica.Domain.DTOs.Pacientes;
+
+public class ActualizarContactoPacienteDto
+{
+    [RegularExpression(@"^\d{9}$", ErrorMessage = "El celular debe tener exactamente 9 dígitos.")]
+    public string? Celular { get; set; }
+
+    [EmailAddress(ErrorMessage = "El correo no tiene un formato válido.")]
+    [StringLength(150, ErrorMessage = "El correo no debe superar los 150 caracteres.")]
+    public string? Correo { get; set; }
+
+    [StringLength(200, ErrorMessage = "La dirección no debe superar los 200 caracteres.")]
+    public string? Direccion { get; set; }
+}
+```
+
+--- ARCHIVO: DTOs\Pacientes\CrearPacienteDto.cs ---
+```
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Clinica.Domain.DTOs.Pacientes;
+
+public class CrearPacienteDto
+{
+    [Required(ErrorMessage = "El DNI es obligatorio.")]
+    [RegularExpression(@"^\d{8}$", ErrorMessage = "El DNI debe tener exactamente 8 dígitos.")]
+    public string DNI { get; set; } = string.Empty;
+
+    [Required(ErrorMessage = "Los nombres son obligatorios.")]
+    [StringLength(100, MinimumLength = 2, ErrorMessage = "Los nombres deben tener entre 2 y 100 caracteres.")]
+    public string Nombres { get; set; } = string.Empty;
+
+    [Required(ErrorMessage = "Los apellidos son obligatorios.")]
+    [StringLength(100, MinimumLength = 2, ErrorMessage = "Los apellidos deben tener entre 2 y 100 caracteres.")]
+    public string Apellidos { get; set; } = string.Empty;
+
+    [Required(ErrorMessage = "La fecha de nacimiento es obligatoria.")]
+    public DateTime FechaNacimiento { get; set; }
+
+    [Required(ErrorMessage = "El sexo es obligatorio.")]
+    [RegularExpression(@"^[MF]$", ErrorMessage = "El sexo debe ser 'M' o 'F'.")]
+    public string Sexo { get; set; } = string.Empty;
+
+    [RegularExpression(@"^\d{9}$", ErrorMessage = "El celular debe tener exactamente 9 dígitos.")]
+    public string? Celular { get; set; }
+
+    [EmailAddress(ErrorMessage = "El correo no tiene un formato válido.")]
+    [StringLength(150, ErrorMessage = "El correo no debe superar los 150 caracteres.")]
+    public string? Correo { get; set; }
+
+    [StringLength(200, ErrorMessage = "La dirección no debe superar los 200 caracteres.")]
+    public string? Direccion { get; set; }
+}
+```
+
+--- ARCHIVO: DTOs\Pacientes\PacienteResponseDto.cs ---
+```
+﻿using Clinica.Domain.Enums;
+
+namespace Clinica.Domain.DTOs.Pacientes;
+
+public class PacienteResponseDto
+{
+    public Guid Id { get; set; }
+    public string CodigoPaciente { get; set; } = string.Empty;
+    public string DNI { get; set; } = string.Empty;
+    public string Nombres { get; set; } = string.Empty;
+    public string Apellidos { get; set; } = string.Empty;
+    public string NombreCompleto => $"{Nombres} {Apellidos}";
+    public DateTime FechaNacimiento { get; set; }
+    public string Sexo { get; set; } = string.Empty;
+    public string? Celular { get; set; }
+    public string? Correo { get; set; }
+    public string? Direccion { get; set; }
+    public EstadoPaciente Estado { get; set; }
+    public DateTime FechaRegistro { get; set; }
+
+    public string? CodigoHistorial { get; set; }
+}
+```
+
+--- ARCHIVO: DTOs\Pagos\PagoResponseDto.cs ---
+```
+﻿using Clinica.Domain.Enums;
+
+namespace Clinica.Domain.DTOs.Pagos;
+
+public class PagoResponseDto
+{
+    public Guid Id { get; set; }
+    public string CodigoPago { get; set; } = string.Empty;
+
+    public Guid PacienteId { get; set; }
+    public string PacienteNombre { get; set; } = string.Empty;
+
+    public Guid ServicioClinicoId { get; set; }
+    public string ServicioNombre { get; set; } = string.Empty;
+
+    public Guid? CitaId { get; set; }
+    public Guid? AtencionId { get; set; }
+
+    public decimal MontoTotal { get; set; }
+    public decimal MontoPagado { get; set; }
+    public decimal SaldoPendiente { get; set; }
+    public decimal MontoAdelanto { get; set; }
+
+    public MetodoPago MetodoPago { get; set; }
+    public EstadoPago Estado { get; set; }
+
+    public string? Observacion { get; set; }
+    public DateTime FechaPago { get; set; }
+}
+```
+
+--- ARCHIVO: DTOs\Pagos\RegistrarPagoDto.cs ---
+```
+﻿using System.ComponentModel.DataAnnotations;
+using Clinica.Domain.Enums;
+
+namespace Clinica.Domain.DTOs.Pagos;
+
+public class RegistrarPagoDto
+{
+    [Required(ErrorMessage = "El paciente es obligatorio.")]
+    public Guid PacienteId { get; set; }
+
+    [Required(ErrorMessage = "El servicio clínico es obligatorio.")]
+    public Guid ServicioClinicoId { get; set; }
+
+    public Guid? CitaId { get; set; }
+
+    public Guid? AtencionId { get; set; }
+
+    [Range(0.01, 999999.99, ErrorMessage = "El monto total debe ser mayor a 0.")]
+    public decimal MontoTotal { get; set; }
+
+    [Range(0, 999999.99, ErrorMessage = "El monto pagado no puede ser negativo.")]
+    public decimal MontoPagado { get; set; }
+
+    [Range(0, 999999.99, ErrorMessage = "El monto de adelanto no puede ser negativo.")]
+    public decimal MontoAdelanto { get; set; }
+
+    [Required(ErrorMessage = "El método de pago es obligatorio.")]
+    public MetodoPago MetodoPago { get; set; }
+
+    [StringLength(500, ErrorMessage = "La observación no debe superar los 500 caracteres.")]
+    public string? Observacion { get; set; }
+}
+```
+
+--- ARCHIVO: DTOs\Permisos\PermisoResponseDto.cs ---
+```
+﻿namespace Clinica.Domain.DTOs.Permisos;
+
+public class PermisoResponseDto
+{
+    public Guid Id { get; set; }
+    public string Codigo { get; set; } = string.Empty;
+    public string Nombre { get; set; } = string.Empty;
+    public string Modulo { get; set; } = string.Empty;
+    public string? Descripcion { get; set; }
+    public bool Activo { get; set; }
+}
+```
+
+--- ARCHIVO: DTOs\Roles\AsignarPermisosRolDto.cs ---
+```
+﻿using System.ComponentModel.DataAnnotations;
+using Clinica.Domain.Validations;
+
+namespace Clinica.Domain.DTOs.Roles;
+
+public class AsignarPermisosRolDto
+{
+    [NotEmptyGuid(ErrorMessage = "El rol es obligatorio.")]
+    public Guid RolId { get; set; }
+
+    [Required(ErrorMessage = "Debe seleccionar al menos un permiso.")]
+    [MinLength(1, ErrorMessage = "Debe seleccionar al menos un permiso.")]
+    public List<Guid> PermisosIds { get; set; } = new();
+}
+```
+
+--- ARCHIVO: DTOs\Roles\CrearRolDto.cs ---
+```
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Clinica.Domain.DTOs.Roles;
+
+public class CrearRolDto
+{
+    [Required(ErrorMessage = "El nombre del rol es obligatorio.")]
+    [StringLength(80, MinimumLength = 3, ErrorMessage = "El nombre del rol debe tener entre 3 y 80 caracteres.")]
+    public string Nombre { get; set; } = string.Empty;
+
+    [StringLength(250, ErrorMessage = "La descripción no debe superar los 250 caracteres.")]
+    public string? Descripcion { get; set; }
+}
+```
+
+--- ARCHIVO: DTOs\Roles\EditarRolDto.cs ---
+```
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Clinica.Domain.DTOs.Roles;
+
+public class EditarRolDto
+{
+    [Required(ErrorMessage = "El nombre del rol es obligatorio.")]
+    [StringLength(80, MinimumLength = 3, ErrorMessage = "El nombre del rol debe tener entre 3 y 80 caracteres.")]
+    public string Nombre { get; set; } = string.Empty;
+
+    [StringLength(250, ErrorMessage = "La descripción no debe superar los 250 caracteres.")]
+    public string? Descripcion { get; set; }
+
+    public bool Activo { get; set; } = true;
+}
+```
+
+--- ARCHIVO: DTOs\Roles\RolResponseDto.cs ---
+```
+﻿namespace Clinica.Domain.DTOs.Roles;
+
+public class RolResponseDto
+{
+    public Guid Id { get; set; }
+    public string Nombre { get; set; } = string.Empty;
+    public string? Descripcion { get; set; }
+    public bool EsSistema { get; set; }
+    public bool Activo { get; set; }
+    public DateTime FechaCreacion { get; set; }
+}
+```
+
+--- ARCHIVO: DTOs\Servicios\ServicioClinicoResponseDto.cs ---
+```
+﻿using Clinica.Domain.Enums;
+
+namespace Clinica.Domain.DTOs.Servicios;
+
+public class ServicioClinicoResponseDto
+{
+    public Guid Id { get; set; }
+    public string CodigoServicio { get; set; } = string.Empty;
+    public string Nombre { get; set; } = string.Empty;
+    public string? Descripcion { get; set; }
+    public decimal CostoBase { get; set; }
+    public int DuracionMinutos { get; set; }
+    public bool RequiereCita { get; set; }
+    public bool GeneraHistorial { get; set; }
+    public EstadoServicioClinico Estado { get; set; }
+}
+```
+
+--- ARCHIVO: DTOs\Usuarios\AsignarRolUsuarioDto.cs ---
+```
+﻿using Clinica.Domain.Validations;
+
+namespace Clinica.Domain.DTOs.Usuarios;
+
+public class AsignarRolUsuarioDto
+{
+    [NotEmptyGuid(ErrorMessage = "El usuario es obligatorio.")]
+    public Guid UsuarioId { get; set; }
+
+    [NotEmptyGuid(ErrorMessage = "El rol es obligatorio.")]
+    public Guid RolId { get; set; }
+}
+```
+
+--- ARCHIVO: DTOs\Usuarios\CrearUsuarioDto.cs ---
+```
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Clinica.Domain.DTOs.Usuarios;
+
+public class CrearUsuarioDto
+{
+    [Required(ErrorMessage = "Los nombres son obligatorios.")]
+    [StringLength(100, MinimumLength = 2, ErrorMessage = "Los nombres deben tener entre 2 y 100 caracteres.")]
+    public string Nombres { get; set; } = string.Empty;
+
+    [Required(ErrorMessage = "Los apellidos son obligatorios.")]
+    [StringLength(100, MinimumLength = 2, ErrorMessage = "Los apellidos deben tener entre 2 y 100 caracteres.")]
+    public string Apellidos { get; set; } = string.Empty;
+
+    [Required(ErrorMessage = "El nombre de usuario es obligatorio.")]
+    [StringLength(50, MinimumLength = 3, ErrorMessage = "El nombre de usuario debe tener entre 3 y 50 caracteres.")]
+    [RegularExpression(@"^[a-zA-Z0-9._-]+$", ErrorMessage = "El nombre de usuario solo puede contener letras, números, punto, guion y guion bajo.")]
+    public string UserName { get; set; } = string.Empty;
+
+    [Required(ErrorMessage = "El correo es obligatorio.")]
+    [EmailAddress(ErrorMessage = "El correo no tiene un formato válido.")]
+    [StringLength(150, ErrorMessage = "El correo no debe superar los 150 caracteres.")]
+    public string Correo { get; set; } = string.Empty;
+
+    [Required(ErrorMessage = "La contraseña es obligatoria.")]
+    [StringLength(100, MinimumLength = 8, ErrorMessage = "La contraseña debe tener entre 8 y 100 caracteres.")]
+    public string Password { get; set; } = string.Empty;
+}
+```
+
+--- ARCHIVO: DTOs\Usuarios\EditarUsuarioDto.cs ---
+```
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Clinica.Domain.DTOs.Usuarios;
+
+public class EditarUsuarioDto
+{
+    [Required(ErrorMessage = "Los nombres son obligatorios.")]
+    [StringLength(100, MinimumLength = 2, ErrorMessage = "Los nombres deben tener entre 2 y 100 caracteres.")]
+    public string Nombres { get; set; } = string.Empty;
+
+    [Required(ErrorMessage = "Los apellidos son obligatorios.")]
+    [StringLength(100, MinimumLength = 2, ErrorMessage = "Los apellidos deben tener entre 2 y 100 caracteres.")]
+    public string Apellidos { get; set; } = string.Empty;
+
+    [Required(ErrorMessage = "El nombre de usuario es obligatorio.")]
+    [StringLength(50, MinimumLength = 3, ErrorMessage = "El nombre de usuario debe tener entre 3 y 50 caracteres.")]
+    [RegularExpression(@"^[a-zA-Z0-9._-]+$", ErrorMessage = "El nombre de usuario solo puede contener letras, números, punto, guion y guion bajo.")]
+    public string UserName { get; set; } = string.Empty;
+
+    [Required(ErrorMessage = "El correo es obligatorio.")]
+    [EmailAddress(ErrorMessage = "El correo no tiene un formato válido.")]
+    [StringLength(150, ErrorMessage = "El correo no debe superar los 150 caracteres.")]
+    public string Correo { get; set; } = string.Empty;
+}
+```
+
+--- ARCHIVO: DTOs\Usuarios\UsuarioResponseDto.cs ---
+```
+﻿using Clinica.Domain.Enums;
+
+namespace Clinica.Domain.DTOs.Usuarios;
+
+public class UsuarioResponseDto
+{
+    public Guid Id { get; set; }
+    public string CodigoUsuario { get; set; } = string.Empty;
+    public string Nombres { get; set; } = string.Empty;
+    public string Apellidos { get; set; } = string.Empty;
+    public string NombreCompleto => $"{Nombres} {Apellidos}";
+    public string UserName { get; set; } = string.Empty;
+    public string Correo { get; set; } = string.Empty;
+    public EstadoUsuario Estado { get; set; }
+    public DateTime FechaRegistro { get; set; }
+    public DateTime? UltimoAcceso { get; set; }
+}
+```
+
+--- ARCHIVO: Entities\AjusteFinanciero.cs ---
+```
+﻿using Clinica.Domain.Enums;
+
+namespace Clinica.Domain.Entities;
+
+public class AjusteFinanciero
+{
+    public Guid Id { get; set; } = Guid.NewGuid();
+
+    public Guid PagoId { get; set; }
+    public Pago Pago { get; set; } = null!;
+
+    public Guid? AtencionId { get; set; }
+    public Atencion? Atencion { get; set; }
+
+    public Guid PacienteId { get; set; }
+    public Paciente Paciente { get; set; } = null!;
+
+    public TipoAjusteFinanciero TipoAjuste { get; set; }
+
+    public decimal MontoAjuste { get; set; }
+
+    public string Motivo { get; set; } = string.Empty;
+
+    public string? Observacion { get; set; }
+
+    public Guid? UsuarioRegistroId { get; set; }
+    public Usuario? UsuarioRegistro { get; set; }
+
+    public DateTime FechaRegistro { get; set; } = DateTime.UtcNow;
+}
+```
+
+--- ARCHIVO: Entities\Atencion.cs ---
+```
+﻿using Clinica.Domain.Enums;
+
+namespace Clinica.Domain.Entities;
+
+public class Atencion
+{
+    public Guid Id { get; set; } = Guid.NewGuid();
+
+    public string CodigoAtencion { get; set; } = string.Empty;
+
+    public Guid PacienteId { get; set; }
+    public Paciente Paciente { get; set; } = null!;
+
+    public Guid DoctorId { get; set; }
+    public Doctor Doctor { get; set; } = null!;
+
+    public Guid ServicioClinicoId { get; set; }
+    public ServicioClinico ServicioClinico { get; set; } = null!;
+
+    public Guid? CitaId { get; set; }
+    public Cita? Cita { get; set; }
+
+    public Guid HistorialClinicoId { get; set; }
+    public HistorialClinico HistorialClinico { get; set; } = null!;
+
+    public DateTime FechaInicio { get; set; } = DateTime.UtcNow;
+    public DateTime? FechaCierre { get; set; }
+
+    public string MotivoConsulta { get; set; } = string.Empty;
+    public string? Observaciones { get; set; }
+    public string? DiagnosticoResumen { get; set; }
+    public string? Indicaciones { get; set; }
+    public string? Tratamiento { get; set; }
+
+    public EstadoAtencion Estado { get; set; } = EstadoAtencion.Abierta;
+
+    public decimal CostoFinal { get; set; }
+    public decimal MontoPagado { get; set; }
+    public decimal SaldoPendiente { get; set; }
+
+    public Guid? UsuarioRegistroId { get; set; }
+    public Usuario? UsuarioRegistro { get; set; }
+
+    public ICollection<Pago> Pagos { get; set; } = new List<Pago>();
+    public ICollection<HistorialDetalle> HistorialDetalles { get; set; } = new List<HistorialDetalle>();
+    
+    public ICollection<AjusteFinanciero> AjustesFinancieros { get; set; } = new List<AjusteFinanciero>();
+    public ICollection<Comprobante> Comprobantes { get; set; } = new List<Comprobante>();
+}
+```
+
+--- ARCHIVO: Entities\Auditoria.cs ---
+```
+﻿using Clinica.Domain.Enums;
+
+namespace Clinica.Domain.Entities;
+
+public class Auditoria
+{
+    public Guid Id { get; set; } = Guid.NewGuid();
+
+    public Guid? UsuarioId { get; set; }
+    public Usuario? Usuario { get; set; }
+
+    public TipoAccionAuditoria TipoAccion { get; set; }
+
+    public string Modulo { get; set; } = string.Empty;
+    public string EntidadAfectada { get; set; } = string.Empty;
+    public Guid? EntidadId { get; set; }
+
+    public string Descripcion { get; set; } = string.Empty;
+
+    public string? ValorAnterior { get; set; }
+    public string? ValorNuevo { get; set; }
+
+    public string? IpAddress { get; set; }
+    public string? UserAgent { get; set; }
+
+    public bool FueExitoso { get; set; } = true;
+    public string? DetalleError { get; set; }
+    
+    public NivelAuditoria Nivel { get; set; } = NivelAuditoria.Normal;
+
+    public DateTime FechaHora { get; set; } = DateTime.UtcNow;
+}
+```
+
+--- ARCHIVO: Entities\Cita.cs ---
+```
+﻿using Clinica.Domain.Enums;
+
+namespace Clinica.Domain.Entities;
+
+public class Cita
+{
+    public Guid Id { get; set; } = Guid.NewGuid();
+
+    public string CodigoCita { get; set; } = string.Empty;
+
+    public Guid PacienteId { get; set; }
+    public Paciente Paciente { get; set; } = null!;
+
+    public Guid DoctorId { get; set; }
+    public Doctor Doctor { get; set; } = null!;
+
+    public Guid ServicioClinicoId { get; set; }
+    public ServicioClinico ServicioClinico { get; set; } = null!;
+
+    public Guid? HorarioDoctorId { get; set; }
+    public HorarioDoctor? HorarioDoctor { get; set; }
+
+    public DateOnly Fecha { get; set; }
+    public TimeOnly HoraInicio { get; set; }
+    public TimeOnly HoraFin { get; set; }
+
+    public string Motivo { get; set; } = string.Empty;
+    public string? Observaciones { get; set; }
+
+    public EstadoCita Estado { get; set; } = EstadoCita.Pendiente;
+
+    public DateTime FechaRegistro { get; set; } = DateTime.UtcNow;
+
+    public Guid? UsuarioRegistroId { get; set; }
+    public Usuario? UsuarioRegistro { get; set; }
+
+    public Atencion? Atencion { get; set; }
+    public ICollection<Pago> Pagos { get; set; } = new List<Pago>();
+    public ICollection<HistorialDetalle> HistorialDetalles { get; set; } = new List<HistorialDetalle>();
+    public ICollection<Comprobante> Comprobantes { get; set; } = new List<Comprobante>();
+    
+    // esto es exclusivo de evolution api, no incluir al sistema
+    public ICollection<NotificacionCita> Notificaciones { get; set; } = new List<NotificacionCita>();
+}
+```
+
+--- ARCHIVO: Entities\Comprobante.cs ---
+```
+﻿using Clinica.Domain.Enums;
+
+namespace Clinica.Domain.Entities;
+
+public class Comprobante
+{
+    public Guid Id { get; set; } = Guid.NewGuid();
+
+    public string CodigoComprobante { get; set; } = string.Empty;
+
+    public string Serie { get; set; } = string.Empty;
+    public int Numero { get; set; }
+
+    public TipoComprobante TipoComprobante { get; set; }
+    public EstadoComprobante Estado { get; set; } = EstadoComprobante.Emitido;
+    public TipoFormatoImpresion FormatoImpresion { get; set; } = TipoFormatoImpresion.A4;
+
+    public Guid PacienteId { get; set; }
+    public Paciente Paciente { get; set; } = null!;
+
+    public Guid? PagoId { get; set; }
+    public Pago? Pago { get; set; }
+
+    public Guid? CitaId { get; set; }
+    public Cita? Cita { get; set; }
+
+    public Guid? AtencionId { get; set; }
+    public Atencion? Atencion { get; set; }
+
+    public Guid? HistorialClinicoId { get; set; }
+    public HistorialClinico? HistorialClinico { get; set; }
+
+    public TipoDocumentoComprobante TipoDocumentoPaciente { get; set; } = TipoDocumentoComprobante.DNI;
+    public string NumeroDocumentoPaciente { get; set; } = string.Empty;
+    public string NombrePaciente { get; set; } = string.Empty;
+    public string? DireccionPaciente { get; set; }
+
+    public decimal Subtotal { get; set; }
+    public decimal TasaImpuesto { get; set; }
+    public decimal MontoImpuesto { get; set; }
+    public decimal Total { get; set; }
+
+    public DateTime FechaEmision { get; set; } = DateTime.UtcNow;
+
+    public Guid UsuarioEmisionId { get; set; }
+    public Usuario UsuarioEmision { get; set; } = null!;
+
+    public DateTime? FechaAnulacion { get; set; }
+    public Guid? UsuarioAnulacionId { get; set; }
+    public Usuario? UsuarioAnulacion { get; set; }
+    public string? MotivoAnulacion { get; set; }
+
+    public string? Observacion { get; set; }
+
+    public string DatosSnapshotJson { get; set; } = "{}";
+
+    public ICollection<ComprobanteDetalle> Detalles { get; set; } = new List<ComprobanteDetalle>();
+}
+```
+
+--- ARCHIVO: Entities\ComprobanteDetalle.cs ---
+```
+﻿namespace Clinica.Domain.Entities;
+
+public class ComprobanteDetalle
+{
+    public Guid Id { get; set; } = Guid.NewGuid();
+
+    public Guid ComprobanteId { get; set; }
+    public Comprobante Comprobante { get; set; } = null!;
+
+    public string CodigoServicio { get; set; } = string.Empty;
+    public string Descripcion { get; set; } = string.Empty;
+
+    public int Cantidad { get; set; } = 1;
+
+    public decimal PrecioUnitarioFinal { get; set; }
+    public decimal Subtotal { get; set; }
+    public decimal TasaImpuesto { get; set; }
+    public decimal MontoImpuesto { get; set; }
+    public decimal Total { get; set; }
+}
+```
+
+--- ARCHIVO: Entities\Doctor.cs ---
+```
+﻿using Clinica.Domain.Enums;
+
+namespace Clinica.Domain.Entities;
+
+public class Doctor
+{
+    public Guid Id { get; set; } = Guid.NewGuid();
+
+    public string CodigoDoctor { get; set; } = string.Empty;
+    public string CMP { get; set; } = string.Empty;
+
+    public string Nombres { get; set; } = string.Empty;
+    public string Apellidos { get; set; } = string.Empty;
+
+    public string Especialidad { get; set; } = string.Empty;
+    public string? Celular { get; set; }
+    public string? Correo { get; set; }
+
+    public DateTime FechaInicioContrato { get; set; }
+    public DateTime? FechaFinContrato { get; set; }
+
+    public EstadoDoctor Estado { get; set; } = EstadoDoctor.Activo;
+
+    public Guid UsuarioId { get; set; }
+    public Usuario Usuario { get; set; } = null!;
+
+    public ICollection<HorarioDoctor> Horarios { get; set; } = new List<HorarioDoctor>();
+    public ICollection<Cita> Citas { get; set; } = new List<Cita>();
+    public ICollection<Atencion> Atenciones { get; set; } = new List<Atencion>();
+}
+```
+
+--- ARCHIVO: Entities\HistorialClinico.cs ---
+```
+﻿using Clinica.Domain.Enums;
+
+namespace Clinica.Domain.Entities;
+
+public class HistorialClinico
+{
+    public Guid Id { get; set; } = Guid.NewGuid();
+
+    public string CodigoHistorial { get; set; } = string.Empty;
+
+    public Guid PacienteId { get; set; }
+    public Paciente Paciente { get; set; } = null!;
+
+    public DateTime FechaApertura { get; set; } = DateTime.UtcNow;
+
+    public EstadoHistorialClinico Estado { get; set; } = EstadoHistorialClinico.Activo;
+
+    public ICollection<HistorialDetalle> Detalles { get; set; } = new List<HistorialDetalle>();
+    public ICollection<Comprobante> Comprobantes { get; set; } = new List<Comprobante>();
+}
+```
+
+--- ARCHIVO: Entities\HistorialDetalle.cs ---
+```
+﻿using Clinica.Domain.Enums;
+
+namespace Clinica.Domain.Entities;
+
+public class HistorialDetalle
+{
+    public Guid Id { get; set; } = Guid.NewGuid();
+
+    public string CodigoDetalle { get; set; } = string.Empty;
+
+    public Guid HistorialClinicoId { get; set; }
+    public HistorialClinico HistorialClinico { get; set; } = null!;
+
+    public TipoMovimientoHistorial TipoMovimiento { get; set; }
+
+    public Guid? CitaId { get; set; }
+    public Cita? Cita { get; set; }
+
+    public Guid? AtencionId { get; set; }
+    public Atencion? Atencion { get; set; }
+
+    public Guid? PagoId { get; set; }
+    public Pago? Pago { get; set; }
+
+    public string Titulo { get; set; } = string.Empty;
+    public string Descripcion { get; set; } = string.Empty;
+
+    public DateTime FechaRegistro { get; set; } = DateTime.UtcNow;
+
+    public Guid? UsuarioId { get; set; }
+    public Usuario? Usuario { get; set; }
+}
+```
+
+--- ARCHIVO: Entities\HorarioDoctor.cs ---
+```
+﻿namespace Clinica.Domain.Entities;
+
+public class HorarioDoctor
+{
+    public Guid Id { get; set; } = Guid.NewGuid();
+
+    public Guid DoctorId { get; set; }
+    public Doctor Doctor { get; set; } = null!;
+
+    public DayOfWeek DiaSemana { get; set; }
+
+    public TimeOnly HoraInicio { get; set; }
+    public TimeOnly HoraFin { get; set; }
+
+    public DateOnly FechaInicioVigencia { get; set; }
+    public DateOnly? FechaFinVigencia { get; set; }
+
+    public bool Activo { get; set; } = true;
+
+    public ICollection<Cita> Citas { get; set; } = new List<Cita>();
+}
+```
+
+--- ARCHIVO: Entities\NotificacionCita.cs ---
+```
+﻿using Clinica.Domain.Enums;
+
+namespace Clinica.Domain.Entities;
+
+public class NotificacionCita
+{
+    // esto es exclusivo de evolution api
+    public Guid Id { get; set; } = Guid.NewGuid();
+
+    public Guid CitaId { get; set; }
+    public Cita Cita { get; set; } = null!;
+
+    public Guid PacienteId { get; set; }
+    public Paciente Paciente { get; set; } = null!;
+
+    public string TelefonoDestino { get; set; } = string.Empty;
+
+    public CanalNotificacion Canal { get; set; } = CanalNotificacion.WhatsApp;
+
+    public string Mensaje { get; set; } = string.Empty;
+
+    public DateTime FechaProgramadaEnvio { get; set; }
+
+    public DateTime? FechaEnvio { get; set; }
+
+    public EstadoNotificacion Estado { get; set; } = EstadoNotificacion.Pendiente;
+
+    public int Intentos { get; set; }
+
+    public string? Error { get; set; }
+
+    public DateTime FechaCreacion { get; set; } = DateTime.UtcNow;
+
+    public DateTime? FechaActualizacion { get; set; }
+}
+```
+
+--- ARCHIVO: Entities\Paciente.cs ---
+```
+﻿using Clinica.Domain.Enums;
+
+namespace Clinica.Domain.Entities;
+
+public class Paciente
+{
+    public Guid Id { get; set; } = Guid.NewGuid();
+
+    public string CodigoPaciente { get; set; } = string.Empty;
+    public string DNI { get; set; } = string.Empty;
+
+    public string Nombres { get; set; } = string.Empty;
+    public string Apellidos { get; set; } = string.Empty;
+
+    public DateTime FechaNacimiento { get; set; }
+    public string Sexo { get; set; } = string.Empty;
+
+    public string? Celular { get; set; }
+    public string? Correo { get; set; }
+    public string? Direccion { get; set; }
+
+    public EstadoPaciente Estado { get; set; } = EstadoPaciente.Activo;
+
+    public Guid UsuarioId { get; set; }
+    public Usuario Usuario { get; set; } = null!;
+
+    public DateTime FechaRegistro { get; set; } = DateTime.UtcNow;
+
+    public HistorialClinico? HistorialClinico { get; set; }
+
+    public ICollection<Cita> Citas { get; set; } = new List<Cita>();
+    public ICollection<Atencion> Atenciones { get; set; } = new List<Atencion>();
+    public ICollection<Pago> Pagos { get; set; } = new List<Pago>();
+    public ICollection<Comprobante> Comprobantes { get; set; } = new List<Comprobante>();
+    
+    // esto es exclusivo de evolution api, no incluir al sistema
+    public ICollection<NotificacionCita> NotificacionesCita { get; set; } = new List<NotificacionCita>();
+}
+```
+
+--- ARCHIVO: Entities\Pago.cs ---
+```
+﻿using Clinica.Domain.Enums;
+
+namespace Clinica.Domain.Entities;
+
+public class Pago
+{
+    public Guid Id { get; set; } = Guid.NewGuid();
+
+    public string CodigoPago { get; set; } = string.Empty;
+
+    public Guid PacienteId { get; set; }
+    public Paciente Paciente { get; set; } = null!;
+
+    public Guid ServicioClinicoId { get; set; }
+    public ServicioClinico ServicioClinico { get; set; } = null!;
+
+    public Guid? CitaId { get; set; }
+    public Cita? Cita { get; set; }
+
+    public Guid? AtencionId { get; set; }
+    public Atencion? Atencion { get; set; }
+
+    public decimal MontoTotal { get; set; }
+    public decimal MontoPagado { get; set; }
+    public decimal SaldoPendiente { get; set; }
+
+    public decimal MontoAdelanto { get; set; }
+
+    public MetodoPago MetodoPago { get; set; }
+    public EstadoPago Estado { get; set; } = EstadoPago.Pendiente;
+
+    public string? Observacion { get; set; }
+
+    public DateTime FechaPago { get; set; } = DateTime.UtcNow;
+
+    public Guid? UsuarioRegistroId { get; set; }
+    public Usuario? UsuarioRegistro { get; set; }
+
+    public ICollection<HistorialDetalle> HistorialDetalles { get; set; } = new List<HistorialDetalle>();
+    
+    public ICollection<AjusteFinanciero> AjustesFinancieros { get; set; } = new List<AjusteFinanciero>();
+    public ICollection<Comprobante> Comprobantes { get; set; } = new List<Comprobante>();
+}
+```
+
+--- ARCHIVO: Entities\Permiso.cs ---
+```
+﻿namespace Clinica.Domain.Entities;
+
+public class Permiso
+{
+    public Guid Id { get; set; } = Guid.NewGuid();
+
+    public string Codigo { get; set; } = string.Empty;
+    public string Nombre { get; set; } = string.Empty;
+    public string Modulo { get; set; } = string.Empty;
+    public string? Descripcion { get; set; }
+
+    public bool Activo { get; set; } = true;
+
+    public ICollection<RolPermiso> RolPermisos { get; set; } = new List<RolPermiso>();
+}
+```
+
+--- ARCHIVO: Entities\Rol.cs ---
+```
+﻿namespace Clinica.Domain.Entities;
+
+public class Rol
+{
+    public Guid Id { get; set; } = Guid.NewGuid();
+
+    public string Nombre { get; set; } = string.Empty;
+    public string? Descripcion { get; set; }
+
+    public bool EsSistema { get; set; } = false;
+    public bool Activo { get; set; } = true;
+
+    public DateTime FechaCreacion { get; set; } = DateTime.UtcNow;
+
+    public ICollection<UsuarioRol> UsuarioRoles { get; set; } = new List<UsuarioRol>();
+    public ICollection<RolPermiso> RolPermisos { get; set; } = new List<RolPermiso>();
+}
+```
+
+--- ARCHIVO: Entities\RolPermiso.cs ---
+```
+﻿namespace Clinica.Domain.Entities;
+
+public class RolPermiso
+{
+    public Guid Id { get; set; } = Guid.NewGuid();
+
+    public Guid RolId { get; set; }
+    public Rol Rol { get; set; } = null!;
+
+    public Guid PermisoId { get; set; }
+    public Permiso Permiso { get; set; } = null!;
+
+    public DateTime FechaAsignacion { get; set; } = DateTime.UtcNow;
+}
+```
+
+--- ARCHIVO: Entities\ServicioClinico.cs ---
+```
+﻿using Clinica.Domain.Enums;
+
+namespace Clinica.Domain.Entities;
+
+public class ServicioClinico
+{
+    public Guid Id { get; set; } = Guid.NewGuid();
+
+    public string CodigoServicio { get; set; } = string.Empty;
+    public string Nombre { get; set; } = string.Empty;
+    public string? Descripcion { get; set; }
+
+    public decimal CostoBase { get; set; }
+    public int DuracionMinutos { get; set; }
+
+    public bool RequiereCita { get; set; } = true;
+    public bool GeneraHistorial { get; set; } = true;
+
+    public EstadoServicioClinico Estado { get; set; } = EstadoServicioClinico.Activo;
+
+    public ICollection<Cita> Citas { get; set; } = new List<Cita>();
+    public ICollection<Atencion> Atenciones { get; set; } = new List<Atencion>();
+    public ICollection<Pago> Pagos { get; set; } = new List<Pago>();
+}
+```
+
+--- ARCHIVO: Entities\Usuario.cs ---
+```
+﻿using Clinica.Domain.Enums;
+
+namespace Clinica.Domain.Entities;
+
+public class Usuario
+{
+    public Guid Id { get; set; } = Guid.NewGuid();
+
+    public string CodigoUsuario { get; set; } = string.Empty;
+
+    public string Nombres { get; set; } = string.Empty;
+    public string Apellidos { get; set; } = string.Empty;
+
+    public string UserName { get; set; } = string.Empty;
+    public string Correo { get; set; } = string.Empty;
+    public string PasswordHash { get; set; } = string.Empty;
+
+    public EstadoUsuario Estado { get; set; } = EstadoUsuario.Activo;
+
+    public DateTime FechaRegistro { get; set; } = DateTime.UtcNow;
+    public DateTime? UltimoAcceso { get; set; }
+
+    public ICollection<UsuarioRol> UsuarioRoles { get; set; } = new List<UsuarioRol>();
+    public ICollection<Auditoria> Auditorias { get; set; } = new List<Auditoria>();
+    public ICollection<Comprobante> ComprobantesEmitidos { get; set; } = new List<Comprobante>();
+    public ICollection<Comprobante> ComprobantesAnulados { get; set; } = new List<Comprobante>();
+}
+```
+
+--- ARCHIVO: Entities\UsuarioRol.cs ---
+```
+﻿namespace Clinica.Domain.Entities;
+
+public class UsuarioRol
+{
+    public Guid Id { get; set; } = Guid.NewGuid();
+
+    public Guid UsuarioId { get; set; }
+    public Usuario Usuario { get; set; } = null!;
+
+    public Guid RolId { get; set; }
+    public Rol Rol { get; set; } = null!;
+
+    public DateTime FechaAsignacion { get; set; } = DateTime.UtcNow;
+    public bool Activo { get; set; } = true;
+}
+```
+
+--- ARCHIVO: Enums\CanalNotificacion.cs ---
+```
+﻿namespace Clinica.Domain.Enums;
+
+public enum CanalNotificacion
+{
+    // esto es exclusivo de evolution api
+    WhatsApp = 1
+}
+```
+
+--- ARCHIVO: Enums\EstadoAtencion.cs ---
+```
+﻿namespace Clinica.Domain.Enums;
+
+public enum EstadoAtencion
+{
+    Abierta = 1,
+    Cerrada = 2,
+    Anulada = 3,
+    Eliminada = 4
+}
+```
+
+--- ARCHIVO: Enums\EstadoCita.cs ---
+```
+﻿namespace Clinica.Domain.Enums;
+
+public enum EstadoCita
+{
+    Pendiente = 1,
+    Confirmada = 2,
+    Reprogramada = 3,
+    Cancelada = 4,
+    Atendida = 5,
+    NoAsistio = 6,
+    Eliminada = 7
+}
+```
+
+--- ARCHIVO: Enums\EstadoComprobante.cs ---
+```
+﻿namespace Clinica.Domain.Enums;
+
+public enum EstadoComprobante
+{
+    Emitido = 1,
+    Anulado = 2
+}
+```
+
+--- ARCHIVO: Enums\EstadoDoctor.cs ---
+```
+﻿namespace Clinica.Domain.Enums;
+
+public enum EstadoDoctor
+{
+    Activo = 1,
+    Inactivo = 2,
+    ContratoVencido = 3,
+    Suspendido = 4,
+    Eliminado = 5
+}
+```
+
+--- ARCHIVO: Enums\EstadoHistorialClinico.cs ---
+```
+﻿namespace Clinica.Domain.Enums;
+
+public enum EstadoHistorialClinico
+{
+    Activo = 1,
+    Cerrado = 2,
+    Archivado = 3,
+    Eliminado = 4
+}
+```
+
+--- ARCHIVO: Enums\EstadoNotificacion.cs ---
+```
+﻿namespace Clinica.Domain.Enums;
+
+public enum EstadoNotificacion
+{
+    // esto es exclusivo de evolution api
+    Pendiente = 1,
+    Enviado = 2,
+    Fallido = 3,
+    Cancelado = 4
+}
+```
+
+--- ARCHIVO: Enums\EstadoPaciente.cs ---
+```
+﻿namespace Clinica.Domain.Enums;
+
+public enum EstadoPaciente
+{
+    Activo = 1,
+    Inactivo = 2,
+    Fallecido = 3,
+    Bloqueado = 4,
+    Eliminado = 5
+}
+```
+
+--- ARCHIVO: Enums\EstadoPago.cs ---
+```
+﻿namespace Clinica.Domain.Enums;
+
+public enum EstadoPago
+{
+    Pendiente = 1,
+    Parcial = 2,
+    Pagado = 3,
+    Anulado = 4,
+    Reembolsado = 5,
+    Eliminado = 6
+}
+```
+
+--- ARCHIVO: Enums\EstadoServicioClinico.cs ---
+```
+﻿namespace Clinica.Domain.Enums;
+
+public enum EstadoServicioClinico
+{
+    Activo = 1,
+    Inactivo = 2,
+    Eliminado = 3
+}
+```
+
+--- ARCHIVO: Enums\EstadoUsuario.cs ---
+```
+﻿namespace Clinica.Domain.Enums;
+
+public enum EstadoUsuario
+{
+    Activo = 1,
+    Inactivo = 2,
+    Bloqueado = 3,
+    Eliminado = 4
+}
+```
+
+--- ARCHIVO: Enums\MetodoPago.cs ---
+```
+﻿namespace Clinica.Domain.Enums;
+
+public enum MetodoPago
+{
+    Efectivo = 1,
+    Yape = 2,
+    Plin = 3,
+    Transferencia = 4,
+    Tarjeta = 5,
+    Otro = 6
+}
+```
+
+--- ARCHIVO: Enums\NivelAuditoria.cs ---
+```
+﻿namespace Clinica.Domain.Enums;
+
+public enum NivelAuditoria
+{
+    Normal = 1,
+    Importante = 2,
+    Critico = 3
+}
+```
+
+--- ARCHIVO: Enums\TipoAccionAuditoria.cs ---
+```
+﻿namespace Clinica.Domain.Enums;
+
+public enum TipoAccionAuditoria
+{
+    Consulta = 1,
+    Creacion = 2,
+    Edicion = 3,
+    Eliminacion = 4,
+    Login = 5,
+    Asignacion = 6,
+    Error = 7
+}
+```
+
+--- ARCHIVO: Enums\TipoAjusteFinanciero.cs ---
+```
+﻿namespace Clinica.Domain.Enums;
+
+public enum TipoAjusteFinanciero
+{
+    Descuento = 1,
+    Recargo = 2,
+    Sobrepago = 3,
+    CorreccionMonto = 4,
+    AnulacionPago = 5,
+    Reembolso = 6,
+    PagoMenorAutorizado = 7,
+    PagoMayorAutorizado = 8,
+    ServicioAdicional = 9,
+    IndicacionMedica = 10,
+    ErrorAdministrativoCorregido = 11,
+    Otro = 12
+}
+```
+
+--- ARCHIVO: Enums\TipoComprobante.cs ---
+```
+﻿namespace Clinica.Domain.Enums;
+
+public enum TipoComprobante
+{
+    BoletaPago = 1,
+    ConstanciaCita = 2,
+    ResumenAtencion = 3,
+    EstadoCuenta = 4,
+    HistoriaClinica = 5,
+    ReporteCajaDiario = 6,
+    ReporteFinancieroMensual = 7,
+    AjusteFinanciero = 8
+}
+```
+
+--- ARCHIVO: Enums\TipoDocumentoComprobante.cs ---
+```
+﻿namespace Clinica.Domain.Enums;
+
+public enum TipoDocumentoComprobante
+{
+    DNI = 1,
+    CarnetExtranjeria = 2,
+    RUC = 3,
+    Pasaporte = 4,
+    SinDocumento = 5
+}
+```
+
+--- ARCHIVO: Enums\TipoFormatoImpresion.cs ---
+```
+﻿namespace Clinica.Domain.Enums;
+
+public enum TipoFormatoImpresion
+{
+    A4 = 1,
+    MediaHoja = 2,
+    Ticket80mm = 3
+}
+```
+
+--- ARCHIVO: Enums\TipoMovimientoHistorial.cs ---
+```
+﻿namespace Clinica.Domain.Enums;
+
+public enum TipoMovimientoHistorial
+{
+    RegistroUsuario = 1,
+    AperturaHistorial = 2,
+    CitaProgramada = 3,
+    CitaReprogramada = 4,
+    CitaCancelada = 5,
+    CitaAtendida = 6,
+    AtencionRegistrada = 7,
+    AtencionCerrada = 8,
+    PagoRegistrado = 9,
+    PagoParcial = 10,
+    PagoCompletado = 11,
+    SeguimientoRegistrado = 12,
+    ObservacionClinica = 13,
+    ActualizacionDatosPaciente = 14,
+    EliminacionLogica = 15
+}
+```
+
+--- ARCHIVO: Interfaces\IAjusteFinancieroRepository.cs ---
+```
+﻿using Clinica.Domain.Entities;
+using Clinica.Domain.Enums;
+
+namespace Clinica.Domain.Interfaces;
+
+public interface IAjusteFinancieroRepository : IGenericRepository<AjusteFinanciero>
+{
+    Task<IEnumerable<AjusteFinanciero>> ObtenerTodosConDetalleAsync();
+    Task<IEnumerable<AjusteFinanciero>> ObtenerPorAtencionAsync(Guid atencionId);
+    Task<IEnumerable<AjusteFinanciero>> ObtenerPorPagoAsync(Guid pagoId);
+
+    Task<bool> ExisteAjusteSimilarAsync(
+        Guid pagoId,
+        TipoAjusteFinanciero tipoAjuste,
+        decimal montoAjuste,
+        string motivo);
+}
+```
+
+--- ARCHIVO: Interfaces\IAtencionRepository.cs ---
+```
+﻿using Clinica.Domain.Entities;
+
+namespace Clinica.Domain.Interfaces;
+
+public interface IAtencionRepository : IGenericRepository<Atencion>
+{
+    Task<IEnumerable<Atencion>> ObtenerPorPacienteAsync(Guid pacienteId);
+    Task<Atencion?> ObtenerPorCitaAsync(Guid citaId);
+}
+```
+
+--- ARCHIVO: Interfaces\IAuditoriaRepository.cs ---
+```
+﻿using Clinica.Domain.Entities;
+
+namespace Clinica.Domain.Interfaces;
+
+public interface IAuditoriaRepository : IGenericRepository<Auditoria>
+{
+    Task<IEnumerable<Auditoria>> ObtenerPorUsuarioAsync(Guid usuarioId);
+    new Task<IEnumerable<Auditoria>> GetAllAsync();
+}
+```
+
+--- ARCHIVO: Interfaces\ICitaRepository.cs ---
+```
+﻿using Clinica.Domain.Entities;
+
+namespace Clinica.Domain.Interfaces;
+
+public interface ICitaRepository : IGenericRepository<Cita>
+{
+    Task<bool> ExisteInterferenciaHorarioAsync(
+        Guid doctorId,
+        DateOnly fecha,
+        TimeOnly horaInicio,
+        TimeOnly horaFin,
+        Guid? citaIdExcluir = null);
+
+    Task<IEnumerable<Cita>> ObtenerPorPacienteAsync(Guid pacienteId);
+    Task<IEnumerable<Cita>> ObtenerPorDoctorAsync(Guid doctorId);
+    
+    // esto es exclusivo de evolution api, no incluir al sistema
+    Task<IEnumerable<Cita>> ObtenerCitasParaRecordatorioAsync(
+        DateTime desdeUtc,
+        DateTime hastaUtc);
+}
+```
+
+--- ARCHIVO: Interfaces\IComprobantePdfService.cs ---
+```
+﻿using Clinica.Domain.DTOs.Comprobantes;
+
+namespace Clinica.Domain.Interfaces;
+
+public interface IComprobantePdfService
+{
+    byte[] GenerarBoletaPagoPdf(ComprobantePagoPreviewDto dto);
+
+    byte[] GenerarConstanciaCitaPdf(ComprobanteCitaPreviewDto dto);
+
+    byte[] GenerarResumenAtencionPdf(ComprobanteAtencionPreviewDto dto);
+
+    byte[] GenerarEstadoCuentaPacientePdf(ComprobanteEstadoCuentaPreviewDto dto);
+}
+```
+
+--- ARCHIVO: Interfaces\IComprobanteRepository.cs ---
+```
+﻿using Clinica.Domain.Entities;
+
+namespace Clinica.Domain.Interfaces;
+
+public interface IComprobanteRepository : IGenericRepository<Comprobante>
+{
+    Task<IEnumerable<Comprobante>> ObtenerTodosConDetalleAsync();
+
+    Task<Comprobante?> ObtenerPorIdConDetalleAsync(Guid id);
+
+    Task<IEnumerable<Comprobante>> ObtenerPorPacienteAsync(Guid pacienteId);
+
+    Task<IEnumerable<Comprobante>> ObtenerPorPagoAsync(Guid pagoId);
+
+    Task<IEnumerable<Comprobante>> ObtenerPorAtencionAsync(Guid atencionId);
+
+    Task<Comprobante?> ObtenerPorSerieNumeroAsync(string serie, int numero);
+
+    Task<int> ObtenerUltimoNumeroPorSerieAsync(string serie);
+}
+```
+
+--- ARCHIVO: Interfaces\IComprobanteService.cs ---
+```
+﻿using Clinica.Domain.DTOs.Comprobantes;
+
+namespace Clinica.Domain.Interfaces;
+
+public interface IComprobanteService
+{
+    // ==========================================================
+    // PREVIEWS
+    // ==========================================================
+
+    Task<ComprobantePagoPreviewDto> PreviewBoletaPagoAsync(Guid pagoId, decimal tasaImpuesto = 18m);
+
+    Task<ComprobanteCitaPreviewDto> PreviewConstanciaCitaAsync(Guid citaId);
+
+    Task<ComprobanteAtencionPreviewDto> PreviewResumenAtencionAsync(Guid atencionId);
+
+    Task<ComprobanteEstadoCuentaPreviewDto> PreviewEstadoCuentaPacienteAsync(Guid pacienteId);
+
+    // ==========================================================
+    // EMISIÓN
+    // ==========================================================
+
+    Task<Guid> EmitirBoletaPagoAsync(EmitirComprobantePagoDto dto);
+
+    Task<Guid> EmitirConstanciaCitaAsync(EmitirComprobanteCitaDto dto);
+
+    Task<Guid> EmitirResumenAtencionAsync(EmitirComprobanteAtencionDto dto);
+
+    // ==========================================================
+    // PDF
+    // ==========================================================
+
+    Task<DocumentoGeneradoDto> GenerarPdfBoletaPagoAsync(Guid comprobanteId);
+
+    Task<DocumentoGeneradoDto> GenerarPdfConstanciaCitaAsync(Guid comprobanteId);
+
+    Task<DocumentoGeneradoDto> GenerarPdfResumenAtencionAsync(Guid comprobanteId);
+
+    Task<DocumentoGeneradoDto> GenerarPdfEstadoCuentaPacienteAsync(Guid comprobanteId);
+
+    // ==========================================================
+    // CONSULTAS
+    // ==========================================================
+
+    Task<ComprobanteDto> ObtenerPorIdAsync(Guid id);
+
+    Task<IEnumerable<ComprobanteDto>> ObtenerPorPacienteAsync(Guid pacienteId);
+
+    Task<IEnumerable<ComprobanteDto>> ObtenerPorPagoAsync(Guid pagoId);
+
+    Task<IEnumerable<ComprobanteDto>> ObtenerPorAtencionAsync(Guid atencionId);
+
+    // ==========================================================
+    // ANULACIÓN
+    // ==========================================================
+
+    Task AnularComprobanteAsync(Guid comprobanteId, string motivo);
+}
+```
+
+--- ARCHIVO: Interfaces\IDoctorRepository.cs ---
+```
+﻿using Clinica.Domain.Entities;
+
+namespace Clinica.Domain.Interfaces;
+
+public interface IDoctorRepository : IGenericRepository<Doctor>
+{
+    Task<Doctor?> ObtenerPorCmpAsync(string cmp);
+    Task<IEnumerable<Doctor>> ObtenerActivosAsync();
+}
+```
+
+--- ARCHIVO: Interfaces\IFinanzasService.cs ---
+```
+﻿using Clinica.Domain.DTOs.Finanzas;
+
+namespace Clinica.Domain.Interfaces;
+
+public interface IFinanzasService
+{
+    Task<ResumenDiarioFinanzasDto> ObtenerResumenDiarioAsync(DateOnly fecha);
+    Task<ResumenMensualFinanzasDto> ObtenerResumenMensualAsync(int anio, int mes);
+    Task<ResumenAnualFinanzasDto> ObtenerResumenAnualAsync(int anio);
+
+    Task<IEnumerable<PagoFinanzasDto>> ObtenerPagosPendientesAsync();
+    Task<IEnumerable<PagoFinanzasDto>> ObtenerPagosPagadosAsync();
+    Task<IEnumerable<PagoFinanzasDto>> ObtenerPagosParcialesAsync();
+
+    Task<PagoFinanzasDto?> ObtenerPagoPorCodigoAsync(string codigoPago);
+    Task<EstadoCuentaPacienteDto> ObtenerEstadoCuentaPacienteAsync(Guid pacienteId);
+
+    Task<IEnumerable<EstadoPagoAtencionDto>> ObtenerDeudasRealesAsync();
+    Task<IEnumerable<EstadoPagoAtencionDto>> ObtenerDeudasRealesPacienteAsync(Guid pacienteId);
+    Task<EstadoPagoAtencionDto> ObtenerEstadoPagoAtencionAsync(Guid atencionId);
+    
+    
+    Task<IEnumerable<PagoFinanzasDto>> ObtenerLibroDiarioAsync(DateOnly fecha);
+    Task<ResumenFinancieroMensualCompletoDto> ObtenerResumenFinancieroMensualCompletoAsync(int anio, int mes);
+
+    Task<Guid> RegistrarAjusteFinancieroAsync(RegistrarAjusteFinancieroDto dto);
+    Task<IEnumerable<AjusteFinancieroDto>> ObtenerAjustesFinancierosAsync();
+    Task<IEnumerable<AjusteFinancieroDto>> ObtenerAjustesPorAtencionAsync(Guid atencionId);
+    Task<IEnumerable<AjusteFinancieroDto>> ObtenerAjustesPorPagoAsync(Guid pagoId);
+}
+```
+
+--- ARCHIVO: Interfaces\IGenericRepository.cs ---
+```
+﻿namespace Clinica.Domain.Interfaces;
+
+public interface IGenericRepository<T> where T : class
+{
+    Task<IEnumerable<T>> GetAllAsync();
+    Task<T?> GetByIdAsync(Guid id);
+    Task AddAsync(T entity);
+    void Update(T entity);
+    void Delete(T entity);
+    Task SaveChangesAsync();
+}
+```
+
+--- ARCHIVO: Interfaces\IHistorialClinicoRepository.cs ---
+```
+﻿using Clinica.Domain.Entities;
+
+namespace Clinica.Domain.Interfaces;
+
+public interface IHistorialClinicoRepository : IGenericRepository<HistorialClinico>
+{
+    Task<HistorialClinico?> ObtenerPorPacienteAsync(Guid pacienteId);
+    Task<HistorialClinico?> ObtenerConDetallesAsync(Guid historialId);
+}
+```
+
+--- ARCHIVO: Interfaces\IHistorialDetalleRepository.cs ---
+```
+﻿using Clinica.Domain.Entities;
+
+namespace Clinica.Domain.Interfaces;
+
+public interface IHistorialDetalleRepository : IGenericRepository<HistorialDetalle>
+{
+    Task<IEnumerable<HistorialDetalle>> ObtenerPorHistorialAsync(Guid historialClinicoId);
+}
+```
+
+--- ARCHIVO: Interfaces\IHorarioDoctorRepository.cs ---
+```
+﻿using Clinica.Domain.Entities;
+
+namespace Clinica.Domain.Interfaces;
+
+public interface IHorarioDoctorRepository : IGenericRepository<HorarioDoctor>
+{
+    Task<IEnumerable<HorarioDoctor>> ObtenerPorDoctorAsync(Guid doctorId);
+}
+```
+
+--- ARCHIVO: Interfaces\INotificacionCitaRepository.cs ---
+```
+﻿using Clinica.Domain.Entities;
+
+namespace Clinica.Domain.Interfaces;
+
+// esto es exclusivo de evolution api
+public interface INotificacionCitaRepository : IGenericRepository<NotificacionCita>
+{
+    Task<bool> ExisteRecordatorioParaCitaAsync(Guid citaId);
+
+    Task<IEnumerable<NotificacionCita>> ObtenerPendientesAsync(DateTime fechaActualUtc, int maxIntentos);
+    
+    Task ActualizarAsync(NotificacionCita notificacion);
+}
+```
+
+--- ARCHIVO: Interfaces\IPacienteRepository.cs ---
+```
+﻿using Clinica.Domain.Entities;
+
+namespace Clinica.Domain.Interfaces;
+
+public interface IPacienteRepository : IGenericRepository<Paciente>
+{
+    Task<Paciente?> ObtenerPorDniAsync(string dni);
+    Task<Paciente?> ObtenerConHistorialAsync(Guid pacienteId);
+}
+```
+
+--- ARCHIVO: Interfaces\IPagoRepository.cs ---
+```
+﻿using Clinica.Domain.Entities;
+
+namespace Clinica.Domain.Interfaces;
+
+public interface IPagoRepository : IGenericRepository<Pago>
+{
+    Task<IEnumerable<Pago>> ObtenerPorPacienteAsync(Guid pacienteId);
+    Task<IEnumerable<Pago>> ObtenerPorCitaAsync(Guid citaId);
+    Task<IEnumerable<Pago>> ObtenerPorAtencionAsync(Guid atencionId);
+
+    Task<IEnumerable<Pago>> ObtenerTodosConDetalleAsync();
+    Task<Pago?> ObtenerPorCodigoConDetalleAsync(string codigoPago);
+}
+```
+
+--- ARCHIVO: Interfaces\IPermisoRepository.cs ---
+```
+﻿using Clinica.Domain.Entities;
+
+namespace Clinica.Domain.Interfaces;
+
+public interface IPermisoRepository : IGenericRepository<Permiso>
+{
+    Task<Permiso?> ObtenerPorCodigoAsync(string codigo);
+}
+```
+
+--- ARCHIVO: Interfaces\IRolRepository.cs ---
+```
+﻿using Clinica.Domain.Entities;
+
+namespace Clinica.Domain.Interfaces;
+
+public interface IRolRepository : IGenericRepository<Rol>
+{
+    Task<Rol?> ObtenerPorNombreAsync(string nombre);
+    Task<Rol?> ObtenerConPermisosAsync(Guid id);
+    
+    Task<bool> TienePermisoAsignadoAsync(Guid rolId, Guid permisoId);
+    Task AgregarPermisoAsync(RolPermiso rolPermiso);
+}
+```
+
+--- ARCHIVO: Interfaces\IServicioClinicoRepository.cs ---
+```
+﻿using Clinica.Domain.Entities;
+
+namespace Clinica.Domain.Interfaces;
+
+public interface IServicioClinicoRepository : IGenericRepository<ServicioClinico>
+{
+    Task<ServicioClinico?> ObtenerPorCodigoAsync(string codigoServicio);
+    Task<IEnumerable<ServicioClinico>> ObtenerActivosAsync();
+}
+```
+
+--- ARCHIVO: Interfaces\IUsuarioActualService.cs ---
+```
+﻿namespace Clinica.Domain.Interfaces;
+
+public interface IUsuarioActualService
+{
+    Guid ObtenerUsuarioId();
+    Guid? ObtenerUsuarioIdOpcional();
+}
+```
+
+--- ARCHIVO: Interfaces\IUsuarioRepository.cs ---
+```
+﻿using Clinica.Domain.Entities;
+
+namespace Clinica.Domain.Interfaces;
+
+public interface IUsuarioRepository : IGenericRepository<Usuario>
+{
+    Task<Usuario?> ObtenerPorCorreoAsync(string correo);
+    Task<Usuario?> ObtenerPorUserNameAsync(string userName);
+    Task<Usuario?> ObtenerConRolesAsync(Guid id);
+    
+    Task<bool> TieneRolAsignadoAsync(Guid usuarioId, Guid rolId);
+    Task AgregarRolAsync(UsuarioRol usuarioRol);
+}
+```
+

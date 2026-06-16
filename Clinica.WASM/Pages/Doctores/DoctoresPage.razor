@@ -1,0 +1,119 @@
+﻿@page "/doctores"
+
+<PageTitle>Cuerpo Médico | Clínica Santa Mónica</PageTitle>
+
+<RequireAuth>
+    @* Encabezado del Módulo con alineación e iconos de control *@
+    <PageHeader Title="Gestión de Personal Médico"
+                Subtitle="Fichero maestro de control, vigencia de contratos y especialidades ginecobstétricas del Centro Materno Perinatal.">
+        <ActionContent>
+            <RequirePermission Permission="@Permisos.DoctorCrear">
+                <MudButton Variant="Variant.Filled"
+                           Color="Color.Primary"
+                           StartIcon="@Icons.Material.Filled.PersonAdd"
+                           OnClick="AbrirFormularioNuevo"
+                           Class="text-none px-5 rounded-lg shadow-sm">
+                    Nuevo doctor
+                </MudButton>
+            </RequirePermission>
+        </ActionContent>
+    </PageHeader>
+
+    @* Mensajes de Alerta Corporativos con Animación Integrada *@
+    <div class="alert-layer-wrapper mt-4">
+        @if (!string.IsNullOrWhiteSpace(MensajeExito))
+        {
+            <MudAlert Severity="Severity.Success" Variant="Variant.Filled" Dense="true" Class="mb-4 rounded-lg shadow-sm animate-fade-clean">
+                @MensajeExito
+            </MudAlert>
+        }
+        @if (!string.IsNullOrWhiteSpace(MensajeError))
+        {
+            <MudAlert Severity="Severity.Error" Variant="Variant.Filled" Dense="true" Class="mb-4 rounded-lg shadow-sm animate-fade-clean">
+                @MensajeError
+            </MudAlert>
+        }
+    </div>
+
+    @* VISTA 1: Alta de Nuevo Facultativo con Realce Oro (Tertiary) *@
+    @if (MostrandoFormulario)
+    {
+        <div class="doctor-master-card view-gold-topline">
+            <div class="card-header-luxury mb-4">
+                <MudText Typo="Typo.h3" Class="master-card-title">
+                    Registrar Nuevo Miembro Médico
+                </MudText>
+                <MudText Typo="Typo.body2" Class="master-card-subtitle">
+                    Fije el código de colegiatura, datos de contacto y la vigencia inicial de su contrato de prestación.
+                </MudText>
+            </div>
+
+            <DoctorForm Model="NuevoDoctor"
+                        IsProcessing="EstaProcesando"
+                        OnSave="GuardarDoctorAsync"
+                        OnCancel="CerrarFormulario" />
+        </div>
+    }
+    @* VISTA 2: Modificación con Realce Rose Gold (Secondary) *@
+    else if (MostrandoEdicion)
+    {
+        <div class="doctor-master-card view-rose-topline">
+            <div class="card-header-luxury mb-4">
+                <MudText Typo="Typo.h3" Class="master-card-title">
+                    Modificar Expediente del Profesional
+                </MudText>
+                <MudText Typo="Typo.body2" Class="master-card-subtitle">
+                    Actualice de forma regulada el estado operativo, teléfono o correo corporativo asignado.
+                </MudText>
+            </div>
+
+            <DoctorEditForm Model="EdicionDoctor"
+                            IsProcessing="EstaProcesando"
+                            OnSave="ActualizarDoctorAsync"
+                            OnCancel="CerrarFormulario" />
+        </div>
+    }
+    @* VISTA MASTER: Tabla de visualización y Panel de Filtros Avanzados *@
+    else
+    {
+        @* Barra de Búsqueda Premium sin bordes toscos nativos *@
+        <div class="search-luxury-frame mb-5">
+            <MudTextField @bind-Value="SearchText"
+                          Placeholder="Filtrar instantáneamente por código, nombres, especialidades o CMP registrado..."
+                          Variant="Variant.Outlined"
+                          Margin="Margin.None"
+                          Adornment="Adornment.Start"
+                          AdornmentIcon="@Icons.Material.Filled.Search"
+                          AdornmentColor="Color.Primary"
+                          Immediate="true"
+                          Class="clean-search-field" />
+        </div>
+
+        @if (HayErrorCarga)
+        {
+            <div class="error-panel-container pa-6 text-center">
+                <ErrorState Title="Fallo de sincronización maestro-doctores"
+                            Message="@MensajeError"
+                            OnRetry="CargarDoctoresAsync" />
+            </div>
+        }
+        else
+        {
+            <DoctoresTable Doctores="Doctores"
+                           SearchText="@SearchText"
+                           IsLoading="EstaCargando"
+                           OnView="VerDoctor"
+                           OnEdit="AbrirEdicion">
+                <ActionContent>
+                    <MudButton Variant="Variant.Filled"
+                               Color="Color.Primary"
+                               StartIcon="@Icons.Material.Filled.PersonAdd"
+                               OnClick="AbrirFormularioNuevo"
+                               Class="text-none">
+                        Nuevo doctor
+                    </MudButton>
+                </ActionContent>
+            </DoctoresTable>
+        }
+    }
+</RequireAuth>

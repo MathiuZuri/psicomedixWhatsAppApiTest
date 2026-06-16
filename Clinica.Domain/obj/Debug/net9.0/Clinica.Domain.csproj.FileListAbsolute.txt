@@ -1,0 +1,51 @@
+F:\proyectC#\ClinicaObst\Clinica.Domain\bin\Debug\net9.0\Clinica.Domain.deps.json
+F:\proyectC#\ClinicaObst\Clinica.Domain\bin\Debug\net9.0\Clinica.Domain.dll
+F:\proyectC#\ClinicaObst\Clinica.Domain\bin\Debug\net9.0\Clinica.Domain.pdb
+F:\proyectC#\ClinicaObst\Clinica.Domain\obj\Debug\net9.0\Clinica.Domain.csproj.AssemblyReference.cache
+F:\proyectC#\ClinicaObst\Clinica.Domain\obj\Debug\net9.0\Clinica.Domain.GeneratedMSBuildEditorConfig.editorconfig
+F:\proyectC#\ClinicaObst\Clinica.Domain\obj\Debug\net9.0\Clinica.Domain.AssemblyInfoInputs.cache
+F:\proyectC#\ClinicaObst\Clinica.Domain\obj\Debug\net9.0\Clinica.Domain.AssemblyInfo.cs
+F:\proyectC#\ClinicaObst\Clinica.Domain\obj\Debug\net9.0\Clinica.Domain.csproj.CoreCompileInputs.cache
+F:\proyectC#\ClinicaObst\Clinica.Domain\obj\Debug\net9.0\Clinica.Domain.dll
+F:\proyectC#\ClinicaObst\Clinica.Domain\obj\Debug\net9.0\refint\Clinica.Domain.dll
+F:\proyectC#\ClinicaObst\Clinica.Domain\obj\Debug\net9.0\Clinica.Domain.pdb
+F:\proyectC#\ClinicaObst\Clinica.Domain\obj\Debug\net9.0\ref\Clinica.Domain.dll
+F:\proyectC#\ClinicaObst\Clinica.Domain\obj\Debug\net9.0\Clinica.Domain.sourcelink.json
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.Domain\bin\Debug\net9.0\Clinica.Domain.deps.json
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.Domain\bin\Debug\net9.0\Clinica.Domain.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.Domain\bin\Debug\net9.0\Clinica.Domain.pdb
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.Domain\obj\Debug\net9.0\Clinica.Domain.csproj.AssemblyReference.cache
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.Domain\obj\Debug\net9.0\Clinica.Domain.GeneratedMSBuildEditorConfig.editorconfig
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.Domain\obj\Debug\net9.0\Clinica.Domain.AssemblyInfoInputs.cache
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.Domain\obj\Debug\net9.0\Clinica.Domain.AssemblyInfo.cs
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.Domain\obj\Debug\net9.0\Clinica.Domain.csproj.CoreCompileInputs.cache
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.Domain\obj\Debug\net9.0\Clinica.Domain.sourcelink.json
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.Domain\obj\Debug\net9.0\Clinica.Domain.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.Domain\obj\Debug\net9.0\refint\Clinica.Domain.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.Domain\obj\Debug\net9.0\Clinica.Domain.pdb
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.Domain\obj\Debug\net9.0\ref\Clinica.Domain.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.Domain\bin\Debug\net9.0\Clinica.Domain.deps.json
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.Domain\bin\Debug\net9.0\Clinica.Domain.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.Domain\bin\Debug\net9.0\Clinica.Domain.pdb
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.Domain\obj\Debug\net9.0\Clinica.Domain.csproj.AssemblyReference.cache
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.Domain\obj\Debug\net9.0\Clinica.Domain.GeneratedMSBuildEditorConfig.editorconfig
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.Domain\obj\Debug\net9.0\Clinica.Domain.AssemblyInfoInputs.cache
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.Domain\obj\Debug\net9.0\Clinica.Domain.AssemblyInfo.cs
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.Domain\obj\Debug\net9.0\Clinica.Domain.csproj.CoreCompileInputs.cache
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.Domain\obj\Debug\net9.0\Clinica.Domain.sourcelink.json
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.Domain\obj\Debug\net9.0\Clinica.Domain.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.Domain\obj\Debug\net9.0\refint\Clinica.Domain.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.Domain\obj\Debug\net9.0\Clinica.Domain.pdb
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.Domain\obj\Debug\net9.0\ref\Clinica.Domain.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.Domain\bin\Debug\net9.0\Clinica.Domain.deps.json
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.Domain\bin\Debug\net9.0\Clinica.Domain.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.Domain\bin\Debug\net9.0\Clinica.Domain.pdb
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.Domain\obj\Debug\net9.0\Clinica.Domain.csproj.AssemblyReference.cache
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.Domain\obj\Debug\net9.0\Clinica.Domain.GeneratedMSBuildEditorConfig.editorconfig
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.Domain\obj\Debug\net9.0\Clinica.Domain.AssemblyInfoInputs.cache
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.Domain\obj\Debug\net9.0\Clinica.Domain.AssemblyInfo.cs
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.Domain\obj\Debug\net9.0\Clinica.Domain.csproj.CoreCompileInputs.cache
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.Domain\obj\Debug\net9.0\Clinica.Domain.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.Domain\obj\Debug\net9.0\refint\Clinica.Domain.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.Domain\obj\Debug\net9.0\Clinica.Domain.pdb
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.Domain\obj\Debug\net9.0\ref\Clinica.Domain.dll

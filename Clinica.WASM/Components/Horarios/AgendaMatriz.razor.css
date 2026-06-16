@@ -1,0 +1,170 @@
+﻿.wrapper-canvas-luxury {
+    animation: fadeSlideUp 0.4s ease-out;
+}
+
+.control-header-panel {
+    background-color: var(--mud-palette-surface);
+    padding: 20px 24px;
+    border-radius: 16px;
+    border: 1px solid var(--mud-palette-divider);
+    box-shadow: var(--mud-elevation-1);
+}
+
+.matrix-card-surface-luxury {
+    background-color: var(--mud-palette-surface);
+    padding: 24px;
+    border-radius: 16px;
+    border: 1px solid var(--mud-palette-divider);
+    box-shadow: var(--mud-elevation-2);
+    border-top: 4px solid var(--mud-palette-secondary); /* Borde superior Rose Gold */
+}
+
+.matrix-header-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.matrix-doc-name {
+    font-weight: 800 !important;
+    letter-spacing: -0.02em;
+    color: var(--mud-palette-text-primary);
+}
+
+.week-range-indicator {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--mud-palette-background-gray);
+    padding: 8px 16px;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--mud-palette-text-primary);
+    border: 1px solid var(--mud-palette-divider);
+}
+
+/* --- DISEÑO DE MATRIZ DE REJILLA CONTINUA --- */
+.overflow-x-auto-clean {
+    overflow-x: auto;
+    border-radius: 12px;
+    border: 1px solid var(--mud-palette-divider);
+}
+
+.luxury-calendar-grid {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    min-width: 850px; /* Evita colapsos de texto en resoluciones de laptops */
+}
+
+.luxury-calendar-grid th {
+    background-color: var(--mud-palette-background-gray);
+    color: var(--mud-palette-text-secondary);
+    font-weight: 700;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 14px 8px;
+    text-align: center;
+    border-bottom: 2px solid var(--mud-palette-divider);
+}
+
+.luxury-calendar-grid th.time-header-cell {
+    width: 120px;
+    text-align: left;
+    padding-left: 16px;
+}
+
+.time-row-label {
+    background-color: var(--mud-palette-background-gray);
+    color: var(--mud-palette-text-primary);
+    font-weight: 700;
+    font-size: 0.8rem;
+    font-family: monospace;
+    padding: 14px 16px;
+    border-right: 2px solid var(--mud-palette-divider);
+    border-bottom: 1px solid var(--mud-palette-divider);
+}
+
+/* --- ESTADOS EN CADENA DE LAS CELDAS --- */
+.calendar-cell-render {
+    border: 1px solid var(--mud-palette-divider);
+    padding: 4px;
+    height: 52px;
+    vertical-align: middle;
+    text-align: center;
+    transition: background-color 0.2s ease;
+}
+
+/* Estado 1: Fuera de Horario (Gris Tenue de Capa) */
+.calendar-cell-render.FueraHorario {
+    background-color: rgba(241, 245, 249, 0.4);
+    cursor: not-allowed;
+}
+
+/* Estado 2: Disponible (Limpio e interactivo) */
+.calendar-cell-render.Disponible {
+    background-color: var(--mud-palette-surface);
+}
+
+.calendar-cell-render.Disponible:hover {
+    background-color: rgba(43, 76, 222, 0.03);
+}
+
+.available-dot-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dot-indicator {
+    width: 6px;
+    height: 6px;
+    background-color: #10B981; /* Verde Success sutil */
+    border-radius: 50%;
+    opacity: 0.4;
+}
+
+/* Estado 3: Ocupado (Fondo Oro/Beige Translúcido Réplica Exacta de tu Referencia) */
+.calendar-cell-render.Ocupado {
+    background-color: rgba(229, 179, 36, 0.06) !important; /* Nuestro color Oro Tertiary en baja opacidad */
+    padding: 2px;
+}
+
+.occupied-badge-inner {
+    background-color: var(--mud-palette-surface);
+    border-left: 3px solid var(--mud-palette-tertiary); /* Línea ancla de color Oro */
+    padding: 4px 6px;
+    border-radius: 6px;
+    text-align: left;
+    box-shadow: var(--mud-elevation-1);
+    cursor: pointer;
+}
+
+.occupied-badge-inner .paciente-txt {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--mud-palette-text-primary);
+}
+
+.occupied-badge-inner .servicio-txt {
+    font-size: 0.65rem;
+    color: var(--mud-palette-tertiary); /* Texto Oro */
+    font-weight: 600;
+}
+
+.animate-scale-in {
+    animation: scaleIn 0.2s ease-out;
+}
+
+@keyframes scaleIn {
+    from { transform: scale(0.95); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes fadeSlideUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+}

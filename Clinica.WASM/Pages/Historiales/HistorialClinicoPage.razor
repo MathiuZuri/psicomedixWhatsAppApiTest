@@ -1,0 +1,136 @@
+﻿@page "/historia-clinica"
+
+<PageTitle>Historial Clínico | Clínica Santa Mónica</PageTitle>
+
+<RequireAuth>
+    <PageHeader Title="Fichero Clínico General"
+                Subtitle="Consulta centralizada de expedientes, auditoría de movimientos médicos y línea de tiempo de atenciones del paciente." />
+    
+    <div class="search-luxury-layer mb-5 mt-4">
+        <MudGrid Class="align-center pa-1">
+            <MudItem xs="12" md="8">
+                <MudAutocomplete T="Guid"
+                                 @bind-Value="PacienteSeleccionadoId"
+                                 Label="Buscar Paciente por Nombres o Apellidos"
+                                 Variant="Variant.Outlined"
+                                 Margin="Margin.None"
+                                 Disabled="@EstaCargandoPacientes"
+                                 ToStringFunc="@(id => Pacientes.FirstOrDefault(p => p.Id == id)?.NombreCompleto ?? string.Empty)"
+                                 SearchFunc="@BuscarPaciente"
+                                 AdornmentIcon="@Icons.Material.Filled.PersonSearch"
+                                 AdornmentColor="Color.Primary"
+                                 ResetValueOnEmptyText="true"
+                                 CoerceText="true"
+                                 Class="search-autocomplete-clean" />
+            </MudItem>
+            <MudItem xs="12" md="4" Class="text-md-end">
+                <MudButton Variant="Variant.Filled"
+                           Color="Color.Primary"
+                           StartIcon="@Icons.Material.Filled.FolderOpen"
+                           Disabled="@(PacienteSeleccionadoId == Guid.Empty)"
+                           OnClick="CargarHistorialAsync"
+                           Class="text-none py-3 px-6 rounded-lg shadow-sm full-width-mobile">
+                    Desplegar historial
+                </MudButton>
+            </MudItem>
+        </MudGrid>
+    </div>
+
+    @if (!string.IsNullOrWhiteSpace(MensajeError))
+    {
+        <MudAlert Severity="Severity.Error" Variant="Variant.Filled" Dense="true" Class="mb-4 rounded-lg shadow-sm animate-fade-clean">
+            @MensajeError
+        </MudAlert>
+    }
+
+    @if (HistorialActual != null)
+    {
+        @* Perfil Resumen de Ficha Clínica Elevado con Microborde Dorado (Tertiary) *@
+        <div class="patient-profile-summary-card mb-5">
+            <div class="profile-summary-header mb-4">
+                <div>
+                    <MudText Typo="Typo.h3" Class="profile-summary-title">Expediente N° @HistorialActual.CodigoHistorial</MudText>
+                    <MudText Typo="Typo.body2" Class="profile-summary-subtitle mt-1">
+                        Paciente Acreditado: <strong class="text-primary-dark">@HistorialActual.PacienteNombre</strong>
+                    </MudText>
+                </div>
+                <div class="profile-status-block">
+                    <span class="status-indicator-tag active-status">@HistorialActual.Estado</span>
+                </div>
+            </div>
+
+            @* Celdas Rápidas de Metadata del Expediente *@
+            <div class="profile-metadata-grid">
+                <div class="metadata-mini-cell">
+                    <span class="mini-label">Documento Nacional (DNI)</span>
+                    <span class="mini-value font-mono">@HistorialActual.PacienteDni</span>
+                </div>
+                <div class="metadata-mini-cell">
+                    <span class="mini-label">Fecha de Apertura Médica</span>
+                    <span class="mini-value">@HistorialActual.FechaApertura.ToString("dd 'de' MMMM, yyyy")</span>
+                </div>
+            </div>
+        </div>
+
+        @if (!HistorialActual.Detalles.Any())
+        {
+            <EmptyState Icon="@Icons.Material.Filled.History"
+                        Title="Sin movimientos registrados"
+                        Message="Este expediente clínico se encuentra activo pero no registra transacciones en el sistema." />
+        }
+        else
+        {
+            @* Grilla del Libro de Acta Clínica Continua *@
+            <div class="history-table-layer">
+                <MudTable Items="@HistorialActual.Detalles"
+                          Dense="false"
+                          Hover="true"
+                          Bordered="false"
+                          Striped="true"
+                          Elevation="0"
+                          Class="luxury-history-table">
+
+                    <HeaderContent>
+                        <MudTh class="header-cell-premium">Fecha / Hora</MudTh>
+                        <MudTh class="header-cell-premium">Tipo de Suceso</MudTh>
+                        <MudTh class="header-cell-premium">Título descriptivo</MudTh>
+                        <MudTh class="header-cell-premium">Operador responsable</MudTh>
+                        <MudTh class="header-cell-premium text-end">Acciones de libro</MudTh>
+                    </HeaderContent>
+
+                    <RowTemplate>
+                        <MudTd DataLabel="Fecha" Class="py-3 font-mono text-sm">@context.FechaRegistro.ToString("dd/MM/yyyy HH:mm")</MudTd>
+                        <MudTd DataLabel="Tipo">
+                            <span class="movement-type-pill">@ObtenerNombreTipo(context.TipoMovimiento)</span>
+                        </MudTd>
+                        <MudTd DataLabel="Título" Class="fw-semibold text-primary-dark">@context.Titulo</MudTd>
+                        <MudTd DataLabel="Usuario" Class="text-secondary">@(context.UsuarioNombre ?? "Sistema Automatizado")</MudTd>
+                        <MudTd DataLabel="Acciones" Class="text-end py-2">
+                            <MudTooltip Text="Auditar Detalles del Suceso">
+                                <MudIconButton Icon="@Icons.Material.Filled.Visibility"
+                                               Color="Color.Primary"
+                                               Size="Size.Small"
+                                               Class="action-btn-styled"
+                                               OnClick="() => VerDetalle(context)" />
+                            </MudTooltip>
+                        </MudTd>
+                    </RowTemplate>
+
+                    <PagerContent>
+                        <div class="table-pager-luxury">
+                            <MudTablePager PageSizeOptions="new[] { 5, 10, 20, 50 }" RowsPerPageString="Registros por página:" />
+                        </div>
+                    </PagerContent>
+                </MudTable>
+            </div>
+        }
+    }
+    else if (HistorialNoEncontrado)
+    {
+        <div class="mt-4">
+            <EmptyState Icon="@Icons.Material.Filled.PersonOff"
+                        Title="Paciente sin historial"
+                        Message="La paciente seleccionada no cuenta con un expediente clínico vigente en el Centro Materno Perinatal." />
+        </div>
+    }
+</RequireAuth>

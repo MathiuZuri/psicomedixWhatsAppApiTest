@@ -1,0 +1,104 @@
+﻿@page "/panel/citas"
+
+<PageTitle>Agenda de Citas | Clínica Santa Mónica</PageTitle>
+
+<RequireAuth>
+    @* Encabezado del Módulo con Alineación Limpia *@
+    <PageHeader Title="Agenda de Citas Médicas"
+                Subtitle="Módulo operativo para la programación, reprogramación horaria y anulación de consultas del Centro Materno Perinatal.">
+        <ActionContent>
+            <RequirePermission Permission="@Permisos.CitaProgramar">
+                <MudButton Variant="Variant.Filled"
+                           Color="Color.Primary"
+                           StartIcon="@Icons.Material.Filled.Add"
+                           OnClick="AbrirFormularioNuevo"
+                           Class="text-none px-5 rounded-lg shadow-sm">
+                    Nueva cita
+                </MudButton>
+            </RequirePermission>
+        </ActionContent>
+    </PageHeader>
+
+    @* Centro de Notificaciones y Alertas de Sistema *@
+    <div class="alert-layer-container mt-4">
+        @if (!string.IsNullOrWhiteSpace(MensajeExito))
+        {
+            <MudAlert Severity="Severity.Success" Variant="Variant.Filled" Dense="true" Class="mb-4 rounded-lg shadow-sm fade-in-animate">
+                @MensajeExito
+            </MudAlert>
+        }
+        @if (!string.IsNullOrWhiteSpace(MensajeError))
+        {
+            <MudAlert Severity="Severity.Error" Variant="Variant.Filled" Dense="true" Class="mb-4 rounded-lg shadow-sm fade-in-animate">
+                @MensajeError
+            </MudAlert>
+        }
+    </div>
+
+    @* VISTA CENTRALIZADA: Formulario de Registro con realce de Capa superior Oro Fino *@
+    @if (MostrandoFormulario)
+    {
+        <div class="citas-master-card view-gold-highlight">
+            <div class="card-header-block mb-4">
+                <MudText Typo="Typo.h3" Class="master-card-title">
+                    Programar Nueva Consulta Médica
+                </MudText>
+                <MudText Typo="Typo.body2" Class="master-card-subtitle">
+                    Fije el bloque horario, el ginecobstetra de cabecera y el catálogo de servicio médico para aperturar la cita.
+                </MudText>
+            </div>
+
+            <CitaForm Model="NuevaCita"
+                      IsProcessing="EstaProcesando"
+                      OnSave="GuardarCitaAsync"
+                      OnCancel="CerrarFormulario"
+                      DoctoresList="DoctoresList"
+                      PacientesList="PacientesList"
+                      ServiciosList="ServiciosList" />
+        </div>
+    }
+    @* VISTA POR DEFECTO: Tablero de Control Maestre *@
+    else
+    {
+        @* Panel de Filtrado Inmediato de Alta Definición *@
+        <div class="search-panel-luxury-box mb-5">
+            <MudTextField @bind-Value="SearchText"
+                          Placeholder="Filtrar instantáneamente por código de ticket, paciente o doctor asignado..."
+                          Variant="Variant.Outlined"
+                          Margin="Margin.None"
+                          Adornment="Adornment.Start"
+                          AdornmentIcon="@Icons.Material.Filled.Search"
+                          AdornmentColor="Color.Primary"
+                          Immediate="true"
+                          Class="search-box-field-clean" />
+        </div>
+
+        @if (HayErrorCarga)
+        {
+            <div class="error-panel-frame pa-6 text-center">
+                <ErrorState Title="Fallo en la comunicación con el servidor"
+                            Message="@MensajeError"
+                            OnRetry="CargarCitasAsync" />
+            </div>
+        }
+        else
+        {
+            <CitasTable Citas="Citas"
+                        SearchText="@SearchText"
+                        IsLoading="EstaCargando"
+                        OnView="VerCita"
+                        OnReprogramar="AbrirReprogramacion"
+                        OnCancelar="AbrirCancelacion">
+                <ActionContent>
+                    <MudButton Variant="Variant.Filled"
+                               Color="Color.Primary"
+                               StartIcon="@Icons.Material.Filled.Add"
+                               OnClick="AbrirFormularioNuevo"
+                               Class="text-none">
+                        Nueva cita
+                    </MudButton>
+                </ActionContent>
+            </CitasTable>
+        }
+    }
+</RequireAuth>

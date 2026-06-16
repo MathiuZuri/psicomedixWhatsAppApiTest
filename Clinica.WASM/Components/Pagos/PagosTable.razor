@@ -1,0 +1,125 @@
+﻿@if (IsLoading)
+{
+    <LoadingState Message="Sincronizando registros de caja y pasarelas de pago..." />
+}
+else if (!Pagos.Any())
+{
+    <EmptyState Icon="@Icons.Material.Filled.Payments"
+                Title="No hay pagos registrados"
+                Message="Seleccione un paciente para ver sus pagos." />
+}
+else
+{
+    <div class="payments-table-layer">
+        <MudTable Items="@Pagos"
+                  Dense="false"
+                  Hover="true"
+                  Bordered="false"
+                  Striped="true"
+                  Elevation="0"
+                  Class="luxury-payments-table">
+
+            <HeaderContent>
+                <MudTh Class="header-cell-premium">Código Recibo</MudTh>
+                <MudTh Class="header-cell-premium">Servicio Clínico</MudTh>
+                <MudTh Class="header-cell-premium">Monto Total</MudTh>
+                <MudTh Class="header-cell-premium">Monto Pagado</MudTh>
+                <MudTh Class="header-cell-premium">Saldo Pendiente</MudTh>
+                <MudTh Class="header-cell-premium">Canal / Medio</MudTh>
+                <MudTh Class="header-cell-premium">Estado</MudTh>
+                <MudTh Class="header-cell-premium">Fecha Recaudo</MudTh>
+                <MudTh Class="header-cell-premium text-end">Ajustes</MudTh>
+            </HeaderContent>
+
+            <RowTemplate>
+                <MudTd DataLabel="Código" Class="py-3">
+                    <span class="payment-table-code">@context.CodigoPago</span>
+                </MudTd>
+                <MudTd DataLabel="Servicio" Class="fw-semibold text-primary-dark">
+                    <div class="truncate-service-name">@context.ServicioNombre</div>
+                </MudTd>
+                <MudTd DataLabel="Total" Class="font-mono font-medium">@context.MontoTotal.ToString("C")</MudTd>
+                <MudTd DataLabel="Pagado" Class="font-mono text-success-dark fw-semibold">@context.MontoPagado.ToString("C")</MudTd>
+                <MudTd DataLabel="Saldo" Class="font-mono text-rose-gold fw-bold">@context.SaldoPendiente.ToString("C")</MudTd>
+                <MudTd DataLabel="Método">
+                    <span class="method-tag">@ObtenerNombreMetodo(context.MetodoPago)</span>
+                </MudTd>
+                <MudTd DataLabel="Estado">
+                    <MudChip T="string"
+                             Size="Size.Small"
+                             Color="@ObtenerColorEstado(context.Estado)"
+                             Variant="Variant.Filled"
+                             Class="fw-bold table-chip-rounded">
+                        @ObtenerNombreEstado(context.Estado)
+                    </MudChip>
+                </MudTd>
+                <MudTd DataLabel="Fecha" Class="font-mono text-sm text-secondary">@context.FechaPago.ToString("dd/MM/yyyy HH:mm")</MudTd>
+                <MudTd DataLabel="Acciones" Class="text-end py-2">
+                    <MudTooltip Text="Auditar Notas de Ajuste">
+                        <MudIconButton Icon="@Icons.Material.Filled.RequestQuote"
+                                       Color="Color.Secondary"
+                                       Size="Size.Small"
+                                       Class="action-btn-styled"
+                                       OnClick="() => OnAjustes.InvokeAsync(context)" />
+                    </MudTooltip>
+                    <MudTooltip Text="Cambiar Estado">
+                        <MudIconButton Icon="@Icons.Material.Filled.SwapHoriz"
+                                       Color="Color.Tertiary"
+                                       Size="Size.Small"
+                                       Class="action-btn-styled"
+                                       OnClick="() => OnChangeState.InvokeAsync(context)" />
+                    </MudTooltip>
+                </MudTd>
+            </RowTemplate>
+
+            <PagerContent>
+                <div class="table-pager-luxury">
+                    <MudTablePager PageSizeOptions="new[] { 5, 10, 20, 50 }" RowsPerPageString="Transacciones por página:" />
+                </div>
+            </PagerContent>
+        </MudTable>
+    </div>
+}
+
+@code {
+    [Parameter] public List<PagoResponseDto> Pagos { get; set; } = new();
+    [Parameter] public bool IsLoading { get; set; }
+    [Parameter] public EventCallback<PagoResponseDto> OnAjustes { get; set; }
+    [Parameter] public EventCallback<PagoResponseDto> OnChangeState { get; set; }
+
+    private static string ObtenerNombreMetodo(MetodoPago metodo) =>
+        metodo switch
+        {
+            MetodoPago.Efectivo => "Efectivo",
+            MetodoPago.Yape => "Yape",
+            MetodoPago.Plin => "Plin",
+            MetodoPago.Transferencia => "Transferencia",
+            MetodoPago.Tarjeta => "Tarjeta",
+            MetodoPago.Otro => "Otro",
+            _ => metodo.ToString()
+        };
+
+    private static string ObtenerNombreEstado(EstadoPago estado) =>
+        estado switch
+        {
+            EstadoPago.Pendiente => "Pendiente",
+            EstadoPago.Parcial => "Parcial",
+            EstadoPago.Pagado => "Pagado",
+            EstadoPago.Anulado => "Anulado",
+            EstadoPago.Reembolsado => "Reembolsado",
+            EstadoPago.Eliminado => "Eliminado",
+            _ => estado.ToString()
+        };
+
+    private static Color ObtenerColorEstado(EstadoPago estado) =>
+        estado switch
+        {
+            EstadoPago.Pendiente => Color.Info,
+            EstadoPago.Parcial => Color.Warning,
+            EstadoPago.Pagado => Color.Success,
+            EstadoPago.Anulado => Color.Error,
+            EstadoPago.Reembolsado => Color.Dark,
+            EstadoPago.Eliminado => Color.Error,
+            _ => Color.Default
+        };
+}

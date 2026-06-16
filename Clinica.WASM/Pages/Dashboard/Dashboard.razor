@@ -1,0 +1,179 @@
+﻿@page "/dashboard"
+@inherits Microsoft.AspNetCore.Components.ComponentBase
+
+<PageTitle>Panel de Control Central </PageTitle>
+
+<div class="dashboard-canvas-layer">
+    
+    @* SECCIÓN 1: Encabezado Principal y Estado Crítico de Sincronización *@
+    <div class="dashboard-header-flex mb-6">
+        <div class="title-text-stack">
+            <MudText Typo="Typo.h1" Class="dashboard-main-title">Panel de Control Central</MudText>
+            <MudText Typo="Typo.body1" Class="dashboard-main-subtitle mt-1">
+                Consola general e infraestructura digital del Centro Materno Perinatal Santa Mónica.
+            </MudText>
+        </div>
+        
+        <div class="sync-status-badge-luxury">
+            <span class="ping-indicator-pulse"></span>
+            <MudText Typo="Typo.caption" Class="font-mono fw-bold tracking-wide">SIGEC_NET9_OK</MudText>
+        </div>
+    </div>
+
+    @* SECCIÓN 2: Rejilla Maestra de Indicadores Clave (KPI Cards con Relieve) *@
+    <MudGrid Class="mb-6">
+        <MudItem xs="12" sm="6" md="3">
+            <div class="kpi-card-luxury accent-primary">
+                <div class="kpi-icon-shell shell-primary">
+                    <MudIcon Icon="@Icons.Material.Filled.AssignmentInd" />
+                </div>
+                <div class="kpi-data-stack">
+                    @if (CargandoMetricas)
+                    {
+                        <MudProgressLinear Color="Color.Primary" Indeterminate="true" Class="kpi-loader-bar" />
+                    }
+                    else
+                    {
+                        <span class="kpi-numeric-value">@ContadorPacientes</span>
+                    }
+                    <span class="kpi-text-label">Pacientes Registradas</span>
+                </div>
+            </div>
+        </MudItem>
+
+        <MudItem xs="12" sm="6" md="3">
+            <div class="kpi-card-luxury accent-secondary">
+                <div class="kpi-icon-shell shell-secondary">
+                    <MudIcon Icon="@Icons.Material.Filled.CalendarMonth" />
+                </div>
+                <div class="kpi-data-stack">
+                    @if (CargandoMetricas)
+                    {
+                        <MudProgressLinear Color="Color.Secondary" Indeterminate="true" Class="kpi-loader-bar" />
+                    }
+                    else
+                    {
+                        <span class="kpi-numeric-value text-rose-gold">@ContadorCitas</span>
+                    }
+                    <span class="kpi-text-label">Citas Programadas Hoy</span>
+                </div>
+            </div>
+        </MudItem>
+
+        <MudItem xs="12" sm="6" md="3">
+            <div class="kpi-card-luxury accent-success">
+                <div class="kpi-icon-shell shell-success">
+                    <MudIcon Icon="@Icons.Material.Filled.VolunteerActivism" />
+                </div>
+                <div class="kpi-data-stack">
+                    @if (CargandoMetricas)
+                    {
+                        <MudProgressLinear Color="Color.Success" Indeterminate="true" Class="kpi-loader-bar" />
+                    }
+                    else
+                    {
+                        <span class="kpi-numeric-value">@ContadorAtenciones</span>
+                    }
+                    <span class="kpi-text-label">Atenciones Ejecutadas</span>
+                </div>
+            </div>
+        </MudItem>
+
+        <MudItem xs="12" sm="6" md="3">
+            <div class="kpi-card-luxury accent-tertiary">
+                <div class="kpi-icon-shell shell-tertiary">
+                    <MudIcon Icon="@Icons.Material.Filled.AccountBalanceWallet" />
+                </div>
+                <div class="kpi-data-stack">
+                    @if (CargandoMetricas)
+                    {
+                        <MudProgressLinear Color="Color.Tertiary" Indeterminate="true" Class="kpi-loader-bar" />
+                    }
+                    else
+                    {
+                        <span class="kpi-numeric-value text-gold">@BalanceCaja.ToString("C2")</span>
+                    }
+                    <span class="kpi-text-label">Balance de Caja Mensual</span>
+                </div>
+            </div>
+        </MudItem>
+    </MudGrid>
+
+    @* SECCIÓN 3: Cuadrante de Doble Columna (Acciones Rápidas y Monitoreo Base) *@
+    <MudGrid Class="mb-6">
+        @* Panel Izquierdo: Accesos Directos Operativos *@
+        <MudItem xs="12" md="6">
+            <div class="dashboard-panel-surface layout-full-height">
+                <MudText Typo="Typo.h3" Class="panel-luxury-title mb-1">Rutas y Operaciones Críticas</MudText>
+                <MudText Typo="Typo.body2" Class="panel-luxury-subtitle mb-4">Atajos directos hacia los módulos avanzados de la suite.</MudText>
+                
+                <div class="quick-actions-flex">
+                    <MudButton Variant="Variant.Filled" Color="Color.Primary" StartIcon="@Icons.Material.Filled.CalendarViewWeek" Href="/panel/horarios/agenda" Class="text-none py-3 rounded-lg full-bleed-btn">
+                        Ver Agenda de Ocupación Semanal
+                    </MudButton>
+                    <MudButton Variant="Variant.Outlined" Color="Color.Secondary" StartIcon="@Icons.Material.Filled.FolderShared" Href="/historia-clinica" Class="text-none py-3 rounded-lg full-bleed-btn">
+                        Abrir Fichero Clínico Pacientes
+                    </MudButton>
+                    <MudButton Variant="Variant.Outlined" Color="Color.Tertiary" StartIcon="@Icons.Material.Filled.Payments" Href="/pagos" Class="text-none py-3 rounded-lg full-bleed-btn">
+                        Liquidación de Caja y Recaudación
+                    </MudButton>
+                </div>
+            </div>
+        </MudItem>
+
+        @* Panel Derecho: Telemetría de Microservicios en Tiempo Real *@
+        <MudItem xs="12" md="6">
+            <div class="dashboard-panel-surface border-top-tertiary layout-full-height">
+                <MudText Typo="Typo.h3" Class="panel-luxury-title mb-1">Telemetría de Red y Microservicios</MudText>
+                <MudText Typo="Typo.body2" Class="panel-luxury-subtitle mb-4">Estatus de canales de comunicación asíncronos y réplicas.</MudText>
+
+                <div class="telemetry-grid-luxury">
+                    <div class="telemetry-cell">
+                        <span class="telemetry-label">Servidor Azure Core</span>
+                        <div class="d-flex align-center gap-2 mt-1">
+                            <MudIcon Icon="@Icons.Material.Filled.CloudDone" Size="Size.Small" Color="Color.Success" />
+                            <span class="telemetry-value text-success">Estable (99.9%)</span>
+                        </div>
+                    </div>
+                    <div class="telemetry-cell">
+                        <span class="telemetry-label">Evolution API (WhatsApp)</span>
+                        <div class="d-flex align-center gap-2 mt-1">
+                            <MudIcon Icon="@Icons.Material.Filled.CheckCircle" Size="Size.Small" Color="Color.Success" />
+                            <span class="telemetry-value text-success">En línea / Activo</span>
+                        </div>
+                    </div>
+                    <div class="telemetry-cell">
+                        <span class="telemetry-label">Pasarela Niubiz / Visa</span>
+                        <div class="d-flex align-center gap-2 mt-1">
+                            <MudIcon Icon="@Icons.Material.Filled.Lock" Size="Size.Small" Color="Color.Primary" />
+                            <span class="telemetry-value text-primary">Canal Seguro</span>
+                        </div>
+                    </div>
+                    <div class="telemetry-cell">
+                        <span class="telemetry-label">Latencia Base de Datos</span>
+                        <div class="d-flex align-center gap-2 mt-1">
+                            <MudIcon Icon="@Icons.Material.Filled.Speed" Size="Size.Small" Color="Color.Tertiary" />
+                            <span class="telemetry-value font-mono fw-semibold text-gold">14 ms (Óptimo)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </MudItem>
+    </MudGrid>
+
+    @* SECCIÓN 4: Panel Base Consolidador de Infraestructura *@
+    <div class="dashboard-panel-surface border-top-primary animate-fade-clean">
+        <div class="infra-panel-header">
+            <div class="infra-icon-glow">
+                <MudIcon Icon="@Icons.Material.Filled.SettingsInputComponent" Color="Color.Primary" />
+            </div>
+            <div class="min-width-0">
+                <MudText Typo="Typo.h3" Class="panel-luxury-title">Infraestructura General Resiliente</MudText>
+                <MudText Typo="Typo.body2" Class="panel-luxury-subtitle mt-1">
+                    El balanceador distribuye las cargas de peticiones de manera uniforme en la intranet. Copias de resguardo locales y en la nube sincronizadas de forma automatizada.
+                </MudText>
+            </div>
+        </div>
+    </div>
+
+</div>

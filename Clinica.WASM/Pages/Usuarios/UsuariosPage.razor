@@ -1,0 +1,101 @@
+﻿@page "/usuarios"
+
+<PageTitle>Cuentas de Usuarios | Clínica Santa Mónica</PageTitle>
+
+<RequireAuth>
+    @* Encabezado de Sección Corporativo *@
+    <PageHeader Title="Gestión de Usuarios Operativos"
+                Subtitle="Panel central de control, asignación de credenciales y auditoría de accesos del personal en el ecosistema.">
+        <ActionContent>
+            <RequirePermission Permission="@Permisos.UsuarioCrear">
+                <MudButton Variant="Variant.Filled"
+                           Color="Color.Primary"
+                           StartIcon="@Icons.Material.Filled.PersonAdd"
+                           OnClick="AbrirFormularioNuevo"
+                           Class="text-none px-5 rounded-lg shadow-sm">
+                    Nuevo usuario
+                </MudButton>
+            </RequirePermission>
+        </ActionContent>
+    </PageHeader>
+
+    @* Centro de Notificaciones Corporativas con Animación *@
+    <div class="alert-layer-wrapper mt-4">
+        @if (!string.IsNullOrWhiteSpace(MensajeExito))
+        {
+            <MudAlert Severity="Severity.Success" Variant="Variant.Filled" Dense="true" Class="mb-4 rounded-lg shadow-sm animate-fade-clean">
+                @MensajeExito
+            </MudAlert>
+        }
+        @if (!string.IsNullOrWhiteSpace(MensajeError))
+        {
+            <MudAlert Severity="Severity.Error" Variant="Variant.Filled" Dense="true" Class="mb-4 rounded-lg shadow-sm animate-fade-clean">
+                @MensajeError
+            </MudAlert>
+        }
+    </div>
+
+    @* VISTA 1: Formulario de Registro con realce superior Oro (Tertiary) *@
+    @if (MostrandoFormulario)
+    {
+        <div class="user-master-card view-gold-topline">
+            <div class="card-header-luxury mb-4">
+                <MudText Typo="Typo.h3" Class="master-card-title">Aperturar Nueva Cuenta Operativa</MudText>
+                <MudText Typo="Typo.body2" Class="master-card-subtitle">Asigne las claves maestras, alias de red y correo corporativo vinculable.</MudText>
+            </div>
+            <UsuarioForm Model="NuevoUsuario"
+                         IsProcessing="EstaProcesando"
+                         OnSave="GuardarUsuarioAsync"
+                         OnCancel="CerrarFormulario" />
+        </div>
+    }
+    @* VISTA 2: Formulario de Modificación con realce superior Rose Gold (Secondary) *@
+    else if (MostrandoEdicion)
+    {
+        <div class="user-master-card view-rose-topline">
+            <div class="card-header-luxury mb-4">
+                <MudText Typo="Typo.h3" Class="master-card-title">Modificar Ficha de Usuario</MudText>
+                <MudText Typo="Typo.body2" Class="master-card-subtitle">Edite de forma regulada los parámetros nominales de la cuenta: <strong>@UsuarioSeleccionado?.NombreCompleto</strong></MudText>
+            </div>
+            <UsuarioEditForm Model="EdicionUsuario"
+                             IsProcessing="EstaProcesando"
+                             OnSave="ActualizarUsuarioAsync"
+                             OnCancel="CerrarFormulario" />
+        </div>
+    }
+    @* VISTA GENERAL: Libro de Registros y Filtros *@
+    else
+    {
+        @* Caja de Búsqueda sin bordes toscos nativos *@
+        <div class="search-luxury-frame mb-5 mt-2">
+            <MudTextField @bind-Value="SearchText"
+                          Placeholder="Filtrar instantáneamente por código correlativo, nombres de pila, alias o correo electrónico..."
+                          Variant="Variant.Outlined"
+                          Margin="Margin.None"
+                          Adornment="Adornment.Start"
+                          AdornmentIcon="@Icons.Material.Filled.Search"
+                          AdornmentColor="Color.Primary"
+                          Immediate="true"
+                          Class="clean-search-field" />
+        </div>
+
+        @if (HayErrorCarga)
+        {
+            <div class="error-panel-container pa-6 text-center">
+                <ErrorState Title="Fallo de sincronización maestro-usuarios"
+                            Message="@MensajeError"
+                            OnRetry="CargarUsuariosAsync" />
+            </div>
+        }
+        else
+        {
+            <UsuariosTable Usuarios="Usuarios"
+                           SearchText="@SearchText"
+                           IsLoading="EstaCargando"
+                           OnView="VerUsuario"
+                           OnEdit="AbrirEdicion"
+                           OnAssignRole="AbrirAsignacionRol"
+                           OnChangeState="CambiarEstadoUsuario"/>
+        }
+    }
+</RequireAuth>

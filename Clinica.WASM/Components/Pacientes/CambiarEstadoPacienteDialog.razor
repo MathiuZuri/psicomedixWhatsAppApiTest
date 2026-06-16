@@ -1,0 +1,85 @@
+﻿@namespace Clinica.WASM.Components.Pacientes
+
+<MudDialog>
+    <DialogContent>
+        @* Encabezado con Estilo de Salvaguarda Clínica de Alto Contraste *@
+        <div class="status-dialog-header-luxury mb-4">
+            <div class="status-icon-frame shadow-glow-secondary">
+                <MudIcon Icon="@Icons.Material.Filled.Shield" Size="Size.Medium" />
+            </div>
+            <div class="status-text-stack">
+                <MudText Typo="Typo.h3" Class="status-dialog-title">Modificar Estado Operativo</MudText>
+                <MudText Typo="Typo.caption" Class="status-dialog-subtitle">
+                    Fijar nueva condición regulatoria para: <strong class="text-primary-dark">@Paciente.NombreCompleto</strong>
+                </MudText>
+            </div>
+        </div>
+
+        <EditForm Model="@Model" OnValidSubmit="ConfirmarAsync">
+            <DataAnnotationsValidator />
+            
+            <div class="py-3">
+                <MudSelect T="EstadoPaciente" 
+                           @bind-Value="Model.Estado" 
+                           Label="Nuevo Estado Clínico Asignado" 
+                           Variant="Variant.Outlined" 
+                           Disabled="@IsProcessing"
+                           AdornmentIcon="@Icons.Material.Filled.Traffic"
+                           AdornmentColor="Color.Primary"
+                           Class="luxury-status-select">
+                    <MudSelectItem Value="EstadoPaciente.Activo">Activo (Habilitado)</MudSelectItem>
+                    <MudSelectItem Value="EstadoPaciente.Inactivo">Inactivo (Falta de atención)</MudSelectItem>
+                    <MudSelectItem Value="EstadoPaciente.Bloqueado">Bloqueado (Restricción Administrativa)</MudSelectItem>
+                    <MudSelectItem Value="EstadoPaciente.Fallecido">Fallecido (Baja Médica)</MudSelectItem>
+                </MudSelect>
+            </div>
+            
+            <div class="form-actions-panel mt-5">
+                <MudButton Variant="Variant.Text" 
+                           Color="Color.Default" 
+                           OnClick="Cancelar" 
+                           Disabled="@IsProcessing" 
+                           Class="text-none px-5">
+                    Cancelar
+                </MudButton>
+                
+                <MudButton ButtonType="ButtonType.Submit" 
+                           Variant="Variant.Filled" 
+                           Color="Color.Primary" 
+                           Disabled="@IsProcessing" 
+                           Class="text-none px-6 rounded-lg shadow-sm w-sm-full">
+                    @if (IsProcessing) 
+                    {
+                        <MudProgressCircular Size="Size.Small" Indeterminate="true" Class="mr-2"/>
+                    } 
+                    Confirmar Cambio
+                </MudButton>
+            </div>
+        </EditForm>
+    </DialogContent>
+</MudDialog>
+
+@code {
+    [CascadingParameter] 
+    private IMudDialogInstance MudDialog { get; set; } = default!;
+
+    [Parameter] 
+    public PacienteResponseDto Paciente { get; set; } = new();
+    
+    protected CambiarEstadoPacienteDto Model { get; set; } = new();
+    protected bool IsProcessing;
+
+    protected override void OnInitialized()
+    {
+        Model.Estado = Paciente.Estado;
+    }
+
+    protected async Task ConfirmarAsync()
+    {
+        IsProcessing = true;
+        
+        MudDialog.Close(DialogResult.Ok(Model));
+    }
+
+    protected void Cancelar() => MudDialog.Cancel();
+}

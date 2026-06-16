@@ -1,0 +1,82 @@
+.patient-dialog-header-luxury[b-6vep3nlrus] {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding-top: 16px;
+    min-width: 0;
+}
+
+.avatar-glow-wrapper[b-6vep3nlrus] {
+    position: relative;
+}
+
+.avatar-profile-shadow[b-6vep3nlrus] {
+    box-shadow: 0 4px 14px rgba(43, 76, 222, 0.2);
+    font-weight: 700;
+}
+
+.patient-header-text-block[b-6vep3nlrus] {
+    min-width: 0;
+}
+
+.patient-dialog-name[b-6vep3nlrus] {
+    font-weight: 800 !important;
+    letter-spacing: -0.02em;
+    font-size: clamp(1.2rem, 3vw, 1.6rem) !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Celdas de datos ordenadas estilo panel de control */
+.info-cell-box[b-6vep3nlrus] {
+    background-color: var(--mud-palette-background-gray);
+    padding: 12px 16px;
+    border-radius: 12px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--mud-palette-divider);
+}
+
+.info-cell-label[b-6vep3nlrus] {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--mud-palette-text-secondary);
+    opacity: 0.8;
+}
+
+.info-cell-value[b-6vep3nlrus] {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--mud-palette-text-primary);
+    margin-top: 4px;
+}
+
+.truncate-text[b-6vep3nlrus] {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.status-chip-solid[b-6vep3nlrus] {
+    font-weight: 700;
+    border-radius: 6px !important;
+}
+
+.footer-cell[b-6vep3nlrus] {
+    background-color: transparent;
+    border: 1px dashed var(--mud-palette-divider);
+}
+
+@media (max-width: 600px) {
+    .patient-dialog-header-luxury[b-6vep3nlrus] {
+        flex-direction: column;
+        text-align: center;
+    }
+    .info-cell-box[b-6vep3nlrus] {
+        padding: 10px 12px;
+    }
+}

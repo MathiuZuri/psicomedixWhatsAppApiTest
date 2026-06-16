@@ -1,0 +1,74 @@
+﻿.payments-table-layer {
+    background-color: var(--mud-palette-surface);
+    border-radius: var(--mud-layout-properties-default-border-radius); /* 16px */
+    box-shadow: var(--mud-elevation-2);
+    border: 1px solid var(--mud-palette-divider);
+    overflow: hidden;
+}
+
+.header-cell-premium {
+    font-weight: 700 !important;
+    text-transform: uppercase;
+    font-size: 0.75rem !important;
+    letter-spacing: 0.05em;
+    background-color: var(--mud-palette-background-gray) !important;
+    color: var(--mud-palette-text-secondary) !important;
+    padding: 16px !important;
+}
+
+.payment-table-code {
+    font-weight: 700;
+    font-family: monospace;
+    background-color: var(--mud-palette-background-gray);
+    padding: 4px 8px;
+    border-radius: 6px;
+    border: 1px solid var(--mud-palette-divider);
+    color: var(--mud-palette-text-primary);
+}
+
+.truncate-service-name {
+    max-width: 160px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.text-success-dark {
+    color: #059669;
+}
+
+.text-rose-gold {
+    color: var(--mud-palette-secondary); /* Nuestro color Rose Gold del tema */
+}
+
+.method-tag {
+    font-weight: 600;
+    color: var(--mud-palette-text-primary);
+    font-size: 0.85rem;
+}
+
+.table-chip-rounded {
+    border-radius: 6px !important;
+}
+
+.action-btn-styled {
+    background-color: var(--mud-palette-background-gray);
+    border-radius: 8px !important;
+    transition: all 0.2s ease;
+}
+
+.action-btn-styled:hover {
+    background-color: var(--mud-palette-divider);
+}
+
+.table-pager-luxury {
+    border-top: 1px solid var(--mud-palette-divider);
+    padding: 4px 8px;
+}
+
+@media (max-width: 960px) {
+    .truncate-service-name {
+        max-width: 100%;
+        white-space: normal;
+    }
+}

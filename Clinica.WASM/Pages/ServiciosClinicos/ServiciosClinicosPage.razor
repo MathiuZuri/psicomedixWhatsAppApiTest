@@ -1,0 +1,55 @@
+﻿@page "/servicios-clinicos"
+
+<PageTitle>Catálogo de Servicios | Clínica Santa Mónica</PageTitle>
+
+<RequireAuth>
+    @* Encabezado del Módulo Consistente *@
+    <PageHeader Title="Catálogo de Servicios Clínicos"
+                Subtitle="Portafolio maestro de procedimientos médicos, costos base y parámetros de control analítico del sistema SIGEC." />
+
+    @* Alertas de Sistema Corporativas *@
+    <div class="alert-layer-wrapper mt-4">
+        @if (!string.IsNullOrWhiteSpace(MensajeExito))
+        {
+            <MudAlert Severity="Severity.Success" Variant="Variant.Filled" Dense="true" Class="mb-4 rounded-lg shadow-sm animate-fade-clean">
+                @MensajeExito
+            </MudAlert>
+        }
+        @if (!string.IsNullOrWhiteSpace(MensajeError))
+        {
+            <MudAlert Severity="Severity.Error" Variant="Variant.Filled" Dense="true" Class="mb-4 rounded-lg shadow-sm animate-fade-clean">
+                @MensajeError
+            </MudAlert>
+        }
+    </div>
+
+    @* Barra de Filtro Avanzado con Bordes Finos Ocultos *@
+    <div class="search-luxury-frame mb-5 mt-2">
+        <MudTextField @bind-Value="SearchText"
+                      Placeholder="Filtrar instantáneamente por código correlativo, nombre del servicio o descripción técnica..."
+                      Variant="Variant.Outlined"
+                      Margin="Margin.None"
+                      Adornment="Adornment.Start"
+                      AdornmentIcon="@Icons.Material.Filled.Search"
+                      AdornmentColor="Color.Primary"
+                      Immediate="true"
+                      Class="clean-search-field" />
+    </div>
+
+    @* Renderizado Dinámico de Capas *@
+    @if (HayErrorCarga)
+    {
+        <div class="error-panel-container pa-6 text-center">
+            <ErrorState Title="Fallo de enlace con la base de datos"
+                        Message="@MensajeError"
+                        OnRetry="CargarServiciosAsync" />
+        </div>
+    }
+    else
+    {
+        <ServiciosClinicosTable Servicios="Servicios"
+                                SearchText="@SearchText"
+                                IsLoading="EstaCargando"
+                                OnView="VerServicio" />
+    }
+</RequireAuth>

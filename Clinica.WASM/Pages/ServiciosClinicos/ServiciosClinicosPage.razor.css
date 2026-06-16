@@ -1,0 +1,26 @@
+﻿.search-luxury-frame {
+    background-color: var(--mud-palette-surface);
+    border-radius: 12px;
+    box-shadow: var(--mud-elevation-1);
+    border: 1px solid var(--mud-palette-divider);
+    overflow: hidden;
+}
+
+::deep .clean-search-field .mud-input-outlined-border {
+    border: none !important; /* Remueve el recuadro nativo tosco */
+}
+
+.animate-fade-clean {
+    animation: quickFadeClean 0.3s ease-out;
+}
+
+@keyframes quickFadeClean {
+    from { opacity: 0; transform: translateY(-4px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.error-panel-container {
+    background-color: var(--mud-palette-surface);
+    border-radius: 16px;
+    border: 1px dashed var(--mud-palette-error);
+}

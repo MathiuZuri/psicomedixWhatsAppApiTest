@@ -1,0 +1,32 @@
+﻿.loading-canvas-layer {
+    width: 100%;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 36px 20px;
+}
+
+.spinner-tridimensional-shell {
+    padding: 4px;
+    display: inline-flex;
+    position: relative;
+}
+
+.loading-sync-text {
+    color: var(--mud-palette-text-secondary);
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    opacity: 0.75;
+}
+
+.animate-fade-loop {
+    animation: pulseGhost 1.8s infinite ease-in-out;
+}
+
+@keyframes pulseGhost {
+    0%, 100% { opacity: 0.85; }
+    50% { opacity: 0.5; }
+}

@@ -1,0 +1,753 @@
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\appsettings.Development.json
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\appsettings.json
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\Clinica.API.staticwebassets.endpoints.json
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\Clinica.API.exe
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\Clinica.API.deps.json
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\Clinica.API.runtimeconfig.json
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\Clinica.API.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\Clinica.API.pdb
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Relational.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\Microsoft.Extensions.Caching.Abstractions.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\Microsoft.Extensions.Caching.Memory.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\Microsoft.Extensions.Configuration.Abstractions.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\Microsoft.Extensions.Logging.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\Microsoft.Extensions.Logging.Abstractions.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\Microsoft.Extensions.Options.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\Microsoft.Extensions.Primitives.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\Microsoft.OpenApi.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\Npgsql.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\Clinica.Domain.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\Clinica.Infrastructure.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\Clinica.Domain.pdb
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\Clinica.Infrastructure.pdb
+F:\proyectC#\ClinicaObst\Clinica.API\obj\Debug\net9.0\Clinica.API.csproj.AssemblyReference.cache
+F:\proyectC#\ClinicaObst\Clinica.API\obj\Debug\net9.0\Clinica.API.GeneratedMSBuildEditorConfig.editorconfig
+F:\proyectC#\ClinicaObst\Clinica.API\obj\Debug\net9.0\Clinica.API.AssemblyInfoInputs.cache
+F:\proyectC#\ClinicaObst\Clinica.API\obj\Debug\net9.0\Clinica.API.AssemblyInfo.cs
+F:\proyectC#\ClinicaObst\Clinica.API\obj\Debug\net9.0\Clinica.API.csproj.CoreCompileInputs.cache
+F:\proyectC#\ClinicaObst\Clinica.API\obj\Debug\net9.0\Clinica.API.MvcApplicationPartsAssemblyInfo.cs
+F:\proyectC#\ClinicaObst\Clinica.API\obj\Debug\net9.0\Clinica.API.MvcApplicationPartsAssemblyInfo.cache
+F:\proyectC#\ClinicaObst\Clinica.API\obj\Debug\net9.0\scopedcss\bundle\Clinica.API.styles.css
+F:\proyectC#\ClinicaObst\Clinica.API\obj\Debug\net9.0\staticwebassets.build.json
+F:\proyectC#\ClinicaObst\Clinica.API\obj\Debug\net9.0\staticwebassets.development.json
+F:\proyectC#\ClinicaObst\Clinica.API\obj\Debug\net9.0\staticwebassets.build.endpoints.json
+F:\proyectC#\ClinicaObst\Clinica.API\obj\Debug\net9.0\staticwebassets\msbuild.Clinica.API.Microsoft.AspNetCore.StaticWebAssets.props
+F:\proyectC#\ClinicaObst\Clinica.API\obj\Debug\net9.0\staticwebassets\msbuild.Clinica.API.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+F:\proyectC#\ClinicaObst\Clinica.API\obj\Debug\net9.0\staticwebassets\msbuild.build.Clinica.API.props
+F:\proyectC#\ClinicaObst\Clinica.API\obj\Debug\net9.0\staticwebassets\msbuild.buildMultiTargeting.Clinica.API.props
+F:\proyectC#\ClinicaObst\Clinica.API\obj\Debug\net9.0\staticwebassets\msbuild.buildTransitive.Clinica.API.props
+F:\proyectC#\ClinicaObst\Clinica.API\obj\Debug\net9.0\staticwebassets.pack.json
+F:\proyectC#\ClinicaObst\Clinica.API\obj\Debug\net9.0\Clinica..AD54861A.Up2Date
+F:\proyectC#\ClinicaObst\Clinica.API\obj\Debug\net9.0\Clinica.API.dll
+F:\proyectC#\ClinicaObst\Clinica.API\obj\Debug\net9.0\refint\Clinica.API.dll
+F:\proyectC#\ClinicaObst\Clinica.API\obj\Debug\net9.0\Clinica.API.pdb
+F:\proyectC#\ClinicaObst\Clinica.API\obj\Debug\net9.0\Clinica.API.genruntimeconfig.cache
+F:\proyectC#\ClinicaObst\Clinica.API\obj\Debug\net9.0\ref\Clinica.API.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\Humanizer.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\Microsoft.Bcl.AsyncInterfaces.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\Microsoft.Build.Locator.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\Microsoft.CodeAnalysis.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\Microsoft.CodeAnalysis.CSharp.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\Microsoft.CodeAnalysis.Workspaces.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\Microsoft.CodeAnalysis.Workspaces.MSBuild.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Design.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\Microsoft.Extensions.DependencyModel.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\Mono.TextTemplating.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\System.CodeDom.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\System.Composition.AttributedModel.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\System.Composition.Convention.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\System.Composition.Hosting.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\System.Composition.Runtime.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\System.Composition.TypedParts.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.resources.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.resources.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.resources.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.resources.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.resources.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.resources.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.resources.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.resources.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.resources.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.resources.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+F:\proyectC#\ClinicaObst\Clinica.API\obj\Debug\net9.0\Clinica.API.sourcelink.json
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\appsettings.Development.json
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\appsettings.json
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\Clinica.API.staticwebassets.endpoints.json
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\LatoFont\Lato-Black.ttf
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\LatoFont\Lato-BlackItalic.ttf
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\LatoFont\Lato-Bold.ttf
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\LatoFont\Lato-BoldItalic.ttf
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\LatoFont\Lato-ExtraBold.ttf
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\LatoFont\Lato-ExtraBoldItalic.ttf
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\LatoFont\Lato-ExtraLight.ttf
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\LatoFont\Lato-ExtraLightItalic.ttf
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\LatoFont\Lato-Italic.ttf
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\LatoFont\Lato-Light.ttf
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\LatoFont\Lato-LightItalic.ttf
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\LatoFont\Lato-Medium.ttf
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\LatoFont\Lato-MediumItalic.ttf
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\LatoFont\Lato-Regular.ttf
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\LatoFont\Lato-SemiBold.ttf
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\LatoFont\Lato-SemiBoldItalic.ttf
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\LatoFont\Lato-Thin.ttf
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\LatoFont\Lato-ThinItalic.ttf
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\LatoFont\OFL.txt
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\Clinica.API.exe
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\Clinica.API.deps.json
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\Clinica.API.runtimeconfig.json
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\Clinica.API.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\Clinica.API.pdb
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\BCrypt.Net-Next.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\Humanizer.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\Microsoft.AspNetCore.OpenApi.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\Microsoft.Bcl.AsyncInterfaces.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\Microsoft.Build.Locator.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\Microsoft.CodeAnalysis.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\Microsoft.CodeAnalysis.CSharp.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\Microsoft.CodeAnalysis.Workspaces.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\Microsoft.CodeAnalysis.Workspaces.MSBuild.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Design.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Relational.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\Microsoft.Extensions.Caching.Abstractions.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\Microsoft.Extensions.Caching.Memory.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\Microsoft.Extensions.Configuration.Abstractions.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\Microsoft.Extensions.DependencyModel.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\Microsoft.Extensions.Logging.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\Microsoft.Extensions.Logging.Abstractions.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\Microsoft.Extensions.Options.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\Microsoft.Extensions.Primitives.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\Microsoft.IdentityModel.Abstractions.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\Microsoft.IdentityModel.JsonWebTokens.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\Microsoft.IdentityModel.Logging.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\Microsoft.IdentityModel.Tokens.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\Microsoft.OpenApi.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\Mono.TextTemplating.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\Npgsql.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\QuestPDF.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\System.CodeDom.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\System.Composition.AttributedModel.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\System.Composition.Convention.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\System.Composition.Hosting.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\System.Composition.Runtime.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\System.Composition.TypedParts.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.resources.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.resources.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.resources.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.resources.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.resources.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.resources.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.resources.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.resources.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.resources.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.resources.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\runtimes\linux-arm64\native\libQuestPdfSkia.so
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\runtimes\linux-arm64\native\libqpdf.so
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\runtimes\linux-musl-x64\native\libQuestPdfSkia.so
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\runtimes\linux-musl-x64\native\libqpdf.so
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\runtimes\linux-x64\native\libQuestPdfSkia.so
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\runtimes\linux-x64\native\libqpdf.so
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\runtimes\osx-arm64\native\libQuestPdfSkia.dylib
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\runtimes\osx-arm64\native\libqpdf.dylib
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\runtimes\osx-x64\native\libQuestPdfSkia.dylib
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\runtimes\osx-x64\native\libqpdf.dylib
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\runtimes\win-x64\native\QuestPdfSkia.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\runtimes\win-x64\native\libgcc_s_seh-1.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\runtimes\win-x64\native\libstdc++-6.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\runtimes\win-x64\native\libwinpthread-1.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\runtimes\win-x64\native\qpdf.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\runtimes\win-x64\native\zlib1.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\runtimes\win-x86\native\QuestPdfSkia.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\runtimes\win-x86\native\libgcc_s_dw2-1.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\runtimes\win-x86\native\libstdc++-6.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\runtimes\win-x86\native\libwinpthread-1.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\runtimes\win-x86\native\qpdf.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\runtimes\win-x86\native\zlib1.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\Clinica.Domain.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\Clinica.Infrastructure.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\Clinica.Domain.pdb
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\bin\Debug\net9.0\Clinica.Infrastructure.pdb
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\obj\Debug\net9.0\Clinica.API.csproj.AssemblyReference.cache
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\obj\Debug\net9.0\Clinica.API.GeneratedMSBuildEditorConfig.editorconfig
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\obj\Debug\net9.0\Clinica.API.AssemblyInfoInputs.cache
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\obj\Debug\net9.0\Clinica.API.AssemblyInfo.cs
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\obj\Debug\net9.0\Clinica.API.csproj.CoreCompileInputs.cache
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\obj\Debug\net9.0\Clinica.API.MvcApplicationPartsAssemblyInfo.cs
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\obj\Debug\net9.0\Clinica.API.MvcApplicationPartsAssemblyInfo.cache
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\obj\Debug\net9.0\Clinica.API.sourcelink.json
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\obj\Debug\net9.0\scopedcss\bundle\Clinica.API.styles.css
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\obj\Debug\net9.0\staticwebassets.build.json
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\obj\Debug\net9.0\staticwebassets.development.json
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\obj\Debug\net9.0\staticwebassets.build.endpoints.json
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\obj\Debug\net9.0\staticwebassets\msbuild.Clinica.API.Microsoft.AspNetCore.StaticWebAssets.props
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\obj\Debug\net9.0\staticwebassets\msbuild.Clinica.API.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\obj\Debug\net9.0\staticwebassets\msbuild.build.Clinica.API.props
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\obj\Debug\net9.0\staticwebassets\msbuild.buildMultiTargeting.Clinica.API.props
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\obj\Debug\net9.0\staticwebassets\msbuild.buildTransitive.Clinica.API.props
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\obj\Debug\net9.0\staticwebassets.pack.json
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\obj\Debug\net9.0\Clinica..AD54861A.Up2Date
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\obj\Debug\net9.0\Clinica.API.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\obj\Debug\net9.0\refint\Clinica.API.dll
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\obj\Debug\net9.0\Clinica.API.pdb
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\obj\Debug\net9.0\Clinica.API.genruntimeconfig.cache
+K:\CLINICA SANTA MONICA DEV\DEV\ClinicaObsSM\Clinica.API\obj\Debug\net9.0\ref\Clinica.API.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\LatoFont\Lato-Black.ttf
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\LatoFont\Lato-BlackItalic.ttf
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\LatoFont\Lato-Bold.ttf
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\LatoFont\Lato-BoldItalic.ttf
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\LatoFont\Lato-ExtraBold.ttf
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\LatoFont\Lato-ExtraBoldItalic.ttf
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\LatoFont\Lato-ExtraLight.ttf
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\LatoFont\Lato-ExtraLightItalic.ttf
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\LatoFont\Lato-Italic.ttf
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\LatoFont\Lato-Light.ttf
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\LatoFont\Lato-LightItalic.ttf
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\LatoFont\Lato-Medium.ttf
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\LatoFont\Lato-MediumItalic.ttf
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\LatoFont\Lato-Regular.ttf
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\LatoFont\Lato-SemiBold.ttf
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\LatoFont\Lato-SemiBoldItalic.ttf
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\LatoFont\Lato-Thin.ttf
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\LatoFont\Lato-ThinItalic.ttf
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\LatoFont\OFL.txt
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\BCrypt.Net-Next.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\Microsoft.IdentityModel.Abstractions.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\Microsoft.IdentityModel.JsonWebTokens.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\Microsoft.IdentityModel.Logging.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\Microsoft.IdentityModel.Tokens.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\QuestPDF.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\runtimes\linux-arm64\native\libQuestPdfSkia.so
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\runtimes\linux-arm64\native\libqpdf.so
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\runtimes\linux-musl-x64\native\libQuestPdfSkia.so
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\runtimes\linux-musl-x64\native\libqpdf.so
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\runtimes\linux-x64\native\libQuestPdfSkia.so
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\runtimes\linux-x64\native\libqpdf.so
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\runtimes\osx-arm64\native\libQuestPdfSkia.dylib
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\runtimes\osx-arm64\native\libqpdf.dylib
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\runtimes\osx-x64\native\libQuestPdfSkia.dylib
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\runtimes\osx-x64\native\libqpdf.dylib
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\runtimes\win-x64\native\QuestPdfSkia.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\runtimes\win-x64\native\libgcc_s_seh-1.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\runtimes\win-x64\native\libstdc++-6.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\runtimes\win-x64\native\libwinpthread-1.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\runtimes\win-x64\native\qpdf.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\runtimes\win-x64\native\zlib1.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\runtimes\win-x86\native\QuestPdfSkia.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\runtimes\win-x86\native\libgcc_s_dw2-1.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\runtimes\win-x86\native\libstdc++-6.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\runtimes\win-x86\native\libwinpthread-1.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\runtimes\win-x86\native\qpdf.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\runtimes\win-x86\native\zlib1.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+F:\proyectC#\ClinicaObst\Clinica.API\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\appsettings.Development.json
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\appsettings.json
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\Clinica.API.staticwebassets.endpoints.json
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\LatoFont\Lato-Black.ttf
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\LatoFont\Lato-BlackItalic.ttf
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\LatoFont\Lato-Bold.ttf
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\LatoFont\Lato-BoldItalic.ttf
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\LatoFont\Lato-ExtraBold.ttf
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\LatoFont\Lato-ExtraBoldItalic.ttf
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\LatoFont\Lato-ExtraLight.ttf
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\LatoFont\Lato-ExtraLightItalic.ttf
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\LatoFont\Lato-Italic.ttf
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\LatoFont\Lato-Light.ttf
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\LatoFont\Lato-LightItalic.ttf
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\LatoFont\Lato-Medium.ttf
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\LatoFont\Lato-MediumItalic.ttf
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\LatoFont\Lato-Regular.ttf
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\LatoFont\Lato-SemiBold.ttf
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\LatoFont\Lato-SemiBoldItalic.ttf
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\LatoFont\Lato-Thin.ttf
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\LatoFont\Lato-ThinItalic.ttf
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\LatoFont\OFL.txt
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\Clinica.API.exe
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\Clinica.API.deps.json
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\Clinica.API.runtimeconfig.json
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\Clinica.API.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\Clinica.API.pdb
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\BCrypt.Net-Next.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\Humanizer.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\Microsoft.Bcl.AsyncInterfaces.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\Microsoft.Build.Locator.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\Microsoft.CodeAnalysis.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\Microsoft.CodeAnalysis.CSharp.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\Microsoft.CodeAnalysis.Workspaces.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\Microsoft.CodeAnalysis.Workspaces.MSBuild.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Design.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Relational.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\Microsoft.Extensions.Caching.Abstractions.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\Microsoft.Extensions.Caching.Memory.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\Microsoft.Extensions.Configuration.Abstractions.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\Microsoft.Extensions.DependencyModel.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\Microsoft.Extensions.Logging.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\Microsoft.Extensions.Logging.Abstractions.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\Microsoft.Extensions.Options.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\Microsoft.Extensions.Primitives.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\Microsoft.IdentityModel.Abstractions.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\Microsoft.IdentityModel.JsonWebTokens.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\Microsoft.IdentityModel.Logging.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\Microsoft.IdentityModel.Tokens.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\Microsoft.OpenApi.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\Mono.TextTemplating.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\Npgsql.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\QuestPDF.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\System.CodeDom.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\System.Composition.AttributedModel.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\System.Composition.Convention.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\System.Composition.Hosting.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\System.Composition.Runtime.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\System.Composition.TypedParts.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.resources.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.resources.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.resources.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.resources.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.resources.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.resources.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.resources.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.resources.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.resources.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.resources.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\runtimes\linux-arm64\native\libQuestPdfSkia.so
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\runtimes\linux-arm64\native\libqpdf.so
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\runtimes\linux-musl-x64\native\libQuestPdfSkia.so
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\runtimes\linux-musl-x64\native\libqpdf.so
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\runtimes\linux-x64\native\libQuestPdfSkia.so
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\runtimes\linux-x64\native\libqpdf.so
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\runtimes\osx-arm64\native\libQuestPdfSkia.dylib
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\runtimes\osx-arm64\native\libqpdf.dylib
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\runtimes\osx-x64\native\libQuestPdfSkia.dylib
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\runtimes\osx-x64\native\libqpdf.dylib
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\runtimes\win-x64\native\QuestPdfSkia.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\runtimes\win-x64\native\libgcc_s_seh-1.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\runtimes\win-x64\native\libstdc++-6.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\runtimes\win-x64\native\libwinpthread-1.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\runtimes\win-x64\native\qpdf.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\runtimes\win-x64\native\zlib1.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\runtimes\win-x86\native\QuestPdfSkia.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\runtimes\win-x86\native\libgcc_s_dw2-1.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\runtimes\win-x86\native\libstdc++-6.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\runtimes\win-x86\native\libwinpthread-1.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\runtimes\win-x86\native\qpdf.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\runtimes\win-x86\native\zlib1.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\Clinica.Domain.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\Clinica.Infrastructure.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\Clinica.Domain.pdb
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\Clinica.Infrastructure.pdb
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\obj\Debug\net9.0\Clinica.API.csproj.AssemblyReference.cache
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\obj\Debug\net9.0\Clinica.API.GeneratedMSBuildEditorConfig.editorconfig
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\obj\Debug\net9.0\Clinica.API.AssemblyInfoInputs.cache
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\obj\Debug\net9.0\Clinica.API.AssemblyInfo.cs
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\obj\Debug\net9.0\Clinica.API.csproj.CoreCompileInputs.cache
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\obj\Debug\net9.0\Clinica.API.MvcApplicationPartsAssemblyInfo.cs
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\obj\Debug\net9.0\Clinica.API.MvcApplicationPartsAssemblyInfo.cache
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\obj\Debug\net9.0\Clinica.API.sourcelink.json
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\obj\Debug\net9.0\scopedcss\bundle\Clinica.API.styles.css
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\obj\Debug\net9.0\staticwebassets.build.json
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\obj\Debug\net9.0\staticwebassets.development.json
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\obj\Debug\net9.0\staticwebassets.build.endpoints.json
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\obj\Debug\net9.0\staticwebassets\msbuild.Clinica.API.Microsoft.AspNetCore.StaticWebAssets.props
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\obj\Debug\net9.0\staticwebassets\msbuild.Clinica.API.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\obj\Debug\net9.0\staticwebassets\msbuild.build.Clinica.API.props
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\obj\Debug\net9.0\staticwebassets\msbuild.buildMultiTargeting.Clinica.API.props
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\obj\Debug\net9.0\staticwebassets\msbuild.buildTransitive.Clinica.API.props
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\obj\Debug\net9.0\staticwebassets.pack.json
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\obj\Debug\net9.0\Clinica..AD54861A.Up2Date
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\obj\Debug\net9.0\Clinica.API.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\obj\Debug\net9.0\refint\Clinica.API.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\obj\Debug\net9.0\Clinica.API.pdb
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\obj\Debug\net9.0\Clinica.API.genruntimeconfig.cache
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\obj\Debug\net9.0\ref\Clinica.API.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\bin\Debug\net9.0\Clinica.API.xml
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.API\obj\Debug\net9.0\Clinica.API.xml
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\obj\Debug\net9.0\Clinica.API.csproj.AssemblyReference.cache
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\obj\Debug\net9.0\Clinica.API.GeneratedMSBuildEditorConfig.editorconfig
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\obj\Debug\net9.0\Clinica.API.AssemblyInfoInputs.cache
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\obj\Debug\net9.0\Clinica.API.AssemblyInfo.cs
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\obj\Debug\net9.0\Clinica.API.csproj.CoreCompileInputs.cache
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\obj\Debug\net9.0\Clinica.API.MvcApplicationPartsAssemblyInfo.cs
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\obj\Debug\net9.0\Clinica.API.MvcApplicationPartsAssemblyInfo.cache
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\obj\Debug\net9.0\Clinica.API.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\obj\Debug\net9.0\refint\Clinica.API.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\obj\Debug\net9.0\Clinica.API.xml
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\obj\Debug\net9.0\Clinica.API.pdb
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\Clinica.API.staticwebassets.endpoints.json
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\LatoFont\Lato-Black.ttf
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\LatoFont\Lato-BlackItalic.ttf
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\LatoFont\Lato-Bold.ttf
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\LatoFont\Lato-BoldItalic.ttf
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\LatoFont\Lato-ExtraBold.ttf
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\LatoFont\Lato-ExtraBoldItalic.ttf
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\LatoFont\Lato-ExtraLight.ttf
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\LatoFont\Lato-ExtraLightItalic.ttf
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\LatoFont\Lato-Italic.ttf
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\LatoFont\Lato-Light.ttf
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\LatoFont\Lato-LightItalic.ttf
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\LatoFont\Lato-Medium.ttf
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\LatoFont\Lato-MediumItalic.ttf
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\LatoFont\Lato-Regular.ttf
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\LatoFont\Lato-SemiBold.ttf
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\LatoFont\Lato-SemiBoldItalic.ttf
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\LatoFont\Lato-Thin.ttf
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\LatoFont\Lato-ThinItalic.ttf
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\LatoFont\OFL.txt
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\appsettings.Development.json
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\appsettings.json
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\Clinica.API.exe
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\Clinica.API.deps.json
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\Clinica.API.runtimeconfig.json
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\Clinica.API.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\Clinica.API.pdb
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\Clinica.API.xml
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\BCrypt.Net-Next.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\Humanizer.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\Microsoft.Bcl.AsyncInterfaces.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\Microsoft.Build.Locator.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\Microsoft.CodeAnalysis.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\Microsoft.CodeAnalysis.CSharp.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\Microsoft.CodeAnalysis.Workspaces.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\Microsoft.CodeAnalysis.Workspaces.MSBuild.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Design.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Relational.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\Microsoft.Extensions.Caching.Abstractions.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\Microsoft.Extensions.Caching.Memory.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\Microsoft.Extensions.Configuration.Abstractions.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\Microsoft.Extensions.DependencyModel.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\Microsoft.Extensions.Logging.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\Microsoft.Extensions.Logging.Abstractions.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\Microsoft.Extensions.Options.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\Microsoft.Extensions.Primitives.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\Microsoft.IdentityModel.Abstractions.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\Microsoft.IdentityModel.JsonWebTokens.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\Microsoft.IdentityModel.Logging.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\Microsoft.IdentityModel.Tokens.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\Microsoft.OpenApi.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\Mono.TextTemplating.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\Npgsql.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\QuestPDF.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\System.CodeDom.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\System.Composition.AttributedModel.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\System.Composition.Convention.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\System.Composition.Hosting.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\System.Composition.Runtime.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\System.Composition.TypedParts.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.resources.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.resources.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.resources.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.resources.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.resources.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.resources.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.resources.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.resources.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.resources.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.resources.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\runtimes\linux-arm64\native\libQuestPdfSkia.so
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\runtimes\linux-arm64\native\libqpdf.so
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\runtimes\linux-musl-x64\native\libQuestPdfSkia.so
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\runtimes\linux-musl-x64\native\libqpdf.so
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\runtimes\linux-x64\native\libQuestPdfSkia.so
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\runtimes\linux-x64\native\libqpdf.so
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\runtimes\osx-arm64\native\libQuestPdfSkia.dylib
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\runtimes\osx-arm64\native\libqpdf.dylib
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\runtimes\osx-x64\native\libQuestPdfSkia.dylib
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\runtimes\osx-x64\native\libqpdf.dylib
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\runtimes\win-x64\native\QuestPdfSkia.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\runtimes\win-x64\native\libgcc_s_seh-1.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\runtimes\win-x64\native\libstdc++-6.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\runtimes\win-x64\native\libwinpthread-1.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\runtimes\win-x64\native\qpdf.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\runtimes\win-x64\native\zlib1.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\runtimes\win-x86\native\QuestPdfSkia.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\runtimes\win-x86\native\libgcc_s_dw2-1.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\runtimes\win-x86\native\libstdc++-6.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\runtimes\win-x86\native\libwinpthread-1.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\runtimes\win-x86\native\qpdf.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\runtimes\win-x86\native\zlib1.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\Clinica.Domain.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\Clinica.Infrastructure.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\Clinica.Domain.pdb
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\bin\Debug\net9.0\Clinica.Infrastructure.pdb
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\obj\Debug\net9.0\scopedcss\bundle\Clinica.API.styles.css
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\obj\Debug\net9.0\staticwebassets.build.json
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\obj\Debug\net9.0\staticwebassets.development.json
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\obj\Debug\net9.0\staticwebassets.build.endpoints.json
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\obj\Debug\net9.0\staticwebassets\msbuild.Clinica.API.Microsoft.AspNetCore.StaticWebAssets.props
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\obj\Debug\net9.0\staticwebassets\msbuild.Clinica.API.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\obj\Debug\net9.0\staticwebassets\msbuild.build.Clinica.API.props
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\obj\Debug\net9.0\staticwebassets\msbuild.buildMultiTargeting.Clinica.API.props
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\obj\Debug\net9.0\staticwebassets\msbuild.buildTransitive.Clinica.API.props
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\obj\Debug\net9.0\staticwebassets.pack.json
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\obj\Debug\net9.0\Clinica..AD54861A.Up2Date
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\obj\Debug\net9.0\Clinica.API.genruntimeconfig.cache
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\obj\Debug\net9.0\ref\Clinica.API.dll

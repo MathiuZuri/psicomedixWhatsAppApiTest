@@ -1,0 +1,63 @@
+/* Tarjetas maestras con relieve y microbordes temáticos del Forecast Arena */
+.patient-master-card-styled[b-vlo2mefzsw] {
+    background-color: var(--mud-palette-surface);
+    padding: 32px;
+    border-radius: var(--mud-layout-properties-default-border-radius); /* 16px */
+    box-shadow: var(--mud-elevation-2);
+    border: 1px solid var(--mud-palette-divider);
+    margin-top: 16px;
+}
+
+/* Bordes superiores de vista para inyectar los nuevos acentos cromáticos */
+.view-gold-border[b-vlo2mefzsw] {
+    border-top: 4px solid var(--mud-palette-tertiary); /* Oro Fino */
+}
+
+.view-rose-border[b-vlo2mefzsw] {
+    border-top: 4px solid var(--mud-palette-secondary); /* Rose Gold */
+}
+
+.card-title-text[b-vlo2mefzsw] {
+    font-weight: 800 !important;
+    letter-spacing: -0.02em;
+    color: var(--mud-palette-text-primary);
+}
+
+.card-subtitle-text[b-vlo2mefzsw] {
+    color: var(--mud-palette-text-secondary);
+    opacity: 0.8;
+}
+
+/* Caja de Búsqueda */
+.search-panel-luxury[b-vlo2mefzsw] {
+    background-color: var(--mud-palette-surface);
+    border-radius: 12px;
+    box-shadow: var(--mud-elevation-1);
+    border: 1px solid var(--mud-palette-divider);
+    overflow: hidden;
+}
+
+[b-vlo2mefzsw] .search-input-field .mud-input-outlined-border {
+    border: none !important; /* Limpia el borde nativo tosco para usar la caja completa */
+}
+
+.animate-fade-in[b-vlo2mefzsw] {
+    animation: fadeIn-b-vlo2mefzsw 0.3s ease-out;
+}
+
+@keyframes fadeIn-b-vlo2mefzsw {
+    from { opacity: 0; transform: translateY(-4px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.error-wrapper-box[b-vlo2mefzsw] {
+    background-color: var(--mud-palette-surface);
+    border-radius: 16px;
+    border: 1px dashed var(--mud-palette-error);
+}
+
+@media (max-width: 600px) {
+    .patient-master-card-styled[b-vlo2mefzsw] {
+        padding: 24px 16px;
+    }
+}

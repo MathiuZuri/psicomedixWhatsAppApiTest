@@ -1,0 +1,67 @@
+﻿<div class="overlay @(Mostrar ? "show" : "")">
+    <div class="dialog">
+        <h3>@Titulo</h3>
+        
+        <p class="muted" style="margin-bottom: 20px;">@Mensaje</p>
+        
+        <div class="toolbar" style="justify-content: flex-end;">
+            @if (MostrarBotonCancelar)
+            {
+                <button class="btn secondary" @onclick="AlCancelar">
+                    @TextoCancelar
+                </button>
+            }
+            
+            <button class="btn @(EsPeligroso ? "danger" : "")" @onclick="AlConfirmar">
+                @TextoConfirmar
+            </button>
+        </div>
+    </div>
+</div>
+
+@code {
+    
+    [Parameter]
+    public bool Mostrar { get; set; } = false;
+
+    [Parameter]
+    public string Titulo { get; set; } = "Atención";
+
+    [Parameter]
+    public string Mensaje { get; set; } = "";
+
+    [Parameter]
+    public string TextoConfirmar { get; set; } = "Aceptar";
+
+    [Parameter]
+    public string TextoCancelar { get; set; } = "Cancelar";
+
+    [Parameter]
+    public bool MostrarBotonCancelar { get; set; } = true;
+
+    // Si es true, el botón de confirmar se vuelve rojo (Ideal para borrar)
+    [Parameter]
+    public bool EsPeligroso { get; set; } = false;
+    
+    [Parameter]
+    public EventCallback OnConfirmar { get; set; }
+
+    [Parameter]
+    public EventCallback OnCancelar { get; set; }
+    
+    private async Task AlConfirmar()
+    {
+        if (OnConfirmar.HasDelegate)
+        {
+            await OnConfirmar.InvokeAsync();
+        }
+    }
+
+    private async Task AlCancelar()
+    {
+        if (OnCancelar.HasDelegate)
+        {
+            await OnCancelar.InvokeAsync();
+        }
+    }
+}

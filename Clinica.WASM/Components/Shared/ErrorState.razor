@@ -1,0 +1,44 @@
+﻿<MudPaper Class="error-state-canvas animate-pulse-clean" Elevation="0">
+    <div class="error-icon-glow-shell">
+        <MudIcon Icon="@Icon" Size="Size.Large" Color="@IconColor" />
+    </div>
+
+    <MudText Typo="Typo.h3" Class="error-state-title">
+        @Title
+    </MudText>
+
+    @if (!string.IsNullOrWhiteSpace(Message))
+    {
+        <MudText Typo="Typo.body2" Class="error-state-message mt-2">
+            @Message
+        </MudText>
+    }
+
+    @if (ShowRetry && OnRetry.HasDelegate)
+    {
+        <MudButton Variant="Variant.Filled"
+                   Color="Color.Primary"
+                   StartIcon="@Icons.Material.Filled.Refresh"
+                   OnClick="OnRetry"
+                   Class="text-none mt-5 px-5 rounded-lg shadow-sm w-sm-full">
+            Reintentar Operación
+        </MudButton>
+    }
+
+    @if (ActionContent is not null)
+    {
+        <div class="error-actions-layer">
+            @ActionContent
+        </div>
+    }
+</MudPaper>
+
+@code {
+    [Parameter] public string Title { get; set; } = "Ocurrió un problema";
+    [Parameter] public string Message { get; set; } = "No se pudo completar la operación solicitada.";
+    [Parameter] public string Icon { get; set; } = Icons.Material.Filled.ErrorOutline;
+    [Parameter] public Color IconColor { get; set; } = Color.Error;
+    [Parameter] public bool ShowRetry { get; set; } = true;
+    [Parameter] public EventCallback OnRetry { get; set; }
+    [Parameter] public RenderFragment? ActionContent { get; set; }
+}

@@ -1,0 +1,87 @@
+﻿@page "/pagos"
+
+<PageTitle>Módulo de Caja | Clínica Santa Mónica</PageTitle>
+
+<RequireAuth>
+    @* Encabezado del Módulo Financiero *@
+    <PageHeader Title="Control de Caja y Recaudación"
+                Subtitle="Liquidación de comprobantes, gestión de saldos pendientes y notas de crédito de pacientes del sistema SIGEC.">
+        <ActionContent>
+            <RequirePermission Permission="@Permisos.PagoRegistrar">
+                <MudButton Variant="Variant.Filled"
+                           Color="Color.Primary"
+                           StartIcon="@Icons.Material.Filled.AddCard"
+                           OnClick="AbrirDialogoRegistro"
+                           Class="text-none px-5 rounded-lg shadow-sm">
+                    Registrar nuevo pago
+                </MudButton>
+            </RequirePermission>
+        </ActionContent>
+    </PageHeader>
+
+    @* Notificaciones de Operación de Caja *@
+    <div class="alert-layer-wrapper mt-4">
+        @if (!string.IsNullOrWhiteSpace(MensajeExito))
+        {
+            <MudAlert Severity="Severity.Success" Variant="Variant.Filled" Dense="true" Class="mb-4 rounded-lg shadow-sm animate-fade-clean">
+                @MensajeExito
+            </MudAlert>
+        }
+        @if (!string.IsNullOrWhiteSpace(MensajeError))
+        {
+            <MudAlert Severity="Severity.Error" Variant="Variant.Filled" Dense="true" Class="mb-4 rounded-lg shadow-sm animate-fade-clean">
+                @MensajeError
+            </MudAlert>
+        }
+    </div>
+
+    @* Filtro Avanzado de Selección de Cuenta de Paciente con microborde Dorado (Tertiary) *@
+    <div class="filter-master-card view-gold-topline mb-5 mt-2">
+        <MudGrid Class="align-center">
+            <MudItem xs="12" md="8">
+                <MudSelect T="Guid"
+                           @bind-Value="PacienteSeleccionadoId"
+                           Label="Filtro maestro: Seleccionar paciente"
+                           Variant="Variant.Outlined"
+                           Margin="Margin.None"
+                           Disabled="@EstaCargandoPacientes"
+                           AdornmentIcon="@Icons.Material.Filled.AccountBox"
+                           AdornmentColor="Color.Primary"
+                           Class="clean-select-field"
+                           ToStringFunc="@(id => Pacientes.FirstOrDefault(p => p.Id == id)?.NombreCompleto ?? string.Empty)">
+                    @foreach (var paciente in Pacientes)
+                    {
+                        <MudSelectItem Value="paciente.Id">@paciente.NombreCompleto</MudSelectItem>
+                    }
+                </MudSelect>
+            </MudItem>
+            <MudItem xs="12" md="4" Class="text-md-end">
+                <MudButton Variant="Variant.Filled"
+                           Color="Color.Primary"
+                           StartIcon="@Icons.Material.Filled.Search"
+                           Disabled="@(PacienteSeleccionadoId == Guid.Empty)"
+                           OnClick="CargarPagosAsync"
+                           Class="text-none py-3 px-6 rounded-lg shadow-sm w-100-mobile">
+                    Buscar cuentas
+                </MudButton>
+            </MudItem>
+        </MudGrid>
+    </div>
+
+    @* Capa Dinámica de Resultados de Auditoría Financiera *@
+    @if (HayErrorCarga)
+    {
+        <div class="error-panel-container pa-6 text-center">
+            <ErrorState Title="Error al cargar el extracto financiero"
+                        Message="@MensajeError"
+                        OnRetry="CargarPagosAsync" />
+        </div>
+    }
+    else
+    {
+        <PagosTable Pagos="Pagos"
+                    IsLoading="EstaCargando"
+                    OnAjustes="AbrirAjustesDelPago" 
+                    OnChangeState="CambiarEstadoPago"/>
+    }
+</RequireAuth>

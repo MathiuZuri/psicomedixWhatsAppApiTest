@@ -1,0 +1,86 @@
+﻿<MudDialog ActionsClass="px-6 pb-4">
+    <DialogContent>
+        @* Encabezado de Matriz de Seguridad *@
+        <div class="permissions-dialog-header-luxury mb-4">
+            <div class="permissions-icon-frame">
+                <MudIcon Icon="@Icons.Material.Filled.Shield" Size="Size.Medium" />
+            </div>
+            <div>
+                <MudText Typo="Typo.h3" Class="permissions-title">Matriz de Permisos</MudText>
+                <MudText Typo="Typo.caption" Class="permissions-subtitle">Configurar accesos para el rol: <strong class="text-primary-dark">@Rol.Nombre</strong></MudText>
+            </div>
+        </div>
+
+        <EditForm Model="@Model" OnValidSubmit="AsignarAsync">
+            <DataAnnotationsValidator />
+            
+            <ValidationSummary Class="mb-3 text-danger font-sans text-xs fw-semibold" />
+            
+            <div class="permissions-scroll-container border rounded-xl pa-2">
+  
+                <MudList T="PermisoResponseDto"
+                         SelectionMode="SelectionMode.MultiSelection"
+                         @bind-SelectedValues="PermisosSeleccionados">
+                    @foreach (var permiso in TodosLosPermisos)
+                    {
+                        <MudListItem Value="permiso" Class="permission-item-row">
+                            <div class="d-flex align-center justify-between w-100 pr-4">
+                                <MudText Typo="Typo.body1" Class="fw-medium">@permiso.Nombre</MudText>
+                                <span class="module-badge">@permiso.Modulo</span>
+                            </div>
+                        </MudListItem>
+                    }
+                </MudList>
+            </div>
+
+            <div class="form-actions-panel mt-5">
+                <MudButton Variant="Variant.Text" Color="Color.Default" OnClick="Cancelar" Disabled="@IsProcessing" Class="text-none px-4">
+                    Cancelar
+                </MudButton>
+                <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" Disabled="@IsProcessing" Class="text-none px-5 rounded-lg shadow-sm">
+                    @if (IsProcessing) 
+                    {
+                        <MudProgressCircular Size="Size.Small" Indeterminate="true" Class="mr-2"/>
+                    } 
+                    Asignar Privilegios
+                </MudButton>
+            </div>
+        </EditForm>
+    </DialogContent>
+</MudDialog>
+
+@code {
+    [CascadingParameter] private IMudDialogInstance MudDialog { get; set; } = default!;
+    [Parameter] public RolResponseDto Rol { get; set; } = new();
+    [Parameter] public List<PermisoResponseDto> TodosLosPermisos { get; set; } = new();
+
+    private AsignarPermisosRolDto Model { get; set; } = new();
+    private bool IsProcessing;
+
+    // ─── VÍA DE ESCAPE INTELIGENTE PARA EL CICLO DE VIDA ───
+    private IReadOnlyCollection<PermisoResponseDto> _permisosSeleccionados = new List<PermisoResponseDto>();
+    
+    private IReadOnlyCollection<PermisoResponseDto> PermisosSeleccionados
+    {
+        get => _permisosSeleccionados;
+        set
+        {
+            _permisosSeleccionados = value;
+            
+            Model.PermisosIds = value?.Select(p => p.Id).ToList() ?? new List<Guid>();
+        }
+    }
+
+    protected override void OnInitialized()
+    {
+        Model.RolId = Rol.Id;
+    }
+
+    private async Task AsignarAsync()
+    {
+        IsProcessing = true;
+        MudDialog.Close(DialogResult.Ok(Model));
+    }
+
+    private void Cancelar() => MudDialog.Cancel();
+}

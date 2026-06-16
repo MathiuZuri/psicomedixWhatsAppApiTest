@@ -1,0 +1,127 @@
+﻿<MudNavMenu Class="nav-menu-wrapper-luxury">
+
+    <div class="nav-section-layer">
+        <span class="nav-group-tag-gold">Principal</span>
+
+        <MudNavLink Href="/dashboard" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Dashboard" Class="nav-item-link-luxury">
+            Dashboard
+        </MudNavLink>
+    </div>
+    
+    <div class="nav-section-layer">
+        <span class="nav-group-tag-gold">Atención Clínica</span>
+
+        @if (PuedeVerPacientes)
+        {
+            <MudNavLink Href="/panel/pacientes" Icon="@Icons.Material.Filled.AssignmentInd" Class="nav-item-link-luxury">
+                Pacientes
+            </MudNavLink>
+        }
+
+        @if (PuedeVerCitas)
+        {
+            <MudNavLink Href="/panel/citas" Icon="@Icons.Material.Filled.CalendarToday" Class="nav-item-link-luxury">
+                Citas
+            </MudNavLink>
+        }
+
+        @if (PuedeVerServicios)
+        {
+            <MudNavLink Href="/servicios-clinicos" Icon="@Icons.Material.Filled.MedicalServices" Class="nav-item-link-luxury">
+                Servicios Clínicos
+            </MudNavLink>
+        }
+
+        @if (PuedeVerHistorial)
+        {
+            <MudNavLink Href="/historia-clinica" Icon="@Icons.Material.Filled.LocalHospital" Class="nav-item-link-luxury">
+                Historia Clínica
+            </MudNavLink>
+        }
+
+        @if (PuedeVerAtenciones)
+        {
+            <MudNavLink Href="/atenciones" Icon="@Icons.Material.Filled.Vaccines" Class="nav-item-link-luxury">
+                Atenciones
+            </MudNavLink>
+        }
+        
+
+        @if (PuedeVerChatLaboratorio)
+        {
+            <MudNavLink Href="/panel/psicomedix-chat" Icon="@Icons.Custom.Brands.WhatsApp" Class="nav-item-link-luxury">
+                Chat de WhatsApp
+            </MudNavLink>
+        }
+    </div>
+
+    @* ─── Administración ─── *@
+    <div class="nav-section-layer">
+        <span class="nav-group-tag-gold">Administración</span>
+
+        @if (PuedeVerDoctores)
+        {
+            <MudNavLink Href="/doctores" Icon="@Icons.Material.Filled.Medication" Class="nav-item-link-luxury">
+                Doctores
+            </MudNavLink>
+        }
+
+        @if (PuedeVerHorarios)
+        {
+            <MudNavLink Href="/horarios" Icon="@Icons.Material.Filled.WatchLater" Class="nav-item-link-luxury">
+                Horarios
+            </MudNavLink>
+        }
+
+        @if (PuedeVerPagos)
+        {
+            <MudNavLink Href="/pagos" Icon="@Icons.Material.Filled.MonetizationOn" Class="nav-item-link-luxury">
+                Pagos
+            </MudNavLink>
+        }
+
+        @if (PuedeVerFinanzas)
+        {
+            <MudNavLink Href="/finanzas" Icon="@Icons.Material.Filled.AccountBalanceWallet" Class="nav-item-link-luxury">
+                Finanzas
+            </MudNavLink>
+        }
+
+        @if (PuedeVerComprobantes)
+        {
+            <MudNavLink Href="/comprobantes" Icon="@Icons.Material.Filled.Receipt" Class="nav-item-link-luxury">
+                Comprobantes
+            </MudNavLink>
+        }
+
+        @if (PuedeVerUsuarios)
+        {
+            <MudNavLink Href="/usuarios" Icon="@Icons.Material.Filled.PeopleAlt" Class="nav-item-link-luxury">
+                Usuarios
+            </MudNavLink>
+        }
+    </div>
+
+    @* ─── Seguridad ─── *@
+    @if (PuedeVerRoles || PuedeVerPermisos)
+    {
+        <div class="nav-section-layer">
+            <span class="nav-group-tag-gold">Seguridad</span>
+            
+            @if (PuedeVerRoles)
+            {
+                <MudNavLink Href="/roles" Icon="@Icons.Material.Filled.AdminPanelSettings" Class="nav-item-link-luxury">
+                    Roles
+                </MudNavLink>
+            }
+            
+            @if (PuedeVerPermisos)
+            {
+                <MudNavLink Href="/permisos" Icon="@Icons.Material.Filled.Shield" Class="nav-item-link-luxury">
+                    Permisos
+                </MudNavLink>
+            }
+        </div>
+    }
+
+</MudNavMenu>

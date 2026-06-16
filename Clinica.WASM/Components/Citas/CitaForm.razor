@@ -1,0 +1,184 @@
+﻿<EditForm Model="@Model" OnValidSubmit="GuardarAsync">
+    <DataAnnotationsValidator />
+
+    <div class="appointment-form-scroll">
+        <MudGrid>
+            @* Autocomplete con filtro correcto de búsqueda asíncrona para v9 sin advertencias de compilador *@
+            <MudItem xs="12" md="6">
+                <MudAutocomplete T="Guid"
+                                 @bind-Value="Model.PacienteId"
+                                 Label="Paciente Asignado"
+                                 Variant="Variant.Outlined"
+                                 Required="true"
+                                 For="@(() => Model.PacienteId)"
+                                 Disabled="@IsProcessing"
+                                 SearchFunc="@BuscarPaciente"
+                                 ToStringFunc="@(id => PacientesList.FirstOrDefault(x => x.Id == id)?.NombreCompleto ?? string.Empty)"
+                                 AdornmentIcon="@Icons.Material.Filled.PersonSearch"
+                                 AdornmentColor="Color.Primary"
+                                 ResetValueOnEmptyText="true"
+                                 CoerceText="true" />
+            </MudItem>
+
+            <MudItem xs="12" md="6">
+                <MudSelect T="Guid"
+                           @bind-Value="Model.DoctorId"
+                           Label="Especialista Ginecobstetra"
+                           Variant="Variant.Outlined"
+                           Required="true"
+                           For="@(() => Model.DoctorId)"
+                           Disabled="@IsProcessing"
+                           ToStringFunc="@(d => DoctoresList.FirstOrDefault(x => x.Id == d)?.NombreCompleto ?? string.Empty)"
+                           AdornmentColor="Color.Secondary">
+                    @foreach (var doctor in DoctoresList)
+                    {
+                        <MudSelectItem Value="doctor.Id">@doctor.NombreCompleto</MudSelectItem>
+                    }
+                </MudSelect>
+            </MudItem>
+
+            <MudItem xs="12" md="6">
+                <MudSelect T="Guid"
+                           @bind-Value="Model.ServicioClinicoId"
+                           Label="Servicio Clínico / Módulo"
+                           Variant="Variant.Outlined"
+                           Required="true"
+                           For="@(() => Model.ServicioClinicoId)"
+                           Disabled="@IsProcessing"
+                           ToStringFunc="@(s => ServiciosList.FirstOrDefault(x => x.Id == s)?.Nombre ?? string.Empty)"
+                           AdornmentColor="Color.Secondary">
+                    @foreach (var servicio in ServiciosList)
+                    {
+                        <MudSelectItem Value="servicio.Id">@servicio.Nombre</MudSelectItem>
+                    }
+                </MudSelect>
+            </MudItem>
+
+            <MudItem xs="12" md="6">
+                <MudDatePicker @bind-Date="FechaCita"
+                               Label="Fecha Calendario"
+                               Variant="Variant.Outlined"
+                               DateFormat="dd/MM/yyyy"
+                               Disabled="@IsProcessing"
+                               AdornmentColor="Color.Primary" />
+            </MudItem>
+
+            <MudItem xs="12" sm="6" md="3">
+                <MudTimePicker @bind-Time="HoraInicio"
+                               Label="Hora Apertura (Inicio)"
+                               Variant="Variant.Outlined"
+                               Disabled="@IsProcessing"
+                               AdornmentColor="Color.Secondary" />
+            </MudItem>
+
+            <MudItem xs="12" sm="6" md="3">
+                <MudTimePicker @bind-Time="HoraFin"
+                               Label="Hora Cierre (Fin)"
+                               Variant="Variant.Outlined"
+                               Disabled="@IsProcessing"
+                               AdornmentColor="Color.Secondary" />
+                </MudItem>
+
+            <MudItem xs="12">
+                <MudTextField @bind-Value="Model.Motivo"
+                              Label="Motivo Clínico de la Consulta"
+                              Variant="Variant.Outlined"
+                              For="@(() => Model.Motivo)"
+                              Lines="2"
+                              Disabled="@IsProcessing" />
+            </MudItem>
+
+            <MudItem xs="12">
+                <MudTextField @bind-Value="Model.Observaciones"
+                              Label="Observaciones Complementarias de Admisión"
+                              Variant="Variant.Outlined"
+                              For="@(() => Model.Observaciones)"
+                              Lines="2"
+                              Disabled="@IsProcessing" />
+            </MudItem>
+        </MudGrid>
+    </div>
+
+    <div class="form-actions-bar">
+        <MudButton Variant="Variant.Text"
+                   Color="Color.Default"
+                   OnClick="OnCancel"
+                   Disabled="@IsProcessing"
+                   Class="text-none px-5">
+            Cancelar
+        </MudButton>
+
+        <MudButton ButtonType="ButtonType.Submit"
+                   Variant="Variant.Filled"
+                   Color="Color.Primary"
+                   Disabled="@IsProcessing"
+                   Class="text-none px-6 rounded-lg shadow-sm">
+            @if (IsProcessing)
+            {
+                <MudProgressCircular Size="Size.Small" Indeterminate="true" Class="mr-2" />
+                <span>Programando...</span>
+            }
+            else
+            {
+                <span>Programar cita</span>
+            }
+        </MudButton>
+    </div>
+</EditForm>
+
+@code {
+    [Parameter] public CrearCitaDto Model { get; set; } = new();
+    [Parameter] public bool IsProcessing { get; set; }
+    [Parameter] public EventCallback OnSave { get; set; }
+    [Parameter] public EventCallback OnCancel { get; set; }
+    [Parameter] public List<DoctorResponseDto> DoctoresList { get; set; } = new();
+    [Parameter] public List<PacienteItemDto> PacientesList { get; set; } = new();
+    [Parameter] public List<ServicioClinicoResponseDto> ServiciosList { get; set; } = new();
+
+    private DateTime? FechaCita { get; set; }
+    private TimeSpan? HoraInicio { get; set; }
+    private TimeSpan? HoraFin { get; set; }
+
+    protected override void OnParametersSet()
+    {
+        // Convertir los valores del DTO (DateOnly/TimeOnly) a los tipos del picker
+        FechaCita = Model.Fecha == default
+            ? DateTime.Today
+            : Model.Fecha.ToDateTime(TimeOnly.MinValue);
+
+        HoraInicio = Model.HoraInicio == default
+            ? new TimeSpan(8, 0, 0)
+            : Model.HoraInicio.ToTimeSpan();
+
+        HoraFin = Model.HoraFin == default
+            ? new TimeSpan(8, 30, 0)
+            : Model.HoraFin.ToTimeSpan();
+    }
+
+    private async Task GuardarAsync()
+    {
+        // Convertir de vuelta a DateOnly/TimeOnly antes de invocar el save
+        Model.Fecha = FechaCita.HasValue
+            ? DateOnly.FromDateTime(FechaCita.Value)
+            : DateOnly.FromDateTime(DateTime.Today);
+
+        Model.HoraInicio = HoraInicio.HasValue
+            ? TimeOnly.FromTimeSpan(HoraInicio.Value)
+            : new TimeOnly(8, 0);
+
+        Model.HoraFin = HoraFin.HasValue
+            ? TimeOnly.FromTimeSpan(HoraFin.Value)
+            : new TimeOnly(8, 30);
+
+        await OnSave.InvokeAsync();
+    }
+
+    private async Task<IEnumerable<Guid>>? BuscarPaciente(string? search, CancellationToken cancellationToken)
+    {
+        if (string.IsNullOrWhiteSpace(search))
+            return PacientesList.Select(p => p.Id);
+        return PacientesList
+            .Where(p => p.NombreCompleto.Contains(search, StringComparison.OrdinalIgnoreCase))
+            .Select(p => p.Id);
+    }
+}

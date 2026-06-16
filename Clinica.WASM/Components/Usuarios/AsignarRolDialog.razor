@@ -1,0 +1,69 @@
+﻿<MudDialog ActionsClass="px-6 pb-4">
+    <DialogContent>
+        @* Encabezado Dinámico con Identidad del Operador *@
+        <div class="role-dialog-header-luxury mb-4">
+            <div class="role-icon-frame">
+                <MudIcon Icon="@Icons.Material.Filled.AdminPanelSettings" Size="Size.Medium" />
+            </div>
+            <div>
+                <MudText Typo="Typo.h3" Class="role-title">Privilegios del Sistema</MudText>
+                <MudText Typo="Typo.caption" Class="role-subtitle">Asignar rol de acceso a: <strong>@Usuario.NombreCompleto</strong></MudText>
+            </div>
+        </div>
+
+        <EditForm Model="@Model" OnValidSubmit="AsignarAsync">
+            <DataAnnotationsValidator />
+            
+            <div class="py-2">
+                <MudSelect T="Guid"
+                           @bind-Value="Model.RolId"
+                           Label="Rol de Seguridad Asignado"
+                           Variant="Variant.Outlined"
+                           Disabled="@IsProcessing"
+                           AdornmentIcon="@Icons.Material.Filled.Security"
+                           AdornmentColor="Color.Primary"
+                           ToStringFunc="@(id => RolesList.FirstOrDefault(r => r.Id == id)?.Nombre ?? string.Empty)">
+                    @foreach (var rol in RolesList)
+                    {
+                        <MudSelectItem Value="rol.Id">@rol.Nombre</MudSelectItem>
+                    }
+                </MudSelect>
+            </div>
+
+            <div class="form-actions-panel mt-5">
+                <MudButton Variant="Variant.Text" Color="Color.Default" OnClick="Cancelar" Disabled="@IsProcessing" Class="text-none px-4">
+                    Cancelar
+                </MudButton>
+                <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" Disabled="@IsProcessing" Class="text-none px-5 rounded-lg shadow-sm">
+                    @if (IsProcessing) 
+                    {
+                        <MudProgressCircular Size="Size.Small" Indeterminate="true" Class="mr-2"/>
+                    } 
+                    Asignar Credenciales
+                </MudButton>
+            </div>
+        </EditForm>
+    </DialogContent>
+</MudDialog>
+
+@code {
+    [CascadingParameter] private IMudDialogInstance MudDialog { get; set; } = default!;
+    [Parameter] public UsuarioResponseDto Usuario { get; set; } = new();
+    [Parameter] public List<RolResponseDto> RolesList { get; set; } = new();
+
+    private AsignarRolUsuarioDto Model { get; set; } = new();
+    private bool IsProcessing;
+
+    protected override void OnInitialized()
+    {
+        Model.UsuarioId = Usuario.Id;
+    }
+
+    private async Task AsignarAsync()
+    {
+        IsProcessing = true;
+        MudDialog.Close(DialogResult.Ok(Model));
+    }
+
+    private void Cancelar() => MudDialog.Cancel();
+}

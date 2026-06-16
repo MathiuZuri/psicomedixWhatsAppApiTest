@@ -1,0 +1,143 @@
+﻿@if (IsLoading)
+{
+    <LoadingState Message="Cargando base de datos de pacientes..." />
+}
+else if (!Pacientes.Any())
+{
+    <EmptyState Icon="@Icons.Material.Filled.People"
+                Title="No hay pacientes registrados"
+                Message="Registra el primer paciente para comenzar.">
+        <ActionContent>
+            @ActionContent
+        </ActionContent>
+    </EmptyState>
+}
+else
+{
+    @* Contenedor de la Tabla Elevada sobre el Lienzo Base *@
+    <div class="table-surface-layer">
+        <MudTable Items="@PacientesFiltrados"
+                  Dense="false"
+                  Hover="true"
+                  Bordered="false"
+                  Striped="true"
+                  Elevation="0"
+                  Class="custom-luxury-table">
+
+            <HeaderContent>
+                <MudTh Class="header-cell-styled">Ficha de Paciente</MudTh>
+                <MudTh Class="header-cell-styled">DNI</MudTh>
+                <MudTh Class="header-cell-styled">Celular</MudTh>
+                <MudTh Class="header-cell-styled">Historial N°</MudTh>
+                <MudTh Class="header-cell-styled">Estado</MudTh>
+                <MudTh Class="header-cell-styled">Alta Sistema</MudTh>
+                <MudTh Align="Align.Right" Class="header-cell-styled">Acciones de Ficha</MudTh>
+            </HeaderContent>
+
+            <RowTemplate>
+                <MudTd DataLabel="Paciente" Class="py-3">
+                    <div class="patient-td-block">
+                        <span class="patient-row-name">@context.NombreCompleto</span>
+                        <span class="patient-row-code">Código: @context.CodigoPaciente</span>
+                    </div>
+                </MudTd>
+
+                <MudTd DataLabel="DNI" Class="fw-medium">@context.DNI</MudTd>
+
+                <MudTd DataLabel="Celular" Class="text-secondary">
+                    @(string.IsNullOrWhiteSpace(context.Celular) ? "Sin registrar" : context.Celular)
+                </MudTd>
+
+                <MudTd DataLabel="Historial">
+                    @if (string.IsNullOrWhiteSpace(context.CodigoHistorial))
+                    {
+                        <span class="no-history-tag">Sin Aperturar</span>
+                    }
+                    else
+                    {
+                        <span class="history-tag-active">@context.CodigoHistorial</span>
+                    }
+                </MudTd>
+
+                <MudTd DataLabel="Estado">
+                    <MudChip T="string"
+                             Size="Size.Small"
+                             Color="@ObtenerColorEstado(context.Estado)"
+                             Variant="Variant.Filled"
+                             Class="fw-bold table-status-chip">
+                        @context.Estado
+                    </MudChip>
+                </MudTd>
+
+                <MudTd DataLabel="Registro">
+                    <span class="text-xs">@context.FechaRegistro.ToString("dd/MM/yyyy")</span>
+                </MudTd>
+
+                <MudTd DataLabel="Acciones" Align="Align.Right" Class="py-2">
+                    <div class="d-inline-flex gap-1">
+                        <MudTooltip Text="Ver Ficha Completa">
+                            <MudIconButton Icon="@Icons.Material.Filled.Visibility"
+                                           Color="Color.Primary"
+                                           Size="Size.Small"
+                                           Class="action-icon-btn-styled"
+                                           OnClick="() => OnView.InvokeAsync(context)" />
+                        </MudTooltip>
+
+                        <MudTooltip Text="Actualizar Contacto">
+                            <MudIconButton Icon="@Icons.Material.Filled.EditLocationAlt"
+                                           Color="Color.Secondary"
+                                           Size="Size.Small"
+                                           Class="action-icon-btn-styled"
+                                           OnClick="() => OnEditContact.InvokeAsync(context)" />
+                        </MudTooltip>
+                        
+                        <MudTooltip Text="Cambiar Estado">
+                            <MudIconButton Icon="@Icons.Material.Filled.SwapHoriz"
+                                           Color="Color.Tertiary"
+                                           Size="Size.Small"
+                                           Class="action-icon-btn-styled"
+                                           OnClick="() => OnChangeState.InvokeAsync(context)" />
+                        </MudTooltip>
+                    </div>
+                </MudTd>
+            </RowTemplate>
+
+            <PagerContent>
+                <div class="table-pager-container">
+                    <MudTablePager PageSizeOptions="new[] { 5, 10, 20, 50 }" RowsPerPageString="Filas por página:" />
+                </div>
+            </PagerContent>
+        </MudTable>
+    </div>
+}
+
+@code {
+    [Parameter] public List<PacienteResponseDto> Pacientes { get; set; } = new();
+    [Parameter] public string SearchText { get; set; } = string.Empty;
+    [Parameter] public bool IsLoading { get; set; }
+    [Parameter] public EventCallback<PacienteResponseDto> OnView { get; set; }
+    [Parameter] public EventCallback<PacienteResponseDto> OnEditContact { get; set; }
+    [Parameter] public RenderFragment? ActionContent { get; set; }
+    [Parameter] public EventCallback<PacienteResponseDto> OnChangeState { get; set; }
+
+    private IEnumerable<PacienteResponseDto> PacientesFiltrados =>
+        string.IsNullOrWhiteSpace(SearchText)
+            ? Pacientes
+            : Pacientes.Where(x =>
+                x.NombreCompleto.Contains(SearchText, StringComparison.OrdinalIgnoreCase) ||
+                x.DNI.Contains(SearchText, StringComparison.OrdinalIgnoreCase) ||
+                x.CodigoPaciente.Contains(SearchText, StringComparison.OrdinalIgnoreCase));
+
+    private static Color ObtenerColorEstado(EstadoPaciente estado)
+    {
+        return estado switch
+        {
+            EstadoPaciente.Activo => Color.Success,
+            EstadoPaciente.Inactivo => Color.Warning,
+            EstadoPaciente.Bloqueado => Color.Error,
+            EstadoPaciente.Fallecido => Color.Dark,
+            EstadoPaciente.Eliminado => Color.Error,
+            _ => Color.Default
+        };
+    }
+}

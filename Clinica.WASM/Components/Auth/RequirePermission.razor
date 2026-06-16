@@ -1,0 +1,27 @@
+﻿@inject AuthStateService AuthStateService
+
+@if (IsChecking)
+{
+    <div class="auth-loading-overlay">
+        <MudProgressCircular Indeterminate="true" Color="Color.Primary" Size="Size.Medium" Thickness="4" />
+        <MudText Typo="Typo.caption" Class="mt-2 fw-medium text-muted">Sincronizando seguridad ...</MudText>
+    </div>
+}
+else if (HasPermission)
+{
+    @ChildContent
+}
+
+@code {
+    [Parameter] public string Permission { get; set; } = string.Empty;
+    [Parameter] public RenderFragment? ChildContent { get; set; }
+
+    private bool IsChecking { get; set; } = true;
+    private bool HasPermission { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        HasPermission = await AuthStateService.TienePermisoAsync(Permission);
+        IsChecking = false;
+    }
+}

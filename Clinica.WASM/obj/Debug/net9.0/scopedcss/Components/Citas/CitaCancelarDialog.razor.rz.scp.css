@@ -1,0 +1,35 @@
+.cancel-dialog-header[b-xljforo6yd] {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding-top: 8px;
+}
+
+.cancel-icon-frame[b-xljforo6yd] {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background-color: rgba(239, 68, 68, 0.1);
+    color: var(--mud-palette-error);
+    display: grid;
+    place-items: center;
+}
+
+.cancel-title[b-xljforo6yd] {
+    font-weight: 800 !important;
+    letter-spacing: -0.02em;
+    color: var(--mud-palette-text-primary);
+}
+
+.cancel-subtitle[b-xljforo6yd] {
+    color: var(--mud-palette-text-secondary);
+    opacity: 0.7;
+}
+
+.form-actions-panel[b-xljforo6yd] {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    padding-top: 16px;
+    border-top: 1px solid var(--mud-palette-divider);
+}

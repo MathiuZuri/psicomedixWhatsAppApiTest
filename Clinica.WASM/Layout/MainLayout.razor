@@ -1,0 +1,126 @@
+﻿@inherits LayoutComponentBase
+
+<MudThemeProvider Theme="@Theme" IsDarkMode="@IsDarkMode" />
+<MudPopoverProvider />
+<MudDialogProvider />
+<MudSnackbarProvider />
+
+<MudLayout>
+    @* AppBar con elevación realzada y micro-borde decorativo Rose Gold en la parte superior *@
+    <MudAppBar Elevation="2" Class="main-appbar px-4">
+        <MudIconButton 
+            Icon="@Icons.Material.Filled.Menu"
+            Color="Color.Inherit"
+            Edge="Edge.Start"
+            OnClick="ToggleDrawer"
+            Class="menu-toggle-btn mr-1 mr-sm-3" />
+        
+        <div class="brand-area">
+            <div class="brand-logo-container">
+                <div class="brand-logo">SM</div>
+            </div>
+            <div class="brand-text-stack">
+                <MudText Typo="Typo.h3" Class="brand-title">
+                    Clínica Santa Mónica
+                </MudText>
+                <MudText Typo="Typo.caption" Class="brand-subtitle d-none d-sm-block">
+                    Centro Materno Perinatal
+                </MudText>
+            </div>
+        </div>
+
+        <MudSpacer />
+
+        @* Grupo de acciones integradas y fluidas *@
+        <div class="appbar-utility-group d-flex align-center gap-2">
+            @* Chip indicador con bordes redondeados y estilo premium *@
+            <MudChip T="string"
+                     Color="Color.Success"
+                     Variant="Variant.Filled"
+                     Size="Size.Small"
+                     Class="status-pill px-3 py-1 fw-bold d-none d-md-inline-flex animate-pulse-subtle">
+                Recepción activa
+            </MudChip>
+
+            <MudTooltip Text="Alternar Apariencia">
+                <MudIconButton 
+                    Icon="@(IsDarkMode ? Icons.Material.Filled.LightMode : Icons.Material.Filled.DarkMode)"
+                    Color="Color.Inherit"
+                    OnClick="ToggleDarkMode"
+                    Class="theme-toggle-btn" />
+            </MudTooltip>
+
+            @* Desplegable de perfil de usuario sin pérdida de datos *@
+            <MudMenu Icon="@Icons.Material.Filled.AccountCircle"
+                     Color="Color.Inherit"
+                     AnchorOrigin="Origin.BottomRight"
+                     TransformOrigin="Origin.TopRight"
+                     Dense="true"
+                     Class="user-profile-menu-dropdown">
+
+                <div class="user-menu-header">
+                    <MudAvatar Color="Color.Primary" Size="Size.Medium" Class="profile-avatar-glow">
+                        @UserInitials
+                    </MudAvatar>
+                    <div class="user-menu-info">
+                        <MudText Typo="Typo.subtitle2" Class="user-menu-name truncate-text">
+                            @UserName
+                        </MudText>
+                        <MudText Typo="Typo.caption" Color="Color.Secondary" Class="d-block truncate-text">
+                            @UserEmail
+                        </MudText>
+                    </div>
+                </div>
+
+                <MudDivider Class="my-1" />
+
+                <MudMenuItem Icon="@Icons.Material.Filled.Badge" IconColor="Color.Default" Disabled="true" Class="menu-info-item">
+                    <span class="menu-item-text">Código: <strong class="text-primary-dark">@UserCode</strong></span>
+                </MudMenuItem>
+
+                <MudMenuItem Icon="@Icons.Material.Filled.Security" IconColor="Color.Secondary" Disabled="true" Class="menu-info-item">
+                    <span class="menu-item-text">Rol: <span class="role-text-badge">@UserRole</span></span>
+                </MudMenuItem>
+
+                <MudDivider Class="my-1" />
+
+                <MudMenuItem Icon="@Icons.Material.Filled.Logout"
+                             IconColor="Color.Error"
+                             OnClick="CerrarSesionAsync"
+                             Class="logout-action-btn-luxury">
+                    <span class="logout-text-formatted">Cerrar sesión</span>
+                </MudMenuItem>
+            </MudMenu>
+        </div>
+    </MudAppBar>
+
+    @* Sidebar Flotante de Alta Definición con elevación controlada *@
+    <MudDrawer 
+        @bind-Open="DrawerOpen"
+        ClipMode="DrawerClipMode.Never"
+        Elevation="2"
+        Variant="DrawerVariant.Responsive"
+        Class="main-drawer">
+
+        <div class="drawer-brand-box-luxury">
+            <div class="drawer-logo-glow">SM</div>
+            <div class="drawer-title-stack">
+                <MudText Typo="Typo.subtitle1" Class="drawer-title-text">
+                    Intranet Clínica
+                </MudText>
+                <MudText Typo="Typo.caption" Class="drawer-subtitle-text">
+                    Gestión Clinica
+                </MudText>
+            </div>
+        </div>
+
+        <NavMenu />
+    </MudDrawer>
+
+    @* Canvas Central: Fondo texturizado y ligeramente oscuro para que resalten las tarjetas *@
+    <MudMainContent Class="main-content-canvas-premium">
+        <MudContainer MaxWidth="MaxWidth.False" Class="inner-page-container-fluid">
+            @Body
+        </MudContainer>
+    </MudMainContent>
+</MudLayout>

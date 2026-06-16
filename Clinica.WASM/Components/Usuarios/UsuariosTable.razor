@@ -1,0 +1,124 @@
+﻿@if (IsLoading)
+{
+    <LoadingState Message="Sincronizando grilla maestro de cuentas..." />
+}
+else if (!Usuarios.Any())
+{
+    <EmptyState Icon="@Icons.Material.Filled.People"
+                Title="No hay usuarios registrados"
+                Message="Crea el primer usuario para comenzar.">
+        <ActionContent>
+            @ActionContent
+        </ActionContent>
+    </EmptyState>
+}
+else
+{
+    <div class="usuarios-table-layer">
+        <MudTable Items="@UsuariosFiltrados"
+                  Dense="false"
+                  Hover="true"
+                  Bordered="false"
+                  Striped="true"
+                  Elevation="0"
+                  Class="luxury-user-table">
+
+            <HeaderContent>
+                <MudTh Class="header-cell-premium">Código</MudTh>
+                <MudTh Class="header-cell-premium">Nombre Completo</MudTh>
+                <MudTh Class="header-cell-premium">Usuario (Alias)</MudTh>
+                <MudTh Class="header-cell-premium">Correo Notificaciones</MudTh>
+                <MudTh Class="header-cell-premium">Estado</MudTh>
+                <MudTh Class="header-cell-premium text-end">Acciones operativas</MudTh>
+            </HeaderContent>
+
+            <RowTemplate>
+                <MudTd DataLabel="Código" Class="py-3">
+                    <span class="user-table-code">@context.CodigoUsuario</span>
+                </MudTd>
+                <MudTd DataLabel="Nombre" Class="fw-bold text-primary-dark">@context.NombreCompleto</MudTd>
+                <MudTd DataLabel="Usuario" Class="font-mono text-sm">@context.UserName</MudTd>
+                <MudTd DataLabel="Correo" Class="text-secondary truncate-text-cell">@context.Correo</MudTd>
+                <MudTd DataLabel="Estado">
+                    <MudChip T="string"
+                             Size="Size.Small"
+                             Color="@ObtenerColorEstado(context.Estado)"
+                             Variant="Variant.Filled"
+                             Class="fw-bold table-chip-rounded">
+                        @context.Estado
+                    </MudChip>
+                </MudTd>
+                <MudTd DataLabel="Acciones" Class="text-end py-2">
+                    <div class="d-inline-flex gap-1">
+                        <MudTooltip Text="Ver Ficha Operativa">
+                            <MudIconButton Icon="@Icons.Material.Filled.Visibility"
+                                           Color="Color.Primary"
+                                           Size="Size.Small"
+                                           Class="action-btn-styled"
+                                           OnClick="() => OnView.InvokeAsync(context)" />
+                        </MudTooltip>
+                        <MudTooltip Text="Modificar Parámetros">
+                            <MudIconButton Icon="@Icons.Material.Filled.Edit"
+                                           Color="Color.Warning"
+                                           Size="Size.Small"
+                                           Class="action-btn-styled"
+                                           OnClick="() => OnEdit.InvokeAsync(context)" />
+                        </MudTooltip>
+                        <MudTooltip Text="Cambiar Estado">
+                            <MudIconButton Icon="@Icons.Material.Filled.SwapHoriz"
+                                           Color="Color.Tertiary"
+                                           Size="Size.Small"
+                                           Class="action-btn-styled"
+                                           OnClick="() => OnChangeState.InvokeAsync(context)" />
+                        </MudTooltip>
+                        <MudTooltip Text="Asignar Roles / Permisos">
+                            <MudIconButton Icon="@Icons.Material.Filled.Security"
+                                           Color="Color.Secondary"
+                                           Size="Size.Small"
+                                           Class="action-btn-styled"
+                                           OnClick="() => OnAssignRole.InvokeAsync(context)" />
+                        </MudTooltip>
+                    </div>
+                </MudTd>
+            </RowTemplate>
+
+            <PagerContent>
+                <div class="table-pager-luxury">
+                    <MudTablePager PageSizeOptions="new[] { 5, 10, 20, 50 }" RowsPerPageString="Registros por página:" />
+                </div>
+            </PagerContent>
+        </MudTable>
+    </div>
+}
+
+@code {
+    [Parameter] public List<UsuarioResponseDto> Usuarios { get; set; } = new();
+    [Parameter] public string SearchText { get; set; } = string.Empty;
+    [Parameter] public bool IsLoading { get; set; }
+    [Parameter] public EventCallback<UsuarioResponseDto> OnView { get; set; }
+    [Parameter] public EventCallback<UsuarioResponseDto> OnEdit { get; set; }
+    [Parameter] public EventCallback<UsuarioResponseDto> OnAssignRole { get; set; }
+    [Parameter] public RenderFragment? ActionContent { get; set; }
+    [Parameter] public EventCallback<UsuarioResponseDto> OnChangeState { get; set; }
+
+    private IEnumerable<UsuarioResponseDto> UsuariosFiltrados =>
+        string.IsNullOrWhiteSpace(SearchText)
+            ? Usuarios
+            : Usuarios.Where(x =>
+                x.CodigoUsuario.Contains(SearchText, StringComparison.OrdinalIgnoreCase) ||
+                x.NombreCompleto.Contains(SearchText, StringComparison.OrdinalIgnoreCase) ||
+                x.UserName.Contains(SearchText, StringComparison.OrdinalIgnoreCase) ||
+                x.Correo.Contains(SearchText, StringComparison.OrdinalIgnoreCase));
+
+    private static Color ObtenerColorEstado(EstadoUsuario estado)
+    {
+        return estado switch
+        {
+            EstadoUsuario.Activo => Color.Success,
+            EstadoUsuario.Inactivo => Color.Warning,
+            EstadoUsuario.Bloqueado => Color.Error,
+            EstadoUsuario.Eliminado => Color.Error,
+            _ => Color.Default
+        };
+    }
+}

@@ -1,0 +1,168 @@
+/* --- APPBAR ESTILO LUXURY --- */
+.main-appbar[b-98p2eraplv] {
+    background-color: var(--mud-palette-surface) !important;
+    color: var(--mud-palette-text-primary) !important;
+    border-top: 4px solid var(--mud-palette-secondary); /* Detalle Rose Gold superior superior */
+    border-bottom: 1px solid var(--mud-palette-divider);
+    height: var(--mud-layout-properties-appbarheight);
+    transition: all 0.3s ease;
+}
+
+.brand-area[b-98p2eraplv] {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0; /* Permite que el contenedor se encoja correctamente en móvil */
+}
+
+.brand-logo[b-98p2eraplv] {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(135deg, var(--mud-palette-primary), var(--mud-palette-secondary));
+    color: #FFFFFF;
+    font-weight: 800;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 10px rgba(43, 76, 222, 0.2);
+}
+
+.brand-text-stack[b-98p2eraplv] {
+    line-height: 1.2;
+    min-width: 0;
+}
+
+.brand-title[b-98p2eraplv] {
+    font-weight: 800 !important;
+    letter-spacing: -0.02em;
+    font-size: clamp(1rem, 2.5vw, 1.25rem) !important; /* Tipografía fluida que se auto-escala */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.brand-subtitle[b-98p2eraplv] {
+    opacity: 0.6;
+    font-weight: 500;
+}
+
+.status-pill[b-98p2eraplv] {
+    border-radius: 8px !important;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+
+/* Animación sutil de pulso para el chip de estado activo */
+.animate-pulse-subtle[b-98p2eraplv] {
+    animation: pulseSubtle-b-98p2eraplv 2s infinite ease-in-out;
+}
+
+@keyframes pulseSubtle-b-98p2eraplv {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.85; }
+}
+
+/* --- SIDEBAR INDEPENDIENTE TIPO CAPSA --- */
+.main-drawer[b-98p2eraplv] {
+    background-color: var(--mud-palette-surface) !important;
+    border-right: 1px solid var(--mud-palette-divider) !important;
+    height: 100vh !important;
+}
+
+.drawer-brand-box-luxury[b-98p2eraplv] {
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 20px 24px;
+    background: linear-gradient(to bottom, var(--mud-palette-background-gray), transparent);
+}
+
+.drawer-logo-glow[b-98p2eraplv] {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    background: var(--mud-palette-surface);
+    color: var(--mud-palette-primary);
+    font-weight: 800;
+    border: 2px solid var(--mud-palette-primary);
+    box-shadow: 0 0 12px rgba(43, 76, 222, 0.1);
+}
+
+.drawer-title-text[b-98p2eraplv] {
+    font-weight: 800 !important;
+    color: var(--mud-palette-text-primary);
+    letter-spacing: -0.01em;
+}
+
+.drawer-subtitle-text[b-98p2eraplv] {
+    opacity: 0.5;
+    font-weight: 500;
+}
+
+/* --- CANVAS DE CONTENIDO REALZADO (MÁXIMO CONTRASTE) --- */
+.main-content-canvas-premium[b-98p2eraplv] {
+    min-height: 100vh;
+    background-color: var(--mud-palette-background); /* #F4F7FB: Hace resaltar las tarjetas blancas */
+    padding-top: var(--mud-layout-properties-appbarheight);
+}
+
+.inner-page-container-fluid[b-98p2eraplv] {
+    padding: 32px 24px;
+    animation: fadeSlideUp-b-98p2eraplv 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes fadeSlideUp-b-98p2eraplv {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- MENÚ DE PERFIL DESPLEGABLE --- */
+.user-menu-header[b-98p2eraplv] {
+    min-width: 250px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    background-color: var(--mud-palette-background-gray);
+}
+
+.profile-avatar-glow[b-98p2eraplv] {
+    box-shadow: 0 4px 10px rgba(43, 76, 222, 0.15);
+    font-weight: 700;
+}
+
+.user-menu-name[b-98p2eraplv] {
+    font-weight: 700;
+}
+
+.truncate-text[b-98p2eraplv] {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 160px;
+}
+
+.role-text-badge[b-98p2eraplv] {
+    font-weight: 700;
+    color: var(--mud-palette-secondary); /* Realce Rose Gold en el nombre del Rol */
+}
+
+.logout-text-formatted[b-98p2eraplv] {
+    font-weight: 700;
+    color: var(--mud-palette-error);
+}
+
+/* --- ADAPTABILIDAD DE TEXTOS MÓVILES (ANTI-DESBORDAMIENTO) --- */
+@media (max-width: 768px) {
+    .inner-page-container-fluid[b-98p2eraplv] {
+        padding: 20px 12px;
+    }
+    .main-appbar[b-98p2eraplv] {
+        padding-left: 8px !important;
+        padding-right: 8px !important;
+    }
+}

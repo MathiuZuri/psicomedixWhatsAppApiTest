@@ -1,0 +1,13 @@
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.Domain\bin\Release\net9.0\Clinica.Domain.deps.json
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.Domain\bin\Release\net9.0\Clinica.Domain.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.Domain\bin\Release\net9.0\Clinica.Domain.pdb
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.Domain\obj\Release\net9.0\Clinica.Domain.csproj.AssemblyReference.cache
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.Domain\obj\Release\net9.0\Clinica.Domain.GeneratedMSBuildEditorConfig.editorconfig
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.Domain\obj\Release\net9.0\Clinica.Domain.AssemblyInfoInputs.cache
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.Domain\obj\Release\net9.0\Clinica.Domain.AssemblyInfo.cs
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.Domain\obj\Release\net9.0\Clinica.Domain.csproj.CoreCompileInputs.cache
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.Domain\obj\Release\net9.0\Clinica.Domain.sourcelink.json
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.Domain\obj\Release\net9.0\Clinica.Domain.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.Domain\obj\Release\net9.0\refint\Clinica.Domain.dll
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.Domain\obj\Release\net9.0\Clinica.Domain.pdb
+F:\proyectC#\pruebasUnit\ClinicaObstPrUnit\Clinica.Domain\obj\Release\net9.0\ref\Clinica.Domain.dll

@@ -1,0 +1,144 @@
+﻿@page "/finanzas"
+
+<PageTitle>Auditoría y Finanzas | Clínica Santa Mónica</PageTitle>
+
+<RequireAuth>
+    <PageHeader Title="Consola de Inteligencia Financiera"
+                Subtitle="Supervisión contable, arqueo de cierres mensuales, balance de pasivos reales y emisión de notas de ajuste del sistema SIGEC." />
+
+    <MudTabs Elevation="2" Rounded="true" Centered="false" Class="luxury-navigation-tabs mt-4">
+        
+        @* PESTAÑA 1: Balance Mensual Completo *@
+        <MudTabPanel Text="Cierre y Resumen Mensual">
+            <div class="tab-canvas-luxury">
+                <div class="query-filter-strip mb-4">
+                    <MudGrid Spacing="2" Class="align-center">
+                        <MudItem xs="12" sm="4" md="3">
+                            <MudNumericField T="int" @bind-Value="Anio" Label="Año Fiscal" Variant="Variant.Outlined" Margin="Margin.Dense" />
+                        </MudItem>
+                        <MudItem xs="12" sm="4" md="3">
+                            <MudNumericField T="int" @bind-Value="Mes" Label="Mes del Periodo" Variant="Variant.Outlined" Margin="Margin.Dense" Min="1" Max="12" />
+                        </MudItem>
+                        <MudItem xs="12" sm="4" md="6" Class="text-sm-end">
+                            <MudButton Variant="Variant.Filled" Color="Color.Primary" StartIcon="@Icons.Material.Filled.Analytics" OnClick="CargarResumenMensualAsync" Class="text-none py-2 px-5 rounded-lg full-width-mobile">
+                                Consultar Ejercicio
+                            </MudButton>
+                        </MudItem>
+                    </MudGrid>
+                </div>
+                
+                @if (ResumenMensual != null)
+                {
+                    <FinanzasResumenCaja ResumenCaja="ResumenMensual.ResumenCaja" />
+                    <FinanzasDeudasReales Estados="ResumenMensual.ResumenRealAtenciones.EstadosAtenciones" />
+                    <AjustesFinancierosList Ajustes="ResumenMensual.AjustesFinancieros" />
+                }
+            </div>
+        </MudTabPanel>
+
+        @* PESTAÑA 2: Deudas Reales *@
+        <MudTabPanel Text="Pasivos y Deudas por Atención">
+            <div class="tab-canvas-luxury">
+                <div class="d-flex justify-between align-center mb-4 flex-wrap gap-2">
+                    <MudText Typo="Typo.body2" Class="text-secondary">Libro analítico de cuentas pendientes cruzadas de pacientes por servicios ginecobstétricos.</MudText>
+                    <MudButton Variant="Variant.Filled" Color="Color.Primary" StartIcon="@Icons.Material.Filled.Refresh" OnClick="CargarDeudasRealesAsync" Class="text-none rounded-lg full-width-mobile">
+                        Sincronizar Deudas
+                    </MudButton>
+                </div>
+                @if (DeudasReales != null)
+                {
+                    <FinanzasDeudasReales Estados="DeudasReales" />
+                }
+            </div>
+        </MudTabPanel>
+
+        @* PESTAÑA 3: Estado de Cuenta Individual Paciente *@
+        <MudTabPanel Text="Estado de Cuenta del Paciente">
+            <div class="tab-canvas-luxury">
+                <div class="query-filter-strip mb-4">
+                    <MudGrid Spacing="2" Class="align-center">
+                        <MudItem xs="12" sm="8" md="9">
+                            <MudSelect T="Guid" @bind-Value="PacienteSeleccionadoId" Label="Seleccionar Titular del Expediente" Variant="Variant.Outlined" Margin="Margin.Dense" Disabled="@CargandoPacientes"
+                                       ToStringFunc="@(id => Pacientes.FirstOrDefault(p => p.Id == id)?.NombreCompleto ?? string.Empty)" Class="clean-select-inside">
+                                @foreach (var p in Pacientes)
+                                {
+                                    <MudSelectItem Value="p.Id">@p.NombreCompleto</MudSelectItem>
+                                }
+                            </MudSelect>
+                        </MudItem>
+                        <MudItem xs="12" sm="4" md="3" Class="text-sm-end">
+                            <MudButton Variant="Variant.Filled" Color="Color.Primary" StartIcon="@Icons.Material.Filled.FindInPage" Disabled="@(PacienteSeleccionadoId == Guid.Empty)" OnClick="CargarEstadoCuentaAsync" Class="text-none py-2 px-5 rounded-lg w-100 full-width-mobile">
+                                Desplegar Estado
+                            </MudButton>
+                        </MudItem>
+                    </MudGrid>
+                </div>
+
+                @if (EstadoCuenta != null)
+                {
+                    <div class="statement-card-luxury mb-4 border-top-tertiary">
+                        <div class="statement-header-luxury mb-4">
+                            <div>
+                                <MudText Typo="Typo.h3" Class="statement-patient-name">@EstadoCuenta.Paciente</MudText>
+                                <MudText Typo="Typo.caption" Class="text-secondary font-mono fw-bold">DOCUMENTO NACIONAL: @EstadoCuenta.DniPaciente</MudText>
+                            </div>
+                        </div>
+                        
+                        <div class="statement-metrics-grid">
+                            <div class="statement-metric-cell">
+                                <span class="s-label">Total Facturado</span>
+                                <span class="s-value font-mono">@EstadoCuenta.TotalFacturado.ToString("C")</span>
+                            </div>
+                            <div class="statement-metric-cell">
+                                <span class="s-label text-success">Total Cobrado</span>
+                                <span class="s-value font-mono text-success-dark">@EstadoCuenta.TotalPagado.ToString("C")</span>
+                            </div>
+                            <div class="statement-metric-cell">
+                                <span class="s-label text-danger">Monto Pendiente</span>
+                                <span class="s-value font-mono text-rose-gold">@EstadoCuenta.TotalPendiente.ToString("C")</span>
+                            </div>
+                        </div>
+
+                        @if (EstadoCuenta.Detalles != null && EstadoCuenta.Detalles.Any())
+                        {
+                            <div class="overflow-x-auto-clean mt-4 border rounded-xl">
+                                <MudTable Items="EstadoCuenta.Detalles" Dense="false" Hover="true" Striped="true" Elevation="0">
+                                    <HeaderContent>
+                                        <MudTh Class="header-cell-premium-statement">Concepto / Servicio</MudTh>
+                                        <MudTh Class="header-cell-premium-statement text-end">Monto Total</MudTh>
+                                        <MudTh Class="header-cell-premium-statement text-end">Monto Cubierto</MudTh>
+                                        <MudTh Class="header-cell-premium-statement text-end">Remanente</MudTh>
+                                        <MudTh Class="header-cell-premium-statement text-end">Fecha Operación</MudTh>
+                                    </HeaderContent>
+                                    <RowTemplate>
+                                        <MudTd Class="fw-semibold">@context.Servicio</MudTd>
+                                        <MudTd Class="font-mono text-end">@context.MontoTotal.ToString("C")</MudTd>
+                                        <MudTd Class="font-mono text-success-dark text-end">@context.MontoPagado.ToString("C")</MudTd>
+                                        <MudTd Class="font-mono text-rose-gold fw-bold text-end">@context.SaldoPendiente.ToString("C")</MudTd>
+                                        <MudTd Class="font-mono text-sm text-secondary text-end">@context.FechaPago.ToString("dd/MM/yyyy")</MudTd>
+                                    </RowTemplate>
+                                </MudTable>
+                            </div>
+                        }
+                    </div>
+                }
+            </div>
+        </MudTabPanel>
+
+        @* PESTAÑA 4: Historial de Notas de Ajustes *@
+        <MudTabPanel Text="Historial Global de Ajustes">
+            <div class="tab-canvas-luxury">
+                <div class="d-flex justify-between align-center mb-4 flex-wrap gap-2">
+                    <MudText Typo="Typo.body2" Class="text-secondary">Bitácora de auditoría financiera regulatoria de movimientos manuales de caja.</MudText>
+                    <MudButton Variant="Variant.Filled" Color="Color.Primary" StartIcon="@Icons.Material.Filled.History" OnClick="CargarAjustesAsync" Class="text-none rounded-lg full-width-mobile">
+                        Cargar Bitácora
+                    </MudButton>
+                </div>
+                @if (Ajustes != null)
+                {
+                    <AjustesFinancierosList Ajustes="Ajustes" />
+                }
+            </div>
+        </MudTabPanel>
+    </MudTabs>
+</RequireAuth>

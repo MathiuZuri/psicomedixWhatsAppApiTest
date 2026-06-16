@@ -1,0 +1,1721 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Clinica.API</name>
+    </assembly>
+    <members>
+        <member name="T:Clinica.API.Controllers.AtencionesController">
+            <summary>
+            Gestión de atenciones médicas, consultas y procedimientos del sistema clínico.
+            </summary>
+            <remarks>
+            **Nota de Arquitectura:** Por normativas de salud y auditoría clínica, las atenciones 
+            no poseen métodos de eliminación (ni física ni lógica). El ciclo de vida de un registro 
+            médico finaliza mediante el cambio de estado a "Cerrada" o "Anulada".
+            </remarks>
+        </member>
+        <member name="M:Clinica.API.Controllers.AtencionesController.GetByPaciente(System.Guid)">
+            <summary>
+            Obtiene el historial de atenciones de un paciente.
+            </summary>
+            <remarks>
+            Recupera el registro histórico de todas las interacciones clínicas de un paciente.
+            
+            **Datos incluidos en la respuesta:**
+            - Datos del doctor asignado.
+            - Servicio clínico brindado.
+            - Costos y saldos pendientes.
+            - Fechas de registro y cierre.
+            </remarks>
+            <param name="pacienteId">Identificador único del paciente (formato GUID).</param>
+            <returns>Lista de atenciones asociadas al paciente.</returns>
+            <response code="200">Búsqueda exitosa. Retorna la lista de atenciones (puede estar vacía).</response>
+            <response code="401">Autenticación requerida. Falta el token JWT o ha expirado.</response>
+            <response code="403">Acceso denegado. El usuario no tiene el permiso requerido.</response>
+        </member>
+        <member name="M:Clinica.API.Controllers.AtencionesController.GetByCita(System.Guid)">
+            <summary>
+            Obtiene la atención médica derivada de una cita específica.
+            </summary>
+            <remarks>
+            **Casos de uso:**
+            Útil cuando el usuario ingresa desde la agenda de citas y necesita ver los detalles clínicos y financieros generados a partir de esa reserva.
+            </remarks>
+            <param name="citaId">Identificador único de la cita base (formato GUID).</param>
+            <returns>Objeto con el detalle completo de la atención.</returns>
+            <response code="200">Atención encontrada y devuelta con éxito.</response>
+            <response code="401">Autenticación requerida. Falta el token JWT o ha expirado.</response>
+            <response code="403">Acceso denegado. El usuario no tiene el permiso requerido.</response>
+            <response code="404">No existe ninguna atención médica generada para esta cita.</response>
+        </member>
+        <member name="M:Clinica.API.Controllers.AtencionesController.Registrar(Clinica.Domain.DTOs.Atenciones.RegistrarAtencionDto)">
+            <summary>
+            Registra el inicio de una nueva atención médica.
+            </summary>
+            <remarks>
+            **Proceso de negocio:**
+            Este endpoint se ejecuta en admisión/triaje o cuando el doctor recibe al paciente. 
+            Transforma una cita programada en una atención activa en la clínica.
+            
+            **Requisitos:**
+            - El costo final no puede ser negativo.
+            - Los IDs de paciente, doctor y servicio deben existir en la base de datos.
+            </remarks>
+            <param name="dto">Estructura JSON con los parámetros de la nueva atención.</param>
+            <returns>El ID (GUID) generado para la nueva atención.</returns>
+            <response code="200">Atención generada e insertada en la base de datos correctamente.</response>
+            <response code="400">Error de validación (ej. costo negativo o campos obligatorios vacíos).</response>
+            <response code="401">Autenticación requerida.</response>
+            <response code="403">Permisos insuficientes para registrar atenciones.</response>
+            <response code="404">No se encontró el paciente, doctor o servicio indicado.</response>
+        </member>
+        <member name="M:Clinica.API.Controllers.AtencionesController.Cerrar(System.Guid,Clinica.Domain.DTOs.Atenciones.CerrarAtencionDto)">
+            <summary>
+            Finaliza y cierra una atención médica en curso. (Reemplaza la eliminación física/lógica).
+            </summary>
+            <remarks>
+            **Acciones internas del sistema:**
+            1. Cambia el estado interno a "Cerrada", blindando el registro contra modificaciones para cumplir normativas de auditoría médica.
+            2. Guarda el diagnóstico definitivo.
+            3. Adjunta el tratamiento e indicaciones médicas a la historia clínica.
+            
+            *Nota: Una vez cerrada, la atención pasa a estado de solo lectura clínica. Si ocurrió un error grave en la digitación, se debe usar un proceso de anulación, no de eliminación.*
+            </remarks>
+            <param name="id">ID de la atención activa que se va a finalizar.</param>
+            <param name="dto">JSON con el diagnóstico y tratamiento emitido por el doctor.</param>
+            <response code="200">Atención finalizada con éxito.</response>
+            <response code="400">Datos médicos de cierre incompletos o inválidos.</response>
+            <response code="401">Autenticación requerida.</response>
+            <response code="403">Permisos insuficientes para cerrar atenciones médicas.</response>
+            <response code="404">La atención solicitada no existe.</response>
+        </member>
+        <member name="T:Clinica.API.Controllers.AuditoriaController">
+            <summary>
+            Controlador para acceder al registro de auditoría del sistema.
+            </summary>
+            <remarks>
+            **Nota de Arquitectura:** La auditoría es un pilar fundamental en sistemas clínicos para garantizar la trazabilidad y el cumplimiento normativo. 
+            Cada acción relevante en el sistema (creación, modificación, eliminación lógica, login) queda registrada automáticamente mediante el filtro <see cref="!:AuditoriaAutomaticaFilter"/>.
+            Este controlador permite consultar dichos registros para fines de supervisión, auditoría interna o investigación.
+            </remarks>
+        </member>
+        <member name="M:Clinica.API.Controllers.AuditoriaController.GetAll">
+            <summary>
+            Obtiene todos los registros de auditoría del sistema.
+            </summary>
+            <remarks>
+            **Propósito:**
+            Este endpoint permite a los administradores y auditores revisar la totalidad de las acciones registradas en el sistema.
+            La información obtenida incluye el usuario que realizó la acción, el tipo de acción (consulta, creación, edición, etc.), la entidad afectada, el valor anterior y el nuevo valor, la IP y el User-Agent, entre otros datos.
+            
+            **Nota de rendimiento:** Dado que el volumen de registros puede ser muy grande, se recomienda aplicar filtros por fecha o usuario en futuras versiones para optimizar las consultas.
+            </remarks>
+            <returns>Lista de todos los registros de auditoría.</returns>
+            <response code="200">Lista de auditorías obtenida correctamente.</response>
+            <response code="401">No autorizado. Token JWT inválido o ausente.</response>
+            <response code="403">Acceso denegado. El usuario no tiene el permiso requerido.</response>
+        </member>
+        <member name="M:Clinica.API.Controllers.AuditoriaController.GetByUsuario(System.Guid)">
+            <summary>
+            Obtiene todos los registros de auditoría asociados a un usuario específico.
+            </summary>
+            <remarks>
+            **Casos de uso:**
+            - Revisar el historial de acciones de un operador o médico en particular.
+            - Investigar un incidente de seguridad o error operativo relacionado con un usuario específico.
+            - Extraer reportes de actividad individual para cumplir con requerimientos de auditoría externa.
+            </remarks>
+            <param name="usuarioId">Identificador único del usuario (formato GUID).</param>
+            <returns>Lista de registros de auditoría filtrados por el usuario.</returns>
+            <response code="200">Registros de auditoría del usuario obtenidos correctamente.</response>
+            <response code="401">No autorizado. Token JWT inválido o ausente.</response>
+            <response code="403">Acceso denegado. El usuario no tiene el permiso requerido.</response>
+        </member>
+        <member name="T:Clinica.API.Controllers.AuthController">
+            <summary>
+            Controlador de autenticación y gestión de sesiones de usuario.
+            </summary>
+        </member>
+        <member name="M:Clinica.API.Controllers.AuthController.Login(Clinica.Domain.DTOs.Auth.IniciarSesionDto)">
+            <summary>
+            Inicia sesión de un usuario en el sistema.
+            </summary>
+            <remarks>
+            **Proceso de autenticación:**
+            - Valida las credenciales contra la base de datos.
+            - Si son correctas, genera un token JWT válido por el tiempo configurado (120 minutos por defecto).
+            - El token incluye los roles y permisos del usuario para la autorización posterior.
+            
+            **Posibles errores:**
+            - Si el usuario no existe o la contraseña es incorrecta → se lanza una excepción genérica.
+            - Si la cuenta está inactiva → se indica que el usuario debe contactar al administrador.
+            </remarks>
+            <param name="dto">Credenciales de acceso (usuario/correo y contraseña).</param>
+            <returns>Objeto con el token JWT, datos del usuario y listas de roles y permisos.</returns>
+            <response code="200">Inicio de sesión exitoso. Retorna el token y datos del usuario.</response>
+            <response code="400">Las credenciales proporcionadas son inválidas.</response>
+            <response code="403">La cuenta del usuario está inactiva o bloqueada.</response>
+        </member>
+        <member name="M:Clinica.API.Controllers.ChatsController.EnviarMensaje(Clinica.Domain.DTOs.WhatsAppDto.EnviarMensajeDto)">
+            <summary>
+            Envía un mensaje de WhatsApp a un paciente desde el panel de la clínica.
+            </summary>
+        </member>
+        <member name="M:Clinica.API.Controllers.ChatsController.ObtenerChatsActivos">
+            <summary>
+            Endpoint complementario para listar las conversaciones activas (Columna izquierda del WhatsApp clon)
+            </summary>
+        </member>
+        <member name="M:Clinica.API.Controllers.ChatsController.ObtenerHistorialMensajes(System.Guid)">
+            <summary>
+            Endpoint complementario para cargar las burbujas de un chat específico al hacer clic en él
+            </summary>
+        </member>
+        <member name="T:Clinica.API.Controllers.CitasController">
+            <summary>
+            Controlador para la gestión integral de citas médicas.
+            </summary>
+            <remarks>
+            **Ciclo de vida de una cita:**
+            1. **Programación:** Se crea una cita con el paciente, doctor, servicio y fecha/hora.
+            2. **Verificación:** El sistema verifica automáticamente que no haya conflictos de horario con el doctor seleccionado.
+            3. **Modificaciones:** La cita puede ser reprogramada (cambiar fecha/hora/doctor) o cancelada (con un motivo).
+            4. **Finalización:** Cuando el paciente es atendido, la cita pasa al estado "Atendida" y se vincula a la atención médica correspondiente.
+            
+            **Nota de Arquitectura:** Para garantizar la integridad de la agenda, las citas canceladas no se eliminan físicamente; se cambia su estado a "Cancelada" para mantener la trazabilidad y evitar vacíos en el historial del paciente.
+            </remarks>
+        </member>
+        <member name="M:Clinica.API.Controllers.CitasController.GetAll">
+            <summary>
+            Obtiene todas las citas registradas en el sistema.
+            </summary>
+            <remarks>
+            **Propósito:**
+            Este endpoint devuelve el listado completo de todas las citas, independientemente de su estado.
+            Incluye información del paciente, doctor, servicio, fecha, hora y estado de la cita.
+            
+            **Nota de rendimiento:** En entornos con muchas citas, se recomienda usar filtros por fecha o estado para mejorar el rendimiento de la consulta.
+            </remarks>
+            <returns>Lista de objetos <see cref="T:Clinica.Domain.DTOs.Citas.CitaResponseDto"/> con los datos de cada cita.</returns>
+            <response code="200">Citas obtenidas correctamente.</response>
+            <response code="401">No autorizado. Token JWT inválido o ausente.</response>
+            <response code="403">Acceso denegado. El usuario no tiene el permiso requerido.</response>
+        </member>
+        <member name="M:Clinica.API.Controllers.CitasController.GetById(System.Guid)">
+            <summary>
+            Obtiene los detalles de una cita específica por su ID.
+            </summary>
+            <remarks>
+            **Propósito:**
+            Permite recuperar la información completa de una cita individual.
+            Útil para la pantalla de detalle de la cita o para validar datos antes de realizar una acción.
+            </remarks>
+            <param name="id">Identificador único de la cita (formato GUID).</param>
+            <returns>Objeto <see cref="T:Clinica.Domain.DTOs.Citas.CitaResponseDto"/> con los datos de la cita.</returns>
+            <response code="200">Cita obtenida correctamente.</response>
+            <response code="401">No autorizado.</response>
+            <response code="403">Acceso denegado.</response>
+            <response code="404">Cita no encontrada.</response>
+        </member>
+        <member name="M:Clinica.API.Controllers.CitasController.GetByPaciente(System.Guid)">
+            <summary>
+            Obtiene todas las citas asociadas a un paciente específico.
+            </summary>
+            <remarks>
+            **Propósito:**
+            Permite consultar el historial completo de citas de un paciente.
+            Útil en la ficha del paciente para ver su actividad en la clínica.
+            </remarks>
+            <param name="pacienteId">Identificador único del paciente (formato GUID).</param>
+            <returns>Lista de objetos <see cref="T:Clinica.Domain.DTOs.Citas.CitaResponseDto"/> con las citas del paciente.</returns>
+            <response code="200">Citas del paciente obtenidas correctamente.</response>
+            <response code="401">No autorizado.</response>
+            <response code="403">Acceso denegado.</response>
+        </member>
+        <member name="M:Clinica.API.Controllers.CitasController.GetByDoctor(System.Guid)">
+            <summary>
+            Obtiene todas las citas asociadas a un doctor específico.
+            </summary>
+            <remarks>
+            **Propósito:**
+            Permite consultar la agenda completa de un doctor.
+            Útil para el panel del doctor o para la gestión de disponibilidad.
+            </remarks>
+            <param name="doctorId">Identificador único del doctor (formato GUID).</param>
+            <returns>Lista de objetos <see cref="T:Clinica.Domain.DTOs.Citas.CitaResponseDto"/> con las citas del doctor.</returns>
+            <response code="200">Citas del doctor obtenidas correctamente.</response>
+            <response code="401">No autorizado.</response>
+            <response code="403">Acceso denegado.</response>
+        </member>
+        <member name="M:Clinica.API.Controllers.CitasController.Create(Clinica.Domain.DTOs.Citas.CrearCitaDto)">
+            <summary>
+            Programa una nueva cita.
+            </summary>
+            <remarks>
+            **Proceso de negocio:**
+            1. Valida que el paciente y el doctor existan.
+            2. Verifica que no haya conflictos de horario para el doctor en la fecha y hora seleccionadas.
+            3. Crea la cita con estado inicial "Pendiente".
+            4. Registra automáticamente un detalle en el historial clínico del paciente.
+            
+            **Validaciones clave:**
+            - La fecha de la cita no puede ser en el pasado.
+            - La hora de fin debe ser posterior a la hora de inicio.
+            - El doctor no puede tener otra cita en el mismo horario.
+            </remarks>
+            <param name="dto">Objeto <see cref="T:Clinica.Domain.DTOs.Citas.CrearCitaDto"/> con los datos de la cita.</param>
+            <returns>Objeto con el ID de la cita creada.</returns>
+            <response code="201">Cita creada correctamente. Retorna el ID de la cita.</response>
+            <response code="400">Datos inválidos o conflicto de horario.</response>
+            <response code="401">No autorizado.</response>
+            <response code="403">Permisos insuficientes para programar citas.</response>
+            <response code="404">Paciente, doctor o servicio no encontrado.</response>
+        </member>
+        <member name="M:Clinica.API.Controllers.CitasController.Reprogramar(System.Guid,Clinica.Domain.DTOs.Citas.ReprogramarCitaDto)">
+            <summary>
+            Reprograma una cita existente.
+            </summary>
+            <remarks>
+            **Proceso de negocio:**
+            1. Valida que la cita exista.
+            2. Verifica que no haya conflictos de horario con el doctor en la nueva fecha/hora.
+            3. Actualiza la cita con los nuevos datos y cambia su estado a "Reprogramada".
+            4. Registra el motivo de la reprogramación en las observaciones.
+            
+            **Nota:** La reprogramación puede implicar un cambio de doctor, fecha, hora o cualquier combinación.
+            </remarks>
+            <param name="id">Identificador de la cita a reprogramar (GUID).</param>
+            <param name="dto">Objeto <see cref="T:Clinica.Domain.DTOs.Citas.ReprogramarCitaDto"/> con los nuevos datos.</param>
+            <response code="200">Cita reprogramada correctamente.</response>
+            <response code="400">Conflicto de horario o datos inválidos.</response>
+            <response code="401">No autorizado.</response>
+            <response code="403">Permisos insuficientes para reprogramar citas.</response>
+            <response code="404">Cita no encontrada.</response>
+        </member>
+        <member name="M:Clinica.API.Controllers.CitasController.Cancelar(System.Guid,Clinica.Domain.DTOs.Citas.CancelarCitaDto)">
+            <summary>
+            Cancela una cita existente.
+            </summary>
+            <remarks>
+            **Proceso de negocio:**
+            1. Valida que la cita exista.
+            2. Cambia el estado de la cita a "Cancelada" (eliminación lógica).
+            3. Registra el motivo de cancelación en las observaciones.
+            
+            **Nota de Arquitectura:** Las citas no se eliminan físicamente para mantener la trazabilidad y el historial del paciente.
+            </remarks>
+            <param name="id">Identificador de la cita a cancelar (GUID).</param>
+            <param name="dto">Objeto <see cref="T:Clinica.Domain.DTOs.Citas.CancelarCitaDto"/> con el motivo de cancelación.</param>
+            <response code="200">Cita cancelada correctamente.</response>
+            <response code="401">No autorizado.</response>
+            <response code="403">Permisos insuficientes para cancelar citas.</response>
+            <response code="404">Cita no encontrada.</response>
+        </member>
+        <member name="T:Clinica.API.Controllers.ComprobantesController">
+            <summary>
+            Controlador para la emisión, generación de PDF y gestión de comprobantes del sistema (boletas de pago, constancias de cita, etc.).
+            </summary>
+            <remarks>
+            **Nota de Arquitectura:** Los comprobantes son documentos fiscales y clínicos que reflejan transacciones reales. 
+            No pueden ser eliminados físicamente; solo pueden ser anulados con un motivo justificado, lo que deja una trazabilidad completa.
+            La generación de PDF se realiza mediante la librería QuestPDF, que permite crear documentos profesionales de forma programática.
+            </remarks>
+        </member>
+        <member name="M:Clinica.API.Controllers.ComprobantesController.PreviewBoletaPago(System.Guid)">
+            <summary>
+            Genera una vista previa de la boleta de pago para un pago específico.
+            </summary>
+            <remarks>
+            **Propósito:** 
+            Permite al usuario visualizar cómo quedará la boleta de pago antes de emitirla formalmente.
+            
+            **Datos incluidos en la vista previa:**
+            - Información del paciente (nombre, DNI).
+            - Detalles del pago (código, monto).
+            - Servicio clínico asociado.
+            - Desglose de impuestos (IGV) y subtotal.
+            - Método de pago y estado del pago.
+            </remarks>
+            <param name="pagoId">Identificador único del pago (GUID).</param>
+            <returns>Objeto <see cref="T:Clinica.Domain.DTOs.Comprobantes.ComprobantePagoPreviewDto"/> con los datos de la vista previa.</returns>
+            <response code="200">Vista previa generada correctamente.</response>
+            <response code="400">El identificador del pago es inválido.</response>
+            <response code="401">No autorizado.</response>
+            <response code="404">Pago no encontrado.</response>
+        </member>
+        <member name="M:Clinica.API.Controllers.ComprobantesController.PreviewConstanciaCita(System.Guid)">
+            <summary>
+            Genera una vista previa de la constancia de cita para una cita específica.
+            </summary>
+            <remarks>
+            **Propósito:**
+            Permite al usuario visualizar cómo quedará la constancia de cita antes de emitirla formalmente.
+            
+            **Datos incluidos:**
+            - Información del paciente.
+            - Detalles de la cita (fecha, hora, doctor, servicio).
+            - Estado de la cita.
+            </remarks>
+            <param name="citaId">Identificador único de la cita (GUID).</param>
+            <returns>Objeto <see cref="T:Clinica.Domain.DTOs.Comprobantes.ComprobanteCitaPreviewDto"/> con los datos de la vista previa.</returns>
+            <response code="200">Vista previa generada correctamente.</response>
+            <response code="400">El identificador de la cita es inválido.</response>
+            <response code="401">No autorizado.</response>
+            <response code="404">Cita no encontrada.</response>
+        </member>
+        <member name="M:Clinica.API.Controllers.ComprobantesController.PreviewResumenAtencion(System.Guid)">
+            <summary>
+            Genera una vista previa del resumen de atención para una atención específica.
+            </summary>
+            <remarks>
+            **Propósito:**
+            Permite al usuario visualizar cómo quedará el resumen de atención antes de emitirlo formalmente.
+            
+            **Datos incluidos:**
+            - Información del paciente.
+            - Detalles de la atención (doctor, servicio, fechas, diagnóstico).
+            - Costos y pagos asociados.
+            </remarks>
+            <param name="atencionId">Identificador único de la atención (GUID).</param>
+            <returns>Objeto <see cref="T:Clinica.Domain.DTOs.Comprobantes.ComprobanteAtencionPreviewDto"/> con los datos de la vista previa.</returns>
+            <response code="200">Vista previa generada correctamente.</response>
+            <response code="400">El identificador de la atención es inválido.</response>
+            <response code="401">No autorizado.</response>
+            <response code="404">Atención no encontrada.</response>
+        </member>
+        <member name="M:Clinica.API.Controllers.ComprobantesController.PreviewEstadoCuentaPaciente(System.Guid)">
+            <summary>
+            Genera una vista previa del estado de cuenta para un paciente específico.
+            </summary>
+            <remarks>
+            **Propósito:**
+            Permite al usuario visualizar cómo quedará el estado de cuenta del paciente antes de emitirlo formalmente.
+            
+            **Datos incluidos:**
+            - Información del paciente.
+            - Total facturado, total pagado y total pendiente.
+            - Detalle de los movimientos financieros.
+            </remarks>
+            <param name="pacienteId">Identificador único del paciente (GUID).</param>
+            <returns>Objeto <see cref="T:Clinica.Domain.DTOs.Comprobantes.ComprobanteEstadoCuentaPreviewDto"/> con los datos de la vista previa.</returns>
+            <response code="200">Vista previa generada correctamente.</response>
+            <response code="400">El identificador del paciente es inválido.</response>
+            <response code="401">No autorizado.</response>
+            <response code="404">Paciente no encontrado.</response>
+        </member>
+        <member name="M:Clinica.API.Controllers.ComprobantesController.EmitirBoletaPago(Clinica.Domain.DTOs.Comprobantes.EmitirComprobantePagoDto)">
+            <summary>
+            Emite formalmente una boleta de pago.
+            </summary>
+            <remarks>
+            **Proceso de negocio:**
+            1. Valida que el pago exista (por ID o código de pago).
+            2. Calcula el subtotal y el impuesto (IGV).
+            3. Asigna un número de serie único y correlativo para el comprobante.
+            4. Guarda el comprobante en la base de datos junto con sus detalles y un snapshot JSON de los datos.
+            
+            **Resultado:** La boleta queda emitida y lista para ser descargada en PDF.
+            </remarks>
+            <param name="dto">Objeto <see cref="T:Clinica.Domain.DTOs.Comprobantes.EmitirComprobantePagoDto"/> con los datos para la emisión.</param>
+            <returns>Objeto con el ID del comprobante emitido.</returns>
+            <response code="200">Boleta de pago emitida correctamente.</response>
+            <response code="400">Datos inválidos para la emisión.</response>
+            <response code="401">No autorizado.</response>
+            <response code="404">Pago no encontrado.</response>
+        </member>
+        <member name="M:Clinica.API.Controllers.ComprobantesController.EmitirConstanciaCita(Clinica.Domain.DTOs.Comprobantes.EmitirComprobanteCitaDto)">
+            <summary>
+            Emite formalmente una constancia de cita.
+            </summary>
+            <remarks>
+            **Proceso de negocio:**
+            1. Valida que la cita exista.
+            2. Asigna un número de serie único y correlativo.
+            3. Guarda el comprobante en la base de datos.
+            
+            **Resultado:** La constancia queda emitida y lista para ser descargada en PDF.
+            </remarks>
+            <param name="dto">Objeto <see cref="T:Clinica.Domain.DTOs.Comprobantes.EmitirComprobanteCitaDto"/> con los datos para la emisión.</param>
+            <returns>Objeto con el ID del comprobante emitido.</returns>
+            <response code="200">Constancia de cita emitida correctamente.</response>
+            <response code="400">Datos inválidos para la emisión.</response>
+            <response code="401">No autorizado.</response>
+            <response code="404">Cita no encontrada.</response>
+        </member>
+        <member name="M:Clinica.API.Controllers.ComprobantesController.EmitirResumenAtencion(Clinica.Domain.DTOs.Comprobantes.EmitirComprobanteAtencionDto)">
+            <summary>
+            Emite formalmente un resumen de atención.
+            </summary>
+            <remarks>
+            **Proceso de negocio:**
+            1. Valida que la atención exista.
+            2. Asigna un número de serie único y correlativo.
+            3. Guarda el comprobante en la base de datos.
+            
+            **Resultado:** El resumen queda emitido y lista para ser descargado en PDF.
+            </remarks>
+            <param name="dto">Objeto <see cref="T:Clinica.Domain.DTOs.Comprobantes.EmitirComprobanteAtencionDto"/> con los datos para la emisión.</param>
+            <returns>Objeto con el ID del comprobante emitido.</returns>
+            <response code="200">Resumen de atención emitido correctamente.</response>
+            <response code="400">Datos inválidos para la emisión.</response>
+            <response code="401">No autorizado.</response>
+            <response code="404">Atención no encontrada.</response>
+        </member>
+        <member name="M:Clinica.API.Controllers.ComprobantesController.GenerarPdfBoletaPago(System.Guid)">
+            <summary>
+            Genera y descarga el PDF de una boleta de pago emitida.
+            </summary>
+            <remarks>
+            **Proceso:**
+            1. Valida que el comprobante exista y sea del tipo "BoletaPago".
+            2. Valida que el comprobante no esté anulado.
+            3. Genera el documento PDF mediante QuestPDF.
+            4. Retorna el archivo PDF para su descarga.
+            </remarks>
+            <param name="comprobanteId">Identificador único del comprobante (GUID).</param>
+            <returns>Archivo PDF para descargar.</returns>
+            <response code="200">PDF generado y descargado correctamente.</response>
+            <response code="400">El comprobante no es de tipo BoletaPago o está anulado.</response>
+            <response code="401">No autorizado.</response>
+            <response code="404">Comprobante no encontrado.</response>
+        </member>
+        <member name="M:Clinica.API.Controllers.ComprobantesController.GenerarPdfConstanciaCita(System.Guid)">
+            <summary>
+            Genera y descarga el PDF de una constancia de cita emitida.
+            </summary>
+            <remarks>
+            **Proceso:**
+            1. Valida que el comprobante exista y sea del tipo "ConstanciaCita".
+            2. Valida que el comprobante no esté anulado.
+            3. Genera el documento PDF.
+            4. Retorna el archivo PDF para su descarga.
+            </remarks>
+            <param name="comprobanteId">Identificador único del comprobante (GUID).</param>
+            <returns>Archivo PDF para descargar.</returns>
+            <response code="200">PDF generado y descargado correctamente.</response>
+            <response code="400">El comprobante no es de tipo ConstanciaCita o está anulado.</response>
+            <response code="401">No autorizado.</response>
+            <response code="404">Comprobante no encontrado.</response>
+        </member>
+        <member name="M:Clinica.API.Controllers.ComprobantesController.GenerarPdfResumenAtencion(System.Guid)">
+            <summary>
+            Genera y descarga el PDF de un resumen de atención emitido.
+            </summary>
+            <remarks>
+            **Proceso:**
+            1. Valida que el comprobante exista y sea del tipo "ResumenAtencion".
+            2. Valida que el comprobante no esté anulado.
+            3. Genera el documento PDF.
+            4. Retorna el archivo PDF para su descarga.
+            </remarks>
+            <param name="comprobanteId">Identificador único del comprobante (GUID).</param>
+            <returns>Archivo PDF para descargar.</returns>
+            <response code="200">PDF generado y descargado correctamente.</response>
+            <response code="400">El comprobante no es de tipo ResumenAtencion o está anulado.</response>
+            <response code="401">No autorizado.</response>
+            <response code="404">Comprobante no encontrado.</response>
+        </member>
+        <member name="M:Clinica.API.Controllers.ComprobantesController.GenerarPdfEstadoCuenta(System.Guid)">
+            <summary>
+            Genera y descarga el PDF de un estado de cuenta de paciente emitido.
+            </summary>
+            <remarks>
+            **Proceso:**
+            1. Valida que el comprobante exista y sea del tipo "EstadoCuenta".
+            2. Valida que el comprobante no esté anulado.
+            3. Genera el documento PDF.
+            4. Retorna el archivo PDF para su descarga.
+            </remarks>
+            <param name="comprobanteId">Identificador único del comprobante (GUID).</param>
+            <returns>Archivo PDF para descargar.</returns>
+            <response code="200">PDF generado y descargado correctamente.</response>
+            <response code="400">El comprobante no es de tipo EstadoCuenta o está anulado.</response>
+            <response code="401">No autorizado.</response>
+            <response code="404">Comprobante no encontrado.</response>
+        </member>
+        <member name="M:Clinica.API.Controllers.ComprobantesController.ObtenerPorId(System.Guid)">
+            <summary>
+            Obtiene los datos de un comprobante por su ID.
+            </summary>
+            <remarks>
+            **Propósito:**
+            Permite recuperar la información completa de un comprobante para visualización o validación.
+            Incluye los detalles del comprobante (líneas de servicio, montos, etc.).
+            </remarks>
+            <param name="id">Identificador único del comprobante (GUID).</param>
+            <returns>Objeto <see cref="T:Clinica.Domain.DTOs.Comprobantes.ComprobanteDto"/> con los datos del comprobante.</returns>
+            <response code="200">Comprobante obtenido correctamente.</response>
+            <response code="400">El identificador del comprobante es inválido.</response>
+            <response code="401">No autorizado.</response>
+            <response code="404">Comprobante no encontrado.</response>
+        </member>
+        <member name="M:Clinica.API.Controllers.ComprobantesController.ObtenerPorPaciente(System.Guid)">
+            <summary>
+            Obtiene todos los comprobantes emitidos para un paciente específico.
+            </summary>
+            <remarks>
+            **Propósito:**
+            Permite consultar el historial completo de comprobantes de un paciente.
+            Útil para la ficha del paciente o para auditoría financiera.
+            </remarks>
+            <param name="pacienteId">Identificador único del paciente (GUID).</param>
+            <returns>Lista de objetos <see cref="T:Clinica.Domain.DTOs.Comprobantes.ComprobanteDto"/>.</returns>
+            <response code="200">Comprobantes obtenidos correctamente.</response>
+            <response code="400">El identificador del paciente es inválido.</response>
+            <response code="401">No autorizado.</response>
+        </member>
+        <member name="M:Clinica.API.Controllers.ComprobantesController.ObtenerPorPago(System.Guid)">
+            <summary>
+            Obtiene todos los comprobantes asociados a un pago específico.
+            </summary>
+            <remarks>
+            **Propósito:**
+            Permite consultar los comprobantes que se han emitido para un pago determinado.
+            Útil para validar la emisión de boletas de pago.
+            </remarks>
+            <param name="pagoId">Identificador único del pago (GUID).</param>
+            <returns>Lista de objetos <see cref="T:Clinica.Domain.DTOs.Comprobantes.ComprobanteDto"/>.</returns>
+            <response code="200">Comprobantes obtenidos correctamente.</response>
+            <response code="400">El identificador del pago es inválido.</response>
+            <response code="401">No autorizado.</response>
+        </member>
+        <member name="M:Clinica.API.Controllers.ComprobantesController.ObtenerPorAtencion(System.Guid)">
+            <summary>
+            Obtiene todos los comprobantes asociados a una atención médica específica.
+            </summary>
+            <remarks>
+            **Propósito:**
+            Permite consultar los comprobantes que se han emitido en el contexto de una atención médica.
+            Útil para el seguimiento financiero de una atención.
+            </remarks>
+            <param name="atencionId">Identificador único de la atención (GUID).</param>
+            <returns>Lista de objetos <see cref="T:Clinica.Domain.DTOs.Comprobantes.ComprobanteDto"/>.</returns>
+            <response code="200">Comprobantes obtenidos correctamente.</response>
+            <response code="400">El identificador de la atención es inválido.</response>
+            <response code="401">No autorizado.</response>
+        </member>
+        <member name="M:Clinica.API.Controllers.ComprobantesController.AnularComprobante(System.Guid,Clinica.API.Controllers.AnularComprobanteRequest)">
+            <summary>
+            Anula un comprobante emitido.
+            </summary>
+            <remarks>
+            **Proceso de negocio:**
+            1. Valida que el comprobante exista y no esté ya anulado.
+            2. Cambia el estado del comprobante a "Anulado".
+            3. Registra el motivo de la anulación y el usuario que realiza la acción.
+            
+            **Nota de Arquitectura:** Los comprobantes anulados no se eliminan físicamente; se conservan para mantener la trazabilidad fiscal y contable.
+            </remarks>
+            <param name="comprobanteId">Identificador único del comprobante a anular (GUID).</param>
+            <param name="request">Objeto con el motivo de anulación.</param>
+            <response code="200">Comprobante anulado correctamente.</response>
+            <response code="400">El comprobante ya está anulado o el motivo es inválido.</response>
+            <response code="401">No autorizado.</response>
+            <response code="404">Comprobante no encontrado.</response>
+        </member>
+        <member name="T:Clinica.API.Controllers.AnularComprobanteRequest">
+            <summary>
+            Objeto utilizado para solicitar la anulación de un comprobante.
+            </summary>
+        </member>
+        <member name="P:Clinica.API.Controllers.AnularComprobanteRequest.Motivo">
+            <summary>
+            Motivo de la anulación del comprobante. (Campo obligatorio y debe tener al menos 3 caracteres).
+            </summary>
+            <example>"Error en el monto registrado"</example>
+        </member>
+        <member name="T:Clinica.API.Controllers.DoctoresController">
+            <summary>
+            Controlador para la gestión del cuerpo médico (doctores) del sistema.
+            </summary>
+            <remarks>
+            **Ciclo de vida del doctor en el sistema:**
+            1. **Registro:** Se crea un doctor con su CMP, datos personales y fechas de contrato.
+            2. **Actualización:** Se pueden modificar sus datos personales, especialidad y estado.
+            3. **Control de estado:** El doctor puede estar Activo, Inactivo, ContratoVencido, Suspendido o Eliminado (lógica).
+            4. **Vigencia:** El sistema controla las fechas de inicio y fin de contrato para gestionar automáticamente el estado.
+            </remarks>
+        </member>
+        <member name="M:Clinica.API.Controllers.DoctoresController.GetAll">
+            <summary>
+            Obtiene la lista completa de todos los doctores registrados en el sistema.
+            </summary>
+            <remarks>
+            **Propósito:**
+            Este endpoint devuelve todos los doctores, independientemente de su estado (activo, inactivo, etc.).
+            Útil para la administración general del personal médico.
+            
+            **Nota de rendimiento:** Para consultas frecuentes, considere usar el endpoint de doctores activos para reducir el volumen de datos.
+            </remarks>
+            <returns>Lista de objetos <see cref="T:Clinica.Domain.DTOs.Doctores.DoctorResponseDto"/> con los datos de cada doctor.</returns>
+            <response code="200">Doctores obtenidos correctamente.</response>
+            <response code="401">No autorizado. Token JWT inválido o ausente.</response>
+            <response code="403">Acceso denegado. El usuario no tiene el permiso requerido.</response>
+        </member>
+        <member name="M:Clinica.API.Controllers.DoctoresController.GetActivos">
+            <summary>
+            Obtiene la lista de doctores activos (aquellos con estado "Activo").
+            </summary>
+            <remarks>
+            **Propósito:**
+            Este endpoint es el más utilizado para la programación de citas, ya que solo se pueden asignar doctores activos.
+            Filtra automáticamente a los doctores que están disponibles para atender pacientes.
+            </remarks>
+            <returns>Lista de objetos <see cref="T:Clinica.Domain.DTOs.Doctores.DoctorResponseDto"/> de doctores activos.</returns>
+            <response code="200">Doctores activos obtenidos correctamente.</response>
+            <response code="401">No autorizado.</response>
+            <response code="403">Acceso denegado.</response>
+        </member>
+        <member name="M:Clinica.API.Controllers.DoctoresController.GetById(System.Guid)">
+            <summary>
+            Obtiene los datos de un doctor específico por su ID.
+            </summary>
+            <remarks>
+            **Propósito:**
+            Permite recuperar la información completa de un doctor individual.
+            Útil para la pantalla de detalle del doctor o para validar datos antes de una actualización.
+            </remarks>
+            <param name="id">Identificador único del doctor (formato GUID).</param>
+            <returns>Objeto <see cref="T:Clinica.Domain.DTOs.Doctores.DoctorResponseDto"/> con los datos del doctor.</returns>
+            <response code="200">Doctor obtenido correctamente.</response>
+            <response code="401">No autorizado.</response>
+            <response code="403">Acceso denegado.</response>
+            <response code="404">Doctor no encontrado.</response>
+        </member>
+        <member name="M:Clinica.API.Controllers.DoctoresController.Create(Clinica.Domain.DTOs.Doctores.CrearDoctorDto)">
+            <summary>
+            Registra un nuevo doctor en el sistema.
+            </summary>
+            <remarks>
+            **Proceso de negocio:**
+            1. Valida que el CMP no esté ya registrado (es único).
+            2. Valida que las fechas de contrato sean consistentes (fin > inicio).
+            3. Crea el doctor con estado inicial "Activo".
+            4. Genera un código de doctor único basado en el CMP.
+            
+            **Nota:** El usuario autenticado que realiza el registro queda registrado como responsable.
+            </remarks>
+            <param name="dto">Objeto <see cref="T:Clinica.Domain.DTOs.Doctores.CrearDoctorDto"/> con los datos del nuevo doctor.</param>
+            <returns>Objeto con el ID del doctor creado.</returns>
+            <response code="201">Doctor registrado correctamente.</response>
+            <response code="400">Datos inválidos o CMP ya existente.</response>
+            <response code="401">No autorizado.</response>
+            <response code="403">Permisos insuficientes para crear doctores.</response>
+        </member>
+        <member name="M:Clinica.API.Controllers.DoctoresController.Update(System.Guid,Clinica.Domain.DTOs.Doctores.EditarDoctorDto)">
+            <summary>
+            Actualiza los datos de un doctor existente.
+            </summary>
+            <remarks>
+            **Proceso de negocio:**
+            1. Valida que el doctor exista.
+            2. Valida que las fechas de contrato sean consistentes.
+            3. Actualiza todos los campos permitidos (CMP, nombres, especialidad, estado, etc.).
+            
+            **Nota de auditoría:** Esta acción queda registrada automáticamente por el filtro <see cref="!:AuditoriaAutomaticaFilter"/>.
+            </remarks>
+            <param name="id">Identificador único del doctor a actualizar (GUID).</param>
+            <param name="dto">Objeto <see cref="T:Clinica.Domain.DTOs.Doctores.EditarDoctorDto"/> con los datos actualizados.</param>
+            <response code="200">Doctor actualizado correctamente.</response>
+            <response code="400">Datos inválidos o fechas de contrato inconsistentes.</response>
+            <response code="401">No autorizado.</response>
+            <response code="403">Permisos insuficientes para editar doctores.</response>
+            <response code="404">Doctor no encontrado.</response>
+        </member>
+        <member name="T:Clinica.API.Controllers.FinanzasController">
+            <summary>
+            Controlador para la gestión financiera y contable del sistema.
+            </summary>
+            <remarks>
+            **Módulo Financiero:** Este controlador agrupa todos los endpoints relacionados con la gestión de ingresos, pagos, deudas, estados de cuenta y ajustes financieros.
+            
+            **Nota de Arquitectura:** Todos los endpoints de este controlador requieren el permiso <see cref="F:Clinica.API.Authorization.PermisosPolicies.FinanzasVer"/>.
+            Las operaciones de ajuste financiero (creación) requieren <see cref="F:Clinica.API.Authorization.PermisosPolicies.PagoRegistrar"/>.
+            </remarks>
+        </member>
+        <member name="M:Clinica.API.Controllers.FinanzasController.ObtenerResumenDiario(System.DateOnly)">
+            <summary>
+            Obtiene el resumen diario de finanzas (ingresos, pagos, deudas).
+            </summary>
+            <remarks>
+            **Propósito:**
+            Proporciona un panorama general de la actividad financiera de un día específico.
+            Útil para el cierre de caja diario y la conciliación contable.
+            
+            **Datos incluidos:**
+            - Total de ingresos del día.
+            - Total pendiente y deuda acumulada.
+            - Cantidad de pagos (completados, parciales, pendientes).
+            - Lista detallada de los pagos del día.
+            </remarks>
+            <param name="fecha">Fecha para la cual se desea el resumen (formato DateOnly, ej: 2026-06-02).</param>
+            <returns>Objeto <see cref="T:Clinica.Domain.DTOs.Finanzas.ResumenDiarioFinanzasDto"/> con los datos del resumen diario.</returns>
+            <response code="200">Resumen diario obtenido correctamente.</response>
+            <response code="401">No autorizado.</response>
+            <response code="403">Acceso denegado.</response>
+        </member>
+        <member name="M:Clinica.API.Controllers.FinanzasController.ObtenerResumenMensual(System.Int32,System.Int32)">
+            <summary>
+            Obtiene el resumen mensual de finanzas (agrupado por día).
+            </summary>
+            <remarks>
+            **Propósito:**
+            Proporciona un desglose financiero completo de un mes específico.
+            Útil para reportes de gestión mensual y auditoría.
+            
+            **Datos incluidos:**
+            - Total de ingresos del mes.
+            - Total pendiente y deuda acumulada.
+            - Cantidad de pagos por estado.
+            - Desglose diario con los mismos indicadores.
+            </remarks>
+            <param name="anio">Año del resumen (ej: 2026).</param>
+            <param name="mes">Mes del resumen (1-12).</param>
+            <returns>Objeto <see cref="T:Clinica.Domain.DTOs.Finanzas.ResumenMensualFinanzasDto"/> con los datos del resumen mensual.</returns>
+            <response code="200">Resumen mensual obtenido correctamente.</response>
+            <response code="400">Año o mes inválidos.</response>
+            <response code="401">No autorizado.</response>
+            <response code="403">Acceso denegado.</response>
+        </member>
+        <member name="M:Clinica.API.Controllers.FinanzasController.ObtenerResumenAnual(System.Int32)">
+            <summary>
+            Obtiene el resumen anual de finanzas (agrupado por mes).
+            </summary>
+            <remarks>
+            **Propósito:**
+            Proporciona una visión global de la actividad financiera de todo un año.
+            Útil para balances anuales y análisis de tendencias.
+            </remarks>
+            <param name="anio">Año para el cual se desea el resumen (ej: 2026).</param>
+            <returns>Objeto <see cref="T:Clinica.Domain.DTOs.Finanzas.ResumenAnualFinanzasDto"/> con los datos del resumen anual.</returns>
+            <response code="200">Resumen anual obtenido correctamente.</response>
+            <response code="400">Año inválido.</response>
+            <response code="401">No autorizado.</response>
+            <response code="403">Acceso denegado.</response>
+        </member>
+        <member name="M:Clinica.API.Controllers.FinanzasController.ObtenerPagosPendientes">
+            <summary>
+            Obtiene todos los pagos pendientes (con saldo pendiente > 0).
+            </summary>
+            <remarks>
+            **Propósito:**
+            Permite identificar rápidamente todos los pagos que aún no han sido liquidados completamente.
+            Útil para el seguimiento de cuentas por cobrar.
+            </remarks>
+            <returns>Lista de objetos <see cref="T:Clinica.Domain.DTOs.Finanzas.PagoFinanzasDto"/> con los pagos pendientes.</returns>
+            <response code="200">Pagos pendientes obtenidos correctamente.</response>
+            <response code="401">No autorizado.</response>
+            <response code="403">Acceso denegado.</response>
+        </member>
+        <member name="M:Clinica.API.Controllers.FinanzasController.ObtenerPagosPagados">
+            <summary>
+            Obtiene todos los pagos completamente pagados (saldo pendiente = 0).
+            </summary>
+            <remarks>
+            **Propósito:**
+            Permite consultar el historial de pagos completados.
+            Útil para reportes de ingresos y conciliación bancaria.
+            </remarks>
+            <returns>Lista de objetos <see cref="T:Clinica.Domain.DTOs.Finanzas.PagoFinanzasDto"/> con los pagos pagados.</returns>
+            <response code="200">Pagos pagados obtenidos correctamente.</response>
+            <response code="401">No autorizado.</response>
+            <response code="403">Acceso denegado.</response>
+        </member>
+        <member name="M:Clinica.API.Controllers.FinanzasController.ObtenerPagosParciales">
+            <summary>
+            Obtiene todos los pagos parciales (estado "Parcial").
+            </summary>
+            <remarks>
+            **Propósito:**
+            Permite identificar los pagos que han sido abonados parcialmente y que aún tienen un saldo pendiente.
+            Útil para el seguimiento de deudas fraccionadas.
+            </remarks>
+            <returns>Lista de objetos <see cref="T:Clinica.Domain.DTOs.Finanzas.PagoFinanzasDto"/> con los pagos parciales.</returns>
+            <response code="200">Pagos parciales obtenidos correctamente.</response>
+            <response code="401">No autorizado.</response>
+            <response code="403">Acceso denegado.</response>
+        </member>
+        <member name="M:Clinica.API.Controllers.FinanzasController.ObtenerPagoPorCodigo(System.String)">
+            <summary>
+            Obtiene un pago específico por su código de pago.
+            </summary>
+            <remarks>
+            **Propósito:**
+            Permite buscar un pago de forma rápida utilizando el código único generado por el sistema.
+            Útil para validaciones en caja o para la emisión de comprobantes.
+            </remarks>
+            <param name="codigoPago">Código único del pago (ej: "PAG-2026-abc123").</param>
+            <returns>Objeto <see cref="T:Clinica.Domain.DTOs.Finanzas.PagoFinanzasDto"/> con los datos del pago.</returns>
+            <response code="200">Pago obtenido correctamente.</response>
+            <response code="400">El código de pago es inválido o está vacío.</response>
+            <response code="401">No autorizado.</response>
+            <response code="403">Acceso denegado.</response>
+            <response code="404">Pago no encontrado.</response>
+        </member>
+        <member name="M:Clinica.API.Controllers.FinanzasController.ObtenerEstadoCuentaPaciente(System.Guid)">
+            <summary>
+            Obtiene el estado de cuenta completo de un paciente.
+            </summary>
+            <remarks>
+            **Propósito:**
+            Proporciona un resumen financiero completo de un paciente, incluyendo el total facturado, pagado y pendiente.
+            Útil para informar al paciente sobre su situación financiera o para auditoría.
+            </remarks>
+            <param name="pacienteId">Identificador único del paciente (GUID).</param>
+            <returns>Objeto <see cref="T:Clinica.Domain.DTOs.Finanzas.EstadoCuentaPacienteDto"/> con los datos del estado de cuenta.</returns>
+            <response code="200">Estado de cuenta obtenido correctamente.</response>
+            <response code="400">El identificador del paciente es inválido.</response>
+            <response code="401">No autorizado.</response>
+            <response code="403">Acceso denegado.</response>
+            <response code="404">Paciente no encontrado.</response>
+        </member>
+        <member name="M:Clinica.API.Controllers.FinanzasController.ObtenerDeudasReales">
+            <summary>
+            Obtiene la lista de deudas reales (atenciones con saldo pendiente) de todo el sistema.
+            </summary>
+            <remarks>
+            **Propósito:**
+            Permite identificar globalmente todas las atenciones que aún tienen un saldo pendiente.
+            Útil para la gestión de cobranza y análisis de cartera.
+            
+            **Nota de arquitectura:** Las deudas se agrupan por atención médica, no por pago individual.
+            </remarks>
+            <returns>Lista de objetos <see cref="T:Clinica.Domain.DTOs.Finanzas.EstadoPagoAtencionDto"/> con las deudas reales.</returns>
+            <response code="200">Deudas reales obtenidas correctamente.</response>
+            <response code="401">No autorizado.</response>
+            <response code="403">Acceso denegado.</response>
+        </member>
+        <member name="M:Clinica.API.Controllers.FinanzasController.ObtenerDeudasRealesPaciente(System.Guid)">
+            <summary>
+            Obtiene la lista de deudas reales de un paciente específico.
+            </summary>
+            <remarks>
+            **Propósito:**
+            Permite consultar las deudas pendientes de un paciente en particular.
+            Útil para el área de cobranza o para informar al paciente.
+            </remarks>
+            <param name="pacienteId">Identificador único del paciente (GUID).</param>
+            <returns>Lista de objetos <see cref="T:Clinica.Domain.DTOs.Finanzas.EstadoPagoAtencionDto"/> con las deudas del paciente.</returns>
+            <response code="200">Deudas reales del paciente obtenidas correctamente.</response>
+            <response code="400">El identificador del paciente es inválido.</response>
+            <response code="401">No autorizado.</response>
+            <response code="403">Acceso denegado.</response>
+            <response code="404">Paciente no encontrado.</response>
+        </member>
+        <member name="M:Clinica.API.Controllers.FinanzasController.ObtenerEstadoPagoAtencion(System.Guid)">
+            <summary>
+            Obtiene el estado de pago de una atención médica específica.
+            </summary>
+            <remarks>
+            **Propósito:**
+            Permite conocer el estado financiero de una atención en particular (pagada, parcial, pendiente, sobrepagada).
+            Útil para el área de caja al momento de registrar nuevos pagos.
+            </remarks>
+            <param name="atencionId">Identificador único de la atención (GUID).</param>
+            <returns>Objeto <see cref="T:Clinica.Domain.DTOs.Finanzas.EstadoPagoAtencionDto"/> con el estado de pago de la atención.</returns>
+            <response code="200">Estado de pago obtenido correctamente.</response>
+            <response code="400">El identificador de la atención es inválido.</response>
+            <response code="401">No autorizado.</response>
+            <response code="403">Acceso denegado.</response>
+            <response code="404">Atención no encontrada o sin pagos asociados.</response>
+        </member>
+        <member name="M:Clinica.API.Controllers.FinanzasController.ObtenerLibroDiario(System.DateOnly)">
+            <summary>
+            Obtiene el libro diario de finanzas para una fecha específica.
+            </summary>
+            <remarks>
+            **Propósito:**
+            Proporciona un registro cronológico de todos los pagos realizados en una fecha determinada.
+            Útil para la contabilidad y la auditoría financiera.
+            </remarks>
+            <param name="fecha">Fecha para la cual se desea el libro diario (formato DateOnly).</param>
+            <returns>Lista de objetos <see cref="T:Clinica.Domain.DTOs.Finanzas.PagoFinanzasDto"/> con los movimientos del día.</returns>
+            <response code="200">Libro diario obtenido correctamente.</response>
+            <response code="401">No autorizado.</response>
+            <response code="403">Acceso denegado.</response>
+        </member>
+        <member name="M:Clinica.API.Controllers.FinanzasController.ObtenerResumenFinancieroMensualCompleto(System.Int32,System.Int32)">
+            <summary>
+            Obtiene un resumen financiero mensual completo que incluye caja, atenciones y ajustes.
+            </summary>
+            <remarks>
+            **Propósito:**
+            Proporciona la vista más completa de la actividad financiera de un mes, integrando:
+            - Resumen de caja (ingresos por método de pago, movimientos).
+            - Resumen real de atenciones (facturado, pagado, deuda real).
+            - Lista de ajustes financieros registrados en el mes.
+            
+            Útil para el cierre contable mensual y la toma de decisiones gerenciales.
+            </remarks>
+            <param name="anio">Año del resumen (ej: 2026).</param>
+            <param name="mes">Mes del resumen (1-12).</param>
+            <returns>Objeto <see cref="T:Clinica.Domain.DTOs.Finanzas.ResumenFinancieroMensualCompletoDto"/> con todos los datos.</returns>
+            <response code="200">Resumen financiero mensual completo obtenido correctamente.</response>
+            <response code="400">Año o mes inválidos.</response>
+            <response code="401">No autorizado.</response>
+            <response code="403">Acceso denegado.</response>
+        </member>
+        <member name="M:Clinica.API.Controllers.FinanzasController.RegistrarAjusteFinanciero(Clinica.Domain.DTOs.Finanzas.RegistrarAjusteFinancieroDto)">
+            <summary>
+            Registra un nuevo ajuste financiero (descuento, recargo, corrección, etc.).
+            </summary>
+            <remarks>
+            **Proceso de negocio:**
+            1. Valida que el pago exista.
+            2. Valida que el monto del ajuste sea mayor a 0.
+            3. Valida que el motivo no esté vacío.
+            4. Verifica que no exista un ajuste similar duplicado.
+            5. Crea el registro de ajuste financiero.
+            
+            **Nota de auditoría:** Esta acción queda registrada automáticamente como crítica.
+            </remarks>
+            <param name="dto">Objeto <see cref="T:Clinica.Domain.DTOs.Finanzas.RegistrarAjusteFinancieroDto"/> con los datos del ajuste.</param>
+            <returns>Objeto con el ID del ajuste creado.</returns>
+            <response code="200">Ajuste financiero registrado correctamente.</response>
+            <response code="400">Datos inválidos o ajuste duplicado.</response>
+            <response code="401">No autorizado.</response>
+            <response code="403">Permisos insuficientes.</response>
+            <response code="404">Pago no encontrado.</response>
+        </member>
+        <member name="M:Clinica.API.Controllers.FinanzasController.ObtenerAjustesFinancieros">
+            <summary>
+            Obtiene todos los ajustes financieros registrados en el sistema.
+            </summary>
+            <remarks>
+            **Propósito:**
+            Permite consultar el historial completo de ajustes financieros.
+            Útil para auditoría y seguimiento de correcciones contables.
+            </remarks>
+            <returns>Lista de objetos <see cref="T:Clinica.Domain.DTOs.Finanzas.AjusteFinancieroDto"/> con los ajustes.</returns>
+            <response code="200">Ajustes financieros obtenidos correctamente.</response>
+            <response code="401">No autorizado.</response>
+            <response code="403">Acceso denegado.</response>
+        </member>
+        <member name="M:Clinica.API.Controllers.FinanzasController.ObtenerAjustesPorAtencion(System.Guid)">
+            <summary>
+            Obtiene los ajustes financieros asociados a una atención médica específica.
+            </summary>
+            <remarks>
+            **Propósito:**
+            Permite consultar los ajustes relacionados con una atención en particular.
+            Útil para analizar el historial financiero de una atención.
+            </remarks>
+            <param name="atencionId">Identificador único de la atención (GUID).</param>
+            <returns>Lista de objetos <see cref="T:Clinica.Domain.DTOs.Finanzas.AjusteFinancieroDto"/> con los ajustes de la atención.</returns>
+            <response code="200">Ajustes de la atención obtenidos correctamente.</response>
+            <response code="400">El identificador de la atención es inválido.</response>
+            <response code="401">No autorizado.</response>
+            <response code="403">Acceso denegado.</response>
+        </member>
+        <member name="M:Clinica.API.Controllers.FinanzasController.ObtenerAjustesPorPago(System.Guid)">
+            <summary>
+            Obtiene los ajustes financieros asociados a un pago específico.
+            </summary>
+            <remarks>
+            **Propósito:**
+            Permite consultar los ajustes relacionados con un pago en particular.
+            Útil para rastrear correcciones contables aplicadas a un pago.
+            </remarks>
+            <param name="pagoId">Identificador único del pago (GUID).</param>
+            <returns>Lista de objetos <see cref="T:Clinica.Domain.DTOs.Finanzas.AjusteFinancieroDto"/> con los ajustes del pago.</returns>
+            <response code="200">Ajustes del pago obtenidos correctamente.</response>
+            <response code="400">El identificador del pago es inválido.</response>
+            <response code="401">No autorizado.</response>
+            <response code="403">Acceso denegado.</response>
+        </member>
+        <member name="T:Clinica.API.Controllers.HistorialesController">
+            <summary>
+            Controlador para la consulta de historiales clínicos de pacientes.
+            </summary>
+            <remarks>
+            **Nota de Arquitectura:** El historial clínico es el núcleo de la trazabilidad médica en el sistema.
+            Cada acción relevante (cita, atención, pago) registra un detalle en el historial.
+            Este controlador permite consultar dichos registros para obtener una línea de tiempo clínica del paciente.
+            </remarks>
+        </member>
+        <member name="M:Clinica.API.Controllers.HistorialesController.GetByPaciente(System.Guid)">
+            <summary>
+            Obtiene el historial clínico completo de un paciente.
+            </summary>
+            <remarks>
+            **Propósito:**
+            Permite recuperar el resumen del historial clínico de un paciente, incluyendo sus datos básicos.
+            Los detalles de los movimientos se pueden obtener con el endpoint <see cref="M:Clinica.API.Controllers.HistorialesController.GetConDetalles(System.Guid)"/>.
+            
+            **Nota:** Si el paciente no tiene historial clínico, se lanza una excepción.
+            </remarks>
+            <param name="pacienteId">Identificador único del paciente (GUID).</param>
+            <returns>Objeto <see cref="!:HistorialClinicoResponseDto"/> con los datos del historial.</returns>
+            <response code="200">Historial clínico obtenido correctamente.</response>
+            <response code="401">No autorizado.</response>
+            <response code="403">Acceso denegado.</response>
+            <response code="404">Historial clínico no encontrado para el paciente.</response>
+        </member>
+        <member name="M:Clinica.API.Controllers.HistorialesController.GetConDetalles(System.Guid)">
+            <summary>
+            Obtiene el historial clínico de un paciente con todos sus detalles (movimientos).
+            </summary>
+            <remarks>
+            **Propósito:**
+            Proporciona la versión completa del historial clínico, incluyendo la lista detallada de todos los movimientos.
+            
+            **Datos incluidos:**
+            - Datos básicos del paciente y del historial.
+            - Lista de movimientos (citas, atenciones, pagos) con fechas, tipos, descripciones y usuario responsable.
+            
+            Útil para la visualización completa de la línea de tiempo clínica del paciente.
+            </remarks>
+            <param name="historialId">Identificador único del historial clínico (GUID).</param>
+            <returns>Objeto <see cref="!:HistorialClinicoResponseDto"/> con todos los detalles.</returns>
+            <response code="200">Historial clínico con detalles obtenido correctamente.</response>
+            <response code="401">No autorizado.</response>
+            <response code="403">Acceso denegado.</response>
+            <response code="404">Historial clínico no encontrado.</response>
+        </member>
+        <member name="T:Clinica.API.Controllers.HorariosController">
+            <summary>
+            Controlador para la gestión de horarios y disponibilidad de los doctores.
+            </summary>
+            <remarks>
+            **Módulo de Horarios:** Permite definir, consultar y modificar los bloques horarios de disponibilidad de los doctores.
+            La matriz semanal es una herramienta visual que muestra la disponibilidad de un doctor para una semana específica.
+            
+            **Nota de Arquitectura:** Los horarios son la base para la programación de citas. El sistema verifica automáticamente los conflictos de horario.
+            </remarks>
+        </member>
+        <member name="M:Clinica.API.Controllers.HorariosController.GetAll">
+            <summary>
+            Obtiene todos los horarios registrados en el sistema.
+            </summary>
+            <remarks>
+            **Propósito:**
+            Devuelve la lista completa de todos los horarios definidos, independientemente del doctor.
+            Útil para la administración general de disponibilidad.
+            </remarks>
+            <returns>Lista de objetos <see cref="T:Clinica.Domain.DTOs.Horarios.HorarioDoctorResponseDto"/> con los datos de cada horario.</returns>
+            <response code="200">Horarios obtenidos correctamente.</response>
+            <response code="401">No autorizado.</response>
+            <response code="403">Acceso denegado.</response>
+        </member>
+        <member name="M:Clinica.API.Controllers.HorariosController.GetByDoctor(System.Guid)">
+            <summary>
+            Obtiene todos los horarios asociados a un doctor específico.
+            </summary>
+            <remarks>
+            **Propósito:**
+            Permite consultar la disponibilidad completa de un doctor, incluyendo sus bloques de tiempo y vigencias.
+            Útil para la pantalla de gestión de horarios del doctor.
+            </remarks>
+            <param name="doctorId">Identificador único del doctor (GUID).</param>
+            <returns>Lista de objetos <see cref="T:Clinica.Domain.DTOs.Horarios.HorarioDoctorResponseDto"/> con los horarios del doctor.</returns>
+            <response code="200">Horarios del doctor obtenidos correctamente.</response>
+            <response code="401">No autorizado.</response>
+            <response code="403">Acceso denegado.</response>
+        </member>
+        <member name="M:Clinica.API.Controllers.HorariosController.Create(Clinica.Domain.DTOs.Horarios.CrearHorarioDoctorDto)">
+            <summary>
+            Crea un nuevo horario para un doctor.
+            </summary>
+            <remarks>
+            **Proceso de negocio:**
+            1. Valida que el doctor exista.
+            2. Valida que la hora de fin sea posterior a la hora de inicio.
+            3. Valida que la fecha de fin de vigencia (si existe) sea posterior a la fecha de inicio.
+            4. Crea el horario con estado "Activo".
+            
+            **Nota:** El horario se crea con una vigencia específica (fecha de inicio y opcionalmente fecha de fin).
+            </remarks>
+            <param name="dto">Objeto <see cref="T:Clinica.Domain.DTOs.Horarios.CrearHorarioDoctorDto"/> con los datos del horario.</param>
+            <returns>Objeto con el ID del horario creado.</returns>
+            <response code="200">Horario registrado correctamente.</response>
+            <response code="400">Datos inválidos o conflicto de horario.</response>
+            <response code="401">No autorizado.</response>
+            <response code="403">Permisos insuficientes.</response>
+            <response code="404">Doctor no encontrado.</response>
+        </member>
+        <member name="M:Clinica.API.Controllers.HorariosController.Update(System.Guid,Clinica.Domain.DTOs.Horarios.EditarHorarioDoctorDto)">
+            <summary>
+            Actualiza un horario existente.
+            </summary>
+            <remarks>
+            **Proceso de negocio:**
+            1. Valida que el horario exista.
+            2. Valida que la hora de fin sea posterior a la hora de inicio.
+            3. Valida que la fecha de fin de vigencia (si existe) sea posterior a la fecha de inicio.
+            4. Actualiza los datos del horario.
+            
+            **Nota de auditoría:** Esta acción queda registrada automáticamente.
+            </remarks>
+            <param name="id">Identificador único del horario a actualizar (GUID).</param>
+            <param name="dto">Objeto <see cref="T:Clinica.Domain.DTOs.Horarios.EditarHorarioDoctorDto"/> con los datos actualizados.</param>
+            <response code="200">Horario actualizado correctamente.</response>
+            <response code="400">Datos inválidos.</response>
+            <response code="401">No autorizado.</response>
+            <response code="403">Permisos insuficientes.</response>
+            <response code="404">Horario no encontrado.</response>
+        </member>
+        <member name="M:Clinica.API.Controllers.HorariosController.GetMatrizSemanal(System.Guid,System.String)">
+            <summary>
+            Obtiene la matriz semanal de disponibilidad de un doctor.
+            </summary>
+            <remarks>
+            **Propósito:**
+            Proporciona una representación visual (matriz) de la disponibilidad de un doctor para una semana completa.
+            La matriz muestra cada bloque de 30 minutos y su estado (FueraHorario, Disponible, Ocupado).
+            
+            **Nota de arquitectura:** La matriz se calcula combinando los horarios definidos para el doctor con las citas ya programadas.
+            </remarks>
+            <param name="doctorId">Identificador único del doctor (GUID).</param>
+            <param name="fecha">Fecha de referencia para calcular la semana (por defecto, la fecha actual). Formato: yyyy-MM-dd.</param>
+            <returns>Objeto <see cref="T:Clinica.Domain.DTOs.Horarios.MatrizSemanalDto"/> con la matriz de disponibilidad.</returns>
+            <response code="200">Matriz semanal calculada correctamente.</response>
+            <response code="401">No autorizado.</response>
+            <response code="403">Acceso denegado.</response>
+            <response code="404">Doctor no encontrado.</response>
+        </member>
+        <member name="T:Clinica.API.Controllers.PacientesController">
+            <summary>
+            Controlador para la gestión completa de pacientes del sistema.
+            </summary>
+            <remarks>
+            **Ciclo de vida del paciente:**
+            1. **Registro:** Se crea un paciente con sus datos básicos (DNI, nombres, fecha de nacimiento, etc.).
+            2. **Apertura de historial:** Automáticamente se crea su historial clínico al registrarse.
+            3. **Actualización:** Se pueden modificar sus datos de contacto (celular, correo, dirección).
+            4. **Cambio de estado:** El paciente puede estar Activo, Inactivo, Bloqueado, Fallecido o Eliminado (lógica).
+            
+            **Nota de Arquitectura:** La eliminación lógica de pacientes se realiza mediante el cambio de estado a "Eliminado".
+            </remarks>
+        </member>
+        <member name="M:Clinica.API.Controllers.PacientesController.GetAll">
+            <summary>
+            Obtiene la lista de todos los pacientes registrados en el sistema.
+            </summary>
+            <remarks>
+            **Propósito:**
+            Devuelve la lista completa de todos los pacientes, independientemente de su estado.
+            Útil para la administración general y la búsqueda de pacientes.
+            </remarks>
+            <returns>Lista de objetos <see cref="T:Clinica.Domain.DTOs.Pacientes.PacienteResponseDto"/> con los datos de cada paciente.</returns>
+            <response code="200">Pacientes obtenidos correctamente.</response>
+            <response code="401">No autorizado.</response>
+            <response code="403">Acceso denegado.</response>
+        </member>
+        <member name="M:Clinica.API.Controllers.PacientesController.GetById(System.Guid)">
+            <summary>
+            Obtiene los datos de un paciente por su ID.
+            </summary>
+            <remarks>
+            **Propósito:**
+            Permite recuperar la información completa de un paciente individual, incluyendo su historial clínico asociado.
+            Útil para la ficha del paciente y pantallas de detalle.
+            </remarks>
+            <param name="id">Identificador único del paciente (GUID).</param>
+            <returns>Objeto <see cref="T:Clinica.Domain.DTOs.Pacientes.PacienteResponseDto"/> con los datos del paciente.</returns>
+            <response code="200">Paciente obtenido correctamente.</response>
+            <response code="401">No autorizado.</response>
+            <response code="403">Acceso denegado.</response>
+            <response code="404">Paciente no encontrado.</response>
+        </member>
+        <member name="M:Clinica.API.Controllers.PacientesController.GetByDni(System.String)">
+            <summary>
+            Obtiene los datos de un paciente por su número de DNI.
+            </summary>
+            <remarks>
+            **Propósito:**
+            Permite buscar un paciente rápidamente utilizando su DNI.
+            Útil para la admisión y la búsqueda en la recepción de la clínica.
+            </remarks>
+            <param name="dni">Número de DNI del paciente (8 dígitos).</param>
+            <returns>Objeto <see cref="T:Clinica.Domain.DTOs.Pacientes.PacienteResponseDto"/> con los datos del paciente.</returns>
+            <response code="200">Paciente obtenido correctamente.</response>
+            <response code="401">No autorizado.</response>
+            <response code="403">Acceso denegado.</response>
+            <response code="404">Paciente no encontrado.</response>
+        </member>
+        <member name="M:Clinica.API.Controllers.PacientesController.Create(Clinica.Domain.DTOs.Pacientes.CrearPacienteDto)">
+            <summary>
+            Registra un nuevo paciente en el sistema.
+            </summary>
+            <remarks>
+            **Proceso de negocio:**
+            1. Valida que el DNI no esté ya registrado (es único).
+            2. Crea el paciente con estado "Activo".
+            3. Apertura automática de su historial clínico.
+            4. Registra un detalle de apertura en el historial.
+            
+            **Nota:** Todos los pacientes creados quedan vinculados al usuario que los registra.
+            </remarks>
+            <param name="dto">Objeto <see cref="T:Clinica.Domain.DTOs.Pacientes.CrearPacienteDto"/> con los datos del nuevo paciente.</param>
+            <returns>Objeto con el ID del paciente creado.</returns>
+            <response code="201">Paciente registrado correctamente.</response>
+            <response code="400">Datos inválidos o DNI ya existente.</response>
+            <response code="401">No autorizado.</response>
+            <response code="403">Permisos insuficientes.</response>
+        </member>
+        <member name="M:Clinica.API.Controllers.PacientesController.UpdateContact(System.Guid,Clinica.Domain.DTOs.Pacientes.ActualizarContactoPacienteDto)">
+            <summary>
+            Actualiza los datos de contacto de un paciente.
+            </summary>
+            <remarks>
+            **Propósito:**
+            Permite actualizar solo los datos de contacto (celular, correo, dirección) de un paciente.
+            
+            **Nota:** Para cambiar el estado del paciente, use el endpoint <see cref="M:Clinica.API.Controllers.PacientesController.CambiarEstado(System.Guid,Clinica.Domain.DTOs.Pacientes.CambiarEstadoPacienteDto)"/>.
+            </remarks>
+            <param name="id">Identificador único del paciente (GUID).</param>
+            <param name="dto">Objeto <see cref="T:Clinica.Domain.DTOs.Pacientes.ActualizarContactoPacienteDto"/> con los nuevos datos de contacto.</param>
+            <response code="200">Contacto actualizado correctamente.</response>
+            <response code="400">Datos inválidos.</response>
+            <response code="401">No autorizado.</response>
+            <response code="403">Permisos insuficientes.</response>
+            <response code="404">Paciente no encontrado.</response>
+        </member>
+        <member name="M:Clinica.API.Controllers.PacientesController.CambiarEstado(System.Guid,Clinica.Domain.DTOs.Pacientes.CambiarEstadoPacienteDto)">
+            <summary>
+            Cambia el estado de un paciente.
+            </summary>
+            <remarks>
+            **Propósito:**
+            Permite cambiar el estado de un paciente (Activo, Inactivo, Bloqueado, Fallecido, Eliminado).
+            
+            **Nota de Arquitectura:** La "eliminación" de un paciente es lógica y se realiza asignando el estado "Eliminado".
+            Los pacientes eliminados no se pueden reactivar.
+            </remarks>
+            <param name="id">Identificador único del paciente (GUID).</param>
+            <param name="dto">Objeto <see cref="T:Clinica.Domain.DTOs.Pacientes.CambiarEstadoPacienteDto"/> con el nuevo estado.</param>
+            <response code="200">Estado actualizado correctamente.</response>
+            <response code="400">El paciente ya está eliminado.</response>
+            <response code="401">No autorizado.</response>
+            <response code="403">Permisos insuficientes.</response>
+            <response code="404">Paciente no encontrado.</response>
+        </member>
+        <member name="T:Clinica.API.Controllers.PagosController">
+            <summary>
+            Controlador para la gestión de pagos y transacciones financieras del sistema.
+            </summary>
+            <remarks>
+            **Módulo de Pagos:** Permite registrar, consultar y modificar el estado de los pagos asociados a pacientes, citas y atenciones médicas.
+            
+            **Nota de Arquitectura:** Los pagos son el núcleo del sistema financiero. Cada pago queda vinculado a una atención o cita, y su estado puede ser gestionado.
+            La eliminación física de pagos no está permitida; solo se puede cambiar su estado a "Anulado" o "Eliminado".
+            </remarks>
+        </member>
+        <member name="M:Clinica.API.Controllers.PagosController.GetByPaciente(System.Guid)">
+            <summary>
+            Obtiene todos los pagos asociados a un paciente específico.
+            </summary>
+            <remarks>
+            **Propósito:**
+            Permite consultar el historial completo de pagos de un paciente.
+            Útil para la ficha del paciente, el área de caja o para auditoría financiera.
+            
+            **Datos incluidos:**
+            - Código de pago único.
+            - Servicio clínico asociado.
+            - Montos (total, pagado, saldo pendiente, adelanto).
+            - Método de pago y estado actual.
+            </remarks>
+            <param name="pacienteId">Identificador único del paciente (GUID).</param>
+            <returns>Lista de objetos <see cref="T:Clinica.Domain.DTOs.Pagos.PagoResponseDto"/> con los datos de cada pago.</returns>
+            <response code="200">Pagos del paciente obtenidos correctamente.</response>
+            <response code="401">No autorizado.</response>
+            <response code="403">Acceso denegado.</response>
+        </member>
+        <member name="M:Clinica.API.Controllers.PagosController.GetByCita(System.Guid)">
+            <summary>
+            Obtiene todos los pagos asociados a una cita específica.
+            </summary>
+            <remarks>
+            **Propósito:**
+            Permite consultar los pagos realizados en el contexto de una cita (ej: reserva, adelanto, pago completo).
+            Útil para verificar el estado financiero de una cita.
+            </remarks>
+            <param name="citaId">Identificador único de la cita (GUID).</param>
+            <returns>Lista de objetos <see cref="T:Clinica.Domain.DTOs.Pagos.PagoResponseDto"/> con los datos de cada pago.</returns>
+            <response code="200">Pagos de la cita obtenidos correctamente.</response>
+            <response code="401">No autorizado.</response>
+            <response code="403">Acceso denegado.</response>
+        </member>
+        <member name="M:Clinica.API.Controllers.PagosController.GetByAtencion(System.Guid)">
+            <summary>
+            Obtiene todos los pagos asociados a una atención médica específica.
+            </summary>
+            <remarks>
+            **Propósito:**
+            Permite consultar los pagos realizados en el contexto de una atención médica.
+            Útil para el seguimiento financiero de una consulta o procedimiento.
+            </remarks>
+            <param name="atencionId">Identificador único de la atención (GUID).</param>
+            <returns>Lista de objetos <see cref="T:Clinica.Domain.DTOs.Pagos.PagoResponseDto"/> con los datos de cada pago.</returns>
+            <response code="200">Pagos de la atención obtenidos correctamente.</response>
+            <response code="401">No autorizado.</response>
+            <response code="403">Acceso denegado.</response>
+        </member>
+        <member name="M:Clinica.API.Controllers.PagosController.Registrar(Clinica.Domain.DTOs.Pagos.RegistrarPagoDto)">
+            <summary>
+            Registra un nuevo pago en el sistema.
+            </summary>
+            <remarks>
+            **Proceso de negocio:**
+            1. Valida que el paciente y el servicio existan.
+            2. Valida que el monto pagado no sea mayor al monto total.
+            3. Valida que el monto de adelanto no sea mayor al monto total.
+            4. Calcula el saldo pendiente.
+            5. Crea el pago con estado "Pagado" (si saldo = 0) o "Parcial" (si saldo > 0).
+            6. Actualiza el monto pagado y saldo pendiente de la atención asociada (si existe).
+            7. Registra un detalle en el historial clínico del paciente.
+            
+            **Nota de auditoría:** Esta acción queda registrada automáticamente como crítica.
+            </remarks>
+            <param name="dto">Objeto <see cref="T:Clinica.Domain.DTOs.Pagos.RegistrarPagoDto"/> con los datos del pago.</param>
+            <returns>Objeto con el ID del pago creado.</returns>
+            <response code="200">Pago registrado correctamente.</response>
+            <response code="400">Datos inválidos (monto pagado > total, etc.).</response>
+            <response code="401">No autorizado.</response>
+            <response code="403">Permisos insuficientes.</response>
+            <response code="404">Paciente o servicio no encontrado.</response>
+        </member>
+        <member name="M:Clinica.API.Controllers.PagosController.CambiarEstado(System.Guid,Clinica.Domain.DTOs.Pagos.CambiarEstadoPagoDto)">
+            <summary>
+            Cambia el estado de un pago existente.
+            </summary>
+            <remarks>
+            **Propósito:**
+            Permite modificar el estado de un pago (ej: de "Pendiente" a "Pagado", o de "Pagado" a "Anulado").
+            
+            **Nota de Arquitectura:** Esta acción es una "eliminación lógica" cuando se usa el estado "Eliminado".
+            No se puede eliminar un pago con saldo pendiente.
+            </remarks>
+            <param name="id">Identificador único del pago (GUID).</param>
+            <param name="dto">Objeto <see cref="T:Clinica.Domain.DTOs.Pagos.CambiarEstadoPagoDto"/> con el nuevo estado.</param>
+            <response code="200">Estado del pago actualizado correctamente.</response>
+            <response code="400">El pago ya está eliminado o tiene saldo pendiente.</response>
+            <response code="401">No autorizado.</response>
+            <response code="403">Permisos insuficientes.</response>
+            <response code="404">Pago no encontrado.</response>
+        </member>
+        <member name="T:Clinica.API.Controllers.PermisosController">
+            <summary>
+            Controlador para consultar el diccionario de permisos del sistema.
+            </summary>
+            <remarks>
+            **Módulo de Seguridad:** Este controlador permite consultar todos los permisos definidos en el sistema.
+            Los permisos son la base de la autorización y se asignan a los roles para controlar el acceso a los endpoints.
+            
+            **Nota de Arquitectura:** Los permisos son inmutables y se definen en <see cref="T:Clinica.API.Authorization.PermisosPolicies"/>. 
+            No se pueden crear, modificar ni eliminar a través de la API; solo se pueden consultar.
+            </remarks>
+        </member>
+        <member name="M:Clinica.API.Controllers.PermisosController.GetAll">
+            <summary>
+            Obtiene la lista completa de todos los permisos del sistema.
+            </summary>
+            <remarks>
+            **Propósito:**
+            Permite consultar el catálogo completo de permisos definidos en el sistema.
+            Útil para la administración de roles y la asignación de permisos.
+            
+            **Datos incluidos:**
+            - ID único del permiso.
+            - Código del permiso (ej: "PACIENTE_VER").
+            - Nombre descriptivo.
+            - Módulo al que pertenece.
+            - Estado (activo/inactivo).
+            </remarks>
+            <returns>Lista de objetos <see cref="!:PermisoResponseDto"/> con los datos de cada permiso.</returns>
+            <response code="200">Permisos obtenidos correctamente.</response>
+            <response code="401">No autorizado.</response>
+            <response code="403">Acceso denegado.</response>
+        </member>
+        <member name="T:Clinica.API.Controllers.RolesController">
+            <summary>
+            Controlador para la gestión de roles y la asignación de permisos en el sistema.
+            </summary>
+            <remarks>
+            **Módulo de Seguridad:** Los roles agrupan permisos y definen los niveles de acceso de los usuarios.
+            Este controlador permite gestionar el ciclo de vida completo de los roles: creación, consulta, actualización y asignación de permisos.
+            
+            **Nota de Arquitectura:** Los roles del sistema (Administrador, Recepcionista, etc.) no pueden ser eliminados ni modificados en sus permisos base.
+            Los roles creados por el usuario pueden ser gestionados libremente.
+            </remarks>
+        </member>
+        <member name="M:Clinica.API.Controllers.RolesController.GetAll">
+            <summary>
+            Obtiene la lista de todos los roles del sistema.
+            </summary>
+            <remarks>
+            **Propósito:**
+            Permite consultar el catálogo completo de roles, incluyendo los roles del sistema y los creados por el usuario.
+            Útil para la administración de seguridad y la asignación de roles a usuarios.
+            </remarks>
+            <returns>Lista de objetos <see cref="T:Clinica.Domain.DTOs.Roles.RolResponseDto"/> con los datos de cada rol.</returns>
+            <response code="200">Roles obtenidos correctamente.</response>
+            <response code="401">No autorizado.</response>
+            <response code="403">Acceso denegado.</response>
+        </member>
+        <member name="M:Clinica.API.Controllers.RolesController.GetById(System.Guid)">
+            <summary>
+            Obtiene los detalles de un rol específico por su ID.
+            </summary>
+            <remarks>
+            **Propósito:**
+            Permite recuperar la información completa de un rol individual, incluyendo sus datos básicos.
+            Útil para la pantalla de detalle del rol o para validar datos antes de una actualización.
+            </remarks>
+            <param name="id">Identificador único del rol (GUID).</param>
+            <returns>Objeto <see cref="T:Clinica.Domain.DTOs.Roles.RolResponseDto"/> con los datos del rol.</returns>
+            <response code="200">Rol obtenido correctamente.</response>
+            <response code="401">No autorizado.</response>
+            <response code="403">Acceso denegado.</response>
+            <response code="404">Rol no encontrado.</response>
+        </member>
+        <member name="M:Clinica.API.Controllers.RolesController.Create(Clinica.Domain.DTOs.Roles.CrearRolDto)">
+            <summary>
+            Crea un nuevo rol en el sistema.
+            </summary>
+            <remarks>
+            **Proceso de negocio:**
+            1. Valida que el nombre del rol no esté ya registrado.
+            2. Crea el rol con estado "Activo".
+            3. El rol no tiene permisos asignados por defecto.
+            
+            **Nota:** Los roles del sistema (Administrador, etc.) no pueden ser creados por este endpoint.
+            </remarks>
+            <param name="dto">Objeto <see cref="T:Clinica.Domain.DTOs.Roles.CrearRolDto"/> con el nombre y descripción del nuevo rol.</param>
+            <returns>Objeto con el ID del rol creado.</returns>
+            <response code="201">Rol creado correctamente.</response>
+            <response code="400">El nombre del rol ya existe.</response>
+            <response code="401">No autorizado.</response>
+            <response code="403">Permisos insuficientes.</response>
+        </member>
+        <member name="M:Clinica.API.Controllers.RolesController.Update(System.Guid,Clinica.Domain.DTOs.Roles.EditarRolDto)">
+            <summary>
+            Actualiza los datos de un rol existente.
+            </summary>
+            <remarks>
+            **Proceso de negocio:**
+            1. Valida que el rol exista.
+            2. Valida que el rol no sea del sistema (no se pueden modificar).
+            3. Actualiza el nombre, la descripción y el estado del rol.
+            
+            **Nota de auditoría:** Esta acción queda registrada automáticamente como crítica.
+            </remarks>
+            <param name="id">Identificador único del rol a actualizar (GUID).</param>
+            <param name="dto">Objeto <see cref="T:Clinica.Domain.DTOs.Roles.EditarRolDto"/> con los datos actualizados.</param>
+            <response code="200">Rol actualizado correctamente.</response>
+            <response code="400">El rol es del sistema y no se puede modificar.</response>
+            <response code="401">No autorizado.</response>
+            <response code="403">Permisos insuficientes.</response>
+            <response code="404">Rol no encontrado.</response>
+        </member>
+        <member name="M:Clinica.API.Controllers.RolesController.AssignPermissions(Clinica.Domain.DTOs.Roles.AsignarPermisosRolDto)">
+            <summary>
+            Asigna permisos a un rol específico.
+            </summary>
+            <remarks>
+            **Proceso de negocio:**
+            1. Valida que el rol exista.
+            2. Por cada permiso ID en la lista, valida que el permiso exista.
+            3. Asigna los permisos al rol (si no están ya asignados).
+            
+            **Nota:** Los permisos asignados a roles del sistema no pueden ser modificados.
+            </remarks>
+            <param name="dto">Objeto <see cref="T:Clinica.Domain.DTOs.Roles.AsignarPermisosRolDto"/> con el rol y la lista de permisos.</param>
+            <response code="200">Permisos asignados correctamente.</response>
+            <response code="400">Uno o más permisos no existen.</response>
+            <response code="401">No autorizado.</response>
+            <response code="403">Permisos insuficientes.</response>
+            <response code="404">Rol no encontrado.</response>
+        </member>
+        <member name="T:Clinica.API.Controllers.ServiciosClinicosController">
+            <summary>
+            Controlador para la consulta del catálogo de servicios clínicos.
+            </summary>
+            <remarks>
+            **Módulo de Servicios Clínicos:** Permite consultar los servicios disponibles en el sistema (consultas, procedimientos, etc.).
+            
+            **Nota de Arquitectura:** El catálogo de servicios es de solo lectura a través de la API. 
+            Los servicios se cargan inicialmente mediante el <see cref="!:DataSeeder"/> y no pueden ser modificados por los usuarios.
+            </remarks>
+        </member>
+        <member name="M:Clinica.API.Controllers.ServiciosClinicosController.GetAll">
+            <summary>
+            Obtiene la lista completa de todos los servicios clínicos registrados.
+            </summary>
+            <remarks>
+            **Propósito:**
+            Permite consultar el catálogo completo de servicios clínicos, incluyendo su costo base, duración y requisitos.
+            Útil para la programación de citas y la facturación.
+            </remarks>
+            <returns>Lista de objetos <see cref="!:ServicioClinicoResponseDto"/> con los datos de cada servicio.</returns>
+            <response code="200">Servicios clínicos obtenidos correctamente.</response>
+            <response code="401">No autorizado.</response>
+            <response code="403">Acceso denegado.</response>
+        </member>
+        <member name="M:Clinica.API.Controllers.ServiciosClinicosController.GetActivos">
+            <summary>
+            Obtiene la lista de servicios clínicos activos.
+            </summary>
+            <remarks>
+            **Propósito:**
+            Permite consultar únicamente los servicios que están activos (estado "Activo").
+            Útil para la programación de citas, ya que solo los servicios activos pueden ser seleccionados.
+            </remarks>
+            <returns>Lista de objetos <see cref="!:ServicioClinicoResponseDto"/> con los servicios activos.</returns>
+            <response code="200">Servicios clínicos activos obtenidos correctamente.</response>
+            <response code="401">No autorizado.</response>
+            <response code="403">Acceso denegado.</response>
+        </member>
+        <member name="M:Clinica.API.Controllers.ServiciosClinicosController.GetById(System.Guid)">
+            <summary>
+            Obtiene los datos de un servicio clínico específico por su ID.
+            </summary>
+            <remarks>
+            **Propósito:**
+            Permite recuperar la información completa de un servicio clínico individual.
+            Útil para la pantalla de detalle del servicio o para validar datos antes de una programación.
+            </remarks>
+            <param name="id">Identificador único del servicio clínico (GUID).</param>
+            <returns>Objeto <see cref="!:ServicioClinicoResponseDto"/> con los datos del servicio.</returns>
+            <response code="200">Servicio clínico obtenido correctamente.</response>
+            <response code="401">No autorizado.</response>
+            <response code="403">Acceso denegado.</response>
+            <response code="404">Servicio clínico no encontrado.</response>
+        </member>
+        <member name="T:Clinica.API.Controllers.UsuariosController">
+            <summary>
+            Controlador para la gestión de usuarios del sistema.
+            </summary>
+            <remarks>
+            **Módulo de Seguridad:** Este controlador permite gestionar el ciclo de vida completo de los usuarios: creación, consulta, actualización, cambio de estado y asignación de roles.
+            
+            **Nota de Arquitectura:** Los usuarios son el pilar de la autenticación y autorización en el sistema.
+            El usuario administrador principal (con código "USR-ADMIN") no puede ser desactivado ni eliminado.
+            </remarks>
+        </member>
+        <member name="M:Clinica.API.Controllers.UsuariosController.GetAll">
+            <summary>
+            Obtiene la lista de todos los usuarios del sistema.
+            </summary>
+            <remarks>
+            **Propósito:**
+            Permite consultar el catálogo completo de usuarios, incluyendo sus datos básicos.
+            Útil para la administración de personal y la asignación de roles.
+            </remarks>
+            <returns>Lista de objetos <see cref="T:Clinica.Domain.DTOs.Usuarios.UsuarioResponseDto"/> con los datos de cada usuario.</returns>
+            <response code="200">Usuarios obtenidos correctamente.</response>
+            <response code="401">No autorizado.</response>
+            <response code="403">Acceso denegado.</response>
+        </member>
+        <member name="M:Clinica.API.Controllers.UsuariosController.GetById(System.Guid)">
+            <summary>
+            Obtiene los datos de un usuario específico por su ID.
+            </summary>
+            <remarks>
+            **Propósito:**
+            Permite recuperar la información completa de un usuario individual.
+            Útil para la pantalla de detalle del usuario o para validar datos antes de una actualización.
+            </remarks>
+            <param name="id">Identificador único del usuario (GUID).</param>
+            <returns>Objeto <see cref="T:Clinica.Domain.DTOs.Usuarios.UsuarioResponseDto"/> con los datos del usuario.</returns>
+            <response code="200">Usuario obtenido correctamente.</response>
+            <response code="401">No autorizado.</response>
+            <response code="403">Acceso denegado.</response>
+            <response code="404">Usuario no encontrado.</response>
+        </member>
+        <member name="M:Clinica.API.Controllers.UsuariosController.Create(Clinica.Domain.DTOs.Usuarios.CrearUsuarioDto)">
+            <summary>
+            Crea un nuevo usuario en el sistema.
+            </summary>
+            <remarks>
+            **Proceso de negocio:**
+            1. Valida que el correo no esté ya registrado.
+            2. Valida que el nombre de usuario no esté ya registrado.
+            3. Hash de la contraseña utilizando BCrypt.
+            4. Crea el usuario con estado "Activo".
+            
+            **Nota:** El usuario creado no tiene ningún rol asignado por defecto.
+            </remarks>
+            <param name="dto">Objeto <see cref="T:Clinica.Domain.DTOs.Usuarios.CrearUsuarioDto"/> con los datos del nuevo usuario.</param>
+            <returns>Objeto con el ID del usuario creado.</returns>
+            <response code="201">Usuario creado correctamente.</response>
+            <response code="400">Correo o nombre de usuario ya existen.</response>
+            <response code="401">No autorizado.</response>
+            <response code="403">Permisos insuficientes.</response>
+        </member>
+        <member name="M:Clinica.API.Controllers.UsuariosController.Update(System.Guid,Clinica.Domain.DTOs.Usuarios.EditarUsuarioDto)">
+            <summary>
+            Actualiza los datos de un usuario existente.
+            </summary>
+            <remarks>
+            **Proceso de negocio:**
+            1. Valida que el usuario exista.
+            2. Actualiza los campos permitidos (nombres, apellidos, nombre de usuario, correo).
+            
+            **Nota de auditoría:** Esta acción queda registrada automáticamente como crítica.
+            </remarks>
+            <param name="id">Identificador único del usuario a actualizar (GUID).</param>
+            <param name="dto">Objeto <see cref="T:Clinica.Domain.DTOs.Usuarios.EditarUsuarioDto"/> con los datos actualizados.</param>
+            <response code="200">Usuario actualizado correctamente.</response>
+            <response code="401">No autorizado.</response>
+            <response code="403">Permisos insuficientes.</response>
+            <response code="404">Usuario no encontrado.</response>
+        </member>
+        <member name="M:Clinica.API.Controllers.UsuariosController.AssignRole(Clinica.Domain.DTOs.Usuarios.AsignarRolUsuarioDto)">
+            <summary>
+            Asigna un rol a un usuario específico.
+            </summary>
+            <remarks>
+            **Proceso de negocio:**
+            1. Valida que el usuario exista.
+            2. Valida que el rol exista.
+            3. Verifica que el usuario no tenga ya asignado ese rol.
+            4. Asigna el rol al usuario.
+            
+            **Nota:** Un usuario puede tener múltiples roles, y todos sus permisos se combinan.
+            </remarks>
+            <param name="dto">Objeto <see cref="T:Clinica.Domain.DTOs.Usuarios.AsignarRolUsuarioDto"/> con el usuario y el rol.</param>
+            <response code="200">Rol asignado correctamente.</response>
+            <response code="400">El usuario ya tiene asignado ese rol.</response>
+            <response code="401">No autorizado.</response>
+            <response code="403">Permisos insuficientes.</response>
+            <response code="404">Usuario o rol no encontrado.</response>
+        </member>
+        <member name="M:Clinica.API.Controllers.UsuariosController.CambiarEstado(System.Guid,Clinica.Domain.DTOs.Usuarios.CambiarEstadoUsuarioDto)">
+            <summary>
+            Cambia el estado de un usuario.
+            </summary>
+            <remarks>
+            **Propósito:**
+            Permite activar, desactivar o bloquear un usuario.
+            
+            **Nota de Arquitectura:** La "eliminación" de un usuario es lógica y se realiza asignando el estado "Eliminado".
+            El administrador principal (código "USR-ADMIN") no puede ser desactivado.
+            </remarks>
+            <param name="id">Identificador único del usuario (GUID).</param>
+            <param name="dto">Objeto <see cref="T:Clinica.Domain.DTOs.Usuarios.CambiarEstadoUsuarioDto"/> con el nuevo estado.</param>
+            <response code="200">Estado del usuario actualizado correctamente.</response>
+            <response code="400">No se puede desactivar al administrador principal.</response>
+            <response code="401">No autorizado.</response>
+            <response code="403">Permisos insuficientes.</response>
+            <response code="404">Usuario no encontrado.</response>
+        </member>
+        <member name="M:Clinica.API.Hubs.ChatHub.OnConnectedAsync">
+            <summary>
+            Evento que se ejecuta automáticamente cuando una pantalla de MudBlazor se conecta.
+            </summary>
+        </member>
+        <member name="M:Clinica.API.Hubs.ChatHub.OnDisconnectedAsync(System.Exception)">
+            <summary>
+            Evento que se ejecuta cuando una pantalla se cierra o pierde internet.
+            </summary>
+        </member>
+        <member name="M:Clinica.API.Hubs.ChatHub.EnviarMensajeAClientes(System.Object)">
+            <summary>
+            Método opcional por si el Frontend quiere enviar un mensaje a través del Socket 
+            (aunque lo ideal para enviar sigue siendo usar HTTP comercial).
+            </summary>
+        </member>
+    </members>
+</doc>

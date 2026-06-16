@@ -1,0 +1,108 @@
+﻿@if (IsLoading)
+{
+    <LoadingState Message="Sincronizando catálogo maestro de servicios..." />
+}
+else if (!Servicios.Any())
+{
+    <EmptyState Icon="@Icons.Material.Filled.MedicalInformation"
+                Title="No hay servicios clínicos registrados"
+                Message="Los servicios clínicos disponibles aparecerán aquí." />
+}
+else
+{
+    <div class="servicios-table-layer">
+        <MudTable Items="@ServiciosFiltrados"
+                  Dense="false"
+                  Hover="true"
+                  Bordered="false"
+                  Striped="true"
+                  Elevation="0"
+                  Class="luxury-catalog-table">
+
+            <HeaderContent>
+                <MudTh Class="header-cell-premium">Código</MudTh>
+                <MudTh Class="header-cell-premium">Nombre del Servicio</MudTh>
+                <MudTh Class="header-cell-premium">Duración Estimada</MudTh>
+                <MudTh Class="header-cell-premium">Costo Base</MudTh>
+                <MudTh Class="header-cell-premium">Cita Obligatoria</MudTh>
+                <MudTh Class="header-cell-premium">Genera Historial</MudTh>
+                <MudTh Class="header-cell-premium">Estado</MudTh>
+                <MudTh Class="header-cell-premium text-end">Acciones</MudTh>
+            </HeaderContent>
+
+            <RowTemplate>
+                <MudTd DataLabel="Código" Class="py-3">
+                    <span class="service-table-code">@context.CodigoServicio</span>
+                </MudTd>
+                <MudTd DataLabel="Nombre" Class="fw-bold text-primary-dark">@context.Nombre</MudTd>
+                <MudTd DataLabel="Duración" Class="font-mono text-sm">@context.DuracionMinutos min</MudTd>
+                <MudTd DataLabel="Costo Base" Class="font-mono fw-bold text-success-dark">@context.CostoBase.ToString("C")</MudTd>
+                <MudTd DataLabel="Cita">
+                    <div class="icon-indicator-wrapper">
+                        <MudIcon Icon="@(context.RequiereCita ? Icons.Material.Filled.CheckCircle : Icons.Material.Filled.Cancel)"
+                                 Color="@(context.RequiereCita ? Color.Success : Color.Default)" 
+                                 Size="Size.Medium" />
+                    </div>
+                </MudTd>
+
+                <MudTd DataLabel="Historial">
+                    <div class="icon-indicator-wrapper">
+                        <MudIcon Icon="@(context.GeneraHistorial ? Icons.Material.Filled.CheckCircle : Icons.Material.Filled.Cancel)"
+                                 Color="@(context.GeneraHistorial ? Color.Success : Color.Default)" 
+                                 Size="Size.Medium" />
+                    </div>
+                </MudTd>
+                <MudTd DataLabel="Estado">
+                    <MudChip T="string"
+                             Size="Size.Small"
+                             Color="@ObtenerColorEstado(context.Estado)"
+                             Variant="Variant.Filled"
+                             Class="fw-bold table-chip-rounded">
+                        @context.Estado
+                    </MudChip>
+                </MudTd>
+                <MudTd DataLabel="Acciones" Class="text-end py-2">
+                    <MudTooltip Text="Ver Especificaciones Técnicas">
+                        <MudIconButton Icon="@Icons.Material.Filled.Visibility"
+                                       Color="Color.Primary"
+                                       Size="Size.Small"
+                                       Class="action-btn-styled"
+                                       OnClick="() => OnView.InvokeAsync(context)" />
+                    </MudTooltip>
+                </MudTd>
+            </RowTemplate>
+
+            <PagerContent>
+                <div class="table-pager-luxury">
+                    <MudTablePager PageSizeOptions="new[] { 5, 10, 20, 50 }" RowsPerPageString="Filas por página:" />
+                </div>
+            </PagerContent>
+        </MudTable>
+    </div>
+}
+
+@code {
+    [Parameter] public List<ServicioClinicoResponseDto> Servicios { get; set; } = new();
+    [Parameter] public string SearchText { get; set; } = string.Empty;
+    [Parameter] public bool IsLoading { get; set; }
+    [Parameter] public EventCallback<ServicioClinicoResponseDto> OnView { get; set; }
+
+    private IEnumerable<ServicioClinicoResponseDto> ServiciosFiltrados =>
+        string.IsNullOrWhiteSpace(SearchText)
+            ? Servicios
+            : Servicios.Where(x =>
+                x.CodigoServicio.Contains(SearchText, StringComparison.OrdinalIgnoreCase) ||
+                x.Nombre.Contains(SearchText, StringComparison.OrdinalIgnoreCase) ||
+                (x.Descripcion != null && x.Descripcion.Contains(SearchText, StringComparison.OrdinalIgnoreCase)));
+
+    private static Color ObtenerColorEstado(EstadoServicioClinico estado)
+    {
+        return estado switch
+        {
+            EstadoServicioClinico.Activo => Color.Success,
+            EstadoServicioClinico.Inactivo => Color.Warning,
+            EstadoServicioClinico.Eliminado => Color.Error,
+            _ => Color.Default
+        };
+    }
+}

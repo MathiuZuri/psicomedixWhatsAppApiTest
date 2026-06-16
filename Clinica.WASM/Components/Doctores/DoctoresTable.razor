@@ -1,0 +1,125 @@
+﻿@if (IsLoading)
+{
+    <LoadingState Message="Sincronizando registros del cuerpo médico..." />
+}
+else if (!Doctores.Any())
+{
+    <EmptyState Icon="@Icons.Material.Filled.PersonOff"
+                Title="No hay doctores registrados"
+                Message="Registra el primer doctor para comenzar.">
+        <ActionContent>
+            @ActionContent
+        </ActionContent>
+    </EmptyState>
+}
+else
+{
+    <div class="doctores-table-layer">
+        <MudTable Items="@DoctoresFiltrados"
+                  Dense="false"
+                  Hover="true"
+                  Bordered="false"
+                  Striped="true"
+                  Elevation="0"
+                  Class="luxury-medical-table">
+
+            <HeaderContent>
+                <MudTh Class="header-cell-premium">Código</MudTh>
+                <MudTh Class="header-cell-premium">Médico Especialista</MudTh>
+                <MudTh Class="header-cell-premium">Especialidad</MudTh>
+                <MudTh Class="header-cell-premium">CMP</MudTh>
+                <MudTh Class="header-cell-premium">Vigencia Contrato</MudTh>
+                <MudTh Class="header-cell-premium">Estado</MudTh>
+                <MudTh Class="header-cell-premium text-end">Acciones de Ficha</MudTh>
+            </HeaderContent>
+
+            <RowTemplate>
+                <MudTd DataLabel="Código" Class="py-3">
+                    <span class="doctor-table-code">@context.CodigoDoctor</span>
+                </MudTd>
+                <MudTd DataLabel="Nombre" Class="fw-bold text-primary-dark">@context.NombreCompleto</MudTd>
+                <MudTd DataLabel="Especialidad">
+                    <span class="specialty-pill-text">@context.Especialidad</span>
+                </MudTd>
+                <MudTd DataLabel="CMP" Class="font-mono font-medium">@context.CMP</MudTd>
+                <MudTd DataLabel="Contrato">
+                    <div class="contract-date-stack">
+                        <span class="text-sm">@context.FechaInicioContrato.ToString("dd/MM/yyyy")</span>
+                        @if (context.FechaFinContrato.HasValue)
+                        {
+                            <span class="contract-end-subtext">↳ @context.FechaFinContrato.Value.ToString("dd/MM/yyyy")</span>
+                        }
+                        else
+                        {
+                            <span class="contract-indefinite-subtext">↳ Indefinido</span>
+                        }
+                    </div>
+                </MudTd>
+                <MudTd DataLabel="Estado">
+                    <MudChip T="string"
+                             Size="Size.Small"
+                             Color="@ObtenerColorEstado(context.Estado)"
+                             Variant="Variant.Filled"
+                             Class="fw-bold table-chip-rounded">
+                        @context.Estado
+                    </MudChip>
+                </MudTd>
+                <MudTd DataLabel="Acciones" Class="text-end py-2">
+                    <div class="d-inline-flex gap-1">
+                        <MudTooltip Text="Ver Historial Médico">
+                            <MudIconButton Icon="@Icons.Material.Filled.Visibility"
+                                           Color="Color.Primary"
+                                           Size="Size.Small"
+                                           Class="action-btn-styled"
+                                           OnClick="() => OnView.InvokeAsync(context)" />
+                        </MudTooltip>
+                        <MudTooltip Text="Modificar Expediente">
+                            <MudIconButton Icon="@Icons.Material.Filled.Edit"
+                                           Color="Color.Warning"
+                                           Size="Size.Small"
+                                           Class="action-btn-styled"
+                                           OnClick="() => OnEdit.InvokeAsync(context)" />
+                        </MudTooltip>
+                    </div>
+                </MudTd>
+            </RowTemplate>
+
+            <PagerContent>
+                <div class="table-pager-luxury">
+                    <MudTablePager PageSizeOptions="new[] { 5, 10, 20, 50 }" RowsPerPageString="Doctores por página:" />
+                </div>
+            </PagerContent>
+        </MudTable>
+    </div>
+}
+
+@code {
+    [Parameter] public List<DoctorResponseDto> Doctores { get; set; } = new();
+    [Parameter] public string SearchText { get; set; } = string.Empty;
+    [Parameter] public bool IsLoading { get; set; }
+    [Parameter] public EventCallback<DoctorResponseDto> OnView { get; set; }
+    [Parameter] public EventCallback<DoctorResponseDto> OnEdit { get; set; }
+    [Parameter] public RenderFragment? ActionContent { get; set; }
+
+    private IEnumerable<DoctorResponseDto> DoctoresFiltrados =>
+        string.IsNullOrWhiteSpace(SearchText)
+            ? Doctores
+            : Doctores.Where(x =>
+                x.CodigoDoctor.Contains(SearchText, StringComparison.OrdinalIgnoreCase) ||
+                x.NombreCompleto.Contains(SearchText, StringComparison.OrdinalIgnoreCase) ||
+                x.Especialidad.Contains(SearchText, StringComparison.OrdinalIgnoreCase) ||
+                x.CMP.Contains(SearchText, StringComparison.OrdinalIgnoreCase));
+
+    private static Color ObtenerColorEstado(EstadoDoctor estado)
+    {
+        return estado switch
+        {
+            EstadoDoctor.Activo => Color.Success,
+            EstadoDoctor.Inactivo => Color.Warning,
+            EstadoDoctor.ContratoVencido => Color.Error,
+            EstadoDoctor.Suspendido => Color.Dark,
+            EstadoDoctor.Eliminado => Color.Error,
+            _ => Color.Default
+        };
+    }
+}

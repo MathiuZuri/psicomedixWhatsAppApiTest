@@ -1,0 +1,62 @@
+﻿.horarios-table-layer {
+    background-color: var(--mud-palette-surface);
+    border-radius: var(--mud-layout-properties-default-border-radius);
+    box-shadow: var(--mud-elevation-2);
+    border: 1px solid var(--mud-palette-divider);
+    overflow: hidden;
+}
+
+.header-cell-premium {
+    font-weight: 700 !important;
+    text-transform: uppercase;
+    font-size: 0.75rem !important;
+    letter-spacing: 0.05em;
+    background-color: var(--mud-palette-background-gray) !important;
+    color: var(--mud-palette-text-secondary) !important;
+    padding: 16px !important;
+}
+
+.day-tag-pill {
+    font-weight: 600;
+    color: var(--mud-palette-text-primary);
+    font-size: 0.85rem;
+}
+
+.vigencia-date-stack {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.vigencia-end-text {
+    font-size: 0.75rem;
+    color: var(--mud-palette-secondary); /* Realce Rose Gold */
+    font-weight: 500;
+}
+
+.vigencia-permanent-text {
+    font-size: 0.75rem;
+    color: var(--mud-palette-text-secondary);
+    opacity: 0.6;
+    font-style: italic;
+}
+
+.boolean-icon-wrapper {
+    display: inline-flex;
+    align-items: center;
+}
+
+.action-btn-styled {
+    background-color: var(--mud-palette-background-gray);
+    border-radius: 8px !important;
+    transition: all 0.2s ease;
+}
+
+.action-btn-styled:hover {
+    background-color: var(--mud-palette-divider);
+}
+
+.table-pager-luxury {
+    border-top: 1px solid var(--mud-palette-divider);
+    padding: 4px 8px;
+}

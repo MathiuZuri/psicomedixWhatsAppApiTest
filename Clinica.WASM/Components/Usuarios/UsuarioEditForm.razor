@@ -1,0 +1,85 @@
+﻿<EditForm Model="@Model" OnValidSubmit="GuardarAsync">
+    <DataAnnotationsValidator />
+
+    <div class="user-form-scroll-wrapper">
+        <MudGrid>
+            <MudItem xs="12" sm="6">
+                <MudTextField @bind-Value="Model.Nombres"
+                              Label="Nombres"
+                              Variant="Variant.Outlined"
+                              For="@(() => Model.Nombres)"
+                              Disabled="@IsProcessing"
+                              Adornment="Adornment.Start"
+                              AdornmentIcon="@Icons.Material.Filled.Person"
+                              AdornmentColor="Color.Primary" />
+            </MudItem>
+            <MudItem xs="12" sm="6">
+                <MudTextField @bind-Value="Model.Apellidos"
+                              Label="Apellidos"
+                              Variant="Variant.Outlined"
+                              For="@(() => Model.Apellidos)"
+                              Disabled="@IsProcessing"
+                              Adornment="Adornment.Start"
+                              AdornmentIcon="@Icons.Material.Filled.People"
+                              AdornmentColor="Color.Primary" />
+            </MudItem>
+            <MudItem xs="12" sm="6">
+                <MudTextField @bind-Value="Model.UserName"
+                              Label="Nombre de Usuario (Alias)"
+                              Variant="Variant.Outlined"
+                              For="@(() => Model.UserName)"
+                              Disabled="@IsProcessing"
+                              Adornment="Adornment.Start"
+                              AdornmentIcon="@Icons.Material.Filled.AlternateEmail"
+                              AdornmentColor="Color.Secondary" />
+            </MudItem>
+            <MudItem xs="12" sm="6">
+                <MudTextField @bind-Value="Model.Correo"
+                              Label="Correo Electrónico Notificable"
+                              Variant="Variant.Outlined"
+                              For="@(() => Model.Correo)"
+                              Disabled="@IsProcessing"
+                              Adornment="Adornment.Start"
+                              AdornmentIcon="@Icons.Material.Filled.MailOutline"
+                              AdornmentColor="Color.Secondary" />
+            </MudItem>
+        </MudGrid>
+    </div>
+
+    <div class="form-actions-bar">
+        <MudButton Variant="Variant.Text"
+                   Color="Color.Default"
+                   OnClick="OnCancel"
+                   Disabled="@IsProcessing"
+                   Class="text-none px-5">
+            Cancelar
+        </MudButton>
+        <MudButton ButtonType="ButtonType.Submit"
+                   Variant="Variant.Filled"
+                   Color="Color.Primary"
+                   Disabled="@IsProcessing"
+                   Class="text-none px-6 rounded-lg shadow-sm">
+            @if (IsProcessing)
+            {
+                <MudProgressCircular Size="Size.Small" Indeterminate="true" Class="mr-2" />
+                <span>Actualizando...</span>
+            }
+            else
+            {
+                <span>Actualizar usuario</span>
+            }
+        </MudButton>
+    </div>
+</EditForm>
+
+@code {
+    [Parameter] public EditarUsuarioDto Model { get; set; } = new();
+    [Parameter] public bool IsProcessing { get; set; }
+    [Parameter] public EventCallback OnSave { get; set; }
+    [Parameter] public EventCallback OnCancel { get; set; }
+
+    private async Task GuardarAsync()
+    {
+        await OnSave.InvokeAsync();
+    }
+}

@@ -1,0 +1,127 @@
+﻿@if (IsLoading)
+{
+    <LoadingState Message="Sincronizando grilla de control de citas..." />
+}
+else if (!Citas.Any())
+{
+    <EmptyState Icon="@Icons.Material.Filled.EventBusy"
+                Title="No hay citas registradas"
+                Message="Programa la primera cita para comenzar.">
+        <ActionContent>
+            @ActionContent
+        </ActionContent>
+    </EmptyState>
+}
+else
+{
+    <div class="citas-table-layer">
+        <MudTable Items="@CitasFiltradas"
+                  Dense="false"
+                  Hover="true"
+                  Bordered="false"
+                  Striped="true"
+                  Elevation="0"
+                  Class="luxury-styled-table">
+
+            <HeaderContent>
+                <MudTh Class="header-luxury-cell">Ticket</MudTh>
+                <MudTh Class="header-luxury-cell">Paciente Bajo Control</MudTh>
+                <MudTh Class="header-luxury-cell">Especialista</MudTh>
+                <MudTh Class="header-luxury-cell">Servicio</MudTh>
+                <MudTh Class="header-luxury-cell">Fecha</MudTh>
+                <MudTh Class="header-luxury-cell">Bloque Horario</MudTh>
+                <MudTh Class="header-luxury-cell">Estado</MudTh>
+                <MudTh Class="header-luxury-cell text-end">Acciones operativas</MudTh>
+            </HeaderContent>
+
+            <RowTemplate>
+                <MudTd DataLabel="Código" Class="py-3">
+                    <span class="appointment-code-badge">@context.CodigoCita</span>
+                </MudTd>
+                <MudTd DataLabel="Paciente" Class="fw-bold text-primary-dark">@context.PacienteNombre</MudTd>
+                <MudTd DataLabel="Doctor" Class="text-secondary">@context.DoctorNombre</MudTd>
+                <MudTd DataLabel="Servicio">
+                    <span class="service-table-pill">@context.ServicioNombre</span>
+                </MudTd>
+                <MudTd DataLabel="Fecha" Class="font-mono text-sm">@context.Fecha.ToString("dd/MM/yyyy")</MudTd>
+                <MudTd DataLabel="Horario" Class="font-mono text-sm">@context.HoraInicio.ToString("hh\\:mm") - @context.HoraFin.ToString("hh\\:mm")</MudTd>
+                <MudTd DataLabel="Estado">
+                    <MudChip T="string"
+                             Size="Size.Small"
+                             Color="@ObtenerColorEstado(context.Estado)"
+                             Variant="Variant.Filled"
+                             Class="fw-bold table-chip-rounded">
+                        @context.Estado
+                    </MudChip>
+                </MudTd>
+                <MudTd DataLabel="Acciones" Class="text-end py-2">
+                    <div class="d-inline-flex gap-1">
+                        <MudTooltip Text="Ver Ficha Completa">
+                            <MudIconButton Icon="@Icons.Material.Filled.Visibility"
+                                           Color="Color.Primary"
+                                           Size="Size.Small"
+                                           Class="action-table-btn"
+                                           OnClick="() => OnView.InvokeAsync(context)" />
+                        </MudTooltip>
+                        @if (context.Estado == EstadoCita.Pendiente || context.Estado == EstadoCita.Confirmada)
+                        {
+                            <MudTooltip Text="Reprogramar Bloque">
+                                <MudIconButton Icon="@Icons.Material.Filled.EditCalendar"
+                                               Color="Color.Warning"
+                                               Size="Size.Small"
+                                               Class="action-table-btn"
+                                               OnClick="() => OnReprogramar.InvokeAsync(context)" />
+                            </MudTooltip>
+                            <MudTooltip Text="Anular Ticket">
+                                <MudIconButton Icon="@Icons.Material.Filled.Cancel"
+                                               Color="Color.Error"
+                                               Size="Size.Small"
+                                               Class="action-table-btn"
+                                               OnClick="() => OnCancelar.InvokeAsync(context)" />
+                            </MudTooltip>
+                        }
+                    </div>
+                </MudTd>
+            </RowTemplate>
+
+            <PagerContent>
+                <div class="table-pager-block">
+                    <MudTablePager PageSizeOptions="new[] { 5, 10, 20, 50 }" RowsPerPageString="Registros por página:" />
+                </div>
+            </PagerContent>
+        </MudTable>
+    </div>
+}
+
+@code {
+    [Parameter] public List<CitaResponseDto> Citas { get; set; } = new();
+    [Parameter] public string SearchText { get; set; } = string.Empty;
+    [Parameter] public bool IsLoading { get; set; }
+    [Parameter] public EventCallback<CitaResponseDto> OnView { get; set; }
+    [Parameter] public EventCallback<CitaResponseDto> OnReprogramar { get; set; }
+    [Parameter] public EventCallback<CitaResponseDto> OnCancelar { get; set; }
+    [Parameter] public RenderFragment? ActionContent { get; set; }
+
+    private IEnumerable<CitaResponseDto> CitasFiltradas =>
+        string.IsNullOrWhiteSpace(SearchText)
+            ? Citas
+            : Citas.Where(x =>
+                x.CodigoCita.Contains(SearchText, StringComparison.OrdinalIgnoreCase) ||
+                x.PacienteNombre.Contains(SearchText, StringComparison.OrdinalIgnoreCase) ||
+                x.DoctorNombre.Contains(SearchText, StringComparison.OrdinalIgnoreCase));
+
+    private static Color ObtenerColorEstado(EstadoCita estado)
+    {
+        return estado switch
+        {
+            EstadoCita.Pendiente => Color.Info,
+            EstadoCita.Confirmada => Color.Success,
+            EstadoCita.Reprogramada => Color.Warning,
+            EstadoCita.Cancelada => Color.Error,
+            EstadoCita.Atendida => Color.Success,
+            EstadoCita.NoAsistio => Color.Dark,
+            EstadoCita.Eliminada => Color.Error,
+            _ => Color.Default
+        };
+    }
+}

@@ -1,0 +1,90 @@
+﻿<Router AppAssembly="@typeof(App).Assembly">
+    <Found Context="routeData">
+        <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
+        <FocusOnNavigate RouteData="@routeData" Selector="h1" />
+    </Found>
+
+    <NotFound>
+        <PageTitle>404 No Encontrado</PageTitle>
+
+        <LayoutView Layout="@typeof(MainLayout)">
+            <div class="not-found-container">
+                <div class="not-found-card">
+                    <div class="error-badge-icon">
+                        <MudIcon Icon="@Icons.Material.Filled.SearchOff" Size="Size.Large" />
+                    </div>
+                    
+                    <MudText Typo="Typo.h2" Class="error-title mt-5 mb-2">
+                        Ruta no localizada
+                    </MudText>
+                    
+                    <MudText Typo="Typo.body1" Class="error-subtitle px-4 mb-6">
+                        La sección solicitada no existe, fue removida o el módulo no pertenece a tus permisos asignados.
+                    </MudText>
+                    
+                    <MudButton Href="/" 
+                               Variant="Variant.Filled" 
+                               Color="Color.Primary" 
+                               StartIcon="@Icons.Material.Filled.ArrowBack"
+                               Class="rounded-pill px-6 py-2 fw-semibold shadow-sm text-none">
+                        Volver al inicio seguro
+                    </MudButton>
+                </div>
+            </div>
+        </LayoutView>
+    </NotFound>
+</Router>
+
+<style>
+    .not-found-container {
+        display: grid;
+        place-items: center;
+        min-height: 70vh;
+        padding: 16px;
+    }
+
+    .not-found-card {
+        text-align: center;
+        background: var(--mud-palette-surface);
+        padding: 48px 32px;
+        border-radius: 20px; /* Curvaturas orgánicas consistentes con el Layout */
+        border: 1px solid var(--mud-palette-divider);
+        max-width: 500px;
+        width: 100%;
+    }
+
+    .error-badge-icon {
+        width: 80px;
+        height: 80px;
+        margin: 0 auto;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        /* Combinación usando el Rose Gold Secundario de tu ClinicaTheme */
+        background-color: rgba(195, 141, 158, 0.12);
+        color: var(--mud-palette-secondary) !important;
+    }
+
+    .error-title {
+        font-weight: 800 !important;
+        letter-spacing: -0.02em;
+        color: var(--mud-palette-text-primary);
+    }
+
+    .error-subtitle {
+        color: var(--mud-palette-text-secondary);
+        line-height: 1.6;
+    }
+
+    /* Adaptabilidad Móvil */
+    @@media (max-width: 600px) {
+        .not-found-card {
+            border: none;
+            padding: 32px 16px;
+            background: transparent;
+        }
+        .error-title {
+            font-size: 1.5rem !important;
+        }
+    }
+</style>

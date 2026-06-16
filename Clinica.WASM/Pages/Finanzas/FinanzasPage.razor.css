@@ -1,0 +1,78 @@
+﻿.luxury-navigation-tabs {
+    background-color: var(--mud-palette-surface);
+    border: 1px solid var(--mud-palette-divider);
+    border-radius: var(--mud-layout-properties-default-border-radius); /* 16px */
+    overflow: hidden;
+    box-shadow: var(--mud-elevation-2);
+}
+
+.tab-canvas-luxury {
+    padding: 24px;
+    background-color: var(--mud-palette-surface);
+}
+
+.query-filter-strip {
+    background-color: var(--mud-palette-background-gray);
+    padding: 16px 20px;
+    border-radius: 12px;
+    border: 1px solid var(--mud-palette-divider);
+}
+
+::deep .clean-select-inside .mud-input-outlined-border {
+    border: none !important; /* Limpia bordes internos select */
+}
+
+/* --- TARJETA LUXURY ESTADO DE CUENTA PACIENTE --- */
+.statement-card-luxury {
+    background-color: var(--mud-palette-surface);
+    padding: 24px;
+    border-radius: 14px;
+    border: 1px solid var(--mud-palette-divider);
+    box-shadow: var(--mud-elevation-1);
+}
+.border-top-tertiary { border-top: 4px solid var(--mud-palette-tertiary); }
+
+.statement-patient-name {
+    font-weight: 800 !important;
+    letter-spacing: -0.02em;
+    color: var(--mud-palette-text-primary);
+}
+
+.statement-metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.statement-metric-cell {
+    background-color: var(--mud-palette-background-gray);
+    padding: 12px 16px;
+    border-radius: 10px;
+    border: 1px solid var(--mud-palette-divider);
+    display: flex;
+    flex-direction: column;
+}
+
+.s-label { font-size: 0.7rem; font-weight: 800; text-transform: uppercase; color: var(--mud-palette-text-secondary); letter-spacing: 0.05em; }
+.s-value { font-size: 1.25rem; font-weight: 700; color: var(--mud-palette-text-primary); margin-top: 2px; }
+
+.header-cell-premium-statement {
+    font-weight: 700 !important;
+    text-transform: uppercase;
+    font-size: 0.72rem !important;
+    letter-spacing: 0.04em;
+    background-color: var(--mud-palette-background-gray) !important;
+    color: var(--mud-palette-text-secondary) !important;
+    padding: 12px !important;
+}
+
+.text-success-dark { color: #059669; }
+.text-rose-gold { color: var(--mud-palette-secondary); }
+
+@media (max-width: 600px) {
+    .full-width-mobile {
+        width: 100%;
+        margin-top: 4px;
+    }
+}

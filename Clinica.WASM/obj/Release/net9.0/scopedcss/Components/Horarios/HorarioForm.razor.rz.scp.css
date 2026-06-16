@@ -1,0 +1,12 @@
+.schedule-form-wrapper[b-26g7lv8o6d] {
+    padding: 8px 4px;
+}
+
+.form-actions-bar[b-26g7lv8o6d] {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px solid var(--mud-palette-divider);
+}

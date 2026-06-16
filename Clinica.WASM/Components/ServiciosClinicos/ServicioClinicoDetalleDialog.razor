@@ -1,0 +1,95 @@
+﻿<MudDialog ActionsClass="px-6 pb-4">
+    <DialogContent>
+        @* Encabezado del Servicio con Estilo de Ficha Técnica Avanzada *@
+        <div class="service-dialog-header-luxury">
+            <div class="avatar-glow-shell">
+                <MudAvatar Color="Color.Primary" Size="Size.Large" Class="avatar-service-shadow">
+                    @Servicio.Nombre[..1].ToUpper()
+                </MudAvatar>
+            </div>
+            <div class="service-header-text-block">
+                <MudText Typo="Typo.h2" Class="service-dialog-title">@Servicio.Nombre</MudText>
+                <div class="service-subtags-group d-flex align-center gap-2 mt-1">
+                    <MudIcon Icon="@Icons.Material.Filled.QrCode" Size="Size.Small" Color="Color.Secondary" />
+                    <MudText Typo="Typo.caption" Class="fw-bold text-secondary font-mono">
+                        CÓDIGO: @Servicio.CodigoServicio
+                    </MudText>
+                </div>
+            </div>
+        </div>
+
+        <MudDivider Class="my-5" />
+
+        @* Rejilla de Parámetros Operativos del Catálogo *@
+        <MudGrid Class="info-cards-grid">
+            <MudItem xs="12">
+                <div class="service-info-box border-left-primary">
+                    <span class="service-box-label">Descripción del Servicio</span>
+                    <span class="service-box-value pre-wrap text-sm text-secondary">
+                        @(string.IsNullOrWhiteSpace(Servicio.Descripcion) ? "Sin descripción operativa registrada." : Servicio.Descripcion)
+                    </span>
+                </div>
+            </MudItem>
+
+            <MudItem xs="12" sm="6" md="4">
+                <div class="service-info-box border-left-secondary">
+                    <span class="service-box-label">Duración Promedio</span>
+                    <span class="service-box-value font-mono fw-semibold">@Servicio.DuracionMinutos min</span>
+                </div>
+            </MudItem>
+
+            <MudItem xs="12" sm="6" md="4">
+                <div class="service-info-box border-left-tertiary">
+                    <span class="service-box-label">Costo Base</span>
+                    <span class="service-box-value text-primary font-mono fw-bold">@Servicio.CostoBase.ToString("C")</span>
+                </div>
+            </MudItem>
+
+            <MudItem xs="12" sm="4" md="4">
+                <div class="service-info-box bg-dashed-cell">
+                    <span class="service-box-label">Requiere Cita</span>
+                    <span class="service-box-value text-sm">@(Servicio.RequiereCita ? "Sí, mandatorio" : "No, atención directa")</span>
+                </div>
+            </MudItem>
+
+            <MudItem xs="12" sm="4" md="6">
+                <div class="service-info-box bg-dashed-cell">
+                    <span class="service-box-label">Genera Historial Clínico</span>
+                    <span class="service-box-value text-sm">@(Servicio.GeneraHistorial ? "Sí, genera movimientos" : "No, servicio externo")</span>
+                </div>
+            </MudItem>
+
+            <MudItem xs="12" sm="4" md="6">
+                <div class="service-info-box bg-dashed-cell">
+                    <span class="service-box-label">Estado de Operación</span>
+                    <div class="mt-1">
+                        <MudChip T="string" Size="Size.Small" Color="@ObtenerColorEstado(Servicio.Estado)" Variant="Variant.Filled" Class="fw-bold table-chip-rounded">
+                            @Servicio.Estado
+                        </MudChip>
+                    </div>
+                </div>
+            </MudItem>
+        </MudGrid>
+    </DialogContent>
+    <DialogActions>
+        <MudButton Variant="Variant.Filled" Color="Color.Default" OnClick="Cerrar" Class="text-none px-5 rounded-lg shadow-none">
+            Cerrar Catálogo
+        </MudButton>
+    </DialogActions>
+</MudDialog>
+
+@code {
+    [CascadingParameter] private IMudDialogInstance MudDialog { get; set; } = default!;
+    [Parameter] public ServicioClinicoResponseDto Servicio { get; set; } = new();
+
+    private void Cerrar() => MudDialog.Close();
+
+    private static Color ObtenerColorEstado(EstadoServicioClinico estado) =>
+        estado switch
+        {
+            EstadoServicioClinico.Activo => Color.Success,
+            EstadoServicioClinico.Inactivo => Color.Warning,
+            EstadoServicioClinico.Eliminado => Color.Error,
+            _ => Color.Default
+        };
+}

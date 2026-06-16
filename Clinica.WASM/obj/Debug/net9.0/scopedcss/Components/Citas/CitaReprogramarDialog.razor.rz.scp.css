@@ -1,0 +1,19 @@
+.reprogram-title[b-628zix9ed6] {
+    font-weight: 800 !important;
+    letter-spacing: -0.02em;
+    color: var(--mud-palette-text-primary);
+}
+
+.reprogram-subtitle[b-628zix9ed6] {
+    color: var(--mud-palette-text-secondary);
+    opacity: 0.7;
+}
+
+.form-actions-panel[b-628zix9ed6] {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid var(--mud-palette-divider);
+}

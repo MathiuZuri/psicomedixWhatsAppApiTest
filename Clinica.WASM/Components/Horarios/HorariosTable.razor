@@ -1,0 +1,126 @@
+﻿@using Clinica.WASM.DTOs.Doctores
+
+@if (IsLoading)
+{
+    <LoadingState Message="Sincronizando cuadrante de turnos médicos..." />
+}
+else if (!Horarios.Any())
+{
+    <EmptyState Icon="@Icons.Material.Filled.Schedule"
+                Title="No hay horarios registrados"
+                Message="Asigna el primer horario a un doctor.">
+        <ActionContent>
+            @ActionContent
+        </ActionContent>
+    </EmptyState>
+}
+else
+{
+    <div class="horarios-table-layer">
+        <MudTable Items="@HorariosFiltrados"
+                  Dense="false"
+                  Hover="true"
+                  Bordered="false"
+                  Striped="true"
+                  Elevation="0"
+                  Class="luxury-schedule-table">
+
+            <HeaderContent>
+                <MudTh Class="header-cell-premium">Médico Especialista</MudTh>
+                <MudTh Class="header-cell-premium">Día Asignado</MudTh>
+                <MudTh Class="header-cell-premium">Bloque de Turno</MudTh>
+                <MudTh Class="header-cell-premium">Vigencia Operativa</MudTh>
+                <MudTh Class="header-cell-premium">Estado</MudTh>
+                <MudTh Class="header-cell-premium text-end">Acciones</MudTh>
+            </HeaderContent>
+
+            <RowTemplate>
+                <MudTd DataLabel="Doctor" Class="py-3 fw-bold text-primary-dark">@context.DoctorNombre</MudTd>
+                
+                <MudTd DataLabel="Día">
+                    <span class="day-tag-pill">@ObtenerNombreDia(context.DiaSemana)</span>
+                </MudTd>
+                
+                <MudTd DataLabel="Horario" Class="font-mono text-sm fw-semibold">
+                    @context.HoraInicio.ToString("hh\\:mm") - @context.HoraFin.ToString("hh\\:mm")
+                </MudTd>
+                
+                <MudTd DataLabel="Vigencia">
+                    <div class="vigencia-date-stack">
+                        <span class="text-sm">@context.FechaInicioVigencia.ToString("dd/MM/yyyy")</span>
+                        @if (context.FechaFinVigencia.HasValue)
+                        {
+                            <span class="vigencia-end-text">↳ @context.FechaFinVigencia.Value.ToString("dd/MM/yyyy")</span>
+                        }
+                        else
+                        {
+                            <span class="vigencia-permanent-text">↳ Permanente</span>
+                        }
+                    </div>
+                </MudTd>
+                
+                <MudTd DataLabel="Activo">
+                    <div class="boolean-icon-wrapper">
+                        <MudIcon Icon="@(context.Activo ? Icons.Material.Filled.CheckCircle : Icons.Material.Filled.Cancel)"
+                                 Color="@(context.Activo ? Color.Success : Color.Default)"
+                                 Size="Size.Medium" />
+                    </div>
+                </MudTd>
+                
+                <MudTd DataLabel="Acciones" Class="text-end py-2">
+                    <div class="d-inline-flex gap-1">
+                        <MudTooltip Text="Ver Ficha Operativa">
+                            <MudIconButton Icon="@Icons.Material.Filled.Visibility"
+                                           Color="Color.Primary"
+                                           Size="Size.Small"
+                                           Class="action-btn-styled"
+                                           OnClick="() => OnView.InvokeAsync(context)" />
+                        </MudTooltip>
+                        <MudTooltip Text="Modificar Parámetros">
+                            <MudIconButton Icon="@Icons.Material.Filled.Edit"
+                                           Color="Color.Warning"
+                                           Size="Size.Small"
+                                           Class="action-btn-styled"
+                                           OnClick="() => OnEdit.InvokeAsync(context)" />
+                        </MudTooltip>
+                    </div>
+                </MudTd>
+            </RowTemplate>
+
+            <PagerContent>
+                <div class="table-pager-luxury">
+                    <MudTablePager PageSizeOptions="new[] { 5, 10, 20, 50 }" RowsPerPageString="Registros por página:" />
+                </div>
+            </PagerContent>
+        </MudTable>
+    </div>
+}
+
+@code {
+    [Parameter] public List<HorarioDoctorResponseDto> Horarios { get; set; } = new();
+    [Parameter] public string SearchText { get; set; } = string.Empty;
+    [Parameter] public bool IsLoading { get; set; }
+    [Parameter] public EventCallback<HorarioDoctorResponseDto> OnView { get; set; }
+    [Parameter] public EventCallback<HorarioDoctorResponseDto> OnEdit { get; set; }
+    [Parameter] public RenderFragment? ActionContent { get; set; }
+
+    private IEnumerable<HorarioDoctorResponseDto> HorariosFiltrados =>
+        string.IsNullOrWhiteSpace(SearchText)
+            ? Horarios
+            : Horarios.Where(x =>
+                x.DoctorNombre.Contains(SearchText, StringComparison.OrdinalIgnoreCase) ||
+                ObtenerNombreDia(x.DiaSemana).Contains(SearchText, StringComparison.OrdinalIgnoreCase));
+
+    private static string ObtenerNombreDia(DayOfWeek dia) =>
+        dia switch
+        {
+            DayOfWeek.Monday => "Lunes",
+            DayOfWeek.Tuesday => "Martes",
+            DayOfWeek.Wednesday => "Miércoles",
+            DayOfWeek.Thursday => "Jueves",
+            DayOfWeek.Friday => "Viernes",
+            DayOfWeek.Saturday => "Sábado",
+            DayOfWeek.Sunday => "Domingo",
+            _ => dia.ToString()
+        };
+}

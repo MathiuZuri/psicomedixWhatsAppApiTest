@@ -1,0 +1,81 @@
+﻿@namespace Clinica.WASM.Components.Usuarios
+
+<MudDialog>
+    <DialogContent>
+        @* Encabezado de Seguridad Avanzada de Alto Contraste *@
+        <div class="user-status-header-luxury mb-4">
+            <div class="user-status-icon-shell shadow-glow-primary">
+                <MudIcon Icon="@Icons.Material.Filled.ManageAccounts" Size="Size.Medium" />
+            </div>
+            <div class="user-status-text-stack">
+                <MudText Typo="Typo.h3" Class="user-status-title">Modificar Estado de Cuenta</MudText>
+                <MudText Typo="Typo.caption" Class="user-status-subtitle">
+                    Fijar nueva condición de acceso para: <strong class="text-primary-dark">@Usuario.NombreCompleto</strong>
+                </MudText>
+            </div>
+        </div>
+
+        <EditForm Model="@Model" OnValidSubmit="ConfirmarAsync">
+            <DataAnnotationsValidator />
+            
+            <div class="py-3">
+                <MudSelect T="EstadoUsuario" 
+                           @bind-Value="Model.Estado" 
+                           Label="Nuevo Estado de Acceso" 
+                           Variant="Variant.Outlined" 
+                           Disabled="@IsProcessing"
+                           AdornmentIcon="@Icons.Material.Filled.Shield"
+                           AdornmentColor="Color.Primary"
+                           Class="luxury-status-select">
+                    <MudSelectItem Value="EstadoUsuario.Activo">Activo (Acceso Total)</MudSelectItem>
+                    <MudSelectItem Value="EstadoUsuario.Inactivo">Inactivo (Acceso Suspendido)</MudSelectItem>
+                    <MudSelectItem Value="EstadoUsuario.Bloqueado">Bloqueado (Restricción de Seguridad)</MudSelectItem>
+                </MudSelect>
+            </div>
+
+            @* Panel de Acciones Integrado al EditForm para Soporte Nativo de Submit (Enter) *@
+            <div class="form-actions-panel mt-5">
+                <MudButton Variant="Variant.Text" 
+                           Color="Color.Default" 
+                           OnClick="Cancelar" 
+                           Disabled="@IsProcessing" 
+                           Class="text-none px-5">
+                    Cancelar
+                </MudButton>
+                
+                <MudButton ButtonType="ButtonType.Submit" 
+                           Variant="Variant.Filled" 
+                           Color="Color.Primary" 
+                           Disabled="@IsProcessing" 
+                           Class="text-none px-6 rounded-lg shadow-sm w-sm-full">
+                    @if (IsProcessing) 
+                    {
+                        <MudProgressCircular Size="Size.Small" Indeterminate="true" Class="mr-2"/>
+                    } 
+                    Confirmar Estado
+                </MudButton>
+            </div>
+        </EditForm>
+    </DialogContent>
+</MudDialog>
+
+@code {
+    [CascadingParameter] private IMudDialogInstance MudDialog { get; set; } = default!;
+    [Parameter] public UsuarioResponseDto Usuario { get; set; } = new();
+
+    private CambiarEstadoUsuarioDto Model { get; set; } = new();
+    private bool IsProcessing;
+
+    protected override void OnInitialized()
+    {
+        Model.Estado = Usuario.Estado;
+    }
+
+    private async Task ConfirmarAsync()
+    {
+        IsProcessing = true;
+        MudDialog.Close(DialogResult.Ok(Model));
+    }
+
+    private void Cancelar() => MudDialog.Cancel();
+}

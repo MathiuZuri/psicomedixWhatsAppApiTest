@@ -1,0 +1,70 @@
+/* Contenedor tridimensional del Forecast Arena */
+.table-surface-layer[b-pbn0bm8lz3] {
+    background-color: var(--mud-palette-surface);
+    border-radius: var(--mud-layout-properties-default-border-radius); /* 16px */
+    box-shadow: var(--mud-elevation-2);
+    border: 1px solid var(--mud-palette-divider);
+    overflow: hidden;
+}
+
+.header-cell-styled[b-pbn0bm8lz3] {
+    font-weight: 700 !important;
+    text-transform: uppercase;
+    font-size: 0.75rem !important;
+    letter-spacing: 0.05em;
+    background-color: var(--mud-palette-background-gray) !important;
+    color: var(--mud-palette-text-secondary) !important;
+    padding: 16px !important;
+}
+
+.patient-td-block[b-pbn0bm8lz3] {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.patient-row-name[b-pbn0bm8lz3] {
+    font-weight: 700;
+    color: var(--mud-palette-text-primary);
+}
+
+.patient-row-code[b-pbn0bm8lz3] {
+    font-size: 0.75rem;
+    color: var(--mud-palette-text-secondary);
+    opacity: 0.8;
+}
+
+.history-tag-active[b-pbn0bm8lz3] {
+    font-weight: 600;
+    color: var(--mud-palette-primary);
+    background-color: rgba(43, 76, 222, 0.06);
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+}
+
+.no-history-tag[b-pbn0bm8lz3] {
+    color: var(--mud-palette-text-secondary);
+    font-style: italic;
+    font-size: 0.85rem;
+    opacity: 0.6;
+}
+
+.table-status-chip[b-pbn0bm8lz3] {
+    border-radius: 6px !important;
+}
+
+.action-icon-btn-styled[b-pbn0bm8lz3] {
+    background-color: var(--mud-palette-background-gray);
+    border-radius: 8px !important;
+    transition: all 0.2s ease;
+}
+
+.action-icon-btn-styled:hover[b-pbn0bm8lz3] {
+    background-color: var(--mud-palette-divider);
+}
+
+.table-pager-container[b-pbn0bm8lz3] {
+    border-top: 1px solid var(--mud-palette-divider);
+    padding: 4px 8px;
+}

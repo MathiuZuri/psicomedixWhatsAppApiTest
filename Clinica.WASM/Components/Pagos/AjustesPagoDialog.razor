@@ -1,0 +1,84 @@
+﻿@using Clinica.WASM.DTOs.Finanzas
+@inject IDialogService DialogService
+
+<MudDialog ActionsClass="px-6 pb-4">
+    <DialogContent>
+        @* Encabezado con Estilo de Auditoría Contable *@
+        <div class="payments-dialog-header-luxury mb-4">
+            <div class="payments-icon-frame gold-glow">
+                <MudIcon Icon="@Icons.Material.Filled.AccountBalanceWallet" Size="Size.Medium" />
+            </div>
+            <div>
+                <MudText Typo="Typo.h3" Class="payments-dialog-title">Modificaciones y Ajustes</MudText>
+                <MudText Typo="Typo.caption" Class="payments-dialog-subtitle">Historial de correcciones del ticket de cobro</MudText>
+            </div>
+        </div>
+
+        @if (Ajustes != null && Ajustes.Any())
+        {
+            <div class="luxury-table-layer small-scroll">
+                <MudTable Items="Ajustes" Dense="false" Hover="true" Elevation="0" Class="clean-dialog-table">
+                    <HeaderContent>
+                        <MudTh Class="header-cell-premium-dialog">Tipo de Ajuste</MudTh>
+                        <MudTh Class="header-cell-premium-dialog">Monto</MudTh>
+                        <MudTh Class="header-cell-premium-dialog">Motivo / Sustento</MudTh>
+                        <MudTh Class="header-cell-premium-dialog text-end">Fecha / Hora</MudTh>
+                    </HeaderContent>
+                    <RowTemplate>
+                        <MudTd>
+                            <span class="ajuste-type-pill font-mono">@context.TipoAjuste</span>
+                        </MudTd>
+                        <MudTd Class="font-mono fw-bold text-primary">@context.MontoAjuste.ToString("C")</MudTd>
+                        <MudTd Class="text-secondary text-sm">@context.Motivo</MudTd>
+                        <MudTd Class="font-mono text-xs text-secondary text-end">@context.FechaRegistro.ToString("dd/MM/yyyy HH:mm")</MudTd>
+                    </RowTemplate>
+                </MudTable>
+            </div>
+        }
+        else
+        {
+            <div class="pa-6 my-2 text-center border-dashed rounded-xl bg-slate-50">
+                <MudIcon Icon="@Icons.Material.Filled.SearchOff" Color="Color.Default" Size="Size.Medium" />
+                <MudText Typo="Typo.body2" Class="text-secondary mt-1">No se registran notas de crédito o ajustes para este abono.</MudText>
+            </div>
+        }
+
+        <MudDivider Class="my-5" />
+
+        <MudButton Variant="Variant.Filled"
+                   Color="Color.Tertiary"
+                   StartIcon="@Icons.Material.Filled.AddCard"
+                   OnClick="AbrirRegistroAjuste"
+                   Class="text-none py-2 px-4 rounded-lg shadow-sm w-100-mobile">
+            Registrar Nota de Ajuste
+        </MudButton>
+    </DialogContent>
+    <DialogActions>
+        <MudButton Variant="Variant.Text" OnClick="Cerrar" Class="text-none px-4">
+            Cerrar Ventana
+        </MudButton>
+    </DialogActions>
+</MudDialog>
+
+@code {
+    [CascadingParameter] private IMudDialogInstance MudDialog { get; set; } = default!;
+    [Parameter] public List<AjusteFinancieroDto> Ajustes { get; set; } = new();
+    [Parameter] public Guid PagoId { get; set; }
+
+    private async Task AbrirRegistroAjuste()
+    {
+        var parameters = new DialogParameters
+        {
+            ["Model"] = new RegistrarAjusteFinancieroDto { PagoId = PagoId }
+        };
+        var options = new DialogOptions { CloseButton = true, MaxWidth = MaxWidth.Small, FullWidth = true };
+        var dialog = await DialogService.ShowAsync<RegistrarAjusteFinancieroDialog>("Registrar Ajuste", parameters, options);
+        var result = await dialog.Result;
+        if (!result.Canceled && result.Data is RegistrarAjusteFinancieroDto dto)
+        {
+            MudDialog.Close(DialogResult.Ok(dto));
+        }
+    }
+
+    private void Cerrar() => MudDialog.Cancel();
+}

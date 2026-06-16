@@ -1,0 +1,114 @@
+﻿@page "/login"
+@layout EmptyLayout
+
+<PageTitle>Iniciar sesión | Clínica Santa Mónica</PageTitle>
+
+<MudThemeProvider Theme="@Theme" IsDarkMode="@IsDarkMode" />
+<MudPopoverProvider />
+<MudDialogProvider />
+<MudSnackbarProvider />
+
+<div class="login-page">
+    <div class="login-shell">
+
+        @* Panel de Marca Izquierdo: Curvaturas fluidas y fondo enriquecido *@
+        <section class="login-brand-panel">
+            <div class="brand-badge-luxury">
+                <MudIcon Icon="@Icons.Material.Filled.HealthAndSafety" Size="Size.Medium" Style="color: white;" />
+                <span class="ml-2">SM</span>
+            </div>
+
+            <div class="brand-core-text">
+                <h1>Clínica Santa Mónica</h1>
+                <p>Centro Materno Perinatal</p>
+            </div>
+
+            <div class="brand-message-box">
+                <h2>Gestión Clínica Integral</h2>
+                <p>
+                    Plataforma inteligente de administración e infraestructura digital <strong></strong>.
+                </p>
+            </div>
+        </section>
+
+        @* Formulario de Acceso Derecho: Rompemos la rigidez con bordes suaves *@
+        <div class="login-container-card-luxury">
+            <div class="login-header-group">
+                <MudText Typo="Typo.h2" Class="login-title-premium mb-1">
+                    Bienvenido de nuevo
+                </MudText>
+
+                <MudText Typo="Typo.body1" Class="login-subtitle-premium mb-6">
+                    Ingresa tus credenciales para acceder a la intranet.
+                </MudText>
+            </div>
+
+            @if (!string.IsNullOrWhiteSpace(MensajeError))
+            {
+                <MudAlert Severity="Severity.Error" Variant="Variant.Filled" Dense="true" Class="mb-4 rounded-lg shadow-sm">
+                    @MensajeError
+                </MudAlert>
+            }
+
+            <EditForm Model="@LoginModel" OnValidSubmit="IniciarSesionAsync">
+                <DataAnnotationsValidator />
+
+                <MudStack Spacing="4" Class="form-fields-stack">
+                    <MudTextField @bind-Value="LoginModel.UsuarioOCorreo"
+                                  Label="Usuario o Correo Electrónico"
+                                  Variant="Variant.Outlined"
+                                  Required="true"
+                                  For="@(() => LoginModel.UsuarioOCorreo)"
+                                  Adornment="Adornment.Start"
+                                  AdornmentIcon="@Icons.Material.Filled.AlternateEmail"
+                                  AdornmentColor="Color.Primary" />
+
+                    <MudTextField @bind-Value="LoginModel.Password"
+                                  Label="Contraseña"
+                                  Variant="Variant.Outlined"
+                                  Required="true"
+                                  For="@(() => LoginModel.Password)"
+                                  InputType="@(MostrarPassword ? InputType.Text : InputType.Password)"
+                                  Adornment="Adornment.End"
+                                  AdornmentIcon="@(MostrarPassword ? Icons.Material.Filled.VisibilityOff : Icons.Material.Filled.Visibility)"
+                                  OnAdornmentClick="ToggleMostrarPassword"
+                                  AdornmentColor="Color.Secondary" />
+                </MudStack>
+
+                <div class="login-actions-panel mt-4">
+                    <MudSwitch T="bool"
+                               @bind-Value="IsDarkMode"
+                               Color="Color.Primary"
+                               Label="Interfaz Noche"
+                               Class="dark-mode-switch" />
+                </div>
+
+                <MudButton ButtonType="ButtonType.Submit"
+                           Variant="Variant.Filled"
+                           Color="Color.Primary"
+                           FullWidth="true"
+                           Disabled="@EstaProcesando"
+                           Class="mt-6 login-submit-btn-luxury py-3">
+                    @if (EstaProcesando)
+                    {
+                        <MudProgressCircular Size="Size.Small" Indeterminate="true" Class="mr-2" />
+                        <span>Autenticando...</span>
+                    }
+                    else
+                    {
+                        <span>Ingresar a Intranet</span>
+                    }
+                </MudButton>
+            </EditForm>
+
+            <MudDivider Class="my-6 layout-divider" />
+
+            <div class="d-flex align-center justify-center gap-2 developer-badge-luxury">
+                <MudIcon Icon="@Icons.Material.Filled.Code" Size="Size.Small" />
+                <MudText Typo="Typo.caption">
+                    Entorno de desarrollo • Usuario: <strong>admin</strong>
+                </MudText>
+            </div>
+        </div>
+    </div>
+</div>

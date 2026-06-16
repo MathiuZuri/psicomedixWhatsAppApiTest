@@ -1,0 +1,96 @@
+﻿<MudDialog ActionsClass="px-6 pb-4">
+    <DialogContent>
+        <div class="reprogram-header-box mb-4">
+            <MudText Typo="Typo.h3" Class="reprogram-title">Reprogramar Cita Médica</MudText>
+            <MudText Typo="Typo.caption" Class="reprogram-subtitle font-mono">Código de Seguimiento: @Cita.CodigoCita</MudText>
+        </div>
+
+        <EditForm Model="@Model" OnValidSubmit="ReprogramarAsync">
+            <DataAnnotationsValidator />
+            <MudGrid>
+                <MudItem xs="12" sm="6">
+                    <MudSelect T="Guid" @bind-Value="Model.DoctorId" Label="Médico Ginecobstetra" Variant="Variant.Outlined" Disabled="@IsProcessing"
+                               ToStringFunc="@(id => DoctoresList.FirstOrDefault(d => d.Id == id)?.NombreCompleto ?? string.Empty)">
+                        @foreach (var doc in DoctoresList)
+                        {
+                            <MudSelectItem Value="doc.Id">@doc.NombreCompleto</MudSelectItem>
+                        }
+                    </MudSelect>
+                </MudItem>
+                <MudItem xs="12" sm="6">
+                    <MudDatePicker @bind-Date="NuevaFecha" Label="Nueva fecha asignada" Variant="Variant.Outlined" Disabled="@IsProcessing" AdornmentColor="Color.Primary"/>
+                </MudItem>
+                <MudItem xs="12" sm="6" md="3">
+                    <MudTimePicker @bind-Time="NuevaHoraInicio" Label="Hora inicio" Variant="Variant.Outlined" Disabled="@IsProcessing" AdornmentColor="Color.Secondary"/>
+                </MudItem>
+                <MudItem xs="12" sm="6" md="3">
+                    <MudTimePicker @bind-Time="NuevaHoraFin" Label="Hora fin" Variant="Variant.Outlined" Disabled="@IsProcessing" AdornmentColor="Color.Secondary"/>
+                </MudItem>
+                <MudItem xs="12">
+                    <MudTextField @bind-Value="Model.MotivoReprogramacion"
+                                  Label="Motivo justificado del cambio de horario"
+                                  Variant="Variant.Outlined"
+                                  Lines="2"
+                                  Disabled="@IsProcessing" />
+                </MudItem>
+            </MudGrid>
+            
+            <div class="form-actions-panel mt-5">
+                <MudButton Variant="Variant.Text" Color="Color.Default" OnClick="Cancelar" Disabled="@IsProcessing" Class="text-none px-4">Cancelar</MudButton>
+                <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" Disabled="@IsProcessing" Class="text-none px-5 rounded-lg shadow-sm">
+                    @if (IsProcessing) 
+                    {
+                        <MudProgressCircular Size="Size.Small" Indeterminate="true" Class="mr-2"/>
+                    } 
+                    Reprogramar
+                </MudButton>
+            </div>
+        </EditForm>
+    </DialogContent>
+</MudDialog>
+
+@code {
+    [CascadingParameter] private IMudDialogInstance MudDialog { get; set; } = default!;
+    [Parameter] public CitaResponseDto Cita { get; set; } = new();
+    [Parameter] public List<DoctorResponseDto> DoctoresList { get; set; } = new();
+
+    private ReprogramarCitaDto Model { get; set; } = new();
+    private DateTime? NuevaFecha;
+    private TimeSpan? NuevaHoraInicio;
+    private TimeSpan? NuevaHoraFin;
+    private bool IsProcessing;
+
+    protected override void OnInitialized()
+    {
+        Model.DoctorId = Cita.DoctorId;
+        Model.NuevaFecha = Cita.Fecha;
+        Model.NuevaHoraInicio = Cita.HoraInicio;
+        Model.NuevaHoraFin = Cita.HoraFin;
+
+        // Convertir a los tipos del picker
+        NuevaFecha = Cita.Fecha.ToDateTime(TimeOnly.MinValue);
+        NuevaHoraInicio = Cita.HoraInicio.ToTimeSpan();
+        NuevaHoraFin = Cita.HoraFin.ToTimeSpan();
+    }
+
+    private async Task ReprogramarAsync()
+    {
+        // Convertir de vuelta a DateOnly/TimeOnly
+        Model.NuevaFecha = NuevaFecha.HasValue
+            ? DateOnly.FromDateTime(NuevaFecha.Value)
+            : Cita.Fecha;
+
+        Model.NuevaHoraInicio = NuevaHoraInicio.HasValue
+            ? TimeOnly.FromTimeSpan(NuevaHoraInicio.Value)
+            : Cita.HoraInicio;
+
+        Model.NuevaHoraFin = NuevaHoraFin.HasValue
+            ? TimeOnly.FromTimeSpan(NuevaHoraFin.Value)
+            : Cita.HoraFin;
+
+        IsProcessing = true;
+        MudDialog.Close(DialogResult.Ok(Model));
+    }
+
+    private void Cancelar() => MudDialog.Cancel();
+}

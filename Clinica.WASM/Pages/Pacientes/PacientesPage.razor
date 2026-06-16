@@ -1,0 +1,123 @@
+﻿@page "/panel/pacientes"
+
+<PageTitle>Fichero de Pacientes | Clínica Santa Mónica</PageTitle>
+
+<RequireAuth>
+    @* Encabezado de la Sección Dinámica *@
+    <PageHeader Title="Módulo de Pacientes"
+                Subtitle="Fichero maestro de admisiones, apertura de historias clínicas y control de contacto del Centro Perinatal.">
+        <ActionContent>
+            <RequirePermission Permission="@Permisos.PacienteCrear">
+                <MudButton Variant="Variant.Filled"
+                           Color="Color.Primary"
+                           StartIcon="@Icons.Material.Filled.PersonAdd"
+                           OnClick="AbrirFormularioNuevo"
+                           Class="text-none px-5 rounded-lg shadow-sm">
+                    Nuevo paciente
+                </MudButton>
+            </RequirePermission>
+        </ActionContent>
+    </PageHeader>
+
+    @* Sistema Central de Alertas Corporativas *@
+    <div class="alert-layer-group mt-4">
+        @if (!string.IsNullOrWhiteSpace(MensajeExito))
+        {
+            <MudAlert Severity="Severity.Success" Variant="Variant.Filled" Dense="true" Class="mb-4 rounded-lg shadow-sm animate-fade-in">
+                @MensajeExito
+            </MudAlert>
+        }
+
+        @if (!string.IsNullOrWhiteSpace(MensajeError))
+        {
+            <MudAlert Severity="Severity.Error" Variant="Variant.Filled" Dense="true" Class="mb-4 rounded-lg shadow-sm animate-fade-in">
+                @MensajeError
+            </MudAlert>
+        }
+    </div>
+
+    @* VISTA 1: Registro de Nuevos Expedientes *@
+    @if (MostrandoFormulario)
+    {
+        <div class="patient-master-card-styled view-gold-border">
+            <div class="card-luxury-header mb-4">
+                <MudText Typo="Typo.h3" Class="card-title-text">
+                    Registrar Nuevo Expediente Médico
+                </MudText>
+                <MudText Typo="Typo.body2" Class="card-subtitle-text">
+                    Asigne los datos mandatorios de la paciente para la apertura automática en el sistema .
+                </MudText>
+            </div>
+
+            <PacienteForm Model="NuevoPaciente"
+                          IsProcessing="EstaProcesando"
+                          OnSave="GuardarPacienteAsync"
+                          OnCancel="CerrarFormulario" />
+        </div>
+    }
+    @* VISTA 2: Edición Controlada de Parámetros de Contacto *@
+    else if (MostrandoEdicionContacto)
+    {
+        <div class="patient-master-card-styled view-rose-border">
+            <div class="card-luxury-header mb-4">
+                <MudText Typo="Typo.h3" Class="card-title-text">
+                    Modificar Datos de Contacto Externo
+                </MudText>
+                <MudText Typo="Typo.body2" Class="card-subtitle-text">
+                    Edite de forma segura las variables de telefonía y geolocalización permitidas por el núcleo del sistema.
+                </MudText>
+            </div>
+
+            <PacienteContactoForm Paciente="PacienteSeleccionado"
+                                  Model="ContactoPaciente"
+                                  IsProcessing="EstaProcesando"
+                                  OnSave="ActualizarContactoAsync"
+                                  OnCancel="CerrarFormulario" />
+        </div>
+    }
+    @* VISTA DEFAULT: Tabla Maestra y Panel de Filtros Avanzados *@
+    else
+    {
+        @* Barra de Búsqueda Elevada y Estilizada *@
+        <div class="search-panel-luxury mb-5">
+            <MudTextField @bind-Value="SearchText"
+                          Placeholder="Filtrar instantáneamente por nombres, DNI o código de paciente..."
+                          Variant="Variant.Outlined"
+                          Margin="Margin.None"
+                          Adornment="Adornment.Start"
+                          AdornmentIcon="@Icons.Material.Filled.Search"
+                          AdornmentColor="Color.Primary"
+                          Immediate="true"
+                          Class="search-input-field" />
+        </div>
+
+        @if (HayErrorCarga)
+        {
+            <div class="error-wrapper-box pa-6 text-center">
+                <ErrorState Title="Fallo de sincronización local"
+                            Message="@MensajeError"
+                            OnRetry="CargarPacientesAsync" />
+            </div>
+        }
+        else
+        {
+            <PacientesTable Pacientes="Pacientes"
+                            SearchText="@SearchText"
+                            IsLoading="EstaCargando"
+                            OnView="VerPaciente"
+                            OnEditContact="EditarContacto"
+                            OnChangeState="CambiarEstadoPaciente">
+                
+                <ActionContent>
+                    <MudButton Variant="Variant.Filled"
+                               Color="Color.Primary"
+                               StartIcon="@Icons.Material.Filled.PersonAdd"
+                               OnClick="AbrirFormularioNuevo"
+                               Class="text-none">
+                        Nuevo paciente
+                    </MudButton>
+                </ActionContent>
+            </PacientesTable>
+        }
+    }
+</RequireAuth>

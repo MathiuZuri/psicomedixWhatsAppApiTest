@@ -1,0 +1,73 @@
+﻿.user-status-header-luxury {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding-top: 8px;
+    min-width: 0;
+}
+
+.user-status-icon-shell {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background-color: rgba(43, 76, 222, 0.06);
+    color: var(--mud-palette-primary);
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+}
+
+.shadow-glow-primary {
+    box-shadow: 0 4px 10px rgba(43, 76, 222, 0.15);
+}
+
+.user-status-text-stack {
+    min-width: 0;
+}
+
+.user-status-title {
+    font-weight: 800 !important;
+    letter-spacing: -0.02em;
+    color: var(--mud-palette-text-primary);
+    font-size: clamp(1.1rem, 3vw, 1.35rem) !important;
+}
+
+.user-status-subtitle {
+    color: var(--mud-palette-text-secondary);
+    opacity: 0.85;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.form-actions-panel {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px;
+    padding-top: 18px;
+    border-top: 1px solid var(--mud-palette-divider);
+}
+
+/* --- ADAPTABILIDAD MÓVIL CRÍTICA --- */
+@media (max-width: 600px) {
+    .user-status-header-luxury {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .user-status-subtitle {
+        white-space: normal; /* Evita roturas laterales con nombres de operadores extensos */
+    }
+
+    .form-actions-panel {
+        flex-direction: column-reverse; /* El botón confirmar sube para un tap mucho más cómodo con el pulgar */
+        align-items: stretch;
+        gap: 8px;
+    }
+
+    .w-sm-full {
+        width: 100%;
+    }
+}

@@ -1,0 +1,89 @@
+﻿@page "/horarios"
+
+<PageTitle>Cuadrante de Horarios | Clínica Santa Mónica</PageTitle>
+
+<RequireAuth>
+    <PageHeader Title="Control de Horarios y Turnos"
+                Subtitle="Planificación maestra de disponibilidad, asignación de bloques semanales y vigencia laboral del staff ginecobstetra del sistema SIGEC.">
+        <ActionContent>
+            <MudButton Variant="Variant.Outlined"
+                       Color="Color.Tertiary"
+                       StartIcon="@Icons.Material.Filled.CalendarViewWeek"
+                       Href="/panel/horarios/agenda"
+                       Class="text-none px-4 rounded-lg mr-2">
+                Ver Vista de Agenda
+            </MudButton>
+
+            <RequirePermission Permission="@Permisos.HorarioCrear">
+                <MudButton Variant="Variant.Filled"
+                           Color="Color.Primary"
+                           StartIcon="@Icons.Material.Filled.Add"
+                           OnClick="AbrirFormularioNuevo"
+                           Class="text-none px-5 rounded-lg shadow-sm">
+                    Nuevo horario
+                </MudButton>
+            </RequirePermission>
+        </ActionContent>
+    </PageHeader>
+
+    <div class="alert-layer-wrapper mt-4">
+        @if (!string.IsNullOrWhiteSpace(MensajeExito))
+        {
+            <MudAlert Severity="Severity.Success" Variant="Variant.Filled" Dense="true" Class="mb-4 rounded-lg shadow-sm animate-fade-clean">
+                @MensajeExito
+            </MudAlert>
+        }
+        @if (!string.IsNullOrWhiteSpace(MensajeError))
+        {
+            <MudAlert Severity="Severity.Error" Variant="Variant.Filled" Dense="true" Class="mb-4 rounded-lg shadow-sm animate-fade-clean">
+                @MensajeError
+            </MudAlert>
+        }
+    </div>
+
+    @if (MostrandoFormulario)
+    {
+        <div class="horarios-master-card view-gold-topline">
+            <div class="card-header-luxury mb-4">
+                <MudText Typo="Typo.h3" Class="master-card-title">Asignar Nuevo Bloque de Disponibilidad</MudText>
+                <MudText Typo="Typo.body2" Class="master-card-subtitle">Fije el especialista, el día de la jornada y el rango de horas de entrada y salida médica.</MudText>
+            </div>
+            <HorarioForm Model="NuevoHorario" IsProcessing="EstaProcesando" OnSave="GuardarHorarioAsync" OnCancel="CerrarFormulario" DoctoresList="DoctoresList" />
+        </div>
+    }
+    else if (MostrandoEdicion)
+    {
+        <div class="horarios-master-card view-rose-topline">
+            <div class="card-header-luxury mb-4">
+                <MudText Typo="Typo.h3" Class="master-card-title">Modificar Parámetros del Turno</MudText>
+                <MudText Typo="Typo.body2" Class="master-card-subtitle">Actualice el rango de horas o modifique el estado de vigencia del doctor: <strong>@DoctorSeleccionado?.DoctorNombre</strong>.</MudText>
+            </div>
+            <HorarioEditForm Model="EdicionHorario" IsProcessing="EstaProcesando" OnSave="ActualizarHorarioAsync" OnCancel="CerrarFormulario" />
+        </div>
+    }
+    else
+    {
+        <div class="search-luxury-frame mb-5 mt-2">
+            <MudTextField @bind-Value="SearchText"
+                          Placeholder="Filtrar instantáneamente por nombre del especialista médico o día asignado..."
+                          Variant="Variant.Outlined"
+                          Margin="Margin.None"
+                          Adornment="Adornment.Start"
+                          AdornmentIcon="@Icons.Material.Filled.Search"
+                          AdornmentColor="Color.Primary"
+                          Immediate="true"
+                          Class="clean-search-field" />
+        </div>
+
+        @if (HayErrorCarga)
+        {
+            <div class="error-panel-container pa-6 text-center">
+                <ErrorState Title="Fallo de enlace maestro-horarios" Message="@MensajeError" OnRetry="CargarDatosAsync" />
+            </div>
+        }
+        else
+        {
+            <HorariosTable Horarios="Horarios" SearchText="@SearchText" IsLoading="EstaCargando" OnView="VerHorario" OnEdit="AbrirEdicion" />
+        }
+    }
+</RequireAuth>

@@ -1,0 +1,61 @@
+﻿.appointment-dialog-header-luxury {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding-top: 12px;
+    min-width: 0;
+}
+
+.avatar-appointment-shadow {
+    box-shadow: 0 4px 12px rgba(43, 76, 222, 0.2);
+    font-weight: 700;
+}
+
+.appointment-header-text {
+    min-width: 0;
+}
+
+.appointment-dialog-code {
+    font-weight: 800 !important;
+    letter-spacing: -0.02em;
+    font-size: clamp(1.2rem, 3vw, 1.5rem) !important;
+    color: var(--mud-palette-text-primary);
+}
+
+.info-card-box {
+    background-color: var(--mud-palette-background-gray);
+    padding: 12px 16px;
+    border-radius: 12px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--mud-palette-divider);
+}
+
+.info-card-label {
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--mud-palette-text-secondary);
+    opacity: 0.8;
+}
+
+.info-card-value {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--mud-palette-text-primary);
+    margin-top: 2px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Bordes decorativos premium inspirados en tu paleta unificada */
+.border-left-primary { border-left: 4px solid var(--mud-palette-primary); }
+.border-left-secondary { border-left: 4px solid var(--mud-palette-secondary); } /* Rose Gold */
+.bg-transparent-border { background-color: transparent; border: 1px dashed var(--mud-palette-divider); }
+
+@media (max-width: 600px) {
+    .appointment-dialog-header-luxury { flex-direction: column; text-align: center; }
+}

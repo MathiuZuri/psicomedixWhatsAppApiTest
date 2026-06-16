@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clínica Santa Mónica</title>
+    <base href="/" />
+
+    <link rel="icon" type="image/png" href="favicon.png" />
+
+    <!-- Fuente Inter Pre-conectada para máxima velocidad de renderizado -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700,800&display=swap" rel="stylesheet" />
+
+    <link href="_content/MudBlazor/MudBlazor.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/app.css" />
+    <link href="Clinica.WASM.styles.css" rel="stylesheet" />
+</head>
+
+<body>
+<div id="app">
+    <style>
+        .loading-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #F4F7FB; /* Fondo de capas ClinicaTheme */
+            font-family: "Inter", system-ui, sans-serif;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Efecto de luces de fondo flotantes para dar tridimensionalidad */
+        .loading-container::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(43, 76, 222, 0.05) 0%, transparent 70%);
+            top: 20%;
+            left: 20%;
+            animation: float-ambient 6s infinite ease-in-out;
+        }
+        .loading-container::after {
+            content: '';
+            position: absolute;
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, rgba(212, 138, 156, 0.06) 0%, transparent 70%);
+            bottom: 15%;
+            right: 15%;
+            animation: float-ambient 8s infinite ease-in-out reverse;
+        }
+
+        /* --- NÚCLEO DEL LOADER ORBITAL TRIPLE --- */
+        .loader-shell {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 120px;
+            height: 120px;
+            margin-bottom: 32px;
+        }
+
+        /* Isotipo Central */
+        .loader-brand-center {
+            width: 58px;
+            height: 58px;
+            background: linear-gradient(135deg, #2B4CDE, #D48A9C);
+            border-radius: 16px;
+            color: #FFFFFF;
+            font-weight: 800;
+            font-size: 1.25rem;
+            display: grid;
+            place-items: center;
+            box-shadow: 0 8px 24px rgba(43, 76, 222, 0.25);
+            z-index: 5;
+            animation: pulse-logo 2s infinite ease-in-out;
+        }
+
+        /* Órbita 1: Externa (Azul Primario) */
+        .ring-outer {
+            position: absolute;
+            width: 106px;
+            height: 106px;
+            border: 3px solid transparent;
+            border-top-color: #2B4CDE;
+            border-radius: 50%;
+            animation: spin-clockwise 1.5s infinite linear;
+            z-index: 3;
+        }
+
+        /* Órbita 2: Intermedia (Rose Gold) */
+        .ring-middle {
+            position: absolute;
+            width: 86px;
+            height: 86px;
+            border: 3px solid transparent;
+            border-bottom-color: #D48A9C;
+            border-radius: 50%;
+            animation: spin-counter-clockwise 1.2s infinite linear;
+            z-index: 2;
+        }
+
+        /* Órbita 3: Interna (Dorado Destello) */
+        .ring-inner {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            border: 2px solid transparent;
+            border-left-color: #E5B324;
+            border-radius: 50%;
+            opacity: 0.6;
+            animation: spin-clockwise 2.5s infinite linear;
+            z-index: 1;
+        }
+
+        /* --- BARRA DE PROGRESO INFINITA (SHIMMER TRACK) --- */
+        .progress-track {
+            width: 160px;
+            height: 4px;
+            background-color: var(--mud-palette-divider, #CBD5E1);
+            border-radius: 10px;
+            margin-top: 16px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-bar-fill {
+            position: absolute;
+            height: 100%;
+            width: 60%;
+            background: linear-gradient(90deg, #2B4CDE, #D48A9C, #2B4CDE);
+            background-size: 200% 100%;
+            border-radius: 10px;
+            animation: progress-slide 1.6s infinite linear, shimmer-wave 1.2s infinite linear;
+        }
+
+        /* --- KEYFRAMES DE ANIMACIÓN --- */
+        @keyframes spin-clockwise {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes spin-counter-clockwise {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(-360deg); }
+        }
+
+        @keyframes pulse-logo {
+            0%, 100% { transform: scale(1); box-shadow: 0 8px 24px rgba(43, 76, 222, 0.25); }
+            50% { transform: scale(0.95); box-shadow: 0 4px 12px rgba(43, 76, 222, 0.15); }
+        }
+
+        @keyframes progress-slide {
+            0% { left: -60%; }
+            100% { left: 100%; }
+        }
+
+        @keyframes shimmer-wave {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        @keyframes float-ambient {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-20px) scale(1.05); }
+        }
+
+        /* Textos estables y tipografía */
+        .loading-text-box {
+            text-align: center;
+            z-index: 10;
+        }
+
+        .loading-text {
+            color: #0F172A;
+            font-weight: 800;
+            font-size: 1.35rem;
+            letter-spacing: -0.02em;
+            margin: 0;
+        }
+
+        .loading-subtext {
+            color: #64748B;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-top: 4px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        /* Adaptabilidad en pantallas compactas */
+        @media (max-width: 600px) {
+            .loading-text { font-size: 1.15rem; }
+            .loader-shell { transform: scale(0.9); margin-bottom: 20px; }
+        }
+    </style>
+
+    <div class="loading-container">
+        <!-- Esqueleto del Loader Multi-Orbital -->
+        <div class="loader-shell">
+            <div class="loader-brand-center">SM</div>
+            <div class="ring-outer"></div>
+            <div class="ring-middle"></div>
+            <div class="ring-inner"></div>
+        </div>
+
+        <!-- Identificadores estables -->
+        <div class="loading-text-box">
+            <h1 class="loading-text">Iniciando Sistema</h1>
+            <div class="loading-subtext">Infraestructura Digital</div>
+
+            <!-- Barra de progreso con barrido de red activo -->
+            <div class="progress-track">
+                <div class="progress-bar-fill"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="blazor-error-ui">
+    <span>Ocurrió un error inesperado en la infraestructura del cliente.</span>
+    <a href="." class="reload">Recargar</a>
+    <span class="dismiss">🗙</span>
+</div>
+
+<script src="_framework/blazor.webassembly.js"></script>
+<script src="_content/MudBlazor/MudBlazor.min.js"></script>
+
+<script>
+    window.addEventListener('error', function (e) {
+        if (e.message && e.message.includes('import statement outside a module')) {
+            setTimeout(() => {
+                const errorUi = document.getElementById('blazor-error-ui');
+                if (errorUi) errorUi.style.display = 'none';
+            }, 100);
+        }
+    });
+</script>
+</body>
+
+</html>

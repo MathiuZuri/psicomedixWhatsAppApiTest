@@ -1,0 +1,107 @@
+﻿@if (IsLoading)
+{
+    <LoadingState Message="Sincronizando grilla de seguridad..." />
+}
+else if (!Roles.Any())
+{
+    <EmptyState Icon="@Icons.Material.Filled.Security"
+                Title="No hay roles registrados"
+                Message="Crea el primer rol para gestionar permisos.">
+        <ActionContent>
+            @ActionContent
+        </ActionContent>
+    </EmptyState>
+}
+else
+{
+    <div class="roles-table-layer">
+        <MudTable Items="@RolesFiltrados"
+                  Dense="false"
+                  Hover="true"
+                  Bordered="false"
+                  Striped="true"
+                  Elevation="0"
+                  Class="luxury-roles-table">
+
+            <HeaderContent>
+                <MudTh Class="header-cell-premium">Identificador del Rol</MudTh>
+                <MudTh Class="header-cell-premium">Descripción de Alcance</MudTh>
+                <MudTh Class="header-cell-premium">Nivel de Sistema</MudTh>
+                <MudTh Class="header-cell-premium">Estado</MudTh>
+                <MudTh Class="header-cell-premium text-end">Acciones operativas</MudTh>
+            </HeaderContent>
+
+            <RowTemplate>
+                <MudTd DataLabel="Nombre" Class="py-3 fw-bold text-primary-dark">@context.Nombre</MudTd>
+                <MudTd DataLabel="Descripción" Class="text-secondary truncate-description-cell">
+                    @(string.IsNullOrWhiteSpace(context.Descripcion) ? "Sin descripción asociada." : context.Descripcion)
+                </MudTd>
+                <MudTd DataLabel="Sistema">
+                    <div class="boolean-icon-wrapper">
+                        <MudIcon Icon="@(context.EsSistema ? Icons.Material.Filled.Verified : Icons.Material.Filled.LockOpen)"
+                                 Color="@(context.EsSistema ? Color.Tertiary : Color.Default)" />
+                    </div>
+                </MudTd>
+                <MudTd DataLabel="Activo">
+                    <MudChip T="string" Size="Size.Small"
+                             Color="@(context.Activo ? Color.Success : Color.Error)"
+                             Variant="Variant.Filled"
+                             Class="fw-bold table-chip-rounded">
+                        @(context.Activo ? "Activo" : "Inactivo")
+                    </MudChip>
+                </MudTd>
+                <MudTd DataLabel="Acciones" Class="text-end py-2">
+                    <div class="d-inline-flex gap-1">
+                        <MudTooltip Text="Ver Ficha Operativa">
+                            <MudIconButton Icon="@Icons.Material.Filled.Visibility"
+                                           Color="Color.Primary"
+                                           Size="Size.Small"
+                                           Class="action-btn-styled"
+                                           OnClick="() => OnView.InvokeAsync(context)" />
+                        </MudTooltip>
+                        @if (!context.EsSistema)
+                        {
+                            <MudTooltip Text="Modificar Parámetros">
+                                <MudIconButton Icon="@Icons.Material.Filled.Edit"
+                                               Color="Color.Warning"
+                                               Size="Size.Small"
+                                               Class="action-btn-styled"
+                                               OnClick="() => OnEdit.InvokeAsync(context)" />
+                            </MudTooltip>
+                            <MudTooltip Text="Gestionar Matriz de Permisos">
+                                <MudIconButton Icon="@Icons.Material.Filled.AdminPanelSettings"
+                                               Color="Color.Secondary"
+                                               Size="Size.Small"
+                                               Class="action-btn-styled"
+                                               OnClick="() => OnManagePermissions.InvokeAsync(context)" />
+                            </MudTooltip>
+                        }
+                    </div>
+                </MudTd>
+            </RowTemplate>
+
+            <PagerContent>
+                <div class="table-pager-luxury">
+                    <MudTablePager PageSizeOptions="new[] { 5, 10, 20, 50 }" RowsPerPageString="Registros por página:" />
+                </div>
+            </PagerContent>
+        </MudTable>
+    </div>
+}
+
+@code {
+    [Parameter] public List<RolResponseDto> Roles { get; set; } = new();
+    [Parameter] public string SearchText { get; set; } = string.Empty;
+    [Parameter] public bool IsLoading { get; set; }
+    [Parameter] public EventCallback<RolResponseDto> OnView { get; set; }
+    [Parameter] public EventCallback<RolResponseDto> OnEdit { get; set; }
+    [Parameter] public EventCallback<RolResponseDto> OnManagePermissions { get; set; }
+    [Parameter] public RenderFragment? ActionContent { get; set; }
+
+    private IEnumerable<RolResponseDto> RolesFiltrados =>
+        string.IsNullOrWhiteSpace(SearchText)
+            ? Roles
+            : Roles.Where(x =>
+                x.Nombre.Contains(SearchText, StringComparison.OrdinalIgnoreCase) ||
+                (x.Descripcion != null && x.Descripcion.Contains(SearchText, StringComparison.OrdinalIgnoreCase)));
+}

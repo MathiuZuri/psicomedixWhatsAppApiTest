@@ -1,0 +1,57 @@
+﻿.page-header-luxury-shell {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 28px;
+    width: 100%;
+}
+
+.header-text-stack {
+    min-width: 0; /* Evita que el contenedor empuje hacia afuera si el texto es extenso */
+    flex: 1;
+}
+
+.header-main-title {
+    font-weight: 800 !important;
+    letter-spacing: -0.02em;
+    color: var(--mud-palette-text-primary);
+    font-size: clamp(1.4rem, 4vw, 1.85rem) !important; /* Elástica: Escala entre móvil y laptop sin desbordar */
+    line-height: 1.25;
+}
+
+.header-sub-title {
+    color: var(--mud-palette-text-secondary);
+    opacity: 0.8;
+    line-height: 1.5;
+    font-size: clamp(0.85rem, 2vw, 0.925rem);
+}
+
+.header-actions-flex-layer {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0; /* Asegura que la botonera mantenga su integridad */
+}
+
+/* --- ADAPTABILIDAD MÓVIL TOTAL --- */
+@media (max-width: 768px) {
+    .page-header-luxury-shell {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 14px;
+    }
+
+    .header-actions-flex-layer {
+        width: 100%;
+        justify-content: flex-start;
+        flex-wrap: wrap; /* Si hay múltiples botones, colapsan hacia abajo limpiamente */
+        gap: 8px;
+    }
+
+    /* Forzamos de manera controlada que los botones anidados ocupen el ancho móvil de ser requerido */
+    ::deep .header-actions-flex-layer .mud-button {
+        flex: 1 1 auto;
+        min-width: 140px;
+    }
+}

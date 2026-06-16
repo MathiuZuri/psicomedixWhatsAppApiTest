@@ -1,0 +1,144 @@
+﻿<EditForm Model="@Model" OnValidSubmit="GuardarAsync">
+    <DataAnnotationsValidator />
+
+    <div class="patient-form-scroll-wrapper">
+        <MudGrid>
+            @* Grupo Documentario y Personal *@
+            <MudItem xs="12" sm="6" md="4">
+                <MudTextField @bind-Value="Model.DNI"
+                              Label="Número de DNI"
+                              Variant="Variant.Outlined"
+                              For="@(() => Model.DNI)"
+                              Disabled="@IsProcessing"
+                              Adornment="Adornment.Start"
+                              AdornmentIcon="@Icons.Material.Filled.Fingerprint"
+                              AdornmentColor="Color.Primary" />
+            </MudItem>
+
+            <MudItem xs="12" sm="6" md="4">
+                <MudTextField @bind-Value="Model.Nombres"
+                              Label="Nombres de la Paciente"
+                              Variant="Variant.Outlined"
+                              For="@(() => Model.Nombres)"
+                              Disabled="@IsProcessing"
+                              Adornment="Adornment.Start"
+                              AdornmentIcon="@Icons.Material.Filled.Person"
+                              AdornmentColor="Color.Primary" />
+            </MudItem>
+
+            <MudItem xs="12" sm="12" md="4">
+                <MudTextField @bind-Value="Model.Apellidos"
+                              Label="Apellidos Completos"
+                              Variant="Variant.Outlined"
+                              For="@(() => Model.Apellidos)"
+                              Disabled="@IsProcessing"
+                              Adornment="Adornment.Start"
+                              AdornmentIcon="@Icons.Material.Filled.People"
+                              AdornmentColor="Color.Primary" />
+            </MudItem>
+
+            @* Parámetros Clínicos de Registro *@
+            <MudItem xs="12" sm="6" md="4">
+                <MudDatePicker @bind-Date="FechaNacimiento"
+                               Label="Fecha de Nacimiento"
+                               Variant="Variant.Outlined"
+                               DateFormat="dd/MM/yyyy"
+                               Disabled="@IsProcessing"
+                               AdornmentColor="Color.Secondary" />
+            </MudItem>
+
+            <MudItem xs="12" sm="6" md="4">
+                <MudSelect T="string"
+                           @bind-Value="Model.Sexo"
+                           Label="Sexo Biológico"
+                           Variant="Variant.Outlined"
+                           Disabled="@IsProcessing"
+                           AdornmentColor="Color.Secondary">
+                    <MudSelectItem Value="@("F")">Femenino</MudSelectItem>
+                    <MudSelectItem Value="@("M")">Masculino</MudSelectItem>
+                </MudSelect>
+            </MudItem>
+
+            <MudItem xs="12" sm="12" md="4">
+                <MudTextField @bind-Value="Model.Celular"
+                              Label="Número Celular"
+                              Variant="Variant.Outlined"
+                              For="@(() => Model.Celular)"
+                              Disabled="@IsProcessing"
+                              Adornment="Adornment.Start"
+                              AdornmentIcon="@Icons.Material.Filled.PhoneAndroid"
+                              AdornmentColor="Color.Primary" />
+            </MudItem>
+
+            <MudItem xs="12" sm="6">
+                <MudTextField @bind-Value="Model.Correo"
+                              Label="Correo Electrónico Notificable"
+                              Variant="Variant.Outlined"
+                              For="@(() => Model.Correo)"
+                              Disabled="@IsProcessing"
+                              Adornment="Adornment.Start"
+                              AdornmentIcon="@Icons.Material.Filled.MailOutline"
+                              AdornmentColor="Color.Primary" />
+            </MudItem>
+
+            <MudItem xs="12" sm="6">
+                <MudTextField @bind-Value="Model.Direccion"
+                              Label="Dirección Domiciliaria Completa"
+                              Variant="Variant.Outlined"
+                              For="@(() => Model.Direccion)"
+                              Disabled="@IsProcessing"
+                              Adornment="Adornment.Start"
+                              AdornmentIcon="@Icons.Material.Filled.Map"
+                              AdornmentColor="Color.Primary" />
+            </MudItem>
+        </MudGrid>
+    </div>
+
+    <div class="form-actions-bar">
+        <MudButton Variant="Variant.Text"
+                   Color="Color.Default"
+                   OnClick="OnCancel"
+                   Disabled="@IsProcessing"
+                   Class="px-5 text-none">
+            Cancelar
+        </MudButton>
+
+        <MudButton ButtonType="ButtonType.Submit"
+                   Variant="Variant.Filled"
+                   Color="Color.Primary"
+                   Disabled="@IsProcessing"
+                   Class="px-6 text-none shadow-sm rounded-lg">
+            @if (IsProcessing)
+            {
+                <MudProgressCircular Size="Size.Small" Indeterminate="true" Class="mr-2" />
+                <span>Guardando...</span>
+            }
+            else
+            {
+                <span>Guardar paciente</span>
+            }
+        </MudButton>
+    </div>
+</EditForm>
+
+@code {
+    [Parameter] public CrearPacienteDto Model { get; set; } = new();
+    [Parameter] public bool IsProcessing { get; set; }
+    [Parameter] public EventCallback OnSave { get; set; }
+    [Parameter] public EventCallback OnCancel { get; set; }
+
+    private DateTime? FechaNacimiento { get; set; }
+
+    protected override void OnParametersSet()
+    {
+        FechaNacimiento = Model.FechaNacimiento == default
+            ? DateTime.Today
+            : Model.FechaNacimiento;
+    }
+
+    private async Task GuardarAsync()
+    {
+        Model.FechaNacimiento = FechaNacimiento ?? DateTime.Today;
+        await OnSave.InvokeAsync();
+    }
+}

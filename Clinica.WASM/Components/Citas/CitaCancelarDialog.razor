@@ -1,0 +1,56 @@
+﻿<MudDialog ActionsClass="px-6 pb-4">
+    <DialogContent>
+        <div class="cancel-dialog-header mb-4">
+            <div class="cancel-icon-frame">
+                <MudIcon Icon="@Icons.Material.Filled.EventBusy" Size="Size.Medium" />
+            </div>
+            <div>
+                <MudText Typo="Typo.h3" Class="cancel-title">Anular Cita Médica</MudText>
+                <MudText Typo="Typo.caption" Class="cancel-subtitle font-mono">Código del Expediente: @Cita.CodigoCita</MudText>
+            </div>
+        </div>
+
+        <EditForm Model="@Model" OnValidSubmit="CancelarAsync">
+            <DataAnnotationsValidator />
+            
+            <div class="py-2">
+                <MudTextField @bind-Value="Model.MotivoCancelacion"
+                              Label="Motivo justificado de la cancelación"
+                              Variant="Variant.Outlined"
+                              Lines="3"
+                              Required="true"
+                              For="@(() => Model.MotivoCancelacion)"
+                              Disabled="@IsProcessing" />
+            </div>
+
+            <div class="form-actions-panel mt-5">
+                <MudButton Variant="Variant.Text" Color="Color.Default" OnClick="Cancelar" Disabled="@IsProcessing" Class="text-none px-4">
+                    Volver
+                </MudButton>
+                <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Error" Disabled="@IsProcessing" Class="text-none px-5 rounded-lg shadow-sm">
+                    @if (IsProcessing) 
+                    {
+                        <MudProgressCircular Size="Size.Small" Indeterminate="true" Class="mr-2"/>
+                    } 
+                    Confirmar cancelación
+                </MudButton>
+            </div>
+        </EditForm>
+    </DialogContent>
+</MudDialog>
+
+@code {
+    [CascadingParameter] private IMudDialogInstance MudDialog { get; set; } = default!;
+    [Parameter] public CitaResponseDto Cita { get; set; } = new();
+
+    private CancelarCitaDto Model { get; set; } = new();
+    private bool IsProcessing;
+
+    private async Task CancelarAsync()
+    {
+        IsProcessing = true;
+        MudDialog.Close(DialogResult.Ok(Model));
+    }
+
+    private void Cancelar() => MudDialog.Cancel();
+}

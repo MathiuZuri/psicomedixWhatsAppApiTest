@@ -1,0 +1,89 @@
+﻿@page "/roles"
+
+<PageTitle>Roles de Seguridad | Clínica Santa Mónica</PageTitle>
+
+<RequireAuth>
+    <PageHeader Title="Roles del Sistema"
+                Subtitle="Configuración de perfiles de seguridad, niveles de acceso y auditoría de privilegios del sistema SIGEC.">
+        <ActionContent>
+            <RequirePermission Permission="@Permisos.RolCrear">
+                <MudButton Variant="Variant.Filled"
+                           Color="Color.Primary"
+                           StartIcon="@Icons.Material.Filled.Add"
+                           OnClick="AbrirFormularioNuevo"
+                           Class="text-none px-5 rounded-lg shadow-sm">
+                    Nuevo rol
+                </MudButton>
+            </RequirePermission>
+        </ActionContent>
+    </PageHeader>
+
+    @* Centro de Notificaciones Corporativas *@
+    <div class="alert-layer-wrapper mt-4">
+        @if (!string.IsNullOrWhiteSpace(MensajeExito))
+        {
+            <MudAlert Severity="Severity.Success" Variant="Variant.Filled" Dense="true" Class="mb-4 rounded-lg shadow-sm animate-fade-clean">
+                @MensajeExito
+            </MudAlert>
+        }
+        @if (!string.IsNullOrWhiteSpace(MensajeError))
+        {
+            <MudAlert Severity="Severity.Error" Variant="Variant.Filled" Dense="true" Class="mb-4 rounded-lg shadow-sm animate-fade-clean">
+                @MensajeError
+            </MudAlert>
+        }
+    </div>
+
+    @* VISTAS DINÁMICAS FORMULARIOS *@
+    @if (MostrandoFormulario)
+    {
+        <div class="roles-master-card view-gold-topline">
+            <div class="card-header-luxury mb-4">
+                <MudText Typo="Typo.h6" Class="master-card-title">Aperturar Nuevo Perfil de Seguridad</MudText>
+                <MudText Typo="Typo.body2" Class="master-card-subtitle">Asigne el identificador del rol y su descripción operativa base.</MudText>
+            </div>
+            <RolForm Model="NuevoRol" IsProcessing="EstaProcesando" OnSave="GuardarRolAsync" OnCancel="CerrarFormulario" />
+        </div>
+    }
+    else if (MostrandoEdicion)
+    {
+        <div class="roles-master-card view-rose-topline">
+            <div class="card-header-luxury mb-4">
+                <MudText Typo="Typo.h6" Class="master-card-title">Modificar Estructura del Perfil</MudText>
+                <MudText Typo="Typo.body2" Class="master-card-subtitle">Edite el alcance del rol seleccionado: <strong>@RolSeleccionado?.Nombre</strong></MudText>
+            </div>
+            <RolEditForm Model="EdicionRol" IsProcessing="EstaProcesando" OnSave="ActualizarRolAsync" OnCancel="CerrarFormulario" />
+        </div>
+    }
+    else
+    {
+        @* Barra de Filtros Integrada *@
+        <div class="search-luxury-frame mb-5 mt-2">
+            <MudTextField @bind-Value="SearchText"
+                          Placeholder="Filtrar instantáneamente por nombre del perfil o descripción de alcance..."
+                          Variant="Variant.Outlined"
+                          Margin="Margin.None"
+                          Adornment="Adornment.Start"
+                          AdornmentIcon="@Icons.Material.Filled.Search"
+                          AdornmentColor="Color.Primary"
+                          Immediate="true"
+                          Class="clean-search-field" />
+        </div>
+
+        @if (HayErrorCarga)
+        {
+            <div class="error-panel-container pa-6 text-center">
+                <ErrorState Title="Fallo de sincronización maestro-roles" Message="@MensajeError" OnRetry="CargarDatosAsync" />
+            </div>
+        }
+        else
+        {
+            <RolesTable Roles="Roles"
+                        SearchText="@SearchText"
+                        IsLoading="EstaCargando"
+                        OnView="VerRol"
+                        OnEdit="AbrirEdicion"
+                        OnManagePermissions="AbrirAsignacionPermisos" />
+        }
+    }
+</RequireAuth>

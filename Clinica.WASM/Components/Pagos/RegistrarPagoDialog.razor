@@ -1,0 +1,152 @@
+﻿<MudDialog ActionsClass="px-6 pb-4">
+    <DialogContent>
+        @* Encabezado Estilo Comprobante Digital *@
+        <div class="receipt-dialog-header-luxury mb-4">
+            <div class="receipt-icon-frame primary-glow">
+                <MudIcon Icon="@Icons.Material.Filled.PointOfSale" Size="Size.Medium" />
+            </div>
+            <div>
+                <MudText Typo="Typo.h3" Class="receipt-title">Caja e Ingresos</MudText>
+                <MudText Typo="Typo.caption" Class="receipt-subtitle">Generar nueva orden de cobro del paciente</MudText>
+            </div>
+        </div>
+
+        <EditForm Model="@Model" OnValidSubmit="RegistrarAsync">
+            <DataAnnotationsValidator />
+            
+            <div class="form-scroll-body">
+                <MudGrid Spacing="2">
+                    <MudItem xs="12" sm="6">
+                        <MudSelect T="Guid"
+                                   Label="Paciente Beneficiario"
+                                   Variant="Variant.Outlined"
+                                   For="@(() => Model.PacienteId)"
+                                   Disabled="@IsProcessing"
+                                   AdornmentIcon="@Icons.Material.Filled.AssignmentInd"
+                                   AdornmentColor="Color.Primary"
+                                   ToStringFunc="@(id => Pacientes.FirstOrDefault(p => p.Id == id)?.NombreCompleto ?? string.Empty)">
+                            @foreach (var paciente in Pacientes)
+                            {
+                                <MudSelectItem Value="paciente.Id">@paciente.NombreCompleto</MudSelectItem>
+                            }
+                        </MudSelect>
+                    </MudItem>
+
+                    <MudItem xs="12" sm="6">
+                        <MudSelect T="Guid"
+                                   Label="Servicio Clínico Destino"
+                                   Variant="Variant.Outlined"
+                                   For="@(() => Model.ServicioClinicoId)"
+                                   Disabled="@IsProcessing"
+                                   AdornmentIcon="@Icons.Material.Filled.MedicalServices"
+                                   AdornmentColor="Color.Primary"
+                                   ToStringFunc="@(id => Servicios.FirstOrDefault(s => s.Id == id)?.Nombre ?? string.Empty)">
+                            @foreach (var servicio in Servicios)
+                            {
+                                <MudSelectItem Value="servicio.Id">@servicio.Nombre</MudSelectItem>
+                            }
+                        </MudSelect>
+                    </MudItem>
+
+                    <MudItem xs="12" sm="4">
+                        <MudNumericField T="decimal"
+                                         @bind-Value="Model.MontoTotal"
+                                         Label="Monto Total Contrato"
+                                         Variant="Variant.Outlined"
+                                         For="@(() => Model.MontoTotal)"
+                                         Disabled="@IsProcessing"
+                                         Min="0.01m"
+                                         Step="0.01m"
+                                         Format="C2"
+                                         Adornment="Adornment.Start"
+                                         AdornmentText="S/." />
+                    </MudItem>
+
+                    <MudItem xs="12" sm="4">
+                        <MudNumericField T="decimal"
+                                         @bind-Value="Model.MontoPagado"
+                                         Label="Monto Abonado Caja"
+                                         Variant="Variant.Outlined"
+                                         For="@(() => Model.MontoPagado)"
+                                         Disabled="@IsProcessing"
+                                         Min="0m"
+                                         Step="0.01m"
+                                         Format="C2"
+                                         Adornment="Adornment.Start"
+                                         AdornmentText="S/." />
+                    </MudItem>
+
+                    <MudItem xs="12" sm="4">
+                        <MudNumericField T="decimal"
+                                         @bind-Value="Model.MontoAdelanto"
+                                         Label="Reserva / Adelanto"
+                                         Variant="Variant.Outlined"
+                                         For="@(() => Model.MontoAdelanto)"
+                                         Disabled="@IsProcessing"
+                                         Min="0m"
+                                         Step="0.01m"
+                                         Format="C2"
+                                         Adornment="Adornment.Start"
+                                         AdornmentText="S/." />
+                    </MudItem>
+
+                    <MudItem xs="12" sm="12">
+                        <MudSelect T="MetodoPago"
+                                   @bind-Value="Model.MetodoPago"
+                                   Label="Canal de Recaudo"
+                                   Variant="Variant.Outlined"
+                                   For="@(() => Model.MetodoPago)"
+                                   Disabled="@IsProcessing"
+                                   AdornmentIcon="@Icons.Material.Filled.Payments"
+                                   AdornmentColor="Color.Secondary">
+                            <MudSelectItem Value="MetodoPago.Efectivo">Efectivo</MudSelectItem>
+                            <MudSelectItem Value="MetodoPago.Yape">Yape (Billetera Digital)</MudSelectItem>
+                            <MudSelectItem Value="MetodoPago.Plin">Plin (Billetera Digital)</MudSelectItem>
+                            <MudSelectItem Value="MetodoPago.Transferencia">Transferencia Bancaria</MudSelectItem>
+                            <MudSelectItem Value="MetodoPago.Tarjeta">Tarjeta de Crédito / Débito</MudSelectItem>
+                            <MudSelectItem Value="MetodoPago.Otro">Otro Medio Regulado</MudSelectItem>
+                        </MudSelect>
+                    </MudItem>
+
+                    <MudItem xs="12">
+                        <MudTextField @bind-Value="Model.Observacion"
+                                      Label="Observaciones de Glosa Contable"
+                                      Variant="Variant.Outlined"
+                                      Lines="2"
+                                      Disabled="@IsProcessing" />
+                    </MudItem>
+                </MudGrid>
+            </div>
+
+            <div class="form-actions-panel mt-5">
+                <MudButton Variant="Variant.Text" Color="Color.Default" OnClick="Cancelar" Disabled="@IsProcessing" Class="text-none px-4">
+                    Cancelar
+                </MudButton>
+                <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" Disabled="@IsProcessing" Class="text-none px-6 rounded-lg shadow-sm">
+                    @if (IsProcessing) 
+                    {
+                        <MudProgressCircular Size="Size.Small" Indeterminate="true" Class="mr-2"/>
+                    } 
+                    Registrar Recibo
+                </MudButton>
+            </div>
+        </EditForm>
+    </DialogContent>
+</MudDialog>
+
+@code {
+    [CascadingParameter] private IMudDialogInstance MudDialog { get; set; } = default!;
+    [Parameter] public List<PacienteItemDto> Pacientes { get; set; } = new();
+    [Parameter] public List<ServicioClinicoResponseDto> Servicios { get; set; } = new();
+
+    private RegistrarPagoDto Model { get; set; } = new();
+    private bool IsProcessing;
+
+    private async Task RegistrarAsync()
+    {
+        IsProcessing = true;
+        MudDialog.Close(DialogResult.Ok(Model));
+    }
+
+    private void Cancelar() => MudDialog.Cancel();
+}

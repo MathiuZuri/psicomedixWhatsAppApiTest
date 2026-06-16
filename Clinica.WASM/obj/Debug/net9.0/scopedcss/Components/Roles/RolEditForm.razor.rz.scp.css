@@ -1,0 +1,12 @@
+.role-form-wrapper[b-ztyw60ao28] {
+    padding: 8px 4px;
+}
+
+.form-actions-bar[b-ztyw60ao28] {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px solid var(--mud-palette-divider);
+}

@@ -1,0 +1,73 @@
+.status-dialog-header-luxury[b-q091cyeutf] {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding-top: 8px;
+    min-width: 0;
+}
+
+.status-icon-frame[b-q091cyeutf] {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background-color: rgba(195, 141, 158, 0.08);
+    color: var(--mud-palette-secondary); /* Nuestro Rose Gold del ClinicaTheme */
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+}
+
+.shadow-glow-secondary[b-q091cyeutf] {
+    box-shadow: 0 4px 10px rgba(195, 141, 158, 0.2);
+}
+
+.status-text-stack[b-q091cyeutf] {
+    min-width: 0;
+}
+
+.status-dialog-title[b-q091cyeutf] {
+    font-weight: 800 !important;
+    letter-spacing: -0.02em;
+    color: var(--mud-palette-text-primary);
+    font-size: clamp(1.1rem, 3vw, 1.35rem) !important;
+}
+
+.status-dialog-subtitle[b-q091cyeutf] {
+    color: var(--mud-palette-text-secondary);
+    opacity: 0.85;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.form-actions-panel[b-q091cyeutf] {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px;
+    padding-top: 18px;
+    border-top: 1px solid var(--mud-palette-divider);
+}
+
+/* --- ADAPTABILIDAD MÓVIL TOTAL --- */
+@media (max-width: 600px) {
+    .status-dialog-header-luxury[b-q091cyeutf] {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .status-dialog-subtitle[b-q091cyeutf] {
+        white-space: normal; /* Permite el quiebre de renglón si el nombre de la paciente es largo */
+    }
+
+    .form-actions-panel[b-q091cyeutf] {
+        flex-direction: column-reverse; /* El botón confirmar queda arriba de cancelar para un tap ergonómico */
+        align-items: stretch;
+        gap: 8px;
+    }
+
+    .w-sm-full[b-q091cyeutf] {
+        width: 100%;
+    }
+}

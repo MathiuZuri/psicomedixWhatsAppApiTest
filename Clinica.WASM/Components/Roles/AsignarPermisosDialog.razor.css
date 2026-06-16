@@ -1,0 +1,59 @@
+﻿.permissions-dialog-header-luxury {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding-top: 8px;
+}
+
+.permissions-icon-frame {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background-color: rgba(195, 141, 158, 0.1);
+    color: var(--mud-palette-secondary); /* Rose Gold */
+    display: grid;
+    place-items: center;
+}
+
+.permissions-title {
+    font-weight: 800 !important;
+    letter-spacing: -0.02em;
+    color: var(--mud-palette-text-primary);
+}
+
+.permissions-subtitle {
+    color: var(--mud-palette-text-secondary);
+    opacity: 0.8;
+}
+
+.permissions-scroll-container {
+    max-height: 320px;
+    overflow-y: auto;
+    background-color: var(--mud-palette-background-gray);
+    border-color: var(--mud-palette-divider) !important;
+}
+
+::deep .permission-item-row {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+    border-radius: 8px !important;
+    margin-bottom: 2px;
+}
+
+.module-badge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    background-color: var(--mud-palette-surface);
+    color: var(--mud-palette-text-secondary);
+    padding: 3px 8px;
+    border-radius: 6px;
+    border: 1px solid var(--mud-palette-divider);
+}
+
+.form-actions-panel {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    padding-top: 16px;
+    border-top: 1px solid var(--mud-palette-divider);
+}

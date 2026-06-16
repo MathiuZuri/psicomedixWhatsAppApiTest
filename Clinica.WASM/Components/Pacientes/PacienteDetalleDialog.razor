@@ -1,0 +1,158 @@
+﻿<MudDialog ContentClass="dialog-blur-surface px-6 pb-6" ActionsClass="px-6 pb-4">
+    <DialogContent>
+        @* Encabezado de la Ficha Médica Estilo Perfil Premium *@
+        <div class="patient-dialog-header-luxury">
+            <div class="avatar-glow-wrapper">
+                <MudAvatar Color="Color.Primary" Size="Size.Large" Class="avatar-profile-shadow">
+                    @Iniciales
+                </MudAvatar>
+            </div>
+
+            <div class="patient-header-text-block">
+                <MudText Typo="Typo.h2" Class="patient-dialog-name">
+                    @Paciente.NombreCompleto
+                </MudText>
+                <div class="patient-subtags d-flex align-center gap-2 mt-1">
+                    <MudIcon Icon="@Icons.Material.Filled.QrCode" Size="Size.Small" Color="Color.Secondary" />
+                    <MudText Typo="Typo.caption" Class="fw-semibold font-mono text-secondary">
+                        ID: @Paciente.CodigoPaciente
+                    </MudText>
+                </div>
+            </div>
+        </div>
+
+        <MudDivider Class="my-5" />
+
+        @* Rejilla de Información en Celdas de Alto Contraste *@
+        <MudGrid Class="info-grid-styled">
+            <MudItem xs="12" sm="6" md="4" Class="info-cell">
+                <div class="info-cell-box">
+                    <span class="info-cell-label">DNI</span>
+                    <span class="info-cell-value">@Paciente.DNI</span>
+                </div>
+            </MudItem>
+
+            <MudItem xs="12" sm="6" md="4" Class="info-cell">
+                <div class="info-cell-box">
+                    <span class="info-cell-label">Sexo</span>
+                    <span class="info-cell-value">@MostrarSexo(Paciente.Sexo)</span>
+                </div>
+            </MudItem>
+
+            <MudItem xs="12" sm="6" md="4" Class="info-cell">
+                <div class="info-cell-box">
+                    <span class="info-cell-label">Fecha de Nacimiento</span>
+                    <span class="info-cell-value">@Paciente.FechaNacimiento.ToString("dd/MM/yyyy")</span>
+                </div>
+            </MudItem>
+
+            <MudItem xs="12" sm="6" md="4" Class="info-cell">
+                <div class="info-cell-box">
+                    <span class="info-cell-label">Estado Asistencial</span>
+                    <div class="mt-1">
+                        <MudChip T="string"
+                                 Size="Size.Small"
+                                 Color="@ObtenerColorEstado(Paciente.Estado)"
+                                 Variant="Variant.Filled"
+                                 Class="status-chip-solid">
+                            @Paciente.Estado
+                        </MudChip>
+                    </div>
+                </div>
+            </MudItem>
+
+            <MudItem xs="12" sm="6" md="4" Class="info-cell">
+                <div class="info-cell-box">
+                    <span class="info-cell-label">Celular</span>
+                    <span class="info-cell-value">@MostrarDato(Paciente.Celular)</span>
+                </div>
+            </MudItem>
+
+            <MudItem xs="12" sm="6" md="4" Class="info-cell">
+                <div class="info-cell-box">
+                    <span class="info-cell-label">Correo</span>
+                    <span class="info-cell-value truncate-text">@MostrarDato(Paciente.Correo)</span>
+                </div>
+            </MudItem>
+
+            <MudItem xs="12" sm="6" md="4" Class="info-cell">
+                <div class="info-cell-box">
+                    <span class="info-cell-label">Código de Historial</span>
+                    <span class="info-cell-value font-semibold text-primary">@MostrarDato(Paciente.CodigoHistorial)</span>
+                </div>
+            </MudItem>
+
+            <MudItem xs="12" sm="6" md="8" Class="info-cell">
+                <div class="info-cell-box">
+                    <span class="info-cell-label">Dirección</span>
+                    <span class="info-cell-value truncate-text">@MostrarDato(Paciente.Direccion)</span>
+                </div>
+            </MudItem>
+
+            <MudItem xs="12" Class="info-cell">
+                <div class="info-cell-box footer-cell">
+                    <span class="info-cell-label">Fecha de Registro en Sistema</span>
+                    <span class="info-cell-value text-sm text-muted">@Paciente.FechaRegistro.ToString("dd/MM/yyyy HH:mm")</span>
+                </div>
+            </MudItem>
+        </MudGrid>
+    </DialogContent>
+
+    <DialogActions>
+        <MudButton>Cerrar Ficha</MudButton>
+    </DialogActions>
+</MudDialog>
+
+@code {
+    [CascadingParameter] private IMudDialogInstance MudDialog { get; set; } = default!;
+
+    [Parameter] public PacienteResponseDto Paciente { get; set; } = new();
+
+    private string Iniciales => ObtenerIniciales(Paciente.NombreCompleto);
+
+    private void Cerrar()
+    {
+        MudDialog.Close();
+    }
+
+    private static string MostrarDato(string? valor)
+    {
+        return string.IsNullOrWhiteSpace(valor) ? "No registrado" : valor;
+    }
+
+    private static string MostrarSexo(string sexo)
+    {
+        return sexo switch
+        {
+            "F" => "Femenino",
+            "M" => "Masculino",
+            _ => "No especificado"
+        };
+    }
+
+    private static string ObtenerIniciales(string nombreCompleto)
+    {
+        if (string.IsNullOrWhiteSpace(nombreCompleto))
+            return "P";
+
+        var partes = nombreCompleto.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+
+        if (partes.Length == 1)
+            return partes[0][0].ToString().ToUpperInvariant();
+
+        return $"{partes[0][0]}{partes[^1][0]}".ToUpperInvariant();
+    }
+
+    private static Color ObtenerColorEstado(EstadoPaciente estado)
+    {
+        return estado switch
+        {
+            EstadoPaciente.Activo => Color.Success,
+            EstadoPaciente.Inactivo => Color.Warning,
+            EstadoPaciente.Bloqueado => Color.Error,
+            EstadoPaciente.Fallecido => Color.Dark,
+            EstadoPaciente.Eliminado => Color.Error,
+            _ => Color.Default
+        };
+    }
+}

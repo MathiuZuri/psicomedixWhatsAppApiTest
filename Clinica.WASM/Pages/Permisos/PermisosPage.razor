@@ -1,0 +1,71 @@
+﻿@page "/permisos"
+
+<PageTitle>Permisos del Sistema | Clínica Santa Mónica</PageTitle>
+
+<RequireAuth>
+    <PageHeader Title="Diccionario de Permisos Base"
+                Subtitle="Catálogo maestro y lectura de credenciales inmutables de seguridad del núcleo SIGEC." />
+
+    @* Barra de Filtro de Permisos *@
+    <div class="search-luxury-frame mb-5 mt-4">
+        <MudTextField @bind-Value="SearchText"
+                      Placeholder="Filtrar por identificador de código, etiqueta de permiso o módulo de negocio..."
+                      Variant="Variant.Outlined"
+                      Margin="Margin.None"
+                      Adornment="Adornment.Start"
+                      AdornmentIcon="@Icons.Material.Filled.Search"
+                      AdornmentColor="Color.Primary"
+                      Immediate="true"
+                      Class="clean-search-field" />
+    </div>
+
+    @if (HayErrorCarga)
+    {
+        <div class="error-panel-container pa-6 text-center">
+            <ErrorState Title="Fallo de sincronización local" Message="@MensajeError" OnRetry="CargarPermisosAsync" />
+        </div>
+    }
+    else
+    {
+        <div class="permisos-table-layer">
+            <MudTable Items="@PermisosFiltrados"
+                      Dense="false"
+                      Hover="true"
+                      Bordered="false"
+                      Striped="true"
+                      Elevation="0"
+                      Class="luxury-permisos-table">
+
+                <HeaderContent>
+                    <MudTh Class="header-cell-premium">Identificador Único (Código)</MudTh>
+                    <MudTh Class="header-cell-premium">Acción Autorizada</MudTh>
+                    <MudTh Class="header-cell-premium">Módulo del Ecosistema</MudTh>
+                    <MudTh Class="header-cell-premium text-end">Estado</MudTh>
+                </HeaderContent>
+
+                <RowTemplate>
+                    <MudTd DataLabel="Código" Class="py-3">
+                        <span class="permission-code-badge">@context.Codigo</span>
+                    </MudTd>
+                    <MudTd DataLabel="Nombre" Class="fw-bold text-primary-dark">@context.Nombre</MudTd>
+                    <MudTd DataLabel="Módulo">
+                        <span class="permission-module-tag">@context.Modulo</span>
+                    </MudTd>
+                    <MudTd DataLabel="Activo" Class="text-end py-2">
+                        <div class="boolean-icon-wrapper d-inline-flex">
+                            <MudIcon Icon="@(context.Activo ? Icons.Material.Filled.CheckCircle : Icons.Material.Filled.Cancel)"
+                                     Color="@(context.Activo ? Color.Success : Color.Default)"
+                                     Size="Size.Medium" />
+                        </div>
+                    </MudTd>
+                </RowTemplate>
+
+                <PagerContent>
+                    <div class="table-pager-luxury">
+                        <MudTablePager PageSizeOptions="new[] { 5, 10, 20, 50 }" RowsPerPageString="Permisos por página:" />
+                    </div>
+                </PagerContent>
+            </MudTable>
+        </div>
+    }
+</RequireAuth>

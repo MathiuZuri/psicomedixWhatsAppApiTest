@@ -1,0 +1,147 @@
+﻿.search-luxury-layer {
+    background-color: var(--mud-palette-surface);
+    padding: 16px 24px;
+    border-radius: 16px;
+    border: 1px solid var(--mud-palette-divider);
+    box-shadow: var(--mud-elevation-1);
+}
+
+::deep .search-autocomplete-clean .mud-input-outlined-border {
+    border: none !important; /* Limpia el borde nativo tosco */
+}
+
+/* --- TARJETA DE RESUMEN DE PERFIL MÉDICO --- */
+.patient-profile-summary-card {
+    background-color: var(--mud-palette-surface);
+    padding: 24px;
+    border-radius: 16px;
+    border: 1px solid var(--mud-palette-divider);
+    box-shadow: var(--mud-elevation-2);
+    border-top: 4px solid var(--mud-palette-tertiary); /* Microborde Oro Fino */
+    animation: quickFadeClean 0.3s ease-out;
+}
+
+.profile-summary-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.profile-summary-title {
+    font-weight: 800 !important;
+    letter-spacing: -0.02em;
+    color: var(--mud-palette-text-primary);
+}
+
+.profile-summary-subtitle {
+    color: var(--mud-palette-text-secondary);
+    font-size: 0.95rem;
+}
+
+.status-indicator-tag {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 6px;
+    letter-spacing: 0.05em;
+}
+
+.status-indicator-tag.active-status {
+    background-color: rgba(16, 185, 129, 0.1);
+    color: #10B981;
+}
+
+.profile-metadata-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.metadata-mini-cell {
+    background-color: var(--mud-palette-background-gray);
+    padding: 10px 16px;
+    border-radius: 10px;
+    border: 1px solid var(--mud-palette-divider);
+    display: flex;
+    flex-direction: column;
+}
+
+.mini-label {
+    font-size: 0.68rem;
+    font-weight: 800;
+    color: var(--mud-palette-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    opacity: 0.8;
+}
+
+.mini-value {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--mud-palette-text-primary);
+    margin-top: 2px;
+}
+
+/* --- TABLA DE REGISTROS CLÍNICOS --- */
+.history-table-layer {
+    background-color: var(--mud-palette-surface);
+    border-radius: 16px;
+    box-shadow: var(--mud-elevation-2);
+    border: 1px solid var(--mud-palette-divider);
+    overflow: hidden;
+}
+
+.header-cell-premium {
+    font-weight: 700 !important;
+    text-transform: uppercase;
+    font-size: 0.75rem !important;
+    letter-spacing: 0.05em;
+    background-color: var(--mud-palette-background-gray) !important;
+    color: var(--mud-palette-text-secondary) !important;
+    padding: 16px !important;
+}
+
+.movement-type-pill {
+    font-weight: 700;
+    font-size: 0.8rem;
+    color: var(--mud-palette-primary);
+    background-color: rgba(43, 76, 222, 0.05);
+    padding: 4px 10px;
+    border-radius: 6px;
+}
+
+.action-btn-styled {
+    background-color: var(--mud-palette-background-gray);
+    border-radius: 8px !important;
+    transition: all 0.2s ease;
+}
+
+.action-btn-styled:hover {
+    background-color: var(--mud-palette-divider);
+}
+
+.table-pager-luxury {
+    border-top: 1px solid var(--mud-palette-divider);
+    padding: 4px 8px;
+}
+
+.animate-fade-clean {
+    animation: quickFadeClean 0.3s ease-out;
+}
+
+@keyframes quickFadeClean {
+    from { opacity: 0; transform: translateY(-4px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- RESPONSIVIDAD ESTRICTA --- */
+@media (max-width: 768px) {
+    .full-width-mobile {
+        width: 100%;
+        margin-top: 8px;
+    }
+}

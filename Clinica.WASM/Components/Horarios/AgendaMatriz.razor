@@ -1,0 +1,162 @@
+﻿@page "/panel/horarios/agenda"
+@using DoctorResponseDto = Clinica.WASM.DTOs.Doctores.DoctorResponseDto
+@using Clinica.Domain.DTOs.Doctores
+@inject HorarioDoctorApiService HorarioApiService
+@inject DoctorApiService DoctorApiService
+@inject ISnackbar Snackbar
+
+<PageTitle>Agenda Semanal Staff | SIGEC</PageTitle>
+
+<PageHeader Title="Panel de Ocupación Semanal" 
+            Subtitle="Monitoreo de bloques horarios, disponibilidad en tiempo real e interferencias de citas." />
+
+<div class="mt-4 wrapper-canvas-luxury">
+
+    <div class="control-header-panel mb-5">
+        <MudGrid Spacing="3" Class="align-center">
+            <MudItem xs="12" sm="5">
+                <MudSelect T="Guid" Label="Seleccionar Médico Especialista" Value="@DoctorId" ValueChanged="OnDoctorChanged" Variant="Variant.Outlined" Margin="Margin.Dense">
+                    <MudSelectItem Value="Guid.Empty">-- Seleccione Médico --</MudSelectItem>
+                    @foreach (var doc in DoctoresList)
+                    {
+                        <MudSelectItem Value="doc.Id">@doc.Nombres @doc.Apellidos</MudSelectItem>
+                    }
+                </MudSelect>
+            </MudItem>
+            <MudItem xs="12" sm="4">
+                <MudDatePicker Label="Semana del Día" Date="@FechaFiltro" DateChanged="OnFechaChanged" Variant="Variant.Outlined" Margin="Margin.Dense" DateFormat="dd/MM/yyyy" />
+            </MudItem>
+            <MudItem xs="12" sm="3" Class="text-sm-end">
+                <MudButton StartIcon="@Icons.Material.Filled.Sync" Color="Color.Primary" Variant="Variant.Filled" OnClick="CargarMatrizAsync" Disabled="@CargandoMatriz" Class="text-none py-2 rounded-lg">
+                    Sincronizar
+                </MudButton>
+            </MudItem>
+        </MudGrid>
+    </div>
+
+    @if (CargandoMatriz)
+    {
+        <div class="pa-10 text-center"><MudProgressCircular Indeterminate="true" Color="Color.Primary" /></div>
+    }
+    else if (MatrizData == null || !MatrizData.Filas.Any())
+    {
+        <div class="pa-8 text-center bg-white rounded-xl shadow-sm border border-slate-200">
+            <MudIcon Icon="@Icons.Material.Filled.CalendarToday" Size="Size.Large" Color="Color.Default" />
+            <MudText Typo="Typo.body1" Class="text-secondary mt-3">Selecciona un médico y sincroniza la semana para proyectar el cuadrante de turnos.</MudText>
+        </div>
+    }
+    else
+    {
+        @* PARRILLA CENTRAL MAESTRA *@
+        <div class="matrix-card-surface-luxury">
+            <div class="matrix-header-info mb-4">
+                <div>
+                    <MudText Typo="Typo.h3" Class="matrix-doc-name">Dra/Dr. @MatrizData.DoctorNombre</MudText>
+                    <MudText Typo="Typo.caption" Class="text-secondary fw-semibold uppercase tracking-wider">Especialidad: @MatrizData.Especialidad</MudText>
+                </div>
+                <div class="week-range-indicator">
+                    <MudIcon Icon="@Icons.Material.Filled.DateRange" Size="Size.Small" Class="mr-2" Color="Color.Secondary" />
+                    <span>@MatrizData.FechaInicioSemana.ToString("dd MMM") - @MatrizData.FechaFinSemana.ToString("dd MMM, yyyy")</span>
+                </div>
+            </div>
+
+            <div class="overflow-x-auto-clean">
+                <table class="luxury-calendar-grid">
+                    <thead>
+                        <tr>
+                            <th class="time-header-cell">Bloque Horario</th>
+                            <th class="day-header-cell">Lun @MatrizData.FechaInicioSemana.Day</th>
+                            <th class="day-header-cell">Mar @MatrizData.FechaInicioSemana.AddDays(1).Day</th>
+                            <th class="day-header-cell">Mié @MatrizData.FechaInicioSemana.AddDays(2).Day</th>
+                            <th class="day-header-cell">Jue @MatrizData.FechaInicioSemana.AddDays(3).Day</th>
+                            <th class="day-header-cell">Vie @MatrizData.FechaInicioSemana.AddDays(4).Day</th>
+                            <th class="day-header-cell">Sáb @MatrizData.FechaInicioSemana.AddDays(5).Day</th>
+                            <th class="day-header-cell">Dom @MatrizData.FechaInicioSemana.AddDays(6).Day</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var fila in MatrizData.Filas)
+                        {
+                            <tr>
+                                <td class="time-row-label">@fila.RangoHora</td>
+                                @foreach (var celda in fila.CeldasDias)
+                                {
+                                    <td class="calendar-cell-render @celda.Estado">
+                                        @if (celda.Estado == "Ocupado")
+                                        {
+                                            <MudTooltip Placement="Placement.Top" Arrow="true">
+                                                <TooltipContent>
+                                                    <div class="pa-1 font-sans">
+                                                        <strong>@celda.ServicioNombre</strong><br />
+                                                        <span>Paciente: @celda.PacienteNombre</span><br />
+                                                        <span class="text-xs opacity-75">Ticket: @celda.CodigoCita</span>
+                                                    </div>
+                                                </TooltipContent>
+                                                <ChildContent>
+                                                    <div class="occupied-badge-inner animate-scale-in">
+                                                        <span class="paciente-txt truncate d-block">@celda.PacienteNombre</span>
+                                                        <span class="servicio-txt truncate d-block">@celda.ServicioNombre</span>
+                                                    </div>
+                                                </ChildContent>
+                                            </MudTooltip>
+                                        }
+                                        else if (celda.Estado == "Disponible")
+                                        {
+                                            <div class="available-dot-center">
+                                                <span class="dot-indicator"></span>
+                                            </div>
+                                        }
+                                    </td>
+                                }
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    }
+</div>
+
+@code {
+    private Guid DoctorId { get; set; } = Guid.Empty;
+    private DateTime? FechaFiltro { get; set; } = DateTime.Today;
+    private bool CargandoMatriz { get; set; }
+    
+    private Clinica.Domain.DTOs.Horarios.MatrizSemanalDto? MatrizData { get; set; }
+    
+    private List<DoctorResponseDto> DoctoresList { get; set; } = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            DoctoresList = await DoctorApiService.ObtenerTodosAsync();
+        }
+        catch 
+        { 
+            Snackbar.Add("Error al cargar staff médico desde la infraestructura segura.", Severity.Error); 
+        }
+    }
+
+    private async Task OnDoctorChanged(Guid id) { DoctorId = id; await CargarMatrizAsync(); }
+    private async Task OnFechaChanged(DateTime? dt) { FechaFiltro = dt; await CargarMatrizAsync(); }
+
+    private async Task CargarMatrizAsync()
+    {
+        if (DoctorId == Guid.Empty) return;
+        CargandoMatriz = true;
+        try
+        {
+            var fechaDateOnly = DateOnly.FromDateTime(FechaFiltro ?? DateTime.Today);
+            MatrizData = await HorarioApiService.ObtenerMatrizSemanalAsync(DoctorId, fechaDateOnly);
+        }
+        catch 
+        { 
+            Snackbar.Add("Error al sincronizar cuadrante semanal.", Severity.Error); 
+        }
+        finally 
+        { 
+            CargandoMatriz = false; 
+        }
+    }
+}

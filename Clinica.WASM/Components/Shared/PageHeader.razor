@@ -1,0 +1,27 @@
+﻿<div class="page-header-luxury-shell">
+    <div class="header-text-stack">
+        <MudText Typo="Typo.h1" Class="header-main-title">
+            @Title
+        </MudText>
+
+        @if (!string.IsNullOrWhiteSpace(Subtitle))
+        {
+            <MudText Typo="Typo.body2" Class="header-sub-title mt-1">
+                @Subtitle
+            </MudText>
+        }
+    </div>
+
+    @if (ActionContent is not null)
+    {
+        <div class="header-actions-flex-layer">
+            @ActionContent
+        </div>
+    }
+</div>
+
+@code {
+    [Parameter] public string Title { get; set; } = string.Empty;
+    [Parameter] public string Subtitle { get; set; } = string.Empty;
+    [Parameter] public RenderFragment? ActionContent { get; set; }
+}

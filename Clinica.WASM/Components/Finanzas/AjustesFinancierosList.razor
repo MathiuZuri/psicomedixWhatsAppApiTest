@@ -1,0 +1,40 @@
+﻿@if (Ajustes == null || !Ajustes.Any()) return;
+
+<div class="finance-list-layer animate-scale-in">
+    <div class="finance-layer-header-bar border-top-tertiary">
+        <div class="d-flex align-center gap-2">
+            <MudIcon Icon="@Icons.Material.Filled.Tune" Color="Color.Tertiary" />
+            <MudText Typo="Typo.h3" Class="finance-layer-title">Ajustes y Correcciones Financieras</MudText>
+        </div>
+        <MudText Typo="Typo.caption" Class="text-secondary font-mono fw-semibold">AUDITORÍA DE CAJA</MudText>
+    </div>
+
+    <div class="overflow-x-auto-clean">
+        <MudTable Items="Ajustes" Dense="false" Hover="true" Striped="true" Elevation="0" Class="luxury-finance-table">
+            <HeaderContent>
+                <MudTh Class="header-cell-premium">Código Pago</MudTh>
+                <MudTh Class="header-cell-premium">Paciente Beneficiario</MudTh>
+                <MudTh Class="header-cell-premium">Tipo Ajuste</MudTh>
+                <MudTh Class="header-cell-premium text-end">Monto Ajustado</MudTh>
+                <MudTh Class="header-cell-premium">Sustento / Motivo</MudTh>
+                <MudTh Class="header-cell-premium text-end">Fecha Registro</MudTh>
+            </HeaderContent>
+            <RowTemplate>
+                <MudTd DataLabel="Pago">
+                    <span class="finance-code-badge">@context.CodigoPago</span>
+                </MudTd>
+                <MudTd DataLabel="Paciente" Class="fw-semibold text-primary-dark">@context.Paciente</MudTd>
+                <MudTd DataLabel="Tipo">
+                    <span class="ajuste-type-pill">@context.TipoAjuste</span>
+                </MudTd>
+                <MudTd DataLabel="Monto" Class="font-mono fw-bold text-danger text-end">@context.MontoAjuste.ToString("C")</MudTd>
+                <MudTd DataLabel="Motivo" Class="text-secondary text-sm">@context.Motivo</MudTd>
+                <MudTd DataLabel="Fecha" Class="font-mono text-sm text-secondary text-end">@context.FechaRegistro.ToString("dd/MM/yyyy")</MudTd>
+            </RowTemplate>
+        </MudTable>
+    </div>
+</div>
+
+@code {
+    [Parameter] public List<AjusteFinancieroDto>? Ajustes { get; set; }
+}
