@@ -172,3 +172,4 @@ D:\clinica\psicomedixWhatsAppApiTest\Clinica.Infrastructure\obj\Debug\net9.0\Cli
 D:\clinica\psicomedixWhatsAppApiTest\Clinica.Infrastructure\obj\Debug\net9.0\refint\Clinica.Infrastructure.dll
 D:\clinica\psicomedixWhatsAppApiTest\Clinica.Infrastructure\obj\Debug\net9.0\Clinica.Infrastructure.pdb
 D:\clinica\psicomedixWhatsAppApiTest\Clinica.Infrastructure\obj\Debug\net9.0\ref\Clinica.Infrastructure.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.Infrastructure\obj\Debug\net9.0\Clinica.Infrastructure.sourcelink.json

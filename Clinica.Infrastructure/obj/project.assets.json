@@ -942,32 +942,33 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Estudiante-SWI\\.nuget\\packages\\": {}
+    "C:\\Users\\PC\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\clinica\\psicomedixWhatsAppApiTest\\Clinica.Infrastructure\\Clinica.Infrastructure.csproj",
+      "projectUniqueName": "F:\\proyectC#\\spicoMedix\\wahtsTest\\Clinica.Infrastructure\\Clinica.Infrastructure.csproj",
       "projectName": "Clinica.Infrastructure",
-      "projectPath": "D:\\clinica\\psicomedixWhatsAppApiTest\\Clinica.Infrastructure\\Clinica.Infrastructure.csproj",
-      "packagesPath": "C:\\Users\\Estudiante-SWI\\.nuget\\packages\\",
-      "outputPath": "D:\\clinica\\psicomedixWhatsAppApiTest\\Clinica.Infrastructure\\obj\\",
+      "projectPath": "F:\\proyectC#\\spicoMedix\\wahtsTest\\Clinica.Infrastructure\\Clinica.Infrastructure.csproj",
+      "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
+      "outputPath": "F:\\proyectC#\\spicoMedix\\wahtsTest\\Clinica.Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Estudiante-SWI\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
       ],
       "sources": {
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "D:\\clinica\\psicomedixWhatsAppApiTest\\Clinica.Domain\\Clinica.Domain.csproj": {
-              "projectPath": "D:\\clinica\\psicomedixWhatsAppApiTest\\Clinica.Domain\\Clinica.Domain.csproj"
+            "F:\\proyectC#\\spicoMedix\\wahtsTest\\Clinica.Domain\\Clinica.Domain.csproj": {
+              "projectPath": "F:\\proyectC#\\spicoMedix\\wahtsTest\\Clinica.Domain\\Clinica.Domain.csproj"
             }
           }
         }
@@ -982,7 +983,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.300"
+      "SdkAnalysisLevel": "9.0.200"
     },
     "frameworks": {
       "net9.0": {
@@ -1021,7 +1022,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.315/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

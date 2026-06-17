@@ -16,293 +16,297 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = browser
 build_property.RootNamespace = Clinica.WASM
 build_property.RootNamespace = Clinica.WASM
-build_property.ProjectDir = D:\clinica\psicomedixWhatsAppApiTest\Clinica.WASM\
+build_property.ProjectDir = F:\proyectC#\spicoMedix\wahtsTest\Clinica.WASM\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = false
 build_property.RazorLangVersion = 9.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\clinica\psicomedixWhatsAppApiTest\Clinica.WASM
+build_property.MSBuildProjectDirectory = F:\proyectC#\spicoMedix\wahtsTest\Clinica.WASM
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 9.0
 build_property.EnableCodeStyleSeverity = 
 
-[D:/clinica/psicomedixWhatsAppApiTest/Clinica.WASM/App.razor]
+[F:/proyectC\#/spicoMedix/wahtsTest/Clinica.WASM/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/clinica/psicomedixWhatsAppApiTest/Clinica.WASM/Components/Auth/RequireAuth.razor]
+[F:/proyectC\#/spicoMedix/wahtsTest/Clinica.WASM/Components/Auth/RequireAuth.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBdXRoXFJlcXVpcmVBdXRoLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/clinica/psicomedixWhatsAppApiTest/Clinica.WASM/Components/Auth/RequirePermission.razor]
+[F:/proyectC\#/spicoMedix/wahtsTest/Clinica.WASM/Components/Auth/RequirePermission.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBdXRoXFJlcXVpcmVQZXJtaXNzaW9uLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/clinica/psicomedixWhatsAppApiTest/Clinica.WASM/Layout/EmptyLayout.razor]
+[F:/proyectC\#/spicoMedix/wahtsTest/Clinica.WASM/Layout/EmptyLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XEVtcHR5TGF5b3V0LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/clinica/psicomedixWhatsAppApiTest/Clinica.WASM/Pages/Home.razor]
+[F:/proyectC\#/spicoMedix/wahtsTest/Clinica.WASM/Pages/Home.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9tZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/clinica/psicomedixWhatsAppApiTest/Clinica.WASM/Pages/Utils/DialogoConfirmacion.razor]
+[F:/proyectC\#/spicoMedix/wahtsTest/Clinica.WASM/Pages/Utils/DialogoConfirmacion.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXRpbHNcRGlhbG9nb0NvbmZpcm1hY2lvbi5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/clinica/psicomedixWhatsAppApiTest/Clinica.WASM/_Imports.razor]
+[F:/proyectC\#/spicoMedix/wahtsTest/Clinica.WASM/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/clinica/psicomedixWhatsAppApiTest/Clinica.WASM/Components/Citas/CitaCancelarDialog.razor]
+[F:/proyectC\#/spicoMedix/wahtsTest/Clinica.WASM/Components/Chats/ListaContactos.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xDaGF0c1xMaXN0YUNvbnRhY3Rvcy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-xxxnzq2974
+
+[F:/proyectC\#/spicoMedix/wahtsTest/Clinica.WASM/Components/Chats/VentanaConversacion.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xDaGF0c1xWZW50YW5hQ29udmVyc2FjaW9uLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-3cm2dd08qa
+
+[F:/proyectC\#/spicoMedix/wahtsTest/Clinica.WASM/Components/Chats/VincularWhatsAppDialog.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xDaGF0c1xWaW5jdWxhcldoYXRzQXBwRGlhbG9nLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-wnt5ck3eyq
+
+[F:/proyectC\#/spicoMedix/wahtsTest/Clinica.WASM/Components/Citas/CitaCancelarDialog.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xDaXRhc1xDaXRhQ2FuY2VsYXJEaWFsb2cucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-xljforo6yd
 
-[D:/clinica/psicomedixWhatsAppApiTest/Clinica.WASM/Components/Citas/CitaDetalleDialog.razor]
+[F:/proyectC\#/spicoMedix/wahtsTest/Clinica.WASM/Components/Citas/CitaDetalleDialog.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xDaXRhc1xDaXRhRGV0YWxsZURpYWxvZy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-6babdbgc82
 
-[D:/clinica/psicomedixWhatsAppApiTest/Clinica.WASM/Components/Citas/CitaForm.razor]
+[F:/proyectC\#/spicoMedix/wahtsTest/Clinica.WASM/Components/Citas/CitaForm.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xDaXRhc1xDaXRhRm9ybS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-zc8nr51rbp
 
-[D:/clinica/psicomedixWhatsAppApiTest/Clinica.WASM/Components/Citas/CitaReprogramarDialog.razor]
+[F:/proyectC\#/spicoMedix/wahtsTest/Clinica.WASM/Components/Citas/CitaReprogramarDialog.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xDaXRhc1xDaXRhUmVwcm9ncmFtYXJEaWFsb2cucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-628zix9ed6
 
-[D:/clinica/psicomedixWhatsAppApiTest/Clinica.WASM/Components/Citas/CitasTable.razor]
+[F:/proyectC\#/spicoMedix/wahtsTest/Clinica.WASM/Components/Citas/CitasTable.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xDaXRhc1xDaXRhc1RhYmxlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-o64evk7pzf
 
-[D:/clinica/psicomedixWhatsAppApiTest/Clinica.WASM/Components/Doctores/DoctorDetalleDialog.razor]
+[F:/proyectC\#/spicoMedix/wahtsTest/Clinica.WASM/Components/Doctores/DoctorDetalleDialog.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xEb2N0b3Jlc1xEb2N0b3JEZXRhbGxlRGlhbG9nLnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-e7oflszjzd
 
-[D:/clinica/psicomedixWhatsAppApiTest/Clinica.WASM/Components/Doctores/DoctorEditForm.razor]
+[F:/proyectC\#/spicoMedix/wahtsTest/Clinica.WASM/Components/Doctores/DoctorEditForm.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xEb2N0b3Jlc1xEb2N0b3JFZGl0Rm9ybS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-phneterwzc
 
-[D:/clinica/psicomedixWhatsAppApiTest/Clinica.WASM/Components/Doctores/DoctoresTable.razor]
+[F:/proyectC\#/spicoMedix/wahtsTest/Clinica.WASM/Components/Doctores/DoctoresTable.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xEb2N0b3Jlc1xEb2N0b3Jlc1RhYmxlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-f3kwgpwbjw
 
-[D:/clinica/psicomedixWhatsAppApiTest/Clinica.WASM/Components/Doctores/DoctorForm.razor]
+[F:/proyectC\#/spicoMedix/wahtsTest/Clinica.WASM/Components/Doctores/DoctorForm.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xEb2N0b3Jlc1xEb2N0b3JGb3JtLnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-ciwe1qq84w
 
-[D:/clinica/psicomedixWhatsAppApiTest/Clinica.WASM/Components/Finanzas/AjustesFinancierosList.razor]
+[F:/proyectC\#/spicoMedix/wahtsTest/Clinica.WASM/Components/Finanzas/AjustesFinancierosList.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xGaW5hbnphc1xBanVzdGVzRmluYW5jaWVyb3NMaXN0LnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-2d9dlqsd0r
 
-[D:/clinica/psicomedixWhatsAppApiTest/Clinica.WASM/Components/Finanzas/FinanzasDeudasReales.razor]
+[F:/proyectC\#/spicoMedix/wahtsTest/Clinica.WASM/Components/Finanzas/FinanzasDeudasReales.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xGaW5hbnphc1xGaW5hbnphc0RldWRhc1JlYWxlcy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-dbrmw4p0f5
 
-[D:/clinica/psicomedixWhatsAppApiTest/Clinica.WASM/Components/Finanzas/FinanzasResumenCaja.razor]
+[F:/proyectC\#/spicoMedix/wahtsTest/Clinica.WASM/Components/Finanzas/FinanzasResumenCaja.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xGaW5hbnphc1xGaW5hbnphc1Jlc3VtZW5DYWphLnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-2sofcfktqk
 
-[D:/clinica/psicomedixWhatsAppApiTest/Clinica.WASM/Components/Finanzas/RegistrarAjusteFinancieroDialog.razor]
+[F:/proyectC\#/spicoMedix/wahtsTest/Clinica.WASM/Components/Finanzas/RegistrarAjusteFinancieroDialog.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xGaW5hbnphc1xSZWdpc3RyYXJBanVzdGVGaW5hbmNpZXJvRGlhbG9nLnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-s1pudym0ku
 
-[D:/clinica/psicomedixWhatsAppApiTest/Clinica.WASM/Components/Historiales/HistorialDetalleDialog.razor]
+[F:/proyectC\#/spicoMedix/wahtsTest/Clinica.WASM/Components/Historiales/HistorialDetalleDialog.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xIaXN0b3JpYWxlc1xIaXN0b3JpYWxEZXRhbGxlRGlhbG9nLnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-svs2cxm34n
 
-[D:/clinica/psicomedixWhatsAppApiTest/Clinica.WASM/Components/Horarios/AgendaMatriz.razor]
+[F:/proyectC\#/spicoMedix/wahtsTest/Clinica.WASM/Components/Horarios/AgendaMatriz.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xIb3Jhcmlvc1xBZ2VuZGFNYXRyaXoucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-os2fmeeb11
 
-[D:/clinica/psicomedixWhatsAppApiTest/Clinica.WASM/Components/Horarios/HorarioDetalleDialog.razor]
+[F:/proyectC\#/spicoMedix/wahtsTest/Clinica.WASM/Components/Horarios/HorarioDetalleDialog.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xIb3Jhcmlvc1xIb3JhcmlvRGV0YWxsZURpYWxvZy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-1udbqz1p26
 
-[D:/clinica/psicomedixWhatsAppApiTest/Clinica.WASM/Components/Horarios/HorarioEditForm.razor]
+[F:/proyectC\#/spicoMedix/wahtsTest/Clinica.WASM/Components/Horarios/HorarioEditForm.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xIb3Jhcmlvc1xIb3JhcmlvRWRpdEZvcm0ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-yd8lx4lzab
 
-[D:/clinica/psicomedixWhatsAppApiTest/Clinica.WASM/Components/Horarios/HorarioForm.razor]
+[F:/proyectC\#/spicoMedix/wahtsTest/Clinica.WASM/Components/Horarios/HorarioForm.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xIb3Jhcmlvc1xIb3JhcmlvRm9ybS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-26g7lv8o6d
 
-[D:/clinica/psicomedixWhatsAppApiTest/Clinica.WASM/Components/Horarios/HorariosTable.razor]
+[F:/proyectC\#/spicoMedix/wahtsTest/Clinica.WASM/Components/Horarios/HorariosTable.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xIb3Jhcmlvc1xIb3Jhcmlvc1RhYmxlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-1fsoqqqmnq
 
-[D:/clinica/psicomedixWhatsAppApiTest/Clinica.WASM/Components/Pacientes/CambiarEstadoPacienteDialog.razor]
+[F:/proyectC\#/spicoMedix/wahtsTest/Clinica.WASM/Components/Pacientes/CambiarEstadoPacienteDialog.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWNpZW50ZXNcQ2FtYmlhckVzdGFkb1BhY2llbnRlRGlhbG9nLnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-q091cyeutf
 
-[D:/clinica/psicomedixWhatsAppApiTest/Clinica.WASM/Components/Pacientes/PacienteContactoForm.razor]
+[F:/proyectC\#/spicoMedix/wahtsTest/Clinica.WASM/Components/Pacientes/PacienteContactoForm.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWNpZW50ZXNcUGFjaWVudGVDb250YWN0b0Zvcm0ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-j8fltw7x1g
 
-[D:/clinica/psicomedixWhatsAppApiTest/Clinica.WASM/Components/Pacientes/PacienteDetalleDialog.razor]
+[F:/proyectC\#/spicoMedix/wahtsTest/Clinica.WASM/Components/Pacientes/PacienteDetalleDialog.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWNpZW50ZXNcUGFjaWVudGVEZXRhbGxlRGlhbG9nLnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-6vep3nlrus
 
-[D:/clinica/psicomedixWhatsAppApiTest/Clinica.WASM/Components/Pacientes/PacienteForm.razor]
+[F:/proyectC\#/spicoMedix/wahtsTest/Clinica.WASM/Components/Pacientes/PacienteForm.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWNpZW50ZXNcUGFjaWVudGVGb3JtLnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-j0ax1nd4lt
 
-[D:/clinica/psicomedixWhatsAppApiTest/Clinica.WASM/Components/Pacientes/PacientesTable.razor]
+[F:/proyectC\#/spicoMedix/wahtsTest/Clinica.WASM/Components/Pacientes/PacientesTable.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWNpZW50ZXNcUGFjaWVudGVzVGFibGUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-pbn0bm8lz3
 
-[D:/clinica/psicomedixWhatsAppApiTest/Clinica.WASM/Components/Pagos/AjustesPagoDialog.razor]
+[F:/proyectC\#/spicoMedix/wahtsTest/Clinica.WASM/Components/Pagos/AjustesPagoDialog.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdvc1xBanVzdGVzUGFnb0RpYWxvZy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-qiba887uqk
 
-[D:/clinica/psicomedixWhatsAppApiTest/Clinica.WASM/Components/Pagos/CambiarEstadoPagoDialog.razor]
+[F:/proyectC\#/spicoMedix/wahtsTest/Clinica.WASM/Components/Pagos/CambiarEstadoPagoDialog.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdvc1xDYW1iaWFyRXN0YWRvUGFnb0RpYWxvZy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-8nyzkxa0fj
 
-[D:/clinica/psicomedixWhatsAppApiTest/Clinica.WASM/Components/Pagos/PagosTable.razor]
+[F:/proyectC\#/spicoMedix/wahtsTest/Clinica.WASM/Components/Pagos/PagosTable.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdvc1xQYWdvc1RhYmxlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-hqw0exk4hn
 
-[D:/clinica/psicomedixWhatsAppApiTest/Clinica.WASM/Components/Pagos/RegistrarPagoDialog.razor]
+[F:/proyectC\#/spicoMedix/wahtsTest/Clinica.WASM/Components/Pagos/RegistrarPagoDialog.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdvc1xSZWdpc3RyYXJQYWdvRGlhbG9nLnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-frgy5hjq3b
 
-[D:/clinica/psicomedixWhatsAppApiTest/Clinica.WASM/Components/Roles/AsignarPermisosDialog.razor]
+[F:/proyectC\#/spicoMedix/wahtsTest/Clinica.WASM/Components/Roles/AsignarPermisosDialog.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xSb2xlc1xBc2lnbmFyUGVybWlzb3NEaWFsb2cucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-zcthk4a3xd
 
-[D:/clinica/psicomedixWhatsAppApiTest/Clinica.WASM/Components/Roles/RolDetalleDialog.razor]
+[F:/proyectC\#/spicoMedix/wahtsTest/Clinica.WASM/Components/Roles/RolDetalleDialog.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xSb2xlc1xSb2xEZXRhbGxlRGlhbG9nLnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-1qiy9jt4wh
 
-[D:/clinica/psicomedixWhatsAppApiTest/Clinica.WASM/Components/Roles/RolEditForm.razor]
+[F:/proyectC\#/spicoMedix/wahtsTest/Clinica.WASM/Components/Roles/RolEditForm.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xSb2xlc1xSb2xFZGl0Rm9ybS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-ztyw60ao28
 
-[D:/clinica/psicomedixWhatsAppApiTest/Clinica.WASM/Components/Roles/RolesTable.razor]
+[F:/proyectC\#/spicoMedix/wahtsTest/Clinica.WASM/Components/Roles/RolesTable.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xSb2xlc1xSb2xlc1RhYmxlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-nq3i4xpye5
 
-[D:/clinica/psicomedixWhatsAppApiTest/Clinica.WASM/Components/Roles/RolForm.razor]
+[F:/proyectC\#/spicoMedix/wahtsTest/Clinica.WASM/Components/Roles/RolForm.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xSb2xlc1xSb2xGb3JtLnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-jmakojetoc
 
-[D:/clinica/psicomedixWhatsAppApiTest/Clinica.WASM/Components/ServiciosClinicos/ServicioClinicoDetalleDialog.razor]
+[F:/proyectC\#/spicoMedix/wahtsTest/Clinica.WASM/Components/ServiciosClinicos/ServicioClinicoDetalleDialog.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xTZXJ2aWNpb3NDbGluaWNvc1xTZXJ2aWNpb0NsaW5pY29EZXRhbGxlRGlhbG9nLnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-yh516yejp2
 
-[D:/clinica/psicomedixWhatsAppApiTest/Clinica.WASM/Components/ServiciosClinicos/ServiciosClinicosTable.razor]
+[F:/proyectC\#/spicoMedix/wahtsTest/Clinica.WASM/Components/ServiciosClinicos/ServiciosClinicosTable.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xTZXJ2aWNpb3NDbGluaWNvc1xTZXJ2aWNpb3NDbGluaWNvc1RhYmxlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-4mo84lm9h5
 
-[D:/clinica/psicomedixWhatsAppApiTest/Clinica.WASM/Components/Shared/EmptyState.razor]
+[F:/proyectC\#/spicoMedix/wahtsTest/Clinica.WASM/Components/Shared/EmptyState.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xTaGFyZWRcRW1wdHlTdGF0ZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-klsjxla12a
 
-[D:/clinica/psicomedixWhatsAppApiTest/Clinica.WASM/Components/Shared/ErrorState.razor]
+[F:/proyectC\#/spicoMedix/wahtsTest/Clinica.WASM/Components/Shared/ErrorState.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xTaGFyZWRcRXJyb3JTdGF0ZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-qxwo6wscgt
 
-[D:/clinica/psicomedixWhatsAppApiTest/Clinica.WASM/Components/Shared/LoadingState.razor]
+[F:/proyectC\#/spicoMedix/wahtsTest/Clinica.WASM/Components/Shared/LoadingState.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xTaGFyZWRcTG9hZGluZ1N0YXRlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-95nkaohzdc
 
-[D:/clinica/psicomedixWhatsAppApiTest/Clinica.WASM/Components/Shared/PageHeader.razor]
+[F:/proyectC\#/spicoMedix/wahtsTest/Clinica.WASM/Components/Shared/PageHeader.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xTaGFyZWRcUGFnZUhlYWRlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-ucw534g9af
 
-[D:/clinica/psicomedixWhatsAppApiTest/Clinica.WASM/Components/Usuarios/AsignarRolDialog.razor]
+[F:/proyectC\#/spicoMedix/wahtsTest/Clinica.WASM/Components/Usuarios/AsignarRolDialog.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xVc3Vhcmlvc1xBc2lnbmFyUm9sRGlhbG9nLnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-jypwjsx8p6
 
-[D:/clinica/psicomedixWhatsAppApiTest/Clinica.WASM/Components/Usuarios/CambiarEstadoUsuarioDialog.razor]
+[F:/proyectC\#/spicoMedix/wahtsTest/Clinica.WASM/Components/Usuarios/CambiarEstadoUsuarioDialog.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xVc3Vhcmlvc1xDYW1iaWFyRXN0YWRvVXN1YXJpb0RpYWxvZy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-7cswtiqqld
 
-[D:/clinica/psicomedixWhatsAppApiTest/Clinica.WASM/Components/Usuarios/UsuarioDetalleDialog.razor]
+[F:/proyectC\#/spicoMedix/wahtsTest/Clinica.WASM/Components/Usuarios/UsuarioDetalleDialog.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xVc3Vhcmlvc1xVc3VhcmlvRGV0YWxsZURpYWxvZy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-ujdpjwlsp4
 
-[D:/clinica/psicomedixWhatsAppApiTest/Clinica.WASM/Components/Usuarios/UsuarioEditForm.razor]
+[F:/proyectC\#/spicoMedix/wahtsTest/Clinica.WASM/Components/Usuarios/UsuarioEditForm.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xVc3Vhcmlvc1xVc3VhcmlvRWRpdEZvcm0ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-ijpw2p8pvr
 
-[D:/clinica/psicomedixWhatsAppApiTest/Clinica.WASM/Components/Usuarios/UsuarioForm.razor]
+[F:/proyectC\#/spicoMedix/wahtsTest/Clinica.WASM/Components/Usuarios/UsuarioForm.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xVc3Vhcmlvc1xVc3VhcmlvRm9ybS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-q3utmd5jhk
 
-[D:/clinica/psicomedixWhatsAppApiTest/Clinica.WASM/Components/Usuarios/UsuariosTable.razor]
+[F:/proyectC\#/spicoMedix/wahtsTest/Clinica.WASM/Components/Usuarios/UsuariosTable.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xVc3Vhcmlvc1xVc3Vhcmlvc1RhYmxlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-g8bgtxn0wy
 
-[D:/clinica/psicomedixWhatsAppApiTest/Clinica.WASM/Components/WhatsApp/ListaContactos.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xXaGF0c0FwcFxMaXN0YUNvbnRhY3Rvcy5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = b-haetmn8xjk
-
-[D:/clinica/psicomedixWhatsAppApiTest/Clinica.WASM/Components/WhatsApp/VentanaConversacion.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xXaGF0c0FwcFxWZW50YW5hQ29udmVyc2FjaW9uLnJhem9y
-build_metadata.AdditionalFiles.CssScope = b-7oq51zj0fe
-
-[D:/clinica/psicomedixWhatsAppApiTest/Clinica.WASM/Layout/MainLayout.razor]
+[F:/proyectC\#/spicoMedix/wahtsTest/Clinica.WASM/Layout/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XE1haW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-98p2eraplv
 
-[D:/clinica/psicomedixWhatsAppApiTest/Clinica.WASM/Layout/NavMenu.razor]
+[F:/proyectC\#/spicoMedix/wahtsTest/Clinica.WASM/Layout/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XE5hdk1lbnUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-autxrnx0a8
 
-[D:/clinica/psicomedixWhatsAppApiTest/Clinica.WASM/Pages/Auth/LoginPage.razor]
+[F:/proyectC\#/spicoMedix/wahtsTest/Clinica.WASM/Pages/Auth/LoginPage.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0aFxMb2dpblBhZ2UucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-ayif41alvc
 
-[D:/clinica/psicomedixWhatsAppApiTest/Clinica.WASM/Pages/Citas/CitasPage.razor]
+[F:/proyectC\#/spicoMedix/wahtsTest/Clinica.WASM/Pages/Citas/CitasPage.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2l0YXNcQ2l0YXNQYWdlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-nzd3ciamq2
 
-[D:/clinica/psicomedixWhatsAppApiTest/Clinica.WASM/Pages/Dashboard/Dashboard.razor]
+[F:/proyectC\#/spicoMedix/wahtsTest/Clinica.WASM/Pages/Dashboard/Dashboard.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGFzaGJvYXJkXERhc2hib2FyZC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-7igzkbfs88
 
-[D:/clinica/psicomedixWhatsAppApiTest/Clinica.WASM/Pages/Doctores/DoctoresPage.razor]
+[F:/proyectC\#/spicoMedix/wahtsTest/Clinica.WASM/Pages/Doctores/DoctoresPage.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRG9jdG9yZXNcRG9jdG9yZXNQYWdlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-ofabutcr5n
 
-[D:/clinica/psicomedixWhatsAppApiTest/Clinica.WASM/Pages/Finanzas/FinanzasPage.razor]
+[F:/proyectC\#/spicoMedix/wahtsTest/Clinica.WASM/Pages/Finanzas/FinanzasPage.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmluYW56YXNcRmluYW56YXNQYWdlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-0lv9uc7n0y
 
-[D:/clinica/psicomedixWhatsAppApiTest/Clinica.WASM/Pages/Historiales/HistorialClinicoPage.razor]
+[F:/proyectC\#/spicoMedix/wahtsTest/Clinica.WASM/Pages/Historiales/HistorialClinicoPage.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSGlzdG9yaWFsZXNcSGlzdG9yaWFsQ2xpbmljb1BhZ2UucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-55dqxq9qe0
 
-[D:/clinica/psicomedixWhatsAppApiTest/Clinica.WASM/Pages/Horarios/HorariosPage.razor]
+[F:/proyectC\#/spicoMedix/wahtsTest/Clinica.WASM/Pages/Horarios/HorariosPage.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9yYXJpb3NcSG9yYXJpb3NQYWdlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-ogr5yd8v52
 
-[D:/clinica/psicomedixWhatsAppApiTest/Clinica.WASM/Pages/Pacientes/PacientesPage.razor]
+[F:/proyectC\#/spicoMedix/wahtsTest/Clinica.WASM/Pages/Pacientes/PacientesPage.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFjaWVudGVzXFBhY2llbnRlc1BhZ2UucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-vlo2mefzsw
 
-[D:/clinica/psicomedixWhatsAppApiTest/Clinica.WASM/Pages/Pagos/PagosPage.razor]
+[F:/proyectC\#/spicoMedix/wahtsTest/Clinica.WASM/Pages/Pagos/PagosPage.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFnb3NcUGFnb3NQYWdlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-p5sa1ld65w
 
-[D:/clinica/psicomedixWhatsAppApiTest/Clinica.WASM/Pages/Permisos/PermisosPage.razor]
+[F:/proyectC\#/spicoMedix/wahtsTest/Clinica.WASM/Pages/Permisos/PermisosPage.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGVybWlzb3NcUGVybWlzb3NQYWdlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-cgcnrztaq8
 
-[D:/clinica/psicomedixWhatsAppApiTest/Clinica.WASM/Pages/PsicomedixChat/PsicomedixChat.razor]
+[F:/proyectC\#/spicoMedix/wahtsTest/Clinica.WASM/Pages/PsicomedixChat/PsicomedixChat.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHNpY29tZWRpeENoYXRcUHNpY29tZWRpeENoYXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-ns03llsvv7
 
-[D:/clinica/psicomedixWhatsAppApiTest/Clinica.WASM/Pages/Roles/RolesPage.razor]
+[F:/proyectC\#/spicoMedix/wahtsTest/Clinica.WASM/Pages/Roles/RolesPage.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUm9sZXNcUm9sZXNQYWdlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-us3zg2pvkt
 
-[D:/clinica/psicomedixWhatsAppApiTest/Clinica.WASM/Pages/ServiciosClinicos/ServiciosClinicosPage.razor]
+[F:/proyectC\#/spicoMedix/wahtsTest/Clinica.WASM/Pages/ServiciosClinicos/ServiciosClinicosPage.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2VydmljaW9zQ2xpbmljb3NcU2VydmljaW9zQ2xpbmljb3NQYWdlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-v7hnab5gw5
 
-[D:/clinica/psicomedixWhatsAppApiTest/Clinica.WASM/Pages/Usuarios/UsuariosPage.razor]
+[F:/proyectC\#/spicoMedix/wahtsTest/Clinica.WASM/Pages/Usuarios/UsuariosPage.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXN1YXJpb3NcVXN1YXJpb3NQYWdlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-13aczngbb8

@@ -1,0 +1,91 @@
+﻿@namespace Clinica.WASM.Components.Chats
+@using Clinica.WASM.Services.Api.WhatsApp
+@inject WhatsAppApiService WhatsAppApiService
+@inject ISnackbar Snackbar
+
+<MudDialog>
+    <TitleContent>
+        <div class="d-flex align-center">
+            <MudIcon Icon="@Icons.Custom.Brands.WhatsApp" Color="Color.Success" Class="mr-2"/>
+            <MudText Typo="Typo.h6">Vincular Dispositivo Clínico</MudText>
+        </div>
+    </TitleContent>
+    <DialogContent>
+        <div class="d-flex flex-column align-center justify-center pa-4 text-center">
+            @if (_cargando)
+            {
+                <MudProgressCircular Color="Color.Primary" Size="Size.Large" Indeterminate="true" Class="my-4" />
+                <MudText Typo="Typo.body1" Color="Color.Secondary">Generando puente seguro con Evolution API...</MudText>
+            }
+            else if (_yaEstaConectado)
+            {
+                <MudIcon Icon="@Icons.Material.Filled.CheckCircle" Color="Color.Success" Size="Size.Large" Class="my-4" />
+                <MudText Typo="Typo.h6" Color="Color.Success">¡Dispositivo ya conectado!</MudText>
+                <MudText Typo="Typo.body2" Class="mt-2">El canal de WhatsApp de la clínica se encuentra activo y escuchando.</MudText>
+            }
+            else if (!string.IsNullOrEmpty(_qrBase64))
+            {
+                <MudText Typo="Typo.body2" Class="mb-4">
+                    Abre WhatsApp en tu teléfono, ve a <b>Dispositivos vinculados</b> y escanea el siguiente código:
+                </MudText>
+                
+                <div class="pa-2 border-2 border-solid mud-border-primary rounded-lg bg-white shadow-lg">
+                    <img src="@_qrBase64" alt="Código QR de WhatsApp" style="width: 260px; height: 260px; display: block;" />
+                </div>
+                
+                <MudButton StartIcon="@Icons.Material.Filled.Refresh" 
+                           Color="Color.Secondary" 
+                           Size="Size.Small" 
+                           OnClick="CargarCodigoQrAsync" 
+                           Class="mt-4">Actualizar código QR</MudButton>
+            }
+            else
+            {
+                <MudIcon Icon="@Icons.Material.Filled.Error" Color="Color.Error" Size="Size.Large" Class="my-4" />
+                <MudText Typo="Typo.body1" Color="Color.Error">No se pudo recuperar el código QR.</MudText>
+            }
+        </div>
+    </DialogContent>
+    <DialogActions>
+        <MudButton Color="Color.Primary" Variant="Variant.Filled" OnClick="Cerrar">Entendido</MudButton>
+    </DialogActions>
+</MudDialog>
+
+@code {
+    [CascadingParameter] IMudDialogInstance MudDialog { get; set; } = default!;
+
+    private string? _qrBase64;
+    private bool _cargando = true;
+    private bool _yaEstaConectado;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await CargarCodigoQrAsync();
+    }
+
+    private async Task CargarCodigoQrAsync()
+    {
+        _cargando = true;
+        _qrBase64 = null;
+        _yaEstaConectado = false;
+
+        var resultado = await WhatsAppApiService.SolicitarQrDeVinculacionAsync();
+
+        if (resultado == "CONNECTED")
+        {
+            _yaEstaConectado = true;
+        }
+        else if (!string.IsNullOrEmpty(resultado))
+        {
+            _qrBase64 = resultado;
+        }
+        else
+        {
+            Snackbar.Add("Error al conectar con el servidor de WhatsApp.", Severity.Error);
+        }
+
+        _cargando = false;
+    }
+
+    private void Cerrar() => MudDialog.Close(DialogResult.Ok(true));
+}

@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "Clinica.WASM",
   "resources": {
-    "hash": "sha256-Kc4k+RaEO/wkHA9sKSJc3s7bAzPT7vdt2bdZyb7p74A=",
+    "hash": "sha256-AJniv0Y6dIfo+Vt81VQ16zrMduxSwpzsUBe7tuAUxvc=",
     "fingerprinting": {
       "Microsoft.AspNetCore.Authorization.gf26ou9jj9.wasm": "Microsoft.AspNetCore.Authorization.wasm",
       "Microsoft.AspNetCore.Components.v3fd2n5hlr.wasm": "Microsoft.AspNetCore.Components.wasm",
@@ -218,25 +218,25 @@
       "netstandard.ck9kwje9e5.wasm": "netstandard.wasm",
       "System.Private.CoreLib.v724g197bz.wasm": "System.Private.CoreLib.wasm",
       "dotnet.js": "dotnet.js",
-      "dotnet.native.qc8g39g30v.js": "dotnet.native.js",
-      "dotnet.native.boem75ye5i.wasm": "dotnet.native.wasm",
-      "dotnet.runtime.opaiwunc3t.js": "dotnet.runtime.js",
+      "dotnet.native.xto5am0qhx.js": "dotnet.native.js",
+      "dotnet.native.6buk8i5pk6.wasm": "dotnet.native.wasm",
+      "dotnet.runtime.pu7sbjsy59.js": "dotnet.runtime.js",
       "icudt_CJK.tjcz0u77k5.dat": "icudt_CJK.dat",
       "icudt_EFIGS.tptq2av103.dat": "icudt_EFIGS.dat",
       "icudt_no_CJK.lfu7j35m59.dat": "icudt_no_CJK.dat",
-      "Clinica.Domain.bhlme0ge1z.wasm": "Clinica.Domain.wasm",
-      "Clinica.Domain.9gqrxkl2mv.pdb": "Clinica.Domain.pdb",
-      "Clinica.WASM.jojlknkstp.wasm": "Clinica.WASM.wasm",
-      "Clinica.WASM.lsyc2jcrra.pdb": "Clinica.WASM.pdb"
+      "Clinica.Domain.sgnu7tviaj.wasm": "Clinica.Domain.wasm",
+      "Clinica.Domain.dzgwyk5lqi.pdb": "Clinica.Domain.pdb",
+      "Clinica.WASM.k4m5q54cum.wasm": "Clinica.WASM.wasm",
+      "Clinica.WASM.itb7prtkir.pdb": "Clinica.WASM.pdb"
     },
     "jsModuleNative": {
-      "dotnet.native.qc8g39g30v.js": "sha256-SvVveFrqwSE/8qjn/DA3aVnuMXhmK4Ln+euLxQu8azU="
+      "dotnet.native.xto5am0qhx.js": "sha256-9e5Vqt0u8nYMGCHU4JfYqrYQExAw3bgi5UYzATgvoJE="
     },
     "jsModuleRuntime": {
-      "dotnet.runtime.opaiwunc3t.js": "sha256-vM4cfmuAtxs/dLoxiTCzPyPCyNkwOJu14cp6lXv3Sak="
+      "dotnet.runtime.pu7sbjsy59.js": "sha256-wW0L1H42TfMatybe1vKm/k57XP7qqXWX5r7AbCRx5JQ="
     },
     "wasmNative": {
-      "dotnet.native.boem75ye5i.wasm": "sha256-NdFSj8MM4tvhMRG2JPNXYDnzqZno/RjOpUq0dxHcPVw="
+      "dotnet.native.6buk8i5pk6.wasm": "sha256-jgmJHKTDZkqYH+tbs9FijgOzcdlK8XE/fg0FVI/ruU0="
     },
     "icu": {
       "icudt_CJK.tjcz0u77k5.dat": "sha256-SZLtQnRc0JkwqHab0VUVP7T3uBPSeYzxzDnpxPpUnHk=",
@@ -460,12 +460,12 @@
       "WindowsBase.5f1yvnaer4.wasm": "sha256-sZbAt8RTAmg0USTJj6J32jxvlakGs2AutNm/Bbr5Sc8=",
       "mscorlib.sx4ehutq6w.wasm": "sha256-gLaFs2FD2zCxDmOFrpTh9Y37En7r1yCv1BpjcPkFpgA=",
       "netstandard.ck9kwje9e5.wasm": "sha256-bNmBHwwBfUwMiL+sza9G3xQiNjeEtZksW9XVhj3ravI=",
-      "Clinica.Domain.bhlme0ge1z.wasm": "sha256-wZvD/dIPN7b9Au3lvboHKNaYqeAt8IhxEfNtg1QGEnk=",
-      "Clinica.WASM.jojlknkstp.wasm": "sha256-HRmea0HcQZf+eox++1AydF0l3SKJRx8cQrMN0k5v4RM="
+      "Clinica.Domain.sgnu7tviaj.wasm": "sha256-TD3HMm4GhcQl+Q4AEnLoQI9cs5J0FhOH/3HlWecxsLs=",
+      "Clinica.WASM.k4m5q54cum.wasm": "sha256-RM3QYobK08FjhF0X4BD7QOqbvUTkDHXTbRZjBWGl8Dw="
     },
     "pdb": {
-      "Clinica.Domain.9gqrxkl2mv.pdb": "sha256-V+DuJXdo1M3OjejZip1v+qrhx9So4jxj7HQGEn5P17Q=",
-      "Clinica.WASM.lsyc2jcrra.pdb": "sha256-JSnfmQokYfcmE+eQ1fOZkOx/UczONPruUdv+CpQN6Rk="
+      "Clinica.Domain.dzgwyk5lqi.pdb": "sha256-ByCUs2hVUjyJ7SvDXVXbwZoFA6mEsGgunne3+MNigAM=",
+      "Clinica.WASM.itb7prtkir.pdb": "sha256-avPqUY0WklHtGzD+lmxNwOcKBdliCGdmn+Mf6fvxWuk="
     }
   },
   "cacheBootResources": true,

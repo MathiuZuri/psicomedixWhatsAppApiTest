@@ -1,0 +1,69 @@
+.sidebar-chat-luxury[b-xxxnzq2974] {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border-right: 1px solid rgba(212, 175, 55, 0.2); /* Sutil toque dorado */
+    background-color: var(--mud-palette-background-grey);
+}
+
+.search-bar-container[b-xxxnzq2974] {
+    padding: 12px;
+    background-color: var(--mud-palette-background);
+}
+
+.contacts-scroll-area[b-xxxnzq2974] {
+    flex: 1;
+    overflow-y: auto;
+}
+
+.chat-row-layout[b-xxxnzq2974] {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+}
+
+.chat-info-stack[b-xxxnzq2974] {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.chat-info-top[b-xxxnzq2974], .chat-info-bottom[b-xxxnzq2974] {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contact-name-luxury[b-xxxnzq2974] {
+    font-weight: 600;
+    color: var(--mud-palette-text-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.preview-message-luxury[b-xxxnzq2974] {
+    color: var(--mud-palette-text-secondary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 180px;
+}
+
+.badge-unread-luxury[b-xxxnzq2974] {
+    background-color: #D4AF37; /* Oro PsicoMedix */
+    color: black;
+    font-weight: bold;
+    font-size: 0.75rem;
+    padding: 2px 6px;
+    border-radius: 10px;
+    min-width: 20px;
+    text-align: center;
+}
+
+.chat-item-active[b-xxxnzq2974] {
+    background-color: rgba(212, 175, 55, 0.1) !important;
+    border-left: 4px solid #D4AF37;
+}

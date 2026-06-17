@@ -1,5 +1,6 @@
 ﻿using Clinica.WASM.DTOs.Chats;
 using Clinica.WASM.Services.Api;
+using Clinica.WASM.Services.Api.WhatsApp;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.SignalR.Client;
 using MudBlazor;

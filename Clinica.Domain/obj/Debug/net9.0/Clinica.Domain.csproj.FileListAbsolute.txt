@@ -62,3 +62,4 @@ D:\clinica\psicomedixWhatsAppApiTest\Clinica.Domain\obj\Debug\net9.0\Clinica.Dom
 D:\clinica\psicomedixWhatsAppApiTest\Clinica.Domain\obj\Debug\net9.0\refint\Clinica.Domain.dll
 D:\clinica\psicomedixWhatsAppApiTest\Clinica.Domain\obj\Debug\net9.0\Clinica.Domain.pdb
 D:\clinica\psicomedixWhatsAppApiTest\Clinica.Domain\obj\Debug\net9.0\ref\Clinica.Domain.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.Domain\obj\Debug\net9.0\Clinica.Domain.sourcelink.json

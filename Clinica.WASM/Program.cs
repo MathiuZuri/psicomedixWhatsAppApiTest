@@ -1,5 +1,6 @@
 using Clinica.WASM;
 using Clinica.WASM.Services.Api;
+using Clinica.WASM.Services.Api.WhatsApp;
 using Clinica.WASM.Services.Auth;
 using Clinica.WASM.Themes;
 using Microsoft.AspNetCore.Components.Web;
@@ -93,6 +94,11 @@ builder.Services.AddHttpClient<FinanzasApiService>(client =>
 
 // Whatsapp
 builder.Services.AddHttpClient<ChatApiService>(client =>
+{
+    client.BaseAddress = new Uri(apiBaseUrl);
+}).AddHttpMessageHandler<AuthHeaderHandler>();
+
+builder.Services.AddHttpClient<WhatsAppApiService>(client =>
 {
     client.BaseAddress = new Uri(apiBaseUrl);
 }).AddHttpMessageHandler<AuthHeaderHandler>();

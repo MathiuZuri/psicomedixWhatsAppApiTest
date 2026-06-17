@@ -940,3 +940,4 @@ D:\clinica\psicomedixWhatsAppApiTest\Clinica.API\obj\Debug\net9.0\Clinica.API.xm
 D:\clinica\psicomedixWhatsAppApiTest\Clinica.API\obj\Debug\net9.0\Clinica.API.pdb
 D:\clinica\psicomedixWhatsAppApiTest\Clinica.API\obj\Debug\net9.0\Clinica.API.genruntimeconfig.cache
 D:\clinica\psicomedixWhatsAppApiTest\Clinica.API\obj\Debug\net9.0\ref\Clinica.API.dll
+F:\proyectC#\spicoMedix\wahtsTest\Clinica.API\obj\Debug\net9.0\Clinica.API.sourcelink.json

@@ -4,6 +4,7 @@ using Clinica.Domain.Enums;
 using Clinica.Domain.Interfaces;
 using Microsoft.Extensions.Options;
 using System.Linq;
+using Clinica.API.Services.Imp.WhastAppImp;
 
 namespace Clinica.API.Services.Background;
 // esto es exclusivo de evolution api, no incluir al sistema

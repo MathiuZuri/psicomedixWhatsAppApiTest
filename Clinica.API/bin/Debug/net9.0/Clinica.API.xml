@@ -156,21 +156,6 @@
             <response code="400">Las credenciales proporcionadas son inválidas.</response>
             <response code="403">La cuenta del usuario está inactiva o bloqueada.</response>
         </member>
-        <member name="M:Clinica.API.Controllers.ChatsController.EnviarMensaje(Clinica.Domain.DTOs.WhatsAppDto.EnviarMensajeDto)">
-            <summary>
-            Envía un mensaje de WhatsApp a un paciente desde el panel de la clínica.
-            </summary>
-        </member>
-        <member name="M:Clinica.API.Controllers.ChatsController.ObtenerChatsActivos">
-            <summary>
-            Endpoint complementario para listar las conversaciones activas (Columna izquierda del WhatsApp clon)
-            </summary>
-        </member>
-        <member name="M:Clinica.API.Controllers.ChatsController.ObtenerHistorialMensajes(System.Guid)">
-            <summary>
-            Endpoint complementario para cargar las burbujas de un chat específico al hacer clic en él
-            </summary>
-        </member>
         <member name="T:Clinica.API.Controllers.CitasController">
             <summary>
             Controlador para la gestión integral de citas médicas.
@@ -1700,6 +1685,21 @@
             <response code="401">No autorizado.</response>
             <response code="403">Permisos insuficientes.</response>
             <response code="404">Usuario no encontrado.</response>
+        </member>
+        <member name="M:Clinica.API.Controllers.WhatsApp.ChatsController.EnviarMensaje(Clinica.Domain.DTOs.WhatsAppDto.EnviarMensajeDto)">
+            <summary>
+            Envía un mensaje de WhatsApp a un paciente desde el panel de la clínica.
+            </summary>
+        </member>
+        <member name="M:Clinica.API.Controllers.WhatsApp.ChatsController.ObtenerChatsActivos">
+            <summary>
+            Endpoint complementario para listar las conversaciones activas (Columna izquierda del WhatsApp clon)
+            </summary>
+        </member>
+        <member name="M:Clinica.API.Controllers.WhatsApp.ChatsController.ObtenerHistorialMensajes(System.Guid)">
+            <summary>
+            Endpoint complementario para cargar las burbujas de un chat específico al hacer clic en él
+            </summary>
         </member>
         <member name="M:Clinica.API.Hubs.ChatHub.OnConnectedAsync">
             <summary>

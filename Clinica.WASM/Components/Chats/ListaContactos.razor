@@ -1,0 +1,98 @@
+﻿@namespace Clinica.WASM.Components.Chats
+@using Clinica.WASM.Services.Api.WhatsApp
+@inject WhatsAppApiService WhatsAppApiService
+@inject ISnackbar Snackbar
+
+<div class="sidebar-chat-luxury">
+    @if (_cargandoEstado)
+    {
+        @* Estado de carga inicial *@
+        <div class="d-flex flex-column align-center justify-center h-100 pa-4 text-center">
+            <MudProgressCircular Color="Color.Primary" Size="Size.Large" Indeterminate="true" />
+            <MudText Typo="Typo.body2" Class="mt-3" Color="Color.Secondary">Verificando canal de WhatsApp...</MudText>
+        </div>
+    }
+    else if (!_estaConectado)
+    {
+        @* 🔒 VISTA DE VINCULACIÓN DIRECTA (BLOQUEA LA LISTA) *@
+        <div class="d-flex flex-column align-center justify-center pa-4 text-center h-100 bg-luxury-unlinked">
+            <MudIcon Icon="@Icons.Custom.Brands.WhatsApp" Color="Color.Success" Size="Size.Large" Class="mb-2"/>
+            <MudText Typo="Typo.subtitle1" Class="fw-bold text-amber">Canal no Vinculado</MudText>
+            <MudText Typo="Typo.caption" Class="mb-4 px-2" Color="Color.Secondary">
+                Escanea el código QR desde tu celular para desbloquear el chat clínico de PsicoMedix.
+            </MudText>
+
+            @if (!string.IsNullOrEmpty(_qrBase64))
+            {
+                <div class="pa-2 border-2 border-solid mud-border-primary rounded-lg bg-white shadow-lg">
+                    <img src="@_qrBase64" alt="Código QR de WhatsApp" style="width: 200px; height: 200px; display: block;" />
+                </div>
+                
+                <MudButton StartIcon="@Icons.Material.Filled.Refresh" 
+                           Color="Color.Primary" 
+                           Variant="Variant.Text"
+                           Size="Size.Small" 
+                           OnClick="VerificarConexionAsync" 
+                           Class="mt-3">Verificar Conexión / Actualizar</MudButton>
+            }
+            else
+            {
+                <MudIcon Icon="@Icons.Material.Filled.Error" Color="Color.Error" Size="Size.Medium" Class="mb-1" />
+                <MudText Typo="Typo.caption" Color="Color.Error" Class="mb-3">No se pudo generar el QR. ¿Docker encendido?</MudText>
+                <MudButton Color="Color.Primary" Variant="Variant.Outlined" Size="Size.Small" OnClick="VerificarConexionAsync">Reintentar enlace</MudButton>
+            }
+        </div>
+    }
+    else
+    {
+        @* 🔓 VISTA ORIGINAL DESBLOQUEADA: BARRA DE BÚSQUEDA Y CHATS *@
+        <div class="search-bar-container d-flex align-center gap-2 px-3 pt-2">
+            <MudTextField @bind-Value="FiltroBusqueda"
+                          Placeholder="Buscar o empezar un chat..."
+                          Adornment="Adornment.Start"
+                          AdornmentIcon="@Icons.Material.Filled.Search"
+                          IconSize="Size.Small"
+                          Variant="Variant.Outlined"
+                          Margin="Margin.Dense"
+                          Immediate="true"
+                          Class="search-field-luxury flex-grow-1" />
+
+            @* Botón pequeño para verificar estatus por si se cae la conexión *@
+            <MudIconButton Icon="@Icons.Material.Filled.CloudSync" 
+                           Color="Color.Success" 
+                           Size="Size.Medium"
+                           Title="Canal en línea. Volver a verificar"
+                           OnClick="VerificarConexionAsync" />
+        </div>
+
+        @* Lista de conversaciones con scroll propio *@
+        <div class="contacts-scroll-area">
+            <MudList T="ChatResponseDto" Clickable="true" SelectedValue="ChatSeleccionado" SelectedValueChanged="SeleccionarChat">
+                @foreach (var chat in ChatsFiltrados)
+                {
+                    <MudListItem Value="chat" Class="@(ChatSeleccionadoId == chat.Id ? "chat-item-active" : "chat-item-inactive")">
+                        <div class="chat-row-layout">
+                            <MudAvatar Color="Color.Primary" Variant="Variant.Filled" Size="Size.Medium" Class="avatar-glow-luxury">
+                                @chat.NombreContacto.Substring(0, Math.Min(2, chat.NombreContacto.Length)).ToUpper()
+                            </MudAvatar>
+
+                            <div class="chat-info-stack">
+                                <div class="chat-info-top">
+                                    <MudText Typo="Typo.subtitle2" Class="contact-name-luxury">@chat.NombreContacto</MudText>
+                                    <MudText Typo="Typo.caption" Class="time-stamp-luxury">@chat.FechaUltimaInteraccion.ToLocalTime().ToString("HH:mm")</MudText>
+                                </div>
+                                <div class="chat-info-bottom">
+                                    <MudText Typo="Typo.body2" Class="preview-message-luxury">@chat.UltimoMensaje</MudText>
+                                    @if (chat.MensajesNoLeidos > 0)
+                                    {
+                                        <span class="badge-unread-luxury">@chat.MensajesNoLeidos</span>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </MudListItem>
+                }
+            </MudList>
+        </div>
+    }
+</div>

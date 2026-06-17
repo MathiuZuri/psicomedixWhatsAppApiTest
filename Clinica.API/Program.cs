@@ -17,6 +17,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using QuestPDF.Infrastructure;
 using Clinica.API.Services.Background;
+using Clinica.API.Services.Imp.WhastAppImp;
+using Clinica.API.Services.Imp.WhatsApp;
 
 var builder = WebApplication.CreateBuilder(args);
 
